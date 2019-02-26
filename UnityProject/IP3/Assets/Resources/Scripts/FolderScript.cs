@@ -244,7 +244,6 @@ public class FolderScript : MonoBehaviour {
         changedNames.Add(planet + "_Relationship");
 
         buttonClicked = "No Tax";
-        taxChosen = buttonClicked;
 
         Reset();
         ReturnToPlayer();
@@ -265,7 +264,6 @@ public class FolderScript : MonoBehaviour {
         changedNames.Add(planet + "_Relationship");
 
         buttonClicked = "Low Tax";
-        taxChosen = buttonClicked;
 
         Reset();
         ReturnToPlayer();
@@ -286,7 +284,6 @@ public class FolderScript : MonoBehaviour {
         changedNames.Add(planet + "_Relationship");
 
         buttonClicked = "High Tax";
-        taxChosen = buttonClicked;
 
         Reset();
         ReturnToPlayer();
@@ -309,7 +306,6 @@ public class FolderScript : MonoBehaviour {
         changedNames.Add(planet + "_Relationship");
 
         buttonClicked = "Very High Tax";
-        taxChosen = buttonClicked;
 
         Reset();
         ReturnToPlayer();
@@ -348,7 +344,6 @@ public class FolderScript : MonoBehaviour {
         changedNames.Add(planet + "_Relationship");
 
         buttonClicked = "Open Trade";
-        tradeChosen = buttonClicked;
 
         Reset();
         ReturnToPlayer();
@@ -373,7 +368,6 @@ public class FolderScript : MonoBehaviour {
         changedNames.Add(planet + "_Relationship");
 
         buttonClicked = "Closed Trade";
-        tradeChosen = buttonClicked;
 
         Reset();
         ReturnToPlayer();
@@ -409,7 +403,6 @@ public class FolderScript : MonoBehaviour {
         changedNames.Add(planet + "_Relationship");
 
         buttonClicked = "Open Import";
-        importChosen = buttonClicked;
 
         Reset();
         ReturnToPlayer();
@@ -432,7 +425,6 @@ public class FolderScript : MonoBehaviour {
         changedNames.Add(planet + "_Relationship");
 
         buttonClicked = "Closed Import";
-        importChosen = buttonClicked;
 
         Reset();
         ReturnToPlayer();
@@ -464,7 +456,6 @@ public class FolderScript : MonoBehaviour {
         changedNames.Add(planet + "_Relationship");
 
         buttonClicked = "Open Export";
-        exportChosen = buttonClicked;
 
         Reset();
         ReturnToPlayer();
@@ -485,7 +476,6 @@ public class FolderScript : MonoBehaviour {
         changedNames.Add(planet + "_Relationship");
 
         buttonClicked = "Closed Export";
-        exportChosen = buttonClicked;
 
         Reset();
         ReturnToPlayer();
@@ -521,7 +511,6 @@ public class FolderScript : MonoBehaviour {
         changedNames.Add(planet + "_Relationship");
 
         buttonClicked = "Free Worker Movement";
-        moveChosen = buttonClicked;
 
         MovementBack();
         ReturnToPlayer();
@@ -540,7 +529,6 @@ public class FolderScript : MonoBehaviour {
         changedNames.Add(planet + "_Relationship");
 
         buttonClicked = "No Worker Movement";
-        moveChosen = buttonClicked;
 
         MovementBack();
         ReturnToPlayer();
@@ -565,7 +553,6 @@ public class FolderScript : MonoBehaviour {
         changedNames.Add(planet + "_Relationship");
 
         buttonClicked = "Free Tourist Movement";
-        moveChosen = buttonClicked;
 
         MovementBack();
         ReturnToPlayer();
@@ -582,7 +569,6 @@ public class FolderScript : MonoBehaviour {
         changedNames.Add(planet + "_Relationship");
 
         buttonClicked = "No Tourist Movement";
-        moveChosen = buttonClicked;
 
         MovementBack();
         ReturnToPlayer();
@@ -607,7 +593,6 @@ public class FolderScript : MonoBehaviour {
         changedNames.Add(planet + "_Relationship");
 
         buttonClicked = "Free Student Movement";
-        moveChosen = buttonClicked;
 
         MovementBack();
         ReturnToPlayer();
@@ -626,7 +611,6 @@ public class FolderScript : MonoBehaviour {
         changedNames.Add(planet + "_Relationship");
 
         buttonClicked = "No Student Movement";
-        moveChosen = buttonClicked;
 
         MovementBack();
         ReturnToPlayer();
