@@ -31,7 +31,6 @@ public class FolderScript : MonoBehaviour {
     [Header ("Button Type")]
     public string type;
     string buttonClicked;
-    public string taxChosen, tradeChosen, importChosen, exportChosen, moveChosen;
 
     [Header("Amount of Buttons")]
     public int buttons;
@@ -778,12 +777,14 @@ public class FolderScript : MonoBehaviour {
         //Sets up the stats for the policy script
         policyScript.UpdatePolicy(changes, changedNames);
         policyScript.type = type;
+        policyScript.chosenPolicy = buttonClicked;
         policyScript.buttonAmount = buttons;
+        policyScript.planet = planet;
 
-        if(type == "Movement")
-        {
-            policyScript.planet = planet;
+        if (type == "Movement")
+        {    
             policyScript.movement = buttonClicked;
+            policyScript.pfm = planet;
         }
 
         //Clears the lists onced they have been used

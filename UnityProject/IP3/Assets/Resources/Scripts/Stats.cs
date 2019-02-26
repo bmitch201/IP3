@@ -21,6 +21,8 @@ public class Stats : MonoBehaviour {
     public Slider auto, rev, pubs, cabs, syst, earth, venus, mars;
 
     public string[] tasks;
+    public List<string> chosenPlanets = new List<string>();
+    public List<string> chosenPolicies = new List<string>();
 
     public bool conferenceAccept = false;
     public bool conferenceAcceptWithHaggle = false;

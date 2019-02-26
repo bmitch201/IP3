@@ -14,10 +14,12 @@ public class PolicyScript : MonoBehaviour
     int amount;
 
     public string type;
+    public string chosenPolicy;
     public int buttonAmount;
+    public string planet;
 
-    public string movement = "";
-    public string planet = "";
+    public string movement;
+    public string pfm;
 
     void Awake()
     {

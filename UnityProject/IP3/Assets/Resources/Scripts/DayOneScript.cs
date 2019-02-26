@@ -301,8 +301,11 @@ public class DayOneScript : MonoBehaviour {
                         folderScript.buttons = policyScript.buttonAmount;
                         folderScript.type = policyScript.type;
 
+                        statsScript.chosenPolicies.Add(policyScript.chosenPolicy);
+                        statsScript.chosenPlanets.Add(policyScript.planet);
+
                         policyChoices.movementChoice = policyScript.movement;
-                        policyChoices.planetType = policyScript.planet;
+                        policyChoices.planetType = policyScript.pfm;
 
                         folderScript.DisableButton();
                         statsScript.UpdateScreen();

@@ -8,9 +8,6 @@ public class EndOfDayScript : MonoBehaviour
 {
     Stats statsScript;
     PolicyChoices policyChoices;
-    FolderScript earth;
-    FolderScript mars;
-    FolderScript venus;
 
     public int noOfTasks = 0;
 
@@ -53,19 +50,12 @@ public class EndOfDayScript : MonoBehaviour
 
     public Text conferenceText;
 
-    string earthTax, earthTrade, earthImp, earthExp, earthMove;
-    string marsTax, marsTrade, marsImp, marsExp, marsMove;
-    string venusTax, venusTrade, venusImp, venusExp, venusMove;
-
     public Button saveButton;
 
     void Start()
     {
         statsScript = GameObject.FindObjectOfType<Stats>();
         policyChoices = GameObject.FindObjectOfType<PolicyChoices>();
-        earth = GameObject.Find("Earth Folder DDL").GetComponent<FolderScript>();
-        mars = GameObject.Find("Mars Folder DDL").GetComponent<FolderScript>();
-        venus = GameObject.Find("Venus Folder DDL").GetComponent<FolderScript>();
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -173,33 +163,6 @@ public class EndOfDayScript : MonoBehaviour
         //{
         //    policyText.text = "There was no Movement Policy chosen this day.";
         //}
-
-        if (earth != null)
-        {
-            earthTax = earth.taxChosen;
-            earthTrade = earth.tradeChosen;
-            earthImp = earth.importChosen;
-            earthExp = earth.exportChosen;
-            earthMove = earth.moveChosen;
-        }
-
-        if (mars != null)
-        {
-            marsTax = mars.taxChosen;
-            marsTrade = mars.tradeChosen;
-            marsImp = mars.importChosen;
-            marsExp = mars.exportChosen;
-            marsMove = mars.moveChosen;
-        }
-
-        if (venus != null)
-        {
-            venusTax = venus.taxChosen;
-            venusTrade = venus.tradeChosen;
-            venusImp = venus.importChosen;
-            venusExp = venus.exportChosen;
-            venusMove = venus.moveChosen;
-        }
 
         //policy1 = 
     }
