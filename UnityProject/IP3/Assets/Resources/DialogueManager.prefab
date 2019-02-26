@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1656588944125338}
+  m_IsPrefabAsset: 1
+--- !u!1 &1656588944125338
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4018780851923396}
+  - component: {fileID: 114700646298782018}
+  m_Layer: 0
+  m_Name: DialogueManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4018780851923396
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1656588944125338}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114700646298782018
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1656588944125338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 296d0cbfd6ff50b4597b5a0aaac272a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planetText: {fileID: 0}
+  dialogueText: {fileID: 0}
+  speakerPanel: {fileID: 0}
+  answerPanel: {fileID: 0}
+  statsScript: {fileID: 0}
+  conferenceCall: {fileID: 0}
+  player: {fileID: 0}
+  option1: {fileID: 0}
+  option2: {fileID: 0}
+  option3: {fileID: 0}
+  continueButton: {fileID: 0}
+  audioClip1:
+  - {fileID: 8300000, guid: c7df21000d2f92345b530366c33605d3, type: 3}
+  - {fileID: 8300000, guid: 3a35b30c2a63fe541b2899dedd57caab, type: 3}
+  - {fileID: 8300000, guid: 8182054d3e69c1b4da37bda05888026c, type: 3}
+  audioClip2:
+  - {fileID: 8300000, guid: 7ec847c0313cf8443be20c2180c06e53, type: 3}
+  - {fileID: 8300000, guid: 385e38536ac9ef14f8a38305251f11ca, type: 3}
+  audioClip3:
+  - {fileID: 8300000, guid: 36ccbe2855e301844ad6dbd826a0ad17, type: 3}
+  - {fileID: 8300000, guid: bbf718feff04b8042b0a7905f1d31693, type: 3}
+  audioClip4:
+  - {fileID: 8300000, guid: 44d6ca2a5cf28064299a23908fb8b671, type: 3}
+  - {fileID: 8300000, guid: 655297ef0f3d72745850c4fdbc76bfb4, type: 3}
+  audioClip5:
+  - {fileID: 8300000, guid: eb0d8e08cbbdd924f8b690821325b873, type: 3}
+  - {fileID: 8300000, guid: ec67b30003992b049bad03bf8faab1b2, type: 3}
+  audioClip7:
+  - {fileID: 8300000, guid: 828265b325f8f124999e8dfedfb1e487, type: 3}
+  - {fileID: 8300000, guid: dec239803d879074bb9be44c2946bf3c, type: 3}
+  audioClip9:
+  - {fileID: 8300000, guid: 6a1561b128ed7284bac143a280d0d2cf, type: 3}
+  - {fileID: 8300000, guid: 47ead605db7326d4d9b287ee2124db31, type: 3}
+  answers1:
+  - Accept
+  - Ask for Incentive
+  - Decline
+  answers2:
+  - Accept
+  - Ask for further Incentive
+  - Decline
+  call2answers1:
+  - Accept
+  - Ask for Incentive
+  - Decline
+  call2answers2:
+  - Accept
+  - Ask for further Incentive
+  - Decline

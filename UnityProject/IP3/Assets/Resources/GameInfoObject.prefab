@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1339796687117272}
+  m_IsPrefabAsset: 1
+--- !u!1 &1339796687117272
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4804864600459080}
+  - component: {fileID: 114380465661335342}
+  - component: {fileID: 114238661935369188}
+  m_Layer: 0
+  m_Name: GameInfoObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4804864600459080
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1339796687117272}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: -0.00000016292068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114238661935369188
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1339796687117272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8a77cc97a854584aa31c68eb8a98be9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  es: {fileID: 0}
+  ms: {fileID: 0}
+  vs: {fileID: 0}
+  gio: {fileID: 0}
+  ec: {fileID: 0}
+  mc: {fileID: 0}
+  vc: {fileID: 0}
+  planetType: 
+  movementChoice: 
+--- !u!114 &114380465661335342
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1339796687117272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a34c08f82a051ff4d9b43a9f2ea305c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats:
+  - 25
+  - 2
+  - 50
+  - 40
+  - 20
+  - 40
+  - 50
+  - 50
+  statNames:
+  - Autonomy
+  - Revenue
+  - Public_Support
+  - Cabinet_Support
+  - System_Tension
+  - Earth_Relationship
+  - Mars_Relationship
+  - Venus_Relationship
+  statDisplay:
+  - Autonomy (%)
+  - Revenue (Billion_Moon_Bucks)
+  - Public_Support (%)
+  - Cabinet_Support (%)
+  - System_Tension (%)
+  - Earth_Relationship (%)
+  - Mars_Relationship (%)
+  - Venus_Relationship (%)
+  names: {fileID: 0}
+  PCnames: {fileID: 0}
+  nums: {fileID: 0}
+  PCnums: {fileID: 0}
+  whiteboardText: {fileID: 0}
+  auto: {fileID: 0}
+  rev: {fileID: 0}
+  pubs: {fileID: 0}
+  cabs: {fileID: 0}
+  syst: {fileID: 0}
+  earth: {fileID: 0}
+  venus: {fileID: 0}
+  mars: {fileID: 0}
+  tasks:
+  - '- Increase Earth''s Opinion above/to 50%   - Increase Mars'' Opinion above/to
+    60%         - Increase Public Support above/to 60%    - Increase Autonomy to 30%          '
+  - '- End the day above 45% Autonomy   - End the day above 2.5 Revenue  -  End the
+    day above 65% Public Support  - Get Mars'' opinion above 50%'
+  earthBorderOpened: 0
+  earthBorderOpenedWithHaggle: 0
+  newDay: 0
+  time: 10
+  day: 1
