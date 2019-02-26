@@ -144,6 +144,8 @@ GameObject:
   - component: {fileID: 81121104955072804}
   - component: {fileID: 114567304999829452}
   - component: {fileID: 124214477406252634}
+  - component: {fileID: 114709626458542172}
+  - component: {fileID: 114091690584683906}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -158,7 +160,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1206082311541984}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.49, y: 0.962, z: -6.255946}
+  m_LocalPosition: {x: -0.01, y: 189.4, z: -3.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4997078365942588}
@@ -227,7 +229,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.1
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -336,16 +338,28 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &114091690584683906
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1997704769845498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: f28f989061538ce40aa961d2d45a7b84, type: 2}
 --- !u!114 &114164261566833128
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -358,7 +372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -372,7 +386,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 41
-    m_Alignment: 4
+    m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 0
     m_HorizontalOverflow: 0
@@ -391,11 +405,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
-  spawnPos: {fileID: 0}
+  spawnPos: {fileID: 1810933643752240}
   obj: {fileID: 0}
   phonePanel: {fileID: 1936055236665854}
   info: {fileID: 102104408520516218}
   pcCamera: {fileID: 0}
+  chairCamera: {fileID: 0}
+  boardCamera: {fileID: 0}
   earthFolderCamera: {fileID: 0}
   marsFolderCamera: {fileID: 0}
   venusFolderCamera: {fileID: 0}
@@ -508,6 +524,19 @@ MonoBehaviour:
   rigidbodyFirstPersonController: {fileID: 114994797107979586}
   StrideInterval: 4
   RunningStrideLengthen: 0.722
+--- !u!114 &114709626458542172
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1997704769845498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eed1d9cbe64423499f1fefc0ce50417, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Resolution: 0
+  DefaultSpotCookie: {fileID: 0}
 --- !u!114 &114746687124330982
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -520,15 +549,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 28626eb17004b464fba09a65da157e89, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -565,7 +594,7 @@ MonoBehaviour:
   wbActive: 0
   pcActive: 0
   faxActive: 0
-  phoneActive: 0
+  phoneLActive: 0
   boardActive: 0
   clockActive: 0
   policyActive: 0
@@ -573,17 +602,43 @@ MonoBehaviour:
   phoneIntractable: 0
   boardIntractable: 0
   policyIntractable: 0
+  conferenceCallInteractable: 0
   folder: 0
   holding: 0
   policy: 0
+  firstFolder: 1
+  firstPolicy: 1
+  withinAnswerDistance: 0
+  answered: 0
+  phoneActive: 0
   info: {fileID: 102104408520516218}
   pcCamera: {fileID: 0}
+  chairCamera: {fileID: 0}
   boardCamera: {fileID: 0}
   canvas: {fileID: 0}
+  earthCanvas: {fileID: 0}
+  marsCanvas: {fileID: 0}
+  venusCanvas: {fileID: 0}
+  earthCamera: {fileID: 0}
+  marsCamera: {fileID: 0}
+  venusCamera: {fileID: 0}
   folderCamera: {fileID: 0}
+  conferenceCamera: {fileID: 0}
   es: {fileID: 0}
   prefab: {fileID: 0}
+  obj: {fileID: 0}
+  phonePanel: {fileID: 1936055236665854}
+  robotPanel: {fileID: 0}
+  femaleHologram: {fileID: 0}
   spawnPos: {fileID: 4842163768127350}
+  uses: 0
+  interactionScript: {fileID: 114343643616752810}
+  conferenceCallAudio: {fileID: 0}
+  pcAudio: {fileID: 0}
+  trashFX: {fileID: 8300000, guid: 5f8da869983133a43866b1f52591caba, type: 3}
+  faxFX: {fileID: 8300000, guid: 877c7810710d9a34aa57604ba685f205, type: 3}
+  typingFX: {fileID: 8300000, guid: 92674a9d87962404fbd7ef4fe2d817eb, type: 3}
+  conferenceCallFX: {fileID: 8300000, guid: ef62ea51e24a91846bedecfc080cc16d, type: 3}
 --- !u!114 &114994797107979586
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -668,8 +723,8 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: c2815a7ab32e42c4bb42f59caacb8ec1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.25
-  m_Height: 1.6
+  m_Radius: 0.2
+  m_Height: 1.5
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!222 &222479603955012908
@@ -719,17 +774,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1794066323527640}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 2.97, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224690118528717728}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -13}
-  m_SizeDelta: {x: 1074.52, y: 218.5}
+  m_AnchoredPosition: {x: 5, y: -244}
+  m_SizeDelta: {x: 605.83, y: 104.13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224525181025119628
 RectTransform:
@@ -755,18 +810,18 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1936055236665854}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2029105, y: 0.27639732, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 23}
+  m_LocalScale: {x: 1.1331, y: 1.1331, z: 1.1331}
   m_Children:
   - {fileID: 224464617544106140}
   m_Father: {fileID: 224794119498711820}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -260}
-  m_SizeDelta: {x: 328.19995, y: 96.5}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.000015259, y: 21}
+  m_SizeDelta: {x: 1138, y: 598}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224794119498711820
 RectTransform:

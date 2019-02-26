@@ -115,10 +115,16 @@ MonoBehaviour:
   tasks:
   - '- Increase Earth''s Opinion above/to 50%   - Increase Mars'' Opinion above/to
     60%         - Increase Public Support above/to 60%    - Increase Autonomy to 30%          '
-  - '- End the day above 45% Autonomy   - End the day above 2.5 Revenue  -  End the
-    day above 65% Public Support  - Get Mars'' opinion above 50%'
-  earthBorderOpened: 0
-  earthBorderOpenedWithHaggle: 0
+  - '- Decrease System Tension below/to 20%   - End the day with 2.5 billion moon
+    bucks        - Increase Venus'' Opinion above/to 55%    - Organise healthcare
+    for moon citizens           -  Discard any family interests               '
+  conferenceAccept: 0
+  conferenceAcceptWithHaggle: 0
+  phone1Answered: 0
+  phone2Answered: 0
+  phone1Accept: 0
+  phone2Accept: 0
   newDay: 0
+  pcCamera: {fileID: 0}
   time: 10
   day: 1
