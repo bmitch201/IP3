@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class MoonFolderScript : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    InteractionScript interactionScript;
+    DayOneScript dayOneScript;
+    RobotDialogueTrigger dialogueTrigger;
+    Stats statsScript;
+
+    public GameObject frontPage, currentPage, lastPage, EduPage, HealPage, NSPage, BCPage, WRPage;
+    GameObject player;
+
+
 }
