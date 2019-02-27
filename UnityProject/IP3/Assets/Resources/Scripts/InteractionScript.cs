@@ -30,6 +30,7 @@ public class InteractionScript : MonoBehaviour
     DialogueTrigger dialogueTrigger;
     RobotDialogueTrigger robotDialogueTrigger;
     DialogueManager dialogueManager;
+    DayOneScript dayOneScript;
 
     [Header("Booleans")]
     public bool holding;
@@ -57,6 +58,7 @@ public class InteractionScript : MonoBehaviour
         dialogueTrigger = GameObject.FindGameObjectWithTag("ConferenceCall").GetComponent<DialogueTrigger>();
         robotDialogueTrigger = GameObject.FindObjectOfType<RobotDialogueTrigger>();
         dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
+        dayOneScript = FindObjectOfType<DayOneScript>();
 
         es = GameObject.Find("EventSystem");
 

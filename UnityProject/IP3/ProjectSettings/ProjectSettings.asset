@@ -568,6 +568,7 @@ PlayerSettings:
   webGLUseEmbeddedResources: 0
   webGLCompressionFormat: 1
   webGLLinkerTarget: 1
+<<<<<<< HEAD
   scriptingDefineSymbols:
     1: CROSS_PLATFORM_INPUT;UNITY_POST_PROCESSING_STACK_V2
     4: CROSS_PLATFORM_INPUT;MOBILE_INPUT;UNITY_POST_PROCESSING_STACK_V2
@@ -581,6 +582,9 @@ PlayerSettings:
     25: UNITY_POST_PROCESSING_STACK_V2
     26: UNITY_POST_PROCESSING_STACK_V2
     27: UNITY_POST_PROCESSING_STACK_V2
+=======
+  scriptingDefineSymbols: {}
+>>>>>>> parent of 6e6d14e... 26/02
   platformArchitecture: {}
   scriptingBackend: {}
   il2cppCompilerConfiguration: {}

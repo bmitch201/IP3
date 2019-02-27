@@ -60,6 +60,7 @@ public class DayOneScript : MonoBehaviour {
     public Transform spawnPos;
 
     float maxIntensity = 2.0f;
+    float totalSec = 0.2f;
 
     public int uses = 0;
 
