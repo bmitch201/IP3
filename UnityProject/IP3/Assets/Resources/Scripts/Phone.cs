@@ -119,6 +119,24 @@ public class Phone : MonoBehaviour
             }
         }
 
+        if (phoneIsActive == true)
+        {
+            audioSource.clip = phoneRing;
+            audioSource.Play();
+            isRinging = true;
+
+            if (statsScript.day == 2)
+            {
+                if (calls == 1)
+                {
+                    phoneCallText.GetComponent<Text>().text = phoneCalls[2];
+                }
+            }
+
+            calls++;
+            phoneIsActive = false;
+        }
+
         if (timeUntilRingTimerActive)
         {
             timer -= Time.deltaTime;           
@@ -201,6 +219,19 @@ public class Phone : MonoBehaviour
                 callMissed = false;
                 ringTimer = 15;
                 dayOneScript.policyIntractable = true;
+            }
+        }
+
+        if (statsScript.day == 2)
+        {
+            if (interactionScript.answered == true && newAudio == true )
+            {
+                isRinging = false;
+
+                if (calls == 1)
+                {
+                    audioSource.Stop();
+                }
             }
         }
 

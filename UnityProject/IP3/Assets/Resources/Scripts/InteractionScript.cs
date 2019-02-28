@@ -220,14 +220,27 @@ public class InteractionScript : MonoBehaviour
                 //If the object hit by the ray is the phone
                 if (hit.collider.gameObject.tag == "Phone")
                 {
-                    info.gameObject.SetActive(false);
-                    answered = true;
-                    phoneScript.callMissed = false;
-                    phoneScript.ringTimerActive = false;
-                    phoneScript.isRinging = false;
-                    phonePanel.SetActive(true);
-                    phoneCanvasOn = true;
-                    statsScript.TimeForward();
+                    if (statsScript.day == 2 && phoneScript.calls == 1)
+                    {
+                        info.gameObject.SetActive(false);
+                        answered = true;
+                        phoneScript.callMissed = false;
+                        phoneScript.ringTimerActive = false;
+                        phoneScript.isRinging = false;
+                        phonePanel.SetActive(true);
+                        phoneCanvasOn = true;
+                    }
+                    else
+                    {
+                        info.gameObject.SetActive(false);
+                        answered = true;
+                        phoneScript.callMissed = false;
+                        phoneScript.ringTimerActive = false;
+                        phoneScript.isRinging = false;
+                        phonePanel.SetActive(true);
+                        phoneCanvasOn = true;
+                        statsScript.TimeForward();
+                    }
                 }
             }
         }
@@ -237,15 +250,24 @@ public class InteractionScript : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
-                phonePanel.SetActive(false);
-                //Spawn a piece of paper
-                prefab = (GameObject)Resources.Load("Policy", typeof(GameObject));
-                obj = Instantiate(prefab, spawnPos.transform.position, GameObject.Find("MainCamera").transform.rotation);
-                obj.transform.parent = spawnPos.transform;
-                obj.transform.rotation = obj.transform.rotation * new Quaternion(0, 1, -30, 0);
-                holding = true;
-                phoneCanvasOn = false;
-                holdingPaper = true;
+                if (statsScript.day == 2 && phoneScript.calls == 1)
+                {
+                    phonePanel.SetActive(false);
+                    phoneCanvasOn = false;
+                    robotDialogueTrigger.TriggerRobotDialogue2_3();
+                }
+                else
+                {
+                    phonePanel.SetActive(false);
+                    //Spawn a piece of paper
+                    prefab = (GameObject)Resources.Load("Policy", typeof(GameObject));
+                    obj = Instantiate(prefab, spawnPos.transform.position, GameObject.Find("MainCamera").transform.rotation);
+                    obj.transform.parent = spawnPos.transform;
+                    obj.transform.rotation = obj.transform.rotation * new Quaternion(0, 1, -30, 0);
+                    holding = true;
+                    phoneCanvasOn = false;
+                    holdingPaper = true;
+                }
             }
         }
 

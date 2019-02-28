@@ -102,6 +102,7 @@ public class RobotDialogueManager : MonoBehaviour {
     Stats statsScript;
     RobotDialogueTrigger robotDialogueTrigger;
     DayOneScript dayOneScript;
+    InteractionScript interactionScript;
     Phone phoneScript;
 
     float timerForDialogue = 5f;
@@ -111,8 +112,10 @@ public class RobotDialogueManager : MonoBehaviour {
     {
         robotDialogueTrigger = GameObject.Find("Robot").GetComponent<RobotDialogueTrigger>();
         dayOneScript = FindObjectOfType<DayOneScript>();
+        interactionScript = FindObjectOfType<InteractionScript>();
         phoneScript = FindObjectOfType<Phone>();
         robotAudioSource = GameObject.Find("Robot").GetComponent<AudioSource>();
+        panel = GameObject.Find("RobotPanel");
 
         robotSentences1 = new Queue<string>();
         robotSentences2 = new Queue<string>();
@@ -149,6 +152,20 @@ public class RobotDialogueManager : MonoBehaviour {
         //robotAudio16 = new Queue<AudioClip>();
 
         robotSentences2_1 = new Queue<string>();
+        robotSentences2_2 = new Queue<string>();
+        robotSentences2_3 = new Queue<string>();
+        robotSentences2_4 = new Queue<string>();
+        robotSentences2_5 = new Queue<string>();
+        robotSentences2_6 = new Queue<string>();
+        robotSentences2_7 = new Queue<string>();
+        robotSentences2_8 = new Queue<string>();
+        robotSentences2_9 = new Queue<string>();
+        robotSentences2_10 = new Queue<string>();
+        robotSentences2_11 = new Queue<string>();
+        robotSentences2_12 = new Queue<string>();
+        robotSentences2_13 = new Queue<string>();
+        robotSentences2_14 = new Queue<string>();
+        robotSentences2_15 = new Queue<string>();
 
     }
 
@@ -1063,13 +1080,15 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue2_1 = false;
         //robotAudioSource.Stop();
         panel.SetActive(false);
+        phoneScript.phoneIsActive = true;
+        robotDialogueTrigger.TriggerRobotDialogue2_2();
     }
 
     public void StartRobotDialogue2_2(RobotDialogue robotDialogue)
     {
         dialogue2_2 = true;
         panel.SetActive(true);
-        robotSentences2_2.Clear();
+        robotSentences2_1.Clear();
         //robotAudio1.Clear();
 
         foreach (string sentence in robotDialogue.robotSentences2_2)
@@ -1159,13 +1178,13 @@ public class RobotDialogueManager : MonoBehaviour {
     public void EndRobotDialogue2_3()
     {
         dialogue2_3 = false;
+        dialogue2_4 = true;
         //robotAudioSource.Stop();
         panel.SetActive(false);
     }
 
     public void StartRobotDialogue2_4(RobotDialogue robotDialogue)
     {
-        dialogue2_4 = true;
         panel.SetActive(true);
         robotSentences2_3.Clear();
         //robotAudio1.Clear();
@@ -1813,6 +1832,76 @@ public class RobotDialogueManager : MonoBehaviour {
             else if (dialogue14)
             {
                 DisplayNextRobotSentence14();
+            }
+
+            else if (dialogue2_1)
+            {
+                DisplayNextRobotSentence2_1();
+            }
+            else if (dialogue2_2)
+            {
+                DisplayNextRobotSentence2_2();
+            }
+            else if (dialogue2_3)
+            {
+                DisplayNextRobotSentence2_3();
+                if (timerForDialogue > 0)
+                {
+                    timerForDialogue -= Time.deltaTime;
+                }
+                else
+                {
+                    robotDialogueTrigger.TriggerRobotDialogue2_4();
+                    timerForDialogue = 5f;
+                }
+            }
+            else if (dialogue2_4)
+            {
+                DisplayNextRobotSentence2_4();
+            }
+            else if (dialogue2_5)
+            {
+                DisplayNextRobotSentence2_5();
+            }
+            else if (dialogue2_6)
+            {
+                DisplayNextRobotSentence2_6();
+            }
+            else if (dialogue2_7)
+            {
+                DisplayNextRobotSentence2_7();
+            }
+            else if (dialogue2_8)
+            {
+                DisplayNextRobotSentence2_8();
+            }
+            else if (dialogue2_9)
+            {
+                DisplayNextRobotSentence2_9();
+            }
+            else if (dialogue2_10)
+            {
+                DisplayNextRobotSentence2_10();
+            }
+            else if (dialogue2_11)
+            {
+                DisplayNextRobotSentence2_11();
+            }
+            else if (dialogue2_12)
+            {
+                DisplayNextRobotSentence2_12();
+            }
+            else if (dialogue2_13)
+            {
+                DisplayNextRobotSentence2_13();
+            }
+            else if (dialogue2_14)
+            {
+                DisplayNextRobotSentence2_14();
+            }
+            else if (dialogue2_15)
+            {
+                DisplayNextRobotSentence2_15();
             }
             //else if (dialogue15)
             //{

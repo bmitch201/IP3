@@ -83,9 +83,80 @@ public class RobotDialogueTrigger : MonoBehaviour {
         robotDialogueManager.StartRobotDialogue14(robotDialogue);
     }
 
+
     public void TriggerRobotDialogue2_1()
     {
         robotDialogueManager.StartRobotDialogue2_1(robotDialogue);
+    }
+
+    public void TriggerRobotDialogue2_2()
+    {
+        robotDialogueManager.StartRobotDialogue2_2(robotDialogue);
+    }
+
+    public void TriggerRobotDialogue2_3()
+    {
+        robotDialogueManager.StartRobotDialogue2_3(robotDialogue);
+    }
+
+    public void TriggerRobotDialogue2_4()
+    {
+        robotDialogueManager.StartRobotDialogue2_4(robotDialogue);
+    }
+
+    public void TriggerRobotDialogue2_5()
+    {
+        robotDialogueManager.StartRobotDialogue2_5(robotDialogue);
+    }
+
+    public void TriggerRobotDialogue2_6()
+    {
+        robotDialogueManager.StartRobotDialogue2_6(robotDialogue);
+    }
+
+    public void TriggerRobotDialogue2_7()
+    {
+        robotDialogueManager.StartRobotDialogue2_7(robotDialogue);
+    }
+
+    public void TriggerRobotDialogue2_8()
+    {
+        robotDialogueManager.StartRobotDialogue2_8(robotDialogue);
+    }
+
+    public void TriggerRobotDialogue2_9()
+    {
+        robotDialogueManager.StartRobotDialogue2_9(robotDialogue);
+    }
+
+    public void TriggerRobotDialogue2_10()
+    {
+        robotDialogueManager.StartRobotDialogue2_10(robotDialogue);
+    }
+
+    public void TriggerRobotDialogue2_11()
+    {
+        robotDialogueManager.StartRobotDialogue2_11(robotDialogue);
+    }
+
+    public void TriggerRobotDialogue2_12()
+    {
+        robotDialogueManager.StartRobotDialogue2_12(robotDialogue);
+    }
+
+    public void TriggerRobotDialogue2_13()
+    {
+        robotDialogueManager.StartRobotDialogue2_13(robotDialogue);
+    }
+
+    public void TriggerRobotDialogue2_14()
+    {
+        robotDialogueManager.StartRobotDialogue2_14(robotDialogue);
+    }
+
+    public void TriggerRobotDialogue2_15()
+    {
+        robotDialogueManager.StartRobotDialogue2_15(robotDialogue);
     }
 
     //public void TriggerRobotDialogue16()
