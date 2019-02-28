@@ -144,20 +144,9 @@ public class InteractionScript : MonoBehaviour
         //If the user hits F
         if (Input.GetKeyDown(KeyCode.F) && !holding)
         {
-            //If the object hit by the raycast is the PC then activate the PC Camera
-            //and update the canvas to display the correct stats
-            if (hit.collider.gameObject.tag == "PC")
-            {
-                pcCamera.SetActive(true);
-                canvas.SetActive(false);
-                statsScript.UpdateScreen();
-                gameObject.SetActive(false);
-                pcActive = true;
-
-            }
             //If the object hit by the raycast is the Folder then activate the folder camera,
             //activate the cursor and run the folder method 
-            else if (hit.collider.gameObject.tag == "Folder")
+            if (hit.collider.gameObject.tag == "Folder")
             {
                 GameObject folderCamera = earthFolderCamera;
 
@@ -169,6 +158,7 @@ public class InteractionScript : MonoBehaviour
 
                         GameObject.Find("Mars Folder Canvas").SetActive(false);
                         GameObject.Find("Venus Folder Canvas").SetActive(false);
+                        GameObject.Find("Moon Folder Canvas").SetActive(false);
                         break;
 
                     case "Mars Folder":
@@ -177,6 +167,7 @@ public class InteractionScript : MonoBehaviour
 
                         GameObject.Find("Earth Folder Canvas").SetActive(false);
                         GameObject.Find("Venus Folder Canvas").SetActive(false);
+                        GameObject.Find("Moon Folder Canvas").SetActive(false);
                         break;
 
                     case "Venus Folder":
@@ -185,6 +176,7 @@ public class InteractionScript : MonoBehaviour
 
                         GameObject.Find("Mars Folder Canvas").SetActive(false);
                         GameObject.Find("Earth Folder Canvas").SetActive(false);
+                        GameObject.Find("Moon Folder Canvas").SetActive(false);
                         break;
                 }
 

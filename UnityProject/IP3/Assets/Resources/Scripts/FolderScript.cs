@@ -17,9 +17,9 @@ public class FolderScript : MonoBehaviour {
     public Animator anim;
 
     [Header ("Game Objects")]
-    public GameObject frontPage, taxPage, tradePage, impPage, expPage, movePage, player, playerSpawn, current, other, canvas1, canvas2;
+    public GameObject frontPage, taxPage, tradePage, impPage, expPage, movePage, player, playerSpawn, current, other, canvas1, canvas2, canvas3;
     public GameObject lastPage;
-    GameObject newPage, prefab, page1, page2, page3, page4, pageMain;
+    GameObject prefab, page1, page2, page3, page4, pageMain;
 
     [Header ("Text Objects")]
     public Text taxText, tradeText, impText, expText, moveText;
@@ -90,6 +90,7 @@ public class FolderScript : MonoBehaviour {
 
                 canvas1.SetActive(true);
                 canvas2.SetActive(true);
+                canvas3.SetActive(true);
 
                 //Sets the current page active to false
                 current.SetActive(false);
@@ -708,6 +709,7 @@ public class FolderScript : MonoBehaviour {
 
         canvas1.SetActive(true);
         canvas2.SetActive(true);
+        canvas3.SetActive(true);
 
         //Sets the current page active to false
         current.SetActive(false);

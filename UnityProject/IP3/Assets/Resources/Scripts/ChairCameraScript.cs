@@ -129,7 +129,7 @@ public class ChairCameraScript : MonoBehaviour
                     }
                 }
             }
-            else if (hit.collider.gameObject.tag == "MoonFolder")
+            else if (hit.collider.gameObject.tag == "MoonFolder" && statsScript.day > 1)
             {
                 info.text = "Press 'F' to open";
                 info.gameObject.SetActive(true);
@@ -145,18 +145,11 @@ public class ChairCameraScript : MonoBehaviour
                         ins.enabled = true;
                     }
 
+                    player.SetActive(true);
+
                     moonCamera.SetActive(true);
 
                     gameObject.SetActive(false);
-
-                    if (dosEnabled == true)
-                    {
-                        dos.enabled = false;
-                    }
-                    else
-                    {
-                        ins.enabled = false;
-                    }
                 }
             }
             else

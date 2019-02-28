@@ -21,6 +21,8 @@ public class PolicyScript : MonoBehaviour
     public string movement;
     public string pfm;
 
+    public string taxType;
+
     void Awake()
     {
         statsScript = GameObject.Find("GameInfoObject").GetComponent<Stats>();

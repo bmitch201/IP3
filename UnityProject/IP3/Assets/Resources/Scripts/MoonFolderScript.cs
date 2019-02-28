@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class MoonFolderScript : MonoBehaviour {
 
     public InteractionScript interactionScript;
+    public DayOneScript dayOneScript;
     RobotDialogueTrigger dialogueTrigger;
     Stats statsScript;
 
@@ -13,8 +14,8 @@ public class MoonFolderScript : MonoBehaviour {
     public Animator anim;
 
     [Header("GameObjects")]
-    public GameObject frontPage, player, currentPage, lastPage, eduPage, healPage, nsPage, bcPage, wrPage, fundsPage, page1, page2, page3, pageMain;
-    GameObject newPage;
+    public GameObject frontPage, player, chair, currentPage, lastPage, eduPage, healPage, nsPage, bcPage, wrPage, fundsPage, page1, page2, page3, pageMain, canvas1, canvas2, canvas3;
+    GameObject prefab;
 
     [Header("Button Type")]
     public string type;
@@ -37,6 +38,8 @@ public class MoonFolderScript : MonoBehaviour {
     {
         anim.Play("Open");
 
+        player.SetActive(false);
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
@@ -51,9 +54,13 @@ public class MoonFolderScript : MonoBehaviour {
         currentPage.SetActive(true);
 
         //Sets up the interaction from the player
-        //interactionScript = player.GetComponent<InteractionScript>();
+        //interactionScript = player.GetComponentInParent<InteractionScript>();
 
         dialogueTrigger = FindObjectOfType<RobotDialogueTrigger>();
+
+        canvas1.SetActive(false);
+        canvas2.SetActive(false);
+        canvas3.SetActive(false);
     }
 
     void Update()
@@ -93,8 +100,12 @@ public class MoonFolderScript : MonoBehaviour {
             anim.Play("Close");
             gameObject.SetActive(false);
 
+            canvas1.SetActive(true);
+            canvas2.SetActive(true);
+            canvas3.SetActive(true);
+
             //Activate the player
-            player.SetActive(true);
+            chair.SetActive(true);
         }
     }
 
@@ -237,6 +248,122 @@ public class MoonFolderScript : MonoBehaviour {
 
     #endregion
 
+    #region Population Funds
+
+    public void Wage()
+    {
+        pageMain.SetActive(false);
+        page1.SetActive(true);
+    }
+
+    public void WageInc()
+    {
+        changes.Add(-0.4f);
+        changes.Add(10f);
+        changes.Add(10f);
+
+        changedNames.Add("Revenue");
+        changedNames.Add("Autonomy");
+        changedNames.Add("Public_Support");
+
+        buttonClicked = "Wage Increase";
+
+        ReturnToPlayer();
+    }
+
+    public void WageDec()
+    {
+        changes.Add(0.2f);
+        changes.Add(-5f);
+        changes.Add(-5f);
+
+        changedNames.Add("Revenue");
+        changedNames.Add("Autonomy");
+        changedNames.Add("Public_Support");
+
+        buttonClicked = "Wage Decrease";
+
+        ReturnToPlayer();
+    }
+
+    public void Pension()
+    {
+        pageMain.SetActive(false);
+        page2.SetActive(true);
+    }
+
+    public void PenInc()
+    {
+        changes.Add(-0.3f);
+        changes.Add(5f);
+        changes.Add(10f);
+
+        changedNames.Add("Revenue");
+        changedNames.Add("Autonomy");
+        changedNames.Add("Public_Support");
+
+        buttonClicked = "Pension Increase";
+
+        ReturnToPlayer();
+    }
+
+    public void PenDec()
+    {
+        changes.Add(0.1f);
+        changes.Add(-10f);
+
+        changedNames.Add("Revenue");
+        changedNames.Add("Public_Support");
+
+        buttonClicked = "Pension Decrease";
+
+        ReturnToPlayer();
+    }
+
+    public void Taxes()
+    {
+        pageMain.SetActive(false);
+        page3.SetActive(true);
+    }
+
+    public void TaxInc()
+    {
+        changes.Add(0.3f);
+        changes.Add(10f);
+
+        changedNames.Add("Revenue");
+        changedNames.Add("Public_Support");
+
+        buttonClicked = "Tax Increase";
+
+        ReturnToPlayer();
+    }
+
+    public void TaxDec()
+    {
+        changes.Add(-0.3f);
+        changes.Add(5f);
+        changes.Add(10f);
+
+        changedNames.Add("Revenue");
+        changedNames.Add("Autonomy");
+        changedNames.Add("Public_Support");
+
+        buttonClicked = "Tax Decrease";
+
+        ReturnToPlayer();
+    }
+
+    public void FundsBack()
+    {
+        pageMain.SetActive(true);
+        page1.SetActive(false);
+        page2.SetActive(false);
+        page3.SetActive(false);
+    }
+
+    #endregion
+
     //Called when the player hits the back button on the main pages
     public void Back()
     {
@@ -296,7 +423,58 @@ public class MoonFolderScript : MonoBehaviour {
     }
 
     void ReturnToPlayer()
-    {
+    {             
+        //Close the folder
+        anim.Play("Close");
 
+        canvas1.SetActive(true);
+        canvas2.SetActive(true);
+        canvas3.SetActive(true);
+
+        //Activate the player
+        player.SetActive(true);
+        
+        //Gets the policy page prefab from the resources folder
+        prefab = (GameObject)Resources.Load("Policy", typeof(GameObject));
+
+        Reset();
+
+        //Sets the current page active to false
+        currentPage.SetActive(false);
+
+        //Resets the current page to the front page and activates it
+        lastPage = currentPage;
+        currentPage = frontPage;
+        currentPage.SetActive(true);
+
+        PolicyScript policyScript;
+
+        //Sets up the prefab to be spawned on the player
+        interactionScript.obj = Instantiate(prefab, interactionScript.spawnPos.transform.position, GameObject.Find("MainCamera").transform.rotation);
+        interactionScript.obj.transform.parent = GameObject.Find("SpawnPos").transform;
+        interactionScript.holdingPolicy = true;
+        interactionScript.holding = true;
+        interactionScript.folder = false;
+
+        //Calls the folder and policy methods within the interaction script
+        interactionScript.Folder();
+        interactionScript.PolicyScript();
+
+        policyScript = interactionScript.obj.GetComponent<PolicyScript>();
+
+        //Sets up the stats for the policy script
+        policyScript.UpdatePolicy(changes, changedNames);
+        policyScript.type = type;
+        policyScript.chosenPolicy = buttonClicked;
+        policyScript.buttonAmount = buttons;
+        policyScript.planet = "Moon";
+
+        policyScript.taxType = buttonClicked;
+        
+        //Clears the lists onced they have been used
+        changedNames.Clear();
+        changes.Clear();
+
+        gameObject.SetActive(false);
     }
 }

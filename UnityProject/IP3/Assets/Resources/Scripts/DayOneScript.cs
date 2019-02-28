@@ -47,7 +47,7 @@ public class DayOneScript : MonoBehaviour {
 
     public GameObject pcCamera, chairCamera;
     public GameObject boardCamera;
-    public GameObject canvas, earthCanvas, marsCanvas, venusCanvas;
+    public GameObject canvas, earthCanvas, marsCanvas, venusCanvas, moonCanvas;
     public GameObject earthCamera, marsCamera, venusCamera, folderCamera;
     public GameObject conferenceCamera;
     public GameObject es;
@@ -210,6 +210,7 @@ public class DayOneScript : MonoBehaviour {
 
                         marsCanvas.SetActive(false);
                         venusCanvas.SetActive(false);
+                        moonCanvas.SetActive(false);
 
                         GameObject.Find("MainCamera").transform.LookAt(hit.collider.gameObject.transform);
                     }
@@ -238,18 +239,21 @@ public class DayOneScript : MonoBehaviour {
                             folderCamera = earthCamera;
                             marsCanvas.SetActive(false);
                             venusCanvas.SetActive(false);
+                            moonCanvas.SetActive(false);
                         }
                         else if (hit.collider.transform.parent.transform.parent.gameObject.name == "Mars Folder")
                         {
                             folderCamera = marsCamera;
                             earthCanvas.SetActive(false);
                             venusCanvas.SetActive(false);
+                            moonCanvas.SetActive(false);
                         }
                         else
                         {
                             folderCamera = venusCamera;
                             earthCanvas.SetActive(false);
                             marsCanvas.SetActive(false);
+                            moonCanvas.SetActive(false);
                         }
 
                         StartCoroutine(FolderOut(rot));
@@ -811,5 +815,6 @@ public class DayOneScript : MonoBehaviour {
         earthCanvas.SetActive(true);
         marsCanvas.SetActive(true);
         venusCanvas.SetActive(true);
+        moonCanvas.SetActive(true);
     }
 }
