@@ -10130,11 +10130,6 @@ MonoBehaviour:
   expText: {fileID: 114470654108237934}
   moveText: {fileID: 114694471393752154}
   type: 
-  taxChosen: 
-  tradeChosen: 
-  importChosen: 
-  exportChosen: 
-  moveChosen: 
   buttons: 0
   planet: Mars
 --- !u!114 &114994390140356868

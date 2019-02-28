@@ -118,6 +118,8 @@ MonoBehaviour:
   - '- Decrease System Tension below/to 20%   - End the day with 2.5 billion moon
     bucks        - Increase Venus'' Opinion above/to 55%    - Organise healthcare
     for moon citizens           -  Discard any family interests               '
+  chosenPlanets: []
+  chosenPolicies: []
   conferenceAccept: 0
   conferenceAcceptWithHaggle: 0
   phone1Answered: 0

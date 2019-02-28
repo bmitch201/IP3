@@ -43,7 +43,7 @@ public class DayOneScript : MonoBehaviour {
     bool phoneCanvasOn = false;
     bool firstCallEnacted = false;
 
-    public TextMesh info;
+    public Text info;
 
     public GameObject pcCamera, chairCamera;
     public GameObject boardCamera;
@@ -155,26 +155,6 @@ public class DayOneScript : MonoBehaviour {
             //Get the distance to the object from the current position
             float dist = Vector3.Distance(transform.position, hit.collider.gameObject.transform.position);
 
-            ////If the object has a Tag of PC then display a message to the player telling them they can "open" this object 
-            //if (hit.collider.gameObject.tag == "PC" && pcIntractable)
-            //{
-            //    //If the distance to the object is less than 2.5
-            //    if (dist <= 1.25f)
-            //    {
-            //        info.text = "Press 'F' to open";
-            //        info.gameObject.SetActive(true);
-            //    }
-
-            //    if (Input.GetKeyDown(KeyCode.F))
-            //    {
-            //        pcCamera.SetActive(true);
-            //        canvas.SetActive(false);
-            //        statsScript.UpdateScreen();
-            //        gameObject.SetActive(false);
-            //        pcAudio.clip = typingFX;
-            //        pcAudio.PlayOneShot(typingFX);
-            //    }
-            //}
             if (hit.collider.gameObject.tag == "Chair" && pcIntractable)
             {
                 //If the distance to the object is less than 2.5
@@ -186,8 +166,8 @@ public class DayOneScript : MonoBehaviour {
 
                 if (Input.GetKeyDown(KeyCode.F))
                 {
+                    info.gameObject.SetActive(false);
                     chairCamera.SetActive(true);
-                    //gameObject.SetActive(false);
                 }
             }
             else if (hit.collider.gameObject.tag == "Board" && boardIntractable)

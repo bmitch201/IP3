@@ -15,7 +15,7 @@ public class ChairCameraScript : MonoBehaviour
     float yaw = -100f;
     float pitch;
 
-    public GameObject pcCamera;
+    public GameObject pcCamera, moonCamera;
     public GameObject canvas;
     GameObject player;
 
@@ -53,6 +53,8 @@ public class ChairCameraScript : MonoBehaviour
             player.SetActive(false);
             dos.enabled = false;
             ins.enabled = false;
+            dos.info.gameObject.SetActive(false);
+            ins.info.gameObject.SetActive(false);
         }
 
         if (yaw >= -175f && yaw <= -25f)
@@ -96,12 +98,8 @@ public class ChairCameraScript : MonoBehaviour
             //If the object has a Tag of PC then display a message to the player telling them they can "open" this object 
             if (hit.collider.gameObject.tag == "PC")
             {
-                //If the distance to the object is less than 2.5
-                if (dist <= 1.25f)
-                {
-                    info.text = "Press 'F' to open";
-                    info.gameObject.SetActive(true);
-                }
+                info.text = "Press 'F' to open";
+                info.gameObject.SetActive(true);
 
                 if (Input.GetKeyDown(KeyCode.F))
                 {
@@ -131,9 +129,39 @@ public class ChairCameraScript : MonoBehaviour
                     }
                 }
             }
-
-            if (hit.collider.gameObject.tag != "PC")
+            else if (hit.collider.gameObject.tag == "MoonFolder")
             {
+                info.text = "Press 'F' to open";
+                info.gameObject.SetActive(true);
+
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    if (dosEnabled == true)
+                    {
+                        dos.enabled = true;
+                    }
+                    else
+                    {
+                        ins.enabled = true;
+                    }
+
+                    moonCamera.SetActive(true);
+                    gameObject.SetActive(false);
+
+                    if (dosEnabled == true)
+                    {
+                        dos.enabled = false;
+                    }
+                    else
+                    {
+                        ins.enabled = false;
+                    }
+                }
+            }
+            else
+            {
+                info.gameObject.SetActive(false);
+
                 if (Input.GetKeyDown(KeyCode.F))
                 {
                     if (dosEnabled == true)

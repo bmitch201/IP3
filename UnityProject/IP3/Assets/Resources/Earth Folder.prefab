@@ -8031,11 +8031,6 @@ MonoBehaviour:
   expText: {fileID: 114854335903004250}
   moveText: {fileID: 114877634801553456}
   type: 
-  taxChosen: 
-  tradeChosen: 
-  importChosen: 
-  exportChosen: 
-  moveChosen: 
   buttons: 0
   planet: Earth
 --- !u!114 &114678749131712052

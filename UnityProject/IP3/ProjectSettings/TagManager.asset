@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Folder
+  - Bin
+  - ConferenceCall
+  - Fax
+  - PC
+  - Chair
+  - Phone
+  - Board
+  - MoonFolder
   layers:
   - Default
   - TransparentFX

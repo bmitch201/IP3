@@ -6621,11 +6621,6 @@ MonoBehaviour:
   expText: {fileID: 114835039386897674}
   moveText: {fileID: 114352961607755824}
   type: 
-  taxChosen: 
-  tradeChosen: 
-  importChosen: 
-  exportChosen: 
-  moveChosen: 
   buttons: 0
   planet: Venus
 --- !u!114 &114464724534297288
