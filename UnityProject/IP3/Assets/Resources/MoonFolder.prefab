@@ -391,21 +391,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1183763957079768
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4821079982388890}
-  m_Layer: 0
-  m_Name: PlayerPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1197291124512990
 GameObject:
   m_ObjectHideFlags: 1
@@ -1886,7 +1871,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1705235968034142}
   m_LocalRotation: {x: 0.041637037, y: 0.9209904, z: 0.017489351, w: 0.38695884}
-  m_LocalPosition: {x: -2.602, y: 189.327, z: 2.67}
+  m_LocalPosition: {x: -2.6815, y: 189.3214, z: 2.8276}
   m_LocalScale: {x: 1.0034165, y: 1, z: 1.0034164}
   m_Children:
   - {fileID: 4128412465510766}
@@ -1894,7 +1879,6 @@ Transform:
   - {fileID: 4521350724252920}
   - {fileID: 4314334028630478}
   - {fileID: 224534822527893196}
-  - {fileID: 4821079982388890}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 134.42001, z: 5.177}
@@ -1937,19 +1921,6 @@ Transform:
   - {fileID: 4361669028256940}
   m_Father: {fileID: 4128412465510766}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4821079982388890
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1183763957079768}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.7, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4559061602194904}
-  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4908358392063966
 Transform:
@@ -3812,14 +3783,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8db46f3a195e87548b64db466b15bfe8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frontPage: {fileID: 0}
+  anim: {fileID: 95670617257342778}
+  frontPage: {fileID: 1197291124512990}
   currentPage: {fileID: 0}
   lastPage: {fileID: 0}
-  EduPage: {fileID: 0}
-  HealPage: {fileID: 0}
-  NSPage: {fileID: 0}
-  BCPage: {fileID: 0}
-  WRPage: {fileID: 0}
+  eduPage: {fileID: 1552231698614826}
+  healPage: {fileID: 1703915518881500}
+  nsPage: {fileID: 1994010964454720}
+  bcPage: {fileID: 1004777769224618}
+  wrPage: {fileID: 1612457715337074}
+  fundsPage: {fileID: 1916843715376476}
+  type: 
 --- !u!114 &114468532036455530
 MonoBehaviour:
   m_ObjectHideFlags: 1

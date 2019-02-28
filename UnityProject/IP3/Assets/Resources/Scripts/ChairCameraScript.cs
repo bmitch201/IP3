@@ -146,6 +146,7 @@ public class ChairCameraScript : MonoBehaviour
                     }
 
                     moonCamera.SetActive(true);
+
                     gameObject.SetActive(false);
 
                     if (dosEnabled == true)
