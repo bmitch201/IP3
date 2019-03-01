@@ -14,8 +14,8 @@ public class MoonFolderScript : MonoBehaviour {
     public Animator anim;
 
     [Header("GameObjects")]
-    public GameObject frontPage, player, chair, currentPage, lastPage, eduPage, healPage, nsPage, bcPage, wrPage, fundsPage, page1, page2, page3, pageMain, canvas1, canvas2, canvas3;
-    GameObject prefab;
+    public GameObject frontPage, player, chair, currentPage, lastPage, eduPage, healPage, nsPage, bcPage, wrPage, fundsPage, page1, page2, page3, pageMain;
+    GameObject prefab, canvas1, canvas2, canvas3;
 
     [Header("Button Type")]
     public string type;
@@ -57,6 +57,10 @@ public class MoonFolderScript : MonoBehaviour {
         //interactionScript = player.GetComponentInParent<InteractionScript>();
 
         dialogueTrigger = FindObjectOfType<RobotDialogueTrigger>();
+
+        canvas1 = GameObject.Find("Earth Folder Canvas");
+        canvas2 = GameObject.Find("Mars Folder Canvas");
+        canvas3 = GameObject.Find("Venus Folder Canvas");
 
         canvas1.SetActive(false);
         canvas2.SetActive(false);

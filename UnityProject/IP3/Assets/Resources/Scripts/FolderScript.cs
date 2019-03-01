@@ -17,9 +17,8 @@ public class FolderScript : MonoBehaviour {
     public Animator anim;
 
     [Header ("Game Objects")]
-    public GameObject frontPage, taxPage, tradePage, impPage, expPage, movePage, player, playerSpawn, current, other, canvas1, canvas2, canvas3;
-    public GameObject lastPage;
-    GameObject prefab, page1, page2, page3, page4, pageMain;
+    public GameObject frontPage, taxPage, tradePage, impPage, expPage, movePage, player, playerSpawn, current, other, canvas1, canvas2, lastPage;
+    GameObject prefab, page1, page2, page3, page4, pageMain, canvas3;
 
     [Header ("Text Objects")]
     public Text taxText, tradeText, impText, expText, moveText;
@@ -58,6 +57,10 @@ public class FolderScript : MonoBehaviour {
 
         //Sets up the interaction from the player
         dayOneScript = player.GetComponent<DayOneScript>();
+
+        canvas3 = GameObject.Find("Moon Folder Canvas");
+
+        canvas3.SetActive(false);
 
         dialogueTrigger = FindObjectOfType<RobotDialogueTrigger>();
     }

@@ -210,7 +210,6 @@ public class DayOneScript : MonoBehaviour {
 
                         marsCanvas.SetActive(false);
                         venusCanvas.SetActive(false);
-                        moonCanvas.SetActive(false);
 
                         GameObject.Find("MainCamera").transform.LookAt(hit.collider.gameObject.transform);
                     }
@@ -239,21 +238,18 @@ public class DayOneScript : MonoBehaviour {
                             folderCamera = earthCamera;
                             marsCanvas.SetActive(false);
                             venusCanvas.SetActive(false);
-                            moonCanvas.SetActive(false);
                         }
                         else if (hit.collider.transform.parent.transform.parent.gameObject.name == "Mars Folder")
                         {
                             folderCamera = marsCamera;
                             earthCanvas.SetActive(false);
                             venusCanvas.SetActive(false);
-                            moonCanvas.SetActive(false);
                         }
                         else
                         {
                             folderCamera = venusCamera;
                             earthCanvas.SetActive(false);
                             marsCanvas.SetActive(false);
-                            moonCanvas.SetActive(false);
                         }
 
                         StartCoroutine(FolderOut(rot));

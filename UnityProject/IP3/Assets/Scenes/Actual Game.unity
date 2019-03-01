@@ -11685,6 +11685,10 @@ Prefab:
       propertyPath: canvas3
       value: 
       objectReference: {fileID: 1037092309}
+    - target: {fileID: 1398064523862402, guid: 9c53ab48a89f16d449e1b178b191de2e, type: 2}
+      propertyPath: m_Name
+      value: Moon Folder Canvas
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c53ab48a89f16d449e1b178b191de2e, type: 2}
   m_IsPrefabAsset: 0
