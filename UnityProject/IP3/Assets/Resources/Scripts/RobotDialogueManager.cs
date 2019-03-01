@@ -98,6 +98,8 @@ public class RobotDialogueManager : MonoBehaviour {
     bool dialogue2_15;
 
     public bool conferencePhoneRing = false;
+    bool timer1;
+    bool timer2;
 
     Stats statsScript;
     RobotDialogueTrigger robotDialogueTrigger;
@@ -924,6 +926,7 @@ public class RobotDialogueManager : MonoBehaviour {
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        phoneScript.dayOne = false;
         statsScript.time = 9;
         statsScript.day++;
         SceneManager.LoadScene("End Of Day");
@@ -1081,7 +1084,8 @@ public class RobotDialogueManager : MonoBehaviour {
         //robotAudioSource.Stop();
         panel.SetActive(false);
         phoneScript.phoneIsActive = true;
-        robotDialogueTrigger.TriggerRobotDialogue2_2();
+        timerForDialogue = 2f;
+        timer1 = true;
     }
 
     public void StartRobotDialogue2_2(RobotDialogue robotDialogue)
@@ -1178,13 +1182,14 @@ public class RobotDialogueManager : MonoBehaviour {
     public void EndRobotDialogue2_3()
     {
         dialogue2_3 = false;
-        dialogue2_4 = true;
         //robotAudioSource.Stop();
         panel.SetActive(false);
+        timer2 = true;
     }
 
     public void StartRobotDialogue2_4(RobotDialogue robotDialogue)
     {
+        dialogue2_4 = true;
         panel.SetActive(true);
         robotSentences2_3.Clear();
         //robotAudio1.Clear();
@@ -1845,15 +1850,6 @@ public class RobotDialogueManager : MonoBehaviour {
             else if (dialogue2_3)
             {
                 DisplayNextRobotSentence2_3();
-                if (timerForDialogue > 0)
-                {
-                    timerForDialogue -= Time.deltaTime;
-                }
-                else
-                {
-                    robotDialogueTrigger.TriggerRobotDialogue2_4();
-                    timerForDialogue = 5f;
-                }
             }
             else if (dialogue2_4)
             {
@@ -1921,6 +1917,34 @@ public class RobotDialogueManager : MonoBehaviour {
             //{
             //    DisplayNextRobotSentence16();
             //}
+        }
+
+        if (timer1)
+        {
+            if (timerForDialogue > 0)
+            {
+                timerForDialogue -= Time.deltaTime;
+            }
+            else
+            {
+                robotDialogueTrigger.TriggerRobotDialogue2_2();
+                timerForDialogue = 1f;
+                timer1 = false;
+            }
+        }
+
+        if (timer2)
+        {
+            if (timerForDialogue > 0)
+            {
+                timerForDialogue -= Time.deltaTime;
+            }
+            else
+            {
+                robotDialogueTrigger.TriggerRobotDialogue2_4();
+                timerForDialogue = 5f;
+                timer2 = false;
+            }
         }
 
         if (dayOneScript.wbActive == true)

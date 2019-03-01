@@ -704,6 +704,9 @@ public class DialogueManager : MonoBehaviour {
 
     public void StartConference1(Dialogue dialogue)
     {
+        conferenceDialogue2Visited = false;
+        conferenceDialogue4Visited = false;
+
         planetText.text = dialogue.planet2;
         continueButton.onClick.AddListener(DisplayNextConferenceSentence1);
 

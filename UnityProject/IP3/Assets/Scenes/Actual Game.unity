@@ -13444,7 +13444,7 @@ Prefab:
     - target: {fileID: 114977083791510324, guid: 48c323d8c0d253e4e991c0f79716bae0,
         type: 2}
       propertyPath: phoneCalls.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4344750462096504, guid: 48c323d8c0d253e4e991c0f79716bae0, type: 2}
       propertyPath: m_LocalPosition.x
@@ -13486,27 +13486,35 @@ Prefab:
     - target: {fileID: 114977083791510324, guid: 48c323d8c0d253e4e991c0f79716bae0,
         type: 2}
       propertyPath: phoneCalls.Array.data[2]
-      value: "\u201CHi honey, it\u2019s me calling from home, just wanted to see how
-        you were. I have to ask a favour of you, as you know, my youngest brother
-        is a representative for Earth, and he told me that he might be coming to the
-        moon for a visit. I\u2019d rather not listen to his silly stories for the
-        hundredth time. So he\u2019s going to call you today asking for permission
-        to come, can you refuse him please? Me and the kids would really appreciate
-        it.\u201D\nPress 'R' to close"
+      value: "Your wife asks you to ignore Earth\u2019s call today.\nPress 'R' to
+        close"
       objectReference: {fileID: 0}
     - target: {fileID: 114977083791510324, guid: 48c323d8c0d253e4e991c0f79716bae0,
         type: 2}
       propertyPath: phoneCalls.Array.data[1]
-      value: "\u201CVenus wants to pass through Moon territory on its way to Earth.\r\"\nFax
+      value: "Venus wants to pass through Moon territory on its way to Earth.\r\nFax
         = Venus Opinion +  ; System Tension -  ; \rAutonomy -\nTrash = Venus Opinion
         - \r\nPress 'R' to close"
       objectReference: {fileID: 0}
     - target: {fileID: 114977083791510324, guid: 48c323d8c0d253e4e991c0f79716bae0,
         type: 2}
       propertyPath: phoneCalls.Array.data[0]
-      value: "\u201CMars wants you to export your sacred helium to them.\u201D  \nFax
-        = Revenue + ; Mars Opinion + ;  Public Support - \nTrash = Mars Opinion -
-        \ \nPress 'R' to close"
+      value: "Mars wants you to export your sacred helium to them. \nFax = Revenue
+        + ; Mars Opinion + ;  Public Support - \nTrash = Mars Opinion -  \nPress 'R'
+        to close"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114977083791510324, guid: 48c323d8c0d253e4e991c0f79716bae0,
+        type: 2}
+      propertyPath: phoneCalls.Array.data[3]
+      value: "Earth wants to send inspectors to search your nuclear power stations.\nFax
+        = Earth Opinion + ; System Tension - ;  Autonomy - \nTrash = Earth Opinion
+        - ; System Tension + ;  Autonomy +  \nPress 'R' to close"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114977083791510324, guid: 48c323d8c0d253e4e991c0f79716bae0,
+        type: 2}
+      propertyPath: phoneCalls.Array.data[4]
+      value: "Your wife asks you to ignore Earth\u2019s call today.\nPress 'R' to
+        close"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48c323d8c0d253e4e991c0f79716bae0, type: 2}
@@ -29013,6 +29021,7 @@ GameObject:
   - component: {fileID: 1235992379}
   - component: {fileID: 1235992378}
   - component: {fileID: 1235992380}
+  - component: {fileID: 1235992381}
   m_Layer: 0
   m_Name: ConferenceCamera
   m_TagString: Untagged
@@ -29073,7 +29082,7 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 1
+  m_HDR: 0
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
@@ -29092,6 +29101,63 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: f28f989061538ce40aa961d2d45a7b84, type: 2}
+--- !u!114 &1235992381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1235992376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23c1ce4fb46143f46bc5cb5224c934f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  clearColorMode: 0
+  backgroundColorHDR: {r: 0.025, g: 0.07, b: 0.19, a: 0}
+  clearDepth: 1
+  renderingPath: 0
+  volumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  aperture: 8
+  shutterSpeed: 0.005
+  iso: 400
+  m_FrameSettings:
+    enableShadow: 1
+    enableContactShadows: 1
+    enableSSR: 1
+    enableSSAO: 1
+    enableSubsurfaceScattering: 1
+    enableTransmission: 1
+    enableAtmosphericScattering: 1
+    enableVolumetrics: 1
+    diffuseGlobalDimmer: 1
+    specularGlobalDimmer: 1
+    enableForwardRenderingOnly: 0
+    enableDepthPrepassWithDeferredRendering: 0
+    enableTransparentPrepass: 1
+    enableMotionVectors: 1
+    enableObjectMotionVectors: 1
+    enableDBuffer: 1
+    enableRoughRefraction: 1
+    enableTransparentPostpass: 1
+    enableDistortion: 1
+    enablePostprocess: 1
+    enableStereo: 1
+    enableAsyncCompute: 1
+    enableOpaqueObjects: 1
+    enableTransparentObjects: 1
+    enableMSAA: 0
+    enableShadowMask: 1
+    lightLoopSettings:
+      enableTileAndCluster: 1
+      enableComputeLightEvaluation: 1
+      enableComputeLightVariants: 1
+      enableComputeMaterialVariants: 1
+      enableFptlForForwardOpaque: 1
+      enableBigTilePrepass: 1
+      isFptlEnabled: 1
 --- !u!1 &1236512270
 GameObject:
   m_ObjectHideFlags: 0
@@ -31142,6 +31208,18 @@ Prefab:
       propertyPath: moonCanvas
       value: 
       objectReference: {fileID: 1437514941}
+    - target: {fileID: 1430824531472058, guid: a075bfde3e153924eabb450910db09d8, type: 2}
+      propertyPath: m_Name
+      value: Text
+      objectReference: {fileID: 0}
+    - target: {fileID: 1794066323527640, guid: a075bfde3e153924eabb450910db09d8, type: 2}
+      propertyPath: m_Name
+      value: PhoneText
+      objectReference: {fileID: 0}
+    - target: {fileID: 1430824531472058, guid: a075bfde3e153924eabb450910db09d8, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a075bfde3e153924eabb450910db09d8, type: 2}
   m_IsPrefabAsset: 0

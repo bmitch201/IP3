@@ -124,16 +124,37 @@ public class Phone : MonoBehaviour
             audioSource.clip = phoneRing;
             audioSource.Play();
             isRinging = true;
+            calls++;
 
-            if (statsScript.day == 2)
-            {
+            //if (statsScript.day == 2)
+            //{
                 if (calls == 1)
                 {
                     phoneCallText.GetComponent<Text>().text = phoneCalls[2];
                 }
-            }
+                else if (calls == 2)
+            {
+                phoneCallText.GetComponent<Text>().text = phoneCalls[3];
+                ringTimerActive = true;
 
-            calls++;
+                faxChanges.Add(10);
+                faxChanges.Add(-15);
+                faxChanges.Add(-10);
+
+                faxChangedNames.Add("Earth_Relationship");
+                faxChangedNames.Add("System_Tension");
+                faxChangedNames.Add("Autonomy");
+
+                binChanges.Add(-10);
+                binChanges.Add(20);
+                binChanges.Add(10);
+
+                binChangedNames.Add("Earth_Relationship");
+                binChangedNames.Add("System_Tension");
+                binChangedNames.Add("Autonomy");
+            }
+            //}
+
             phoneIsActive = false;
         }
 
@@ -176,7 +197,7 @@ public class Phone : MonoBehaviour
 
        if(ringTimer < 0)
        {
-            //interactionScript.answered = false;
+            interactionScript.answered = false;
             statsScript.phone2Answered = false;
             ringTimerActive = false;
             isRinging = false;
@@ -186,8 +207,14 @@ public class Phone : MonoBehaviour
             ringTimer = 15;
             if (dayOne)
             {
-                statsScript.stats[5] -= 5;
+                statsScript.stats[7] -= 5;
                 dayOneScript.phoneActive = false;
+            }
+            else if (calls == 2)
+            {
+                statsScript.stats[5] -= 5;
+                statsScript.stats[4] += 5;
+                phoneIsActive = false;
             }
             //statsScript.TimeForward();
         }
@@ -222,18 +249,21 @@ public class Phone : MonoBehaviour
             }
         }
 
-        if (statsScript.day == 2)
+        //if (statsScript.day == 2)
+        //{
+        if (interactionScript.answered == true)
         {
-            if (interactionScript.answered == true && newAudio == true )
-            {
-                isRinging = false;
+            isRinging = false;
 
-                if (calls == 1)
-                {
-                    audioSource.Stop();
-                }
+            if (calls == 1)
+            {
+                audioSource.Stop();
             }
+
+            interactionScript.answered = false;
+            phoneIsActive = false;
         }
+        //}
 
         //if (callMissed == true && stopAudio == true)
         //{

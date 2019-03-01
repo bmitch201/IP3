@@ -88,14 +88,10 @@ public class InteractionScript : MonoBehaviour
             //Get the distance to the object from the current position
             dist = Vector3.Distance(transform.position, hit.collider.gameObject.transform.position);
 
-            if (hit.collider.gameObject.tag == "Chair")
+            if (hit.collider.gameObject.tag == "Chair" && dist <= 2.5f)
             {
-                //If the distance to the object is less than 2.5
-                if (dist <= 2.5f)
-                {
-                    info.text = "Press 'F' to sit";
-                    info.gameObject.SetActive(true);
-                }
+                info.text = "Press 'F' to sit";
+                info.gameObject.SetActive(true);
 
                 if (Input.GetKeyDown(KeyCode.F))
                 {
@@ -122,21 +118,25 @@ public class InteractionScript : MonoBehaviour
             {
                 //If the object hit is the phone and the distance to it is less than 5 then 
                 //show the player a message to allow them to answer the phone
-                if (hit.collider.gameObject.tag == "Phone")
+                if (hit.collider.gameObject.tag == "Phone" && dist <= 2.5f)
                 {
-                    if (dist <= 5.0f)
-                    {
-                        info.text = "Press 'F' to answer";
-                        info.gameObject.SetActive(true);
-                        withinAnswerDistance = true;
-                    }
+
+                    info.text = "Press 'F' to answer";
+                    info.gameObject.SetActive(true);
+                    withinAnswerDistance = true;
+                }
+
+                //Any other object remove the info
+                else
+                {
+                    info.gameObject.SetActive(false);
                 }
             }
-            //Any other object remove the info
-            else
-            {
-                info.gameObject.SetActive(false);
-            }
+        }
+        //Any other object remove the info
+        else
+        {
+            info.gameObject.SetActive(false);
         }
         //}
 
