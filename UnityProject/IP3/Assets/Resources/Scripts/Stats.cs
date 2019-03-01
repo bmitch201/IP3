@@ -323,13 +323,11 @@ public class Stats : MonoBehaviour {
 
             if (pcCamera == null)
             {
-                Debug.Log("pcCamera = null");
                 pcCamera = GameObject.Find("PC Camera");
             }
 
             if (PCnames == null && pcCamera != null)
             {
-                Debug.Log("PCnames = null & pcCamera != null");
                 PCnames = GameObject.Find("Text_Name_PC").GetComponent<Text>();
                 PCnums = GameObject.Find("Text_Numbers_PC").GetComponent<Text>();
                 pcCamera.SetActive(false);
