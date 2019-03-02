@@ -14,7 +14,7 @@ public class MoonFolderScript : MonoBehaviour {
     public Animator anim;
 
     [Header("GameObjects")]
-    public GameObject frontPage, player, chair, currentPage, lastPage, eduPage, healPage, nsPage, bcPage, wrPage, fundsPage, page1, page2, page3, pageMain;
+    public GameObject frontPage, player, chair, currentPage, lastPage, eduPage, healPage, nsPage, bcPage, wrPage, fundsPage, page1, page2, page3, pageMain, es;
     GameObject prefab, canvas1, canvas2, canvas3;
 
     [Header("Button Type")]
@@ -42,6 +42,8 @@ public class MoonFolderScript : MonoBehaviour {
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        es.SetActive(true);
 
         //Sets the current page to be false as long as the variable is holding an object
         if (currentPage != null)
@@ -99,6 +101,8 @@ public class MoonFolderScript : MonoBehaviour {
             //Resets the current page to the front page and activates it
             currentPage = frontPage;
             currentPage.SetActive(true);
+
+            es.SetActive(false);
 
             //Close the folder
             anim.Play("Close");
@@ -450,6 +454,8 @@ public class MoonFolderScript : MonoBehaviour {
         lastPage = currentPage;
         currentPage = frontPage;
         currentPage.SetActive(true);
+
+        es.SetActive(false);
 
         PolicyScript policyScript;
 

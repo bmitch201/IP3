@@ -422,4 +422,16 @@ public class InteractionScript : MonoBehaviour
         gameObject.SetActive(false);
         statsScript.TimeForward();
     }
+
+    public void FolderOn()
+    {
+        if (!folder)
+        {
+            es.SetActive(false);
+        }
+        else
+        {
+            es.SetActive(true);
+        }
+    }
 }
