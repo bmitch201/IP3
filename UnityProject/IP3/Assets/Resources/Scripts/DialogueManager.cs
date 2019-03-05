@@ -744,7 +744,7 @@ public class DialogueManager : MonoBehaviour {
        
         option1.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue9);
 
-        if (statsScript.stats[6] > 39)
+        if (statsScript.stats[6] >= 39)
         {
             option2.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue2);
         }
@@ -753,7 +753,7 @@ public class DialogueManager : MonoBehaviour {
             option2.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue3);
         }
 
-        if (statsScript.stats[6] > 34)
+        if (statsScript.stats[6] >= 34)
         {
             option3.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue7);
         }
@@ -878,7 +878,7 @@ public class DialogueManager : MonoBehaviour {
     {
         statsScript.stats[6] -= 5;
 
-        conferenceDialogue2Visited = true;
+        conferenceDialogue4Visited = true;
 
         planetText.text = dialogue.planet2;
         continueButton.onClick.AddListener(DisplayNextConferenceSentence4);
@@ -919,7 +919,14 @@ public class DialogueManager : MonoBehaviour {
         option1.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue9);
 
         option3.onClick.RemoveAllListeners();
-        option3.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue10);
+        if (statsScript.stats[6] > 34)
+        {
+            option3.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue8);
+        }
+        else if (statsScript.stats[6] <= 34)
+        {
+            option3.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue10);
+        }
     }
 
     public void StartConference5(Dialogue dialogue)
@@ -1011,7 +1018,7 @@ public class DialogueManager : MonoBehaviour {
         option1.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue9);
 
         option2.onClick.RemoveAllListeners();
-        if (statsScript.stats[6] > 34)
+        if (statsScript.stats[6] >= 34)
         {
             option2.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue2);
         }
