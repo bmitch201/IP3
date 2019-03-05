@@ -162,12 +162,12 @@ public class DayOneScript : MonoBehaviour {
                 {
                     info.text = "Press 'F' to sit";
                     info.gameObject.SetActive(true);
-                }
 
-                if (Input.GetKeyDown(KeyCode.F))
-                {
-                    info.gameObject.SetActive(false);
-                    chairCamera.SetActive(true);
+                    if (Input.GetKeyDown(KeyCode.F))
+                    {
+                        info.gameObject.SetActive(false);
+                        chairCamera.SetActive(true);
+                    }
                 }
             }
             else if (hit.collider.gameObject.tag == "Board" && boardIntractable)

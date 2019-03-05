@@ -50,8 +50,8 @@ public class Stats : MonoBehaviour {
         names = GameObject.Find("Text_Name").GetComponent<Text>();
         nums = GameObject.Find("Text_Numbers").GetComponent<Text>();
 
-        PCnames = GameObject.Find("Text_Name_PC").GetComponent<Text>();
-        PCnums = GameObject.Find("Text_Numbers_PC").GetComponent<Text>();
+        //PCnames = GameObject.Find("Text_Name_PC").GetComponent<Text>();
+        //PCnums = GameObject.Find("Text_Numbers_PC").GetComponent<Text>();
 
         whiteboardText = GameObject.Find("WhiteboardText").GetComponent<Text>();
 
@@ -87,8 +87,6 @@ public class Stats : MonoBehaviour {
 
         UpdateScreen();
         NewDay();
-
-        pcCamera.SetActive(false);
     }
 
     public void NewDay()
@@ -146,8 +144,9 @@ public class Stats : MonoBehaviour {
     public void UpdateScreen()
     { 
         names.text = statDisplay[0] + "\n";
-        PCnames.text = statDisplay[0] + "\n";
         nums.text = stats[0] + "\n";
+
+        PCnames.text = statDisplay[0] + "\n";
         PCnums.text = stats[0] + "\n";
 
         for (int i = 1; i < statNames.Length; i++)
@@ -326,12 +325,13 @@ public class Stats : MonoBehaviour {
                 pcCamera = GameObject.Find("PC Camera");
             }
 
-            if (PCnames == null && pcCamera != null)
-            {
-                PCnames = GameObject.Find("Text_Name_PC").GetComponent<Text>();
-                PCnums = GameObject.Find("Text_Numbers_PC").GetComponent<Text>();
-                pcCamera.SetActive(false);
-            }
+            //if (PCnames == null && pcCamera != null)
+            //{
+            //    pcCamera.SetActive(true);
+            //    PCnames = GameObject.Find("Text_Name_PC").GetComponent<Text>();
+            //    PCnums = GameObject.Find("Text_Numbers_PC").GetComponent<Text>();
+            //    pcCamera.SetActive(false);
+            //}
 
             if (auto == null)
             {
