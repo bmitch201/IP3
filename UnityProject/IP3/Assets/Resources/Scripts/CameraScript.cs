@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CameraScript : MonoBehaviour {
 
-    public GameObject player, canvas, homePage, statsPage, ocPage, currentPage, lastPage, backButton, moonCanvas, earthCanvas, marsCanvas, venusCanvas;
+    public GameObject player, canvas, homePage, statsPage, ocPage, currentPage, lastPage, backButton, ocHomePage, earthPage, marsPage, venusPage, moonCanvas, earthCanvas, marsCanvas, venusCanvas;
 
     bool firstPCUse = true;
 
@@ -19,6 +19,10 @@ public class CameraScript : MonoBehaviour {
         interactionScript = GameObject.Find("PlayerController").GetComponentInParent<InteractionScript>();
         dayOneScript = GameObject.Find("PlayerController").GetComponent<DayOneScript>();
         robotDialogueTrigger = FindObjectOfType<RobotDialogueTrigger>();
+
+        earthCanvas = GameObject.Find("Earth Folder Canvas");
+        marsCanvas = GameObject.Find("Mars Folder Canvas");
+        venusCanvas = GameObject.Find("Venus Folder Canvas");
     }
 
     void Awake()
@@ -81,10 +85,10 @@ public class CameraScript : MonoBehaviour {
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
 
-            earthCanvas.SetActive(false);
-            marsCanvas.SetActive(false);
-            moonCanvas.SetActive(false);
-            venusCanvas.SetActive(false);
+            earthCanvas.SetActive(true);
+            marsCanvas.SetActive(true);
+            moonCanvas.SetActive(true);
+            venusCanvas.SetActive(true);
         }
 	}
 
@@ -120,16 +124,64 @@ public class CameraScript : MonoBehaviour {
 
         currentPage = ocPage;
 
+        currentPage.SetActive(true);
+
         lastPage = homePage;
 
+        ocHomePage.SetActive(true);
+        earthPage.SetActive(false);
+        marsPage.SetActive(false);
+        venusPage.SetActive(false);
+
+        currentPage = ocHomePage;
+    }
+
+    public void Earth()
+    {
         currentPage.SetActive(false);
+
+        currentPage = earthPage;
+
+        lastPage = ocHomePage;
+
+        currentPage.SetActive(true);
+    }
+
+    public void Mars()
+    {
+        currentPage.SetActive(false);
+
+        currentPage = marsPage;
+
+        lastPage = ocHomePage;
+
+        currentPage.SetActive(true);
+    }
+
+    public void Venus()
+    {
+        currentPage.SetActive(false);
+
+        currentPage = venusPage;
+
+        lastPage = ocHomePage;
+
+        currentPage.SetActive(true);
     }
 
     public void Back()
     {
         currentPage.SetActive(false);
 
-        currentPage = lastPage;
+        if (lastPage == ocHomePage)
+        {
+            currentPage = lastPage;
+            lastPage = homePage;
+        }
+        else
+        {
+            currentPage = lastPage;
+        }
 
         currentPage.SetActive(true);
     }
