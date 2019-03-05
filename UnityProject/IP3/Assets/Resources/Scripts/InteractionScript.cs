@@ -78,6 +78,9 @@ public class InteractionScript : MonoBehaviour
             statsScript.newDay = false;
         }
 
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         //Sets up a raycast for the position of the mouse
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit = new RaycastHit();
@@ -88,7 +91,7 @@ public class InteractionScript : MonoBehaviour
             //Get the distance to the object from the current position
             dist = Vector3.Distance(transform.position, hit.collider.gameObject.transform.position);
 
-            if (hit.collider.gameObject.tag == "Chair" && dist <= 2.5f)
+            if (hit.collider.gameObject.tag == "Chair" && dist <= 1.5f)
             {
                 info.text = "Press 'F' to sit";
                 info.gameObject.SetActive(true);
@@ -96,6 +99,7 @@ public class InteractionScript : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.F))
                 {
                     chairCamera.SetActive(true);
+                    es.SetActive(true);
                 }
             }
             else if (hit.collider.gameObject.tag == "Board")
@@ -421,17 +425,5 @@ public class InteractionScript : MonoBehaviour
         this.transform.position = folderScript.playerSpawn.transform.position;
         gameObject.SetActive(false);
         statsScript.TimeForward();
-    }
-
-    public void FolderOn()
-    {
-        if (!folder)
-        {
-            es.SetActive(false);
-        }
-        else
-        {
-            es.SetActive(true);
-        }
     }
 }

@@ -113,6 +113,8 @@ public class DayOneScript : MonoBehaviour {
         if (GameObject.Find("GameInfoObject DDL") != null)
         {
             gameInfoObject = GameObject.Find("GameInfoObject DDL");
+            pcCamera.GetComponent<CameraScript>().statsScript = GameObject.Find("GameInfoObject DDL").GetComponent<Stats>();
+            pcCamera.GetComponent<CameraScript>().CheckScript();
         }
         else
         {
@@ -145,6 +147,9 @@ public class DayOneScript : MonoBehaviour {
 
     void Update()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         //Sets up a raycast for the position of the mouse
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit = new RaycastHit();

@@ -119,6 +119,11 @@ public class ChairCameraScript : MonoBehaviour
                     pcAudio.PlayOneShot(typingFX);
                     gameObject.SetActive(false);
 
+                    pcCamera.GetComponent<CameraScript>().earthCanvas.SetActive(false);
+                    pcCamera.GetComponent<CameraScript>().marsCanvas.SetActive(false);
+                    pcCamera.GetComponent<CameraScript>().venusCanvas.SetActive(false);
+                    pcCamera.GetComponent<CameraScript>().moonCanvas.SetActive(false);
+
                     if (dosEnabled == true)
                     {
                         dos.enabled = false;

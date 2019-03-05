@@ -325,13 +325,15 @@ public class Stats : MonoBehaviour {
                 pcCamera = GameObject.Find("PC Camera");
             }
 
-            //if (PCnames == null && pcCamera != null)
-            //{
-            //    pcCamera.SetActive(true);
-            //    PCnames = GameObject.Find("Text_Name_PC").GetComponent<Text>();
-            //    PCnums = GameObject.Find("Text_Numbers_PC").GetComponent<Text>();
-            //    pcCamera.SetActive(false);
-            //}
+            if (PCnames == null && pcCamera != null)
+            {
+                pcCamera.SetActive(true);
+                pcCamera.GetComponent<CameraScript>().statsPage.SetActive(true);
+                PCnames = GameObject.Find("Text_Name_PC").GetComponent<Text>();
+                PCnums = GameObject.Find("Text_Numbers_PC").GetComponent<Text>();
+                pcCamera.GetComponent<CameraScript>().statsPage.SetActive(false);
+                pcCamera.SetActive(false);
+            }
 
             if (auto == null)
             {

@@ -5,18 +5,17 @@ using UnityEngine.UI;
 
 public class CameraScript : MonoBehaviour {
 
-    public GameObject player, canvas, homePage, statsPage, ocPage, currentPage, lastPage, backButton;
+    public GameObject player, canvas, homePage, statsPage, ocPage, currentPage, lastPage, backButton, moonCanvas, earthCanvas, marsCanvas, venusCanvas;
 
     bool firstPCUse = true;
 
     InteractionScript interactionScript;
     RobotDialogueTrigger robotDialogueTrigger;
     DayOneScript dayOneScript;
-    Stats statsScript;
+    public Stats statsScript;
 
     void Start()
     {
-
         interactionScript = GameObject.Find("PlayerController").GetComponentInParent<InteractionScript>();
         dayOneScript = GameObject.Find("PlayerController").GetComponent<DayOneScript>();
         robotDialogueTrigger = FindObjectOfType<RobotDialogueTrigger>();
@@ -36,11 +35,13 @@ public class CameraScript : MonoBehaviour {
         backButton.SetActive(true);
 
         currentPage = homePage;
-                
+
         if (statsScript.day == 1)
         {
             homePage.SetActive(false);
             statsPage.SetActive(true);
+
+            currentPage = statsPage;
 
             backButton.SetActive(false);
         }
@@ -48,8 +49,11 @@ public class CameraScript : MonoBehaviour {
 
     void Update ()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         //if the player hits F then activate the player and deactivate the PC camera/screen
-		if(Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             player.SetActive(true);
             gameObject.SetActive(false);
@@ -73,8 +77,31 @@ public class CameraScript : MonoBehaviour {
                 canvas.SetActive(true);
                 interactionScript.pcActive = false;
             }
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+
+            earthCanvas.SetActive(false);
+            marsCanvas.SetActive(false);
+            moonCanvas.SetActive(false);
+            venusCanvas.SetActive(false);
         }
 	}
+
+    public void CheckScript()
+    {
+        currentPage.SetActive(false);
+
+        backButton.SetActive(true);
+
+        homePage.SetActive(true);
+
+        currentPage = homePage;
+
+        earthCanvas = GameObject.Find("Earth Folder Canvas");
+        marsCanvas = GameObject.Find("Mars Folder Canvas");
+        venusCanvas = GameObject.Find("Venus Folder Canvas");
+    }
 
     public void Stats()
     {
