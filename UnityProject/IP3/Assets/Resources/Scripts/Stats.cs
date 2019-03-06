@@ -39,7 +39,7 @@ public class Stats : MonoBehaviour {
     private float erNew, stNew, csNew, vrNew;
 
     GameObject bigHand;
-    public GameObject pcCamera;
+    public GameObject pcCamera, earthCam, marsCam, venusCam, moonCam, player;
 
     public int time = 10;
     public int day = 1;
@@ -299,6 +299,11 @@ public class Stats : MonoBehaviour {
 
     void Update()
     {
+        if(player == null)
+        {
+            player = GameObject.Find("PlayerController");
+        }
+
         if (time <= 0)
         {
             DontDestroyOnLoad(gameObject);

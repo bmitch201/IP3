@@ -702,7 +702,7 @@ public class DialogueManager : MonoBehaviour {
 
     #endregion
 
-    public void StartConference1(Dialogue dialogue)
+    public void StartConferenceDialogue1(Dialogue dialogue)
     {
         conferenceDialogue2Visited = false;
         conferenceDialogue4Visited = false;
@@ -763,9 +763,12 @@ public class DialogueManager : MonoBehaviour {
         }
     }
 
-    public void StartConference2(Dialogue dialogue)
+    public void StartConferenceDialogue2(Dialogue dialogue)
     {
         statsScript.stats[6] -= 5;
+
+        speakerPanel.SetActive(true);
+        answerPanel.SetActive(false);
 
         conferenceDialogue2Visited = true;
 
@@ -828,9 +831,12 @@ public class DialogueManager : MonoBehaviour {
         }
     }
 
-    public void StartConference3(Dialogue dialogue)
+    public void StartConferenceDialogue3(Dialogue dialogue)
     {
         statsScript.stats[6] -= 5;
+
+        speakerPanel.SetActive(true);
+        answerPanel.SetActive(false);
 
         planetText.text = dialogue.planet2;
         continueButton.onClick.AddListener(DisplayNextConferenceSentence3);
@@ -874,9 +880,12 @@ public class DialogueManager : MonoBehaviour {
         option3.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue10);
     }
 
-    public void StartConference4(Dialogue dialogue)
+    public void StartConferenceDialogue4(Dialogue dialogue)
     {
         statsScript.stats[6] -= 5;
+
+        speakerPanel.SetActive(true);
+        answerPanel.SetActive(false);
 
         conferenceDialogue4Visited = true;
 
@@ -929,9 +938,12 @@ public class DialogueManager : MonoBehaviour {
         }
     }
 
-    public void StartConference5(Dialogue dialogue)
+    public void StartConferenceDialogue5(Dialogue dialogue)
     {
         statsScript.stats[6] -= 5;
+
+        speakerPanel.SetActive(true);
+        answerPanel.SetActive(false);
 
         planetText.text = dialogue.planet2;
         continueButton.onClick.AddListener(DisplayNextConferenceSentence5);
@@ -975,9 +987,12 @@ public class DialogueManager : MonoBehaviour {
         option3.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue10);
     }
 
-    public void StartConference6(Dialogue dialogue)
+    public void StartConferenceDialogue6(Dialogue dialogue)
     {
         statsScript.stats[6] -= 5;
+
+        speakerPanel.SetActive(true);
+        answerPanel.SetActive(false);
 
         planetText.text = dialogue.planet2;
         continueButton.onClick.AddListener(DisplayNextConferenceSentence6);
@@ -1031,9 +1046,12 @@ public class DialogueManager : MonoBehaviour {
         option3.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue10);
     }
 
-    public void StartConference7(Dialogue dialogue)
+    public void StartConferenceDialogue7(Dialogue dialogue)
     {
         statsScript.stats[6] -= 5;
+
+        speakerPanel.SetActive(true);
+        answerPanel.SetActive(false);
 
         planetText.text = dialogue.planet2;
         continueButton.onClick.AddListener(DisplayNextConferenceSentence7);
@@ -1087,9 +1105,12 @@ public class DialogueManager : MonoBehaviour {
         option3.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue10);
     }
 
-    public void StartConference8(Dialogue dialogue)
+    public void StartConferenceDialogue8(Dialogue dialogue)
     {
         statsScript.stats[6] -= 5;
+
+        speakerPanel.SetActive(true);
+        answerPanel.SetActive(false);
 
         planetText.text = dialogue.planet2;
         continueButton.onClick.AddListener(DisplayNextConferenceSentence8);
@@ -1133,9 +1154,12 @@ public class DialogueManager : MonoBehaviour {
         option3.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue10);
     }
 
-    public void StartConference9(Dialogue dialogue)
+    public void StartConferenceDialogue9(Dialogue dialogue)
     {
         statsScript.stats[4] += 10;
+
+        speakerPanel.SetActive(true);
+        answerPanel.SetActive(false);
 
         if (conferenceDialogue2Visited)
         {
@@ -1193,11 +1217,14 @@ public class DialogueManager : MonoBehaviour {
         dayOneScript.conferenceCallInteractable = false;
     }
 
-    public void StartConference10(Dialogue dialogue)
+    public void StartConferenceDialogue10(Dialogue dialogue)
     {
         statsScript.stats[6] -= 15;
         statsScript.stats[0] += 10;
         statsScript.stats[2] += 10;
+
+        speakerPanel.SetActive(true);
+        answerPanel.SetActive(false);
 
         planetText.text = dialogue.planet2;
         continueButton.onClick.AddListener(DisplayNextConferenceSentence10);

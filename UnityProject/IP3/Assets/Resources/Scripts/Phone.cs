@@ -119,9 +119,12 @@ public class Phone : MonoBehaviour
             }
         }
 
-        if (statsScript.time == 3)
+        if (statsScript.day == 2)
         {
-            phoneIsActive = true;
+            if (statsScript.time == 3)
+            {
+                phoneIsActive = true;
+            }
         }
 
         if (phoneIsActive == true)
