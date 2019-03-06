@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class CameraScript : MonoBehaviour {
 
-    public GameObject player, canvas, homePage, statsPage, ocPage, currentPage, lastPage, backButton, ocHomePage, earthPage, marsPage, venusPage, moonCanvas, earthCanvas, marsCanvas, venusCanvas;
+    public GameObject player, chairCamera, canvas, homePage, statsPage, ocPage, currentPage, lastPage, backButton, ocHomePage, earthPage, marsPage, venusPage, moonCanvas, earthCanvas, marsCanvas, venusCanvas;
+    GameObject prefab;
 
     bool firstPCUse = true;
 
@@ -13,12 +14,14 @@ public class CameraScript : MonoBehaviour {
     RobotDialogueTrigger robotDialogueTrigger;
     DayOneScript dayOneScript;
     public Stats statsScript;
+    ChairCameraScript chairScript;
 
     void Start()
     {
         interactionScript = GameObject.Find("PlayerController").GetComponentInParent<InteractionScript>();
         dayOneScript = GameObject.Find("PlayerController").GetComponent<DayOneScript>();
         robotDialogueTrigger = FindObjectOfType<RobotDialogueTrigger>();
+        chairScript = FindObjectOfType<ChairCameraScript>();
 
         earthCanvas = GameObject.Find("Earth Folder Canvas");
         marsCanvas = GameObject.Find("Mars Folder Canvas");
@@ -59,7 +62,7 @@ public class CameraScript : MonoBehaviour {
         //if the player hits F then activate the player and deactivate the PC camera/screen
         if (Input.GetKeyDown(KeyCode.F))
         {
-            player.SetActive(true);
+            chairCamera.SetActive(true);
             gameObject.SetActive(false);
             dayOneScript.pcAudio.Stop();
 
@@ -136,6 +139,9 @@ public class CameraScript : MonoBehaviour {
         currentPage = ocHomePage;
     }
 
+
+    #region Earth
+
     public void Earth()
     {
         currentPage.SetActive(false);
@@ -146,6 +152,25 @@ public class CameraScript : MonoBehaviour {
 
         currentPage.SetActive(true);
     }
+
+    public void EHealthcare()
+    {
+        ReturnToPlayer();
+    }
+
+    public void ETravel()
+    {
+        ReturnToPlayer();
+    }
+
+    public void EWorker()
+    {
+        ReturnToPlayer();
+    }
+
+    #endregion
+
+    #region Mars
 
     public void Mars()
     {
@@ -158,6 +183,25 @@ public class CameraScript : MonoBehaviour {
         currentPage.SetActive(true);
     }
 
+    public void MHealthcare()
+    {
+        ReturnToPlayer();
+    }
+
+    public void MTravel()
+    {
+        ReturnToPlayer();
+    }
+
+    public void MWorker()
+    {
+        ReturnToPlayer();
+    }
+
+    #endregion
+
+    #region Venus
+
     public void Venus()
     {
         currentPage.SetActive(false);
@@ -168,6 +212,23 @@ public class CameraScript : MonoBehaviour {
 
         currentPage.SetActive(true);
     }
+
+    public void VHealthcare()
+    {
+        ReturnToPlayer();
+    }
+
+    public void VTravel()
+    {
+        ReturnToPlayer();
+    }
+
+    public void VWorker()
+    {
+        ReturnToPlayer();
+    }
+
+    #endregion
 
     public void Back()
     {
@@ -184,5 +245,47 @@ public class CameraScript : MonoBehaviour {
         }
 
         currentPage.SetActive(true);
+    }
+
+    void ReturnToPlayer()
+    {
+        //Gets the policy page prefab from the resources folder
+        prefab = (GameObject)Resources.Load("Paper", typeof(GameObject));
+
+        player.SetActive(true);
+
+        player.GetComponentInParent<InteractionScript>().enabled = true;
+
+        //Sets the current page active to false
+        currentPage.SetActive(false);
+
+        //Resets the current page to the front page and activates it
+        lastPage = currentPage;
+        currentPage = homePage;
+        currentPage.SetActive(true);
+
+        //Sets up the prefab to be spawned on the player
+        interactionScript.obj = Instantiate(prefab, interactionScript.spawnPos.transform.position, GameObject.Find("MainCamera").transform.rotation);
+        interactionScript.obj.transform.parent = GameObject.Find("SpawnPos").transform;
+        interactionScript.holding = true;
+
+        //Calls the folder and policy methods within the interaction script
+        interactionScript.Folder();
+
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
+        earthCanvas.SetActive(true);
+        marsCanvas.SetActive(true);
+        moonCanvas.SetActive(true);
+        venusCanvas.SetActive(true);
+
+        if (interactionScript.pcActive == true)
+        {
+            canvas.SetActive(true);
+            interactionScript.pcActive = false;
+        }
+
+        gameObject.SetActive(false);
     }
 }

@@ -9726,7 +9726,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 259302179}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1016029443}
+        m_MethodName: VHealthcare
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &259302179
@@ -13262,7 +13273,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 432962252}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1016029443}
+        m_MethodName: VWorker
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &432962252
@@ -19810,7 +19832,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 791890424}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1016029443}
+        m_MethodName: EWorker
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &791890424
@@ -20325,7 +20358,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 827597780}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1016029443}
+        m_MethodName: MHealthcare
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &827597780
@@ -22559,7 +22603,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 934929655}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1016029443}
+        m_MethodName: EHealthcare
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &934929655
@@ -28144,6 +28199,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28a48015787d6d84dac4ff4498d48ed6, type: 3}
   m_IsPrefabAsset: 0
+--- !u!1 &998722901 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1997704769845498, guid: a075bfde3e153924eabb450910db09d8,
+    type: 2}
+  m_PrefabInternal: {fileID: 1380264287}
 --- !u!1 &1002675119
 GameObject:
   m_ObjectHideFlags: 0
@@ -28570,7 +28630,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c3c675d396679e45a45af87a5cab640, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1149122649}
+  player: {fileID: 998722901}
+  chairCamera: {fileID: 1149122649}
   canvas: {fileID: 853435425}
   homePage: {fileID: 1920773245}
   statsPage: {fileID: 222724093}
@@ -30742,7 +30803,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1146173373}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1016029443}
+        m_MethodName: MTravel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1146173373
@@ -33146,7 +33218,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1250457618}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1016029443}
+        m_MethodName: ETravel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1250457618
@@ -35246,7 +35329,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1378542933}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1016029443}
+        m_MethodName: MWorker
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1378542933
@@ -40968,7 +41062,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1775107220}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1016029443}
+        m_MethodName: VTravel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1775107220
@@ -42499,6 +42604,18 @@ Prefab:
         type: 2}
       propertyPath: PCnums
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114380465661335342, guid: 1ee0306f9eb69e04b92776491f738ccd,
+        type: 2}
+      propertyPath: day
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114380465661335342, guid: 1ee0306f9eb69e04b92776491f738ccd,
+        type: 2}
+      propertyPath: tasks.Array.data[1]
+      value: '- Decrease System Tension to 20%     - Have at least 2..5 billion moon
+        bucks        - Increase Venus'' Opinion above/to 55%    - Organise healthcare
+        for moon citizens            -  Discard any family interests'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ee0306f9eb69e04b92776491f738ccd, type: 2}

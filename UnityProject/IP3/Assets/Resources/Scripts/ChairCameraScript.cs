@@ -92,9 +92,6 @@ public class ChairCameraScript : MonoBehaviour
         //If the ray hits an object
         if (Physics.Raycast(ray, out hit))
         {
-            //Get the distance to the object from the current position
-            float dist = Vector3.Distance(transform.position, hit.collider.gameObject.transform.position);
-
             //If the object has a Tag of PC then display a message to the player telling them they can "open" this object 
             if (hit.collider.gameObject.tag == "PC")
             {
@@ -176,6 +173,18 @@ public class ChairCameraScript : MonoBehaviour
                     gameObject.SetActive(false);
                 }
             }
+        }
+    }
+
+    public void Check()
+    {
+        if (dosEnabled == true)
+        {
+            dos.enabled = false;
+        }
+        else
+        {
+            ins.enabled = false;
         }
     }
 }
