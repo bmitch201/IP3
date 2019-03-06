@@ -462,8 +462,8 @@ public class MoonFolderScript : MonoBehaviour {
         PolicyScript policyScript;
 
         //Sets up the prefab to be spawned on the player
-        interactionScript.obj = Instantiate(prefab, interactionScript.spawnPos.transform.position, GameObject.Find("MainCamera").transform.rotation);
-        interactionScript.obj.transform.parent = GameObject.Find("SpawnPos").transform;
+        interactionScript.prefab = Instantiate(prefab, interactionScript.spawnPos.transform.position, GameObject.Find("MainCamera").transform.rotation);
+        interactionScript.prefab.transform.parent = GameObject.Find("SpawnPos").transform;
         interactionScript.holdingPolicy = true;
         interactionScript.holding = true;
         interactionScript.folder = false;
@@ -472,7 +472,7 @@ public class MoonFolderScript : MonoBehaviour {
         interactionScript.FolderOn();
         interactionScript.PolicyScript();
 
-        policyScript = interactionScript.obj.GetComponent<PolicyScript>();
+        policyScript = interactionScript.prefab.GetComponent<PolicyScript>();
 
         //Sets up the stats for the policy script
         policyScript.UpdatePolicy(changes, changedNames);

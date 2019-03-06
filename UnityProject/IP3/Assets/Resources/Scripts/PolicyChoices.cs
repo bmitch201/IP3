@@ -30,9 +30,9 @@ public class PolicyChoices : MonoBehaviour {
         ms.name = "Mars Folder";
         vs.name = "Venus Folder";
 
-        ints.earthFolderCamera = ec;
-        ints.marsFolderCamera = mc;
-        ints.venusFolderCamera = vc;
+        ints.earthCamera = ec;
+        ints.marsCamera = mc;
+        ints.venusCamera = vc;
     }
 
 }

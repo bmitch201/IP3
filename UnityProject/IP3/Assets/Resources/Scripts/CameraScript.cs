@@ -268,8 +268,8 @@ public class CameraScript : MonoBehaviour {
         currentPage.SetActive(true);
 
         //Sets up the prefab to be spawned on the player
-        interactionScript.obj = Instantiate(prefab, interactionScript.spawnPos.transform.position, GameObject.Find("MainCamera").transform.rotation);
-        interactionScript.obj.transform.parent = GameObject.Find("SpawnPos").transform;
+        interactionScript.prefab = Instantiate(prefab, interactionScript.spawnPos.transform.position, GameObject.Find("MainCamera").transform.rotation);
+        interactionScript.prefab.transform.parent = GameObject.Find("SpawnPos").transform;
         interactionScript.holding = true;
 
         //Calls the folder and policy methods within the interaction script

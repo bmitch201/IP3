@@ -9,7 +9,7 @@ public class InteractionScript : MonoBehaviour
     [Header("Game Objects")]
     public GameObject prefab;
     public Transform spawnPos;
-    public GameObject obj;
+    //public GameObject obj;
     public GameObject phonePanel;
     public TextMesh info;
     GameObject es;
@@ -18,7 +18,7 @@ public class InteractionScript : MonoBehaviour
 
     [Header("Cameras")]
     public GameObject pcCamera, chairCamera, boardCamera;
-    public GameObject earthFolderCamera, marsFolderCamera, venusFolderCamera;
+    //public GameObject earthFolderCamera, marsFolderCamera, venusFolderCamera;
     public GameObject conferenceCamera;
 
     [Header("Canvas")]
@@ -54,7 +54,7 @@ public class InteractionScript : MonoBehaviour
 
     public bool policy = false;
 
-   // public bool phoneActive = false;
+    // public bool phoneActive = false;
 
     public GameObject earthCanvas, marsCanvas, venusCanvas, moonCanvas;
     public GameObject earthCamera, marsCamera, venusCamera, folderCamera;
@@ -120,6 +120,21 @@ public class InteractionScript : MonoBehaviour
 
     void Update()
     {
+        if (earthCamera == null)
+        {
+            earthCamera = statsScript.earthCam;
+            marsCamera = statsScript.marsCam;
+            venusCamera = statsScript.venusCam;
+        }
+
+        if (earthCanvas == null)
+        {
+            earthCanvas = GameObject.Find("Earth Folder Canvas");
+            marsCanvas = GameObject.Find("Mars Folder Canvas");
+            venusCanvas = GameObject.Find("Venus Folder Canvas");
+            moonCanvas = GameObject.Find("Moon Folder Canvas");
+        }
+
         if (statsScript.newDay)
         {
             statsScript.NewDay();
@@ -444,19 +459,32 @@ public class InteractionScript : MonoBehaviour
     IEnumerator FolderOut(RotationScript rot)
     {
         rot.enabled = true;
+
         yield return new WaitForSeconds(1.25f);
+
+        folderScript = folderCamera.GetComponent<FolderScript>();
+
         rot.endPos = GameObject.Find(folderScript.planet + "FolderStartPos").transform;
+
         rot.enabled = false;
         folderScript.enabled = true;
         folder = true;
+
         FolderOn();
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
         folderScript.anim.Play("Open");
+
         this.transform.position = folderScript.playerSpawn.transform.position;
+
+        folderCamera.SetActive(true);
         gameObject.SetActive(false);
+
         statsScript.TimeForward();
     }
+
 }
 
                 //GameObject folderCamera = earthFolderCamera;

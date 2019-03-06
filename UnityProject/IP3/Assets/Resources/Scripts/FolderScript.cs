@@ -67,9 +67,10 @@ public class FolderScript : MonoBehaviour {
 
     void Update()
     {
-        if(player == null && GameObject.Find("PlayerController") != null)
+        if(player == null)
         {
-            player = GameObject.Find("PlayerController");
+            Debug.Log("Hey");
+            player = statsScript.player;
             interactionScript = player.GetComponent<InteractionScript>();
         }
 
@@ -77,6 +78,12 @@ public class FolderScript : MonoBehaviour {
         {
             policyChoices = GameObject.Find("GameInfoObject").GetComponent<PolicyChoices>();
             statsScript = GameObject.Find("GameInfoObject").GetComponent<Stats>();
+        }
+
+        if(canvas3 == null)
+        {
+            canvas3 = GameObject.Find("Moon Folder Canvas");
+            canvas3.SetActive(false);
         }
 
         if (statsScript.day > 1 || (dayOneScript != null && dayOneScript.firstPolicy == false))
@@ -727,8 +734,8 @@ public class FolderScript : MonoBehaviour {
         if (statsScript.day > 1)
         {
             //Sets up the prefab to be spawned on the player
-            interactionScript.obj = Instantiate(prefab, interactionScript.spawnPos.transform.position, GameObject.Find("MainCamera").transform.rotation);
-            interactionScript.obj.transform.parent = GameObject.Find("SpawnPos").transform;
+            interactionScript.prefab = Instantiate(prefab, interactionScript.spawnPos.transform.position, GameObject.Find("MainCamera").transform.rotation);
+            interactionScript.prefab.transform.parent = GameObject.Find("SpawnPos").transform;
             interactionScript.holdingPolicy = true;
             interactionScript.holding = true;
             interactionScript.folder = false;
@@ -737,7 +744,7 @@ public class FolderScript : MonoBehaviour {
             interactionScript.FolderOn();
             interactionScript.PolicyScript();
 
-            policyScript = interactionScript.obj.GetComponent<PolicyScript>();
+            policyScript = interactionScript.prefab.GetComponent<PolicyScript>();
         }
         else
         {
