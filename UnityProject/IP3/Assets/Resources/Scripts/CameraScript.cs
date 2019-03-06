@@ -273,7 +273,7 @@ public class CameraScript : MonoBehaviour {
         interactionScript.holding = true;
 
         //Calls the folder and policy methods within the interaction script
-        interactionScript.Folder();
+        interactionScript.FolderOn();
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

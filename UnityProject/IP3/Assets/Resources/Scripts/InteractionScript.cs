@@ -6,20 +6,22 @@ using UnityEngine;
 
 public class InteractionScript : MonoBehaviour
 {
-    [Header ("Game Objects")]
+    [Header("Game Objects")]
     public GameObject prefab;
-    public GameObject spawnPos;
+    public Transform spawnPos;
     public GameObject obj;
     public GameObject phonePanel;
     public TextMesh info;
     GameObject es;
+    GameObject paper;
+    GameObject gameInfoObject;
 
-    [Header ("Cameras")]
+    [Header("Cameras")]
     public GameObject pcCamera, chairCamera, boardCamera;
     public GameObject earthFolderCamera, marsFolderCamera, venusFolderCamera;
     public GameObject conferenceCamera;
 
-    [Header ("Canvas")]
+    [Header("Canvas")]
     public GameObject canvas;
     public GameObject conferenceCanvas;
 
@@ -29,6 +31,7 @@ public class InteractionScript : MonoBehaviour
     public FolderScript folderScript;
     DialogueTrigger dialogueTrigger;
     RobotDialogueTrigger robotDialogueTrigger;
+    RobotDialogueManager robotDialogueManager;
     DialogueManager dialogueManager;
     DayOneScript dayOneScript;
 
@@ -43,36 +46,81 @@ public class InteractionScript : MonoBehaviour
     public bool pcActive;
 
     float dist;
+    public int uses;
 
     string item;
+
+    public bool conferenceCallInteractable = false;
+
+    public bool policy = false;
+
+   // public bool phoneActive = false;
+
+    public GameObject earthCanvas, marsCanvas, venusCanvas, moonCanvas;
+    public GameObject earthCamera, marsCamera, venusCamera, folderCamera;
+    public GameObject robotPanel;
+    public GameObject femaleHologram;
+
+    float maxIntensity = 2.0f;
+    float totalSec = 0.2f;
+
+    PolicyChoices policyChoices;
+    public InteractionScript interactionScript;
+
+    AudioSource trashAudio, faxAudio;
+
+    public AudioSource conferenceCallAudio, pcAudio;
+
+    public AudioClip trashFX, faxFX, typingFX, conferenceCallFX;
 
     //Used to setup the objects
     void Start()
     {
-        spawnPos = GameObject.Find("SpawnPos");
 
         info.gameObject.SetActive(false);
 
-        phoneScript = GameObject.FindGameObjectWithTag("Phone").GetComponent<Phone>();
-        statsScript = GameObject.Find("GameInfoObject").GetComponent<Stats>();
-        dialogueTrigger = GameObject.FindGameObjectWithTag("ConferenceCall").GetComponent<DialogueTrigger>();
-        robotDialogueTrigger = GameObject.FindObjectOfType<RobotDialogueTrigger>();
-        dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager>();
+        statsScript = FindObjectOfType<Stats>();
+        robotDialogueTrigger = FindObjectOfType<RobotDialogueTrigger>();
+        phoneScript = FindObjectOfType<Phone>();
+        dialogueTrigger = FindObjectOfType<DialogueTrigger>();
+        dialogueManager = FindObjectOfType<DialogueManager>();
+        folderScript = FindObjectOfType<FolderScript>();
         dayOneScript = FindObjectOfType<DayOneScript>();
+        robotDialogueManager = FindObjectOfType<RobotDialogueManager>();
+
+        trashAudio = GameObject.FindGameObjectWithTag("Bin").GetComponent<AudioSource>();
+        faxAudio = GameObject.FindGameObjectWithTag("Fax").GetComponent<AudioSource>();
+        pcAudio = GameObject.FindGameObjectWithTag("Fax").GetComponent<AudioSource>();
+        conferenceCallAudio = GameObject.FindGameObjectWithTag("ConferenceCall").GetComponent<AudioSource>();
 
         es = GameObject.Find("EventSystem");
 
-        Folder();
+        paper = (GameObject)Resources.Load("Policy", typeof(GameObject));
+
+        if (GameObject.Find("GameInfoObject DDL") != null)
+        {
+            gameInfoObject = GameObject.Find("GameInfoObject DDL");
+            pcCamera.GetComponent<CameraScript>().statsScript = GameObject.Find("GameInfoObject DDL").GetComponent<Stats>();
+            pcCamera.GetComponent<CameraScript>().CheckScript();
+        }
+        else
+        {
+            gameInfoObject = GameObject.Find("GameInfoObject");
+        }
+
+        FolderOn();
 
         if (statsScript.day == 2)
         {
             robotDialogueTrigger.TriggerRobotDialogue2_1();
         }
+
+        uses = 0;
     }
 
     void Update()
     {
-        if(statsScript.newDay)
+        if (statsScript.newDay)
         {
             statsScript.NewDay();
             statsScript.newDay = false;
@@ -89,17 +137,21 @@ public class InteractionScript : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             //Get the distance to the object from the current position
-            dist = Vector3.Distance(transform.position, hit.collider.gameObject.transform.position);
+            float dist = Vector3.Distance(transform.position, hit.collider.gameObject.transform.position);
 
-            if (hit.collider.gameObject.tag == "Chair" && dist <= 1.5f)
+            if (hit.collider.gameObject.tag == "Chair")
             {
-                info.text = "Press 'F' to sit";
-                info.gameObject.SetActive(true);
-
-                if (Input.GetKeyDown(KeyCode.F))
+                //If the distance to the object is less than 2.5
+                if (dist <= 2.5f)
                 {
-                    chairCamera.SetActive(true);
-                    es.SetActive(true);
+                    info.text = "Press 'F' to sit";
+                    info.gameObject.SetActive(true);
+
+                    if (Input.GetKeyDown(KeyCode.F))
+                    {
+                        info.gameObject.SetActive(false);
+                        chairCamera.SetActive(true);
+                    }
                 }
             }
             else if (hit.collider.gameObject.tag == "Board")
@@ -117,117 +169,163 @@ public class InteractionScript : MonoBehaviour
                     gameObject.SetActive(false);
                 }
             }
-            //If the phone is ringing
-            else if (phoneScript.isRinging == true)
+            else if (hit.collider.gameObject.tag == "Folder")
             {
-                //If the object hit is the phone and the distance to it is less than 5 then 
-                //show the player a message to allow them to answer the phone
-                if (hit.collider.gameObject.tag == "Phone" && dist <= 2.5f)
+                //If the distance to the object is less than 2.5
+                if (dist <= 2.5f)
                 {
-
-                    info.text = "Press 'F' to answer";
+                    info.text = "Press 'F' to open";
                     info.gameObject.SetActive(true);
-                    withinAnswerDistance = true;
-                }
 
-                //Any other object remove the info
-                else
-                {
-                    info.gameObject.SetActive(false);
+                    if (Input.GetKeyDown(KeyCode.F))
+                    {
+                        RotationScript rot = hit.collider.transform.parent.transform.parent.gameObject.GetComponent<RotationScript>();
+
+                        rot.endPos = GameObject.Find("FolderEndPos").transform;
+                        rot.startTime = Time.time;
+                        rot.journeyLength = Vector3.Distance(rot.startPos.position, rot.endPos.position);
+
+                        if (hit.collider.transform.parent.transform.parent.gameObject.name == "Earth Folder")
+                        {
+                            folderCamera = earthCamera;
+                            marsCanvas.SetActive(false);
+                            venusCanvas.SetActive(false);
+                        }
+                        else if (hit.collider.transform.parent.transform.parent.gameObject.name == "Mars Folder")
+                        {
+                            folderCamera = marsCamera;
+                            earthCanvas.SetActive(false);
+                            venusCanvas.SetActive(false);
+                        }
+                        else
+                        {
+                            folderCamera = venusCamera;
+                            earthCanvas.SetActive(false);
+                            marsCanvas.SetActive(false);
+                        }
+
+                        StartCoroutine(FolderOut(rot));
+
+                        GameObject.Find("MainCamera").transform.LookAt(hit.collider.gameObject.transform);
+                    }
                 }
             }
-        }
-        //Any other object remove the info
-        else
-        {
-            info.gameObject.SetActive(false);
-        }
-        //}
-
-
-        //If the user hits F
-        if (Input.GetKeyDown(KeyCode.F) && !holding)
-        {
-            //If the object hit by the raycast is the Folder then activate the folder camera,
-            //activate the cursor and run the folder method 
-            if (hit.collider.gameObject.tag == "Folder")
+            else if (hit.collider.gameObject.tag == "Fax" && holding)
             {
-                GameObject folderCamera = earthFolderCamera;
-
-                switch (hit.collider.transform.parent.transform.parent.gameObject.name)
+                if (dist <= 1.25f)
                 {
-                    case "Earth Folder":
-                        folderCamera = earthFolderCamera;
-                        folderScript = earthFolderCamera.GetComponent<FolderScript>();
+                    info.text = "Press 'F' to enact";
+                    info.gameObject.SetActive(true);
 
-                        GameObject.Find("Mars Folder Canvas").SetActive(false);
-                        GameObject.Find("Venus Folder Canvas").SetActive(false);
-                        GameObject.Find("Moon Folder Canvas").SetActive(false);
-                        break;
+                    //If the player hits F then Destroy the Policy, descrease the time and the stats, 
+                    //Update the PC screen and set holding to false AND set answered to false so the
+                    //phone can ring again
+                    if (Input.GetKeyDown(KeyCode.F))
+                    {
+                        Destroy(prefab);
+                        holding = !holding;
 
-                    case "Mars Folder":
-                        folderCamera = marsFolderCamera;
-                        folderScript = marsFolderCamera.GetComponent<FolderScript>();
+                        for (int i = 0; i < policyScript.decreases.Length; i++)
+                        {
+                            statsScript.stats[i] += policyScript.decreases[i];
+                        }
 
-                        GameObject.Find("Earth Folder Canvas").SetActive(false);
-                        GameObject.Find("Venus Folder Canvas").SetActive(false);
-                        GameObject.Find("Moon Folder Canvas").SetActive(false);
-                        break;
+                        folderScript.buttons = policyScript.buttonAmount;
+                        folderScript.type = policyScript.type;
 
-                    case "Venus Folder":
-                        folderCamera = venusFolderCamera;
-                        folderScript = venusFolderCamera.GetComponent<FolderScript>();
+                        statsScript.chosenPolicies.Add(policyScript.chosenPolicy);
+                        statsScript.chosenPlanets.Add(policyScript.planet);
 
-                        GameObject.Find("Mars Folder Canvas").SetActive(false);
-                        GameObject.Find("Earth Folder Canvas").SetActive(false);
-                        GameObject.Find("Moon Folder Canvas").SetActive(false);
-                        break;
+                        policyChoices.movementChoice = policyScript.movement;
+                        policyChoices.planetType = policyScript.pfm;
+
+                        folderScript.DisableButton();
+                        statsScript.UpdateScreen();
+                        answered = false;
+                        statsScript.TimeForward();
+
+                        faxAudio.clip = faxFX;
+                        faxAudio.PlayOneShot(faxFX);
+
+                        if (policy)
+                        {
+                            uses++;
+                            policy = false;
+                        }
+
+                        if (uses == 1)
+                        {
+                            robotDialogueTrigger.TriggerRobotDialogue2_7();
+                        }
+                    }
                 }
 
-                RotationScript rot = hit.collider.transform.parent.transform.parent.gameObject.GetComponent<RotationScript>();
 
-                rot.endPos = GameObject.Find("FolderEndPos").transform;
-                rot.startTime = Time.time;
-                rot.journeyLength = Vector3.Distance(rot.startPos.position, rot.endPos.position);
-
-                StartCoroutine(FolderOut(rot));
-
-                folderCamera.SetActive(true);
-
-                GameObject.Find("MainCamera").transform.LookAt(hit.collider.gameObject.transform);
             }
-            else if (hit.collider.gameObject.tag == "ConferenceCall")
+            else if (hit.collider.gameObject.tag == "Bin" && holding)
             {
-                conferenceCamera.SetActive(true);
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-                dialogueManager.speakerPanel.SetActive(true);
-                gameObject.SetActive(false);
-                dialogueTrigger.TriggerDialogue();
-                folder = true;
-                Folder();
-                statsScript.TimeForward();
-            }
-
-        }
-        //}
-
-        
-        #region Buttons
-
-        //If the phone is ringing
-        if (phoneScript.isRinging == true)
-        {
-            //If the user presses F and is within answer distance
-            if (Input.GetKeyDown(KeyCode.F) && withinAnswerDistance == true)
-            {
-                //If the object hit by the ray is the phone
-                if (hit.collider.gameObject.tag == "Phone")
+                //If the distance to the bin is less than 1
+                if (dist <= 1.25f)
                 {
-                    if (statsScript.day == 2 && phoneScript.calls == 1)
+                    info.text = "Press 'F' to scrap";
+                    info.gameObject.SetActive(true);
+
+                    //If the player hits F then Destroy the Policy, descrease the time, 
+                    //set holding to false AND set answered to false so the
+                    //phone can ring again
+                    if (Input.GetKeyDown(KeyCode.F))
+                    {
+                        Destroy(prefab);
+                        holding = !holding;
+
+                        statsScript.TimeForward();
+
+                        trashAudio.clip = trashFX;
+                        trashAudio.PlayOneShot(trashFX);
+
+                        if (answered)
+                        {
+                            for (int i = 0; i < policyScript.scrap.Length; i++)
+                            {
+                                statsScript.stats[i] += policyScript.scrap[i];
+                            }
+
+                            answered = false;
+                        }
+
+                        if (policy)
+                        {
+                            uses++;
+                            policy = false;
+                        }
+
+                        if (uses == 1)
+                        {
+                            robotDialogueTrigger.TriggerRobotDialogue2_7();
+                        }
+
+                        if (phoneScript.calls == 2)
+                        {
+                            phoneScript.calls = 0;
+                        }
+                    }
+                }
+            }
+            //If the phone is ringing and If the object hit is the phone and the distance to it is less than 2.5 then 
+            //show the player a message to allow them to answer the phone
+            else if (phoneScript.isRinging == true && hit.collider.gameObject.tag == "Phone" && dist <= 2.5f)
+            {
+                info.text = "Press 'F' to answer";
+                info.gameObject.SetActive(true);
+
+                //If the phone is ringing
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    if (phoneScript.calls == 1)
                     {
                         info.gameObject.SetActive(false);
                         answered = true;
+                        phoneScript.newAudio = true;
                         phoneScript.callMissed = false;
                         phoneScript.ringTimerActive = false;
                         phoneScript.isRinging = false;
@@ -238,6 +336,7 @@ public class InteractionScript : MonoBehaviour
                     {
                         info.gameObject.SetActive(false);
                         answered = true;
+                        phoneScript.newAudio = true;
                         phoneScript.callMissed = false;
                         phoneScript.ringTimerActive = false;
                         phoneScript.isRinging = false;
@@ -247,152 +346,79 @@ public class InteractionScript : MonoBehaviour
                     }
                 }
             }
+
+            //If the conference call is hit, it is interactable and the distance is less than 2.5, then display info text
+            else if (hit.collider.gameObject.tag == "ConferenceCall" && conferenceCallInteractable == true && dist <= 2.5f)
+            {
+                info.text = "Press 'F' to start call";
+                info.gameObject.SetActive(true);
+
+                //If the player presses F, start conference call
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    conferenceCallAudio.Stop();
+                    conferenceCamera.SetActive(true);
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                    dialogueManager.speakerPanel.SetActive(true);
+                    femaleHologram.SetActive(true);
+                    robotDialogueManager.conferencePhoneRing = false;
+                    dialogueTrigger.TriggerDialogue();
+                    folder = true;
+                    FolderOn();
+                    statsScript.TimeForward();
+                    gameObject.SetActive(false);
+                }
+            }
+            //Any other object remove the info
+            else
+            {
+                info.gameObject.SetActive(false);
+            }
         }
+        //Any other object remove the info
+        else
+        {
+            info.gameObject.SetActive(false);
+        }
+
+
 
         //If the phone canvas is active i.e. the user has picked up the phone
         if (phoneCanvasOn)
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
-                if (statsScript.day == 2 && phoneScript.calls == 1)
+                if (phoneScript.calls == 1)
                 {
                     phonePanel.SetActive(false);
-                    phoneCanvasOn = false;
+                    phoneScript.stopAudio = true;
                     robotDialogueTrigger.TriggerRobotDialogue2_3();
+                    phoneCanvasOn = false;
                 }
                 else
                 {
                     phonePanel.SetActive(false);
-                    //Spawn a piece of paper
-                    prefab = (GameObject)Resources.Load("Policy", typeof(GameObject));
-                    obj = Instantiate(prefab, spawnPos.transform.position, GameObject.Find("MainCamera").transform.rotation);
-                    obj.transform.parent = spawnPos.transform;
-                    obj.transform.rotation = obj.transform.rotation * new Quaternion(0, 1, -30, 0);
+
+                    phoneScript.stopAudio = true;
+
+                    prefab = Instantiate(paper, spawnPos.position, GameObject.Find("MainCamera").transform.rotation);
+                    prefab.transform.parent = GameObject.Find("SpawnPos").transform;
                     holding = true;
+
+                    PolicyScript();
+
+                    policyScript.UpdatePolicy(phoneScript.faxChanges, phoneScript.faxChangedNames);
+                    policyScript.UpdateBin(phoneScript.binChanges, phoneScript.binChangedNames);
+
                     phoneCanvasOn = false;
-                    holdingPaper = true;
                 }
             }
         }
-
-        //If holding is true
-        if (holding == true)
-        {
-            //Find the distance to the bin and the fax machine
-            float distToTrash = Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Bin").transform.position);
-            float distToFax = Vector3.Distance(transform.position, GameObject.FindGameObjectWithTag("Fax").transform.position);
-
-            //If holding a boring piece of paper
-            if (holdingPaper == true)
-            {
-                //If the distance to the bin is less than 1
-                //TODO CHANGE THIS TO MAKE USE OF COLLIDERS INSTEAD OF THE DISTANCE
-                if (distToTrash <= 1.5f)
-                {
-                    //If the player hits F then Destroy the paper, descrease the time and the stats, 
-                    //Update the PC screen and set holding to false 
-                    if (Input.GetKeyDown(KeyCode.F))
-                    {
-                        Destroy(obj);
-                        holding = !holding;                                             
-                        holdingPaper = !holdingPaper;
-                        statsScript.TimeForward();
-
-                        if (phoneScript.firstCall)
-                        {
-                            statsScript.stats[6] -= 10;
-                        }
-                        else
-                        {
-                            statsScript.stats[5] -= 5;
-                        }
-
-                        statsScript.UpdateScreen();
-                    }
-                }
-                //If the distance to the fax is less than 1
-                else if (distToFax <= 1.5f)
-                {
-                    //If the player hits F then Destroy the paper, descrease the time and increase the stats, 
-                    //Update the PC screen and set holding to false
-                    if (Input.GetKeyDown(KeyCode.F))
-                    {
-                        Destroy(obj);
-                        holding = !holding;
-                        holdingPaper = !holdingPaper;
-                        statsScript.TimeForward();
-
-                        if (phoneScript.firstCall)
-                        {
-                            statsScript.stats[1] += 0.2f;
-                            statsScript.stats[6] += 10;
-                            statsScript.stats[2] -= 5;
-
-                        }
-                        else
-                        {
-                            statsScript.stats[5] += 10;
-                            statsScript.stats[2] -= 5;
-                        }
-
-                        statsScript.UpdateScreen();
-                    }
-                }
-            }
-
-            //If holding a not so boring piece of paper
-            else if (holdingPolicy == true)
-            {
-                //If the distance to the bin is less than 1
-                if (distToTrash <= 1.0f)
-                {
-                    //If the player hits F then Destroy the Policy, descrease the time, 
-                    //set holding to false AND set answered to false so the
-                    //phone can ring again
-                    if (Input.GetKeyDown(KeyCode.F))
-                    {
-                        Destroy(obj);
-                        holding = !holding;
-                        phoneScript.timeUntilRingTimerActive = true;
-                        holdingPolicy = false;
-                        answered = false;
-                        statsScript.TimeForward();
-                    }
-                }
-                //If the distance to the fax is less than 1
-                else if (distToFax <= 1.0f)
-                {
-                    //If the player hits F then Destroy the Policy, descrease the time and the stats, 
-                    //Update the PC screen and set holding to false AND set answered to false so the
-                    //phone can ring again
-                    if (Input.GetKeyDown(KeyCode.F))
-                    {
-                        Destroy(obj);
-                        holding = !holding;
-                        
-                        for(int i = 0; i < policyScript.decreases.Length; i++)
-                        {
-                            statsScript.stats[i] += policyScript.decreases[i];
-                        }
-
-                        folderScript.buttons = policyScript.buttonAmount;
-                        folderScript.type = policyScript.type;
-                        folderScript.DisableButton();
-                        statsScript.UpdateScreen();
-                        phoneScript.timeUntilRingTimerActive = true;
-                        holdingPolicy = false;
-                        answered = false;
-                        statsScript.TimeForward();
-                    }
-                }
-            }
-        }
-        
-#endregion
     }
 
     //Used to activate the EventSystem so that the buttons do not get clicked when the folder is inactive
-    public void Folder()
+    public void FolderOn()
     {
         if (!folder)
         {
@@ -407,7 +433,12 @@ public class InteractionScript : MonoBehaviour
     //Used to setup the policy script when the object is created
     public void PolicyScript()
     {
-        policyScript = obj.GetComponent<PolicyScript>();
+        policyScript = prefab.GetComponent<PolicyScript>();
+
+        earthCanvas.SetActive(true);
+        marsCanvas.SetActive(true);
+        venusCanvas.SetActive(true);
+        moonCanvas.SetActive(true);
     }
 
     IEnumerator FolderOut(RotationScript rot)
@@ -418,7 +449,7 @@ public class InteractionScript : MonoBehaviour
         rot.enabled = false;
         folderScript.enabled = true;
         folder = true;
-        Folder();
+        FolderOn();
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         folderScript.anim.Play("Open");
@@ -427,3 +458,47 @@ public class InteractionScript : MonoBehaviour
         statsScript.TimeForward();
     }
 }
+
+                //GameObject folderCamera = earthFolderCamera;
+
+                //switch (hit.collider.transform.parent.transform.parent.gameObject.name)
+                //{
+                //    case "Earth Folder":
+                //        folderCamera = earthFolderCamera;
+                //        folderScript = earthFolderCamera.GetComponent<FolderScript>();
+
+                //        GameObject.Find("Mars Folder Canvas").SetActive(false);
+                //        GameObject.Find("Venus Folder Canvas").SetActive(false);
+                //        GameObject.Find("Moon Folder Canvas").SetActive(false);
+                //        break;
+
+                //    case "Mars Folder":
+                //        folderCamera = marsFolderCamera;
+                //        folderScript = marsFolderCamera.GetComponent<FolderScript>();
+
+                //        GameObject.Find("Earth Folder Canvas").SetActive(false);
+                //        GameObject.Find("Venus Folder Canvas").SetActive(false);
+                //        GameObject.Find("Moon Folder Canvas").SetActive(false);
+                //        break;
+
+                //    case "Venus Folder":
+                //        folderCamera = venusFolderCamera;
+                //        folderScript = venusFolderCamera.GetComponent<FolderScript>();
+
+                //        GameObject.Find("Mars Folder Canvas").SetActive(false);
+                //        GameObject.Find("Earth Folder Canvas").SetActive(false);
+                //        GameObject.Find("Moon Folder Canvas").SetActive(false);
+                //        break;
+                //}
+
+                //RotationScript rot = hit.collider.transform.parent.transform.parent.gameObject.GetComponent<RotationScript>();
+
+                //rot.endPos = GameObject.Find("FolderEndPos").transform;
+                //rot.startTime = Time.time;
+                //rot.journeyLength = Vector3.Distance(rot.startPos.position, rot.endPos.position);
+
+                //StartCoroutine(FolderOut(rot));
+
+                //folderCamera.SetActive(true);
+
+                //GameObject.Find("MainCamera").transform.LookAt(hit.collider.gameObject.transform);

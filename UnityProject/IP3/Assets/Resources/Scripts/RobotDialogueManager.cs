@@ -1184,7 +1184,6 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue2_3 = false;
         //robotAudioSource.Stop();
         panel.SetActive(false);
-        timer2 = true;
     }
 
     public void StartRobotDialogue2_4(RobotDialogue robotDialogue)
@@ -1234,6 +1233,7 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue2_4 = false;
         //robotAudioSource.Stop();
         panel.SetActive(false);
+        robotDialogueTrigger.TriggerRobotDialogue2_5();
     }
 
     public void StartRobotDialogue2_5(RobotDialogue robotDialogue)
@@ -1933,19 +1933,19 @@ public class RobotDialogueManager : MonoBehaviour {
             }
         }
 
-        if (timer2)
-        {
-            if (timerForDialogue > 0)
-            {
-                timerForDialogue -= Time.deltaTime;
-            }
-            else
-            {
-                robotDialogueTrigger.TriggerRobotDialogue2_4();
-                timerForDialogue = 5f;
-                timer2 = false;
-            }
-        }
+        //if (timer2)
+        //{
+        //    if (timerForDialogue > 0)
+        //    {
+        //        timerForDialogue -= Time.deltaTime;
+        //    }
+        //    else
+        //    {
+                
+        //        timerForDialogue = 5f;
+        //        timer2 = false;
+        //    }
+        //}
 
         if (dayOneScript.wbActive == true)
         {

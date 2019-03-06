@@ -734,7 +734,7 @@ public class FolderScript : MonoBehaviour {
             interactionScript.folder = false;
 
             //Calls the folder and policy methods within the interaction script
-            interactionScript.Folder();
+            interactionScript.FolderOn();
             interactionScript.PolicyScript();
 
             policyScript = interactionScript.obj.GetComponent<PolicyScript>();
