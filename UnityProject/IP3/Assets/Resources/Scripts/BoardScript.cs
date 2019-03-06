@@ -10,7 +10,7 @@ public class BoardScript : MonoBehaviour {
     DayOneScript dayOneScript;
     Stats statsScript;
 
-    bool firstBoardUse = true;
+    bool firstBoardUse;
 
     // Use this for initialization
     void Start ()
@@ -18,6 +18,7 @@ public class BoardScript : MonoBehaviour {
         dayOneScript = player.GetComponent<DayOneScript>();
         robotDialogueTrigger = FindObjectOfType<RobotDialogueTrigger>();
         statsScript = FindObjectOfType<Stats>();
+        firstBoardUse = true;
     }
 	
 	void Update ()
@@ -33,6 +34,11 @@ public class BoardScript : MonoBehaviour {
                 firstBoardUse = false;
                 dayOneScript.Light();
                 dayOneScript.boardActive = false;
+            }
+            else if (statsScript.day == 2 && firstBoardUse == true)
+            {
+                robotDialogueTrigger.TriggerRobotDialogue2_8();
+                firstBoardUse = false;
             }
         }
     }
