@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CameraScript : MonoBehaviour {
 
-    public GameObject player, chairCamera, canvas, homePage, statsPage, ocPage, currentPage, lastPage, backButton, ocHomePage, earthPage, marsPage, venusPage, moonCanvas, earthCanvas, marsCanvas, venusCanvas;
+    public GameObject player, chairCamera, canvas, homePage, statsPage, ocPage, currentPage, lastPage, backButton, ocHomePage, earthPage, marsPage, venusPage, moonCanvas, earthCanvas, marsCanvas, venusCanvas, es;
     GameObject prefab;
 
     bool firstPCUse = true;
@@ -14,7 +14,6 @@ public class CameraScript : MonoBehaviour {
     RobotDialogueTrigger robotDialogueTrigger;
     DayOneScript dayOneScript;
     public Stats statsScript;
-    ChairCameraScript chairScript;
 
     List<string> statNames = new List<string>();
     List<float> statApprove = new List<float>();
@@ -27,7 +26,6 @@ public class CameraScript : MonoBehaviour {
         interactionScript = GameObject.Find("PlayerController").GetComponentInParent<InteractionScript>();
         dayOneScript = GameObject.Find("PlayerController").GetComponent<DayOneScript>();
         robotDialogueTrigger = FindObjectOfType<RobotDialogueTrigger>();
-        chairScript = FindObjectOfType<ChairCameraScript>();
 
         earthCanvas = GameObject.Find("Earth Folder Canvas");
         marsCanvas = GameObject.Find("Mars Folder Canvas");
@@ -40,6 +38,8 @@ public class CameraScript : MonoBehaviour {
     void Awake()
     {
         statsScript = GameObject.Find("GameInfoObject").GetComponent<Stats>();
+
+        es.SetActive(true);
 
         statsScript.PCnames = GameObject.Find("Text_Name_PC").GetComponent<Text>();
         statsScript.PCnums = GameObject.Find("Text_Numbers_PC").GetComponent<Text>();
@@ -271,6 +271,11 @@ public class CameraScript : MonoBehaviour {
         interactionScript.prefab = Instantiate(prefab, interactionScript.spawnPos.transform.position, GameObject.Find("MainCamera").transform.rotation);
         interactionScript.prefab.transform.parent = GameObject.Find("SpawnPos").transform;
         interactionScript.holding = true;
+        interactionScript.holdingContact = true;
+
+        ContactScript conSc = interactionScript.prefab.GetComponent<ContactScript>();
+
+        conSc.UpdateContact(statNames, statApprove, statDecline, planet);
 
         //Calls the folder and policy methods within the interaction script
         interactionScript.FolderOn();

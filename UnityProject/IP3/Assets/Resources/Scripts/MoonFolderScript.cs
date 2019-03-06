@@ -32,7 +32,6 @@ public class MoonFolderScript : MonoBehaviour {
     void Start()
     {
         statsScript = GameObject.Find("GameInfoObject").GetComponent<Stats>();
-        interactionScript = FindObjectOfType<InteractionScript>();
         dialogueTrigger = FindObjectOfType<RobotDialogueTrigger>();
     }
 
@@ -40,7 +39,9 @@ public class MoonFolderScript : MonoBehaviour {
     {
         anim.Play("Open");
 
+        //Deactivate player while this is open
         player.SetActive(false);
+        interactionScript = player.GetComponent<InteractionScript>();
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -57,9 +58,6 @@ public class MoonFolderScript : MonoBehaviour {
         currentPage = frontPage;
         currentPage.SetActive(true);
 
-        //Sets up the interaction from the player
-        //interactionScript = player.GetComponentInParent<InteractionScript>();
-
         dialogueTrigger = FindObjectOfType<RobotDialogueTrigger>();
 
         canvas1 = GameObject.Find("Earth Folder Canvas");
@@ -73,6 +71,9 @@ public class MoonFolderScript : MonoBehaviour {
 
     void Update()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         if (player == null && GameObject.Find("PlayerController") != null)
         {
             player = GameObject.Find("PlayerController");
@@ -127,6 +128,7 @@ public class MoonFolderScript : MonoBehaviour {
         lastPage = currentPage;
         currentPage = eduPage;
         type = "Education";
+        buttons = 1;
         currentPage.SetActive(true);
     }
 
@@ -136,6 +138,7 @@ public class MoonFolderScript : MonoBehaviour {
         lastPage = currentPage;
         currentPage = healPage;
         type = "Healthcare";
+        buttons = 1;
         currentPage.SetActive(true);
     }
 
@@ -145,6 +148,7 @@ public class MoonFolderScript : MonoBehaviour {
         lastPage = currentPage;
         currentPage = nsPage;
         type = "National Services";
+        buttons = 1;
         currentPage.SetActive(true);
     }
 
@@ -154,6 +158,7 @@ public class MoonFolderScript : MonoBehaviour {
         lastPage = currentPage;
         currentPage = bcPage;
         type = "Border Control";
+        buttons = 1;
         currentPage.SetActive(true);
     }
 
@@ -163,6 +168,7 @@ public class MoonFolderScript : MonoBehaviour {
         lastPage = currentPage;
         currentPage = wrPage;
         type = "Worker Regulations";
+        buttons = 1;
         currentPage.SetActive(true);
     }
 
@@ -172,6 +178,7 @@ public class MoonFolderScript : MonoBehaviour {
         lastPage = currentPage;
         currentPage = fundsPage;
         type = "Population Funds";
+        buttons = 3;
         currentPage.SetActive(true);
 
         pageMain.SetActive(true);
@@ -467,6 +474,7 @@ public class MoonFolderScript : MonoBehaviour {
         interactionScript.holdingPolicy = true;
         interactionScript.holding = true;
         interactionScript.folder = false;
+        interactionScript.moonFolderScript = this;
 
         //Calls the folder and policy methods within the interaction script
         interactionScript.FolderOn();

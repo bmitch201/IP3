@@ -24,6 +24,14 @@ public class Stats : MonoBehaviour {
     public List<string> chosenPlanets = new List<string>();
     public List<string> chosenPolicies = new List<string>();
 
+    public List<string> contactNames = new List<string>();
+    public List<string> contactPlanets = new List<string>();
+
+    public string conPlanet;
+    public float[] contactApprove = new float[8];
+    public float[] contactDecline = new float[8];
+    
+
     public bool conferenceAccept = false;
     public bool conferenceAcceptWithHaggle = false;
 
@@ -49,9 +57,6 @@ public class Stats : MonoBehaviour {
     {
         names = GameObject.Find("Text_Name").GetComponent<Text>();
         nums = GameObject.Find("Text_Numbers").GetComponent<Text>();
-
-        //PCnames = GameObject.Find("Text_Name_PC").GetComponent<Text>();
-        //PCnums = GameObject.Find("Text_Numbers_PC").GetComponent<Text>();
 
         whiteboardText = GameObject.Find("WhiteboardText").GetComponent<Text>();
 
@@ -159,7 +164,6 @@ public class Stats : MonoBehaviour {
         }
 
         auto.value = stats[0];
-        //rev.value = stats[1];
         pubs.value = stats[2];
         cabs.value = stats[3];
         syst.value = stats[4];
@@ -313,6 +317,59 @@ public class Stats : MonoBehaviour {
             time = 9;
             newDay = true;
             SceneManager.LoadScene("End Of Day");
+
+            if (day > 1)
+            {
+                if (conPlanet == "Earth" && stats[5] > 60)
+                {
+                    for (int i = 0; i < stats.Length; i++)
+                    {
+                        contactApprove[i] += stats[i];
+                    }
+                }
+                else if (conPlanet == "Mars" && stats[6] > 60)
+                {
+                    for (int i = 0; i < stats.Length; i++)
+                    {
+                        contactApprove[i] += stats[i];
+                    }
+                }
+                else if (conPlanet == "Venus" && stats[7] > 60)
+                {
+                    for (int i = 0; i < stats.Length; i++)
+                    {
+                        contactApprove[i] += stats[i];
+                    }
+                }
+                else if (conPlanet == "Earth" && stats[5] <= 60)
+                {
+                    for (int i = 0; i < stats.Length; i++)
+                    {
+                        contactDecline[i] += stats[i];
+                    }
+                }
+                else if (conPlanet == "Mars" && stats[6] <= 60)
+                {
+                    for (int i = 0; i < stats.Length; i++)
+                    {
+                        contactDecline[i] += stats[i];
+                    }
+                }
+                else if (conPlanet == "Venus" && stats[7] <= 60)
+                {
+                    for (int i = 0; i < stats.Length; i++)
+                    {
+                        contactDecline[i] += stats[i];
+                    }
+                }
+
+                for (int i = 0; i < stats.Length; i++)
+                {
+                    contactApprove[i] = 0;
+                    contactDecline[i] = 0;
+                }
+            }
+
         }
 
         if (SceneManager.GetActiveScene().name == "Actual Game")

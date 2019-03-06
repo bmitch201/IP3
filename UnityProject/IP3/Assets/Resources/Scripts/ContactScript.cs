@@ -5,22 +5,29 @@ using UnityEngine;
 public class ContactScript : MonoBehaviour {
 
     Stats statsScript;
+    InteractionScript interactionScript;
 
     public string[] names;
-    public float[] approve;
-    public float[] decline;
+
+    string planet;
+    string cName;
+
+    float[] dec = new float[8];
+    float[] app = new float[8];
+
 
     int amount;
 
     void Start()
     {
         statsScript = GameObject.Find("GameInfoObject").GetComponent<Stats>();
+        interactionScript = GameObject.Find("PlayerController").GetComponent<InteractionScript>();
+
+        interactionScript.contactScript = this;
 
         amount = statsScript.statNames.Length;
 
         names = new string[amount];
-        approve = new float[amount];
-        decline = new float[amount];
 
         for (int i = 0; i < amount; i++)
         {
@@ -28,9 +35,13 @@ public class ContactScript : MonoBehaviour {
         }
     }
 	
-	public void UpdatePolicy(List<string> changedStats, List<float> approved, List<float> declined)
+	public void UpdateContact(/*string conName,*/ List<string> changedStats, List<float> approved, List<float> declined, string plan)
     {
         int k = 0;
+
+        planet = plan;
+
+        //cName = conName;
 
         for(int i = 0; i < amount; i++)
         {
@@ -38,12 +49,26 @@ public class ContactScript : MonoBehaviour {
             {
                 if(name == names[i])
                 {
-                    approve[i] = approved[k];
-                    decline[i] = declined[k];
+                    app[i] = approved[k];
+                    dec[i] = declined[k];
 
                     k++;
                 }
             }
+        }
+    }
+
+    public void Enact()
+    {
+        statsScript.conPlanet = planet;        
+        
+        //statsScript.contactNames.Add(cName);
+        statsScript.contactPlanets.Add(planet);
+
+        for(int i = 0; i < app.Length; i++)
+        {
+            statsScript.contactApprove[i] += app[i];
+            statsScript.contactDecline[i] += dec[i];
         }
     }
 }

@@ -18,7 +18,6 @@ public class InteractionScript : MonoBehaviour
 
     [Header("Cameras")]
     public GameObject pcCamera, chairCamera, boardCamera;
-    //public GameObject earthFolderCamera, marsFolderCamera, venusFolderCamera;
     public GameObject conferenceCamera;
 
     [Header("Canvas")]
@@ -34,11 +33,13 @@ public class InteractionScript : MonoBehaviour
     RobotDialogueManager robotDialogueManager;
     DialogueManager dialogueManager;
     DayOneScript dayOneScript;
+    public ContactScript contactScript;
+    public MoonFolderScript moonFolderScript;
 
     [Header("Booleans")]
     public bool holding;
     bool holdingPaper;
-    public bool holdingPolicy;
+    public bool holdingPolicy, holdingContact;
     public bool withinAnswerDistance;
     public bool answered;
     bool phoneCanvasOn;
@@ -65,7 +66,6 @@ public class InteractionScript : MonoBehaviour
     float totalSec = 0.2f;
 
     PolicyChoices policyChoices;
-    public InteractionScript interactionScript;
 
     AudioSource trashAudio, faxAudio;
 
@@ -240,38 +240,58 @@ public class InteractionScript : MonoBehaviour
                         Destroy(prefab);
                         holding = !holding;
 
-                        for (int i = 0; i < policyScript.decreases.Length; i++)
+                        if (holdingPolicy)
                         {
-                            statsScript.stats[i] += policyScript.decreases[i];
+                            for (int i = 0; i < policyScript.decreases.Length; i++)
+                            {
+                                statsScript.stats[i] += policyScript.decreases[i];
+                            }
+
+                            if (folderScript != null && moonFolderScript == null)
+                            {
+                                folderScript.buttons = policyScript.buttonAmount;
+                                folderScript.type = policyScript.type;
+                                policyChoices.movementChoice = policyScript.movement;
+                            }
+                            else
+                            {
+                                moonFolderScript.buttons = policyScript.buttonAmount;
+                                moonFolderScript.type = policyScript.type;
+                            }
+
+                            statsScript.chosenPolicies.Add(policyScript.chosenPolicy);
+                            statsScript.chosenPlanets.Add(policyScript.planet);
+
+                            policyChoices.planetType = policyScript.pfm;
+
+                            folderScript.DisableButton();
+                            answered = false;
+
+                            if (policy)
+                            {
+                                uses++;
+                                policy = false;
+                            }
+
+                            if (uses == 1)
+                            {
+                                robotDialogueTrigger.TriggerRobotDialogue2_7();
+                            }
+
+                            holdingPolicy = false;
+                        }
+                        else if (holdingContact)
+                        {
+                            prefab.GetComponent<ContactScript>().Enact();
+
+                            holdingContact = false;
                         }
 
-                        folderScript.buttons = policyScript.buttonAmount;
-                        folderScript.type = policyScript.type;
-
-                        statsScript.chosenPolicies.Add(policyScript.chosenPolicy);
-                        statsScript.chosenPlanets.Add(policyScript.planet);
-
-                        policyChoices.movementChoice = policyScript.movement;
-                        policyChoices.planetType = policyScript.pfm;
-
-                        folderScript.DisableButton();
                         statsScript.UpdateScreen();
-                        answered = false;
                         statsScript.TimeForward();
 
                         faxAudio.clip = faxFX;
                         faxAudio.PlayOneShot(faxFX);
-
-                        if (policy)
-                        {
-                            uses++;
-                            policy = false;
-                        }
-
-                        if (uses == 1)
-                        {
-                            robotDialogueTrigger.TriggerRobotDialogue2_7();
-                        }
                     }
                 }
 
