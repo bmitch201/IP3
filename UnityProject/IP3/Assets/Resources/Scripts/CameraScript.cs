@@ -16,6 +16,12 @@ public class CameraScript : MonoBehaviour {
     public Stats statsScript;
     ChairCameraScript chairScript;
 
+    List<string> statNames = new List<string>();
+    List<float> statApprove = new List<float>();
+    List<float> statDecline = new List<float>();
+
+    string planet;
+
     void Start()
     {
         interactionScript = GameObject.Find("PlayerController").GetComponentInParent<InteractionScript>();
@@ -26,6 +32,9 @@ public class CameraScript : MonoBehaviour {
         earthCanvas = GameObject.Find("Earth Folder Canvas");
         marsCanvas = GameObject.Find("Mars Folder Canvas");
         venusCanvas = GameObject.Find("Venus Folder Canvas");
+
+        statNames.Add("Autonomy");
+        statNames.Add("Public_Support");
     }
 
     void Awake()
@@ -153,18 +162,16 @@ public class CameraScript : MonoBehaviour {
         currentPage.SetActive(true);
     }
 
-    public void EHealthcare()
+    public void EarthChoice()
     {
-        ReturnToPlayer();
-    }
+        statApprove.Add(-5f);
+        statApprove.Add(5f);
 
-    public void ETravel()
-    {
-        ReturnToPlayer();
-    }
+        statDecline.Add(5f);
+        statApprove.Add(-5f);
 
-    public void EWorker()
-    {
+        planet = "Earth";
+
         ReturnToPlayer();
     }
 
@@ -183,18 +190,16 @@ public class CameraScript : MonoBehaviour {
         currentPage.SetActive(true);
     }
 
-    public void MHealthcare()
+    public void MarsChoice()
     {
-        ReturnToPlayer();
-    }
+        statApprove.Add(-5f);
+        statApprove.Add(5f);
 
-    public void MTravel()
-    {
-        ReturnToPlayer();
-    }
+        statDecline.Add(5f);
+        statApprove.Add(-5f);
 
-    public void MWorker()
-    {
+        planet = "Mars";
+
         ReturnToPlayer();
     }
 
@@ -213,18 +218,16 @@ public class CameraScript : MonoBehaviour {
         currentPage.SetActive(true);
     }
 
-    public void VHealthcare()
+    public void VenusChoice()
     {
-        ReturnToPlayer();
-    }
+        statApprove.Add(-5f);
+        statApprove.Add(5f);
 
-    public void VTravel()
-    {
-        ReturnToPlayer();
-    }
+        statDecline.Add(5f);
+        statApprove.Add(-5f);
 
-    public void VWorker()
-    {
+        planet = "Venus";
+
         ReturnToPlayer();
     }
 
@@ -285,6 +288,9 @@ public class CameraScript : MonoBehaviour {
             canvas.SetActive(true);
             interactionScript.pcActive = false;
         }
+
+        statApprove.Clear();
+        statDecline.Clear();
 
         gameObject.SetActive(false);
     }
