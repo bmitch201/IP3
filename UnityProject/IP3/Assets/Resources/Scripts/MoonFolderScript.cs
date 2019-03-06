@@ -32,6 +32,8 @@ public class MoonFolderScript : MonoBehaviour {
     void Start()
     {
         statsScript = GameObject.Find("GameInfoObject").GetComponent<Stats>();
+        interactionScript = FindObjectOfType<InteractionScript>();
+        dialogueTrigger = FindObjectOfType<RobotDialogueTrigger>();
     }
 
     void Awake()
@@ -467,7 +469,7 @@ public class MoonFolderScript : MonoBehaviour {
         interactionScript.folder = false;
 
         //Calls the folder and policy methods within the interaction script
-        interactionScript.Folder();
+        interactionScript.FolderOn();
         interactionScript.PolicyScript();
 
         policyScript = interactionScript.obj.GetComponent<PolicyScript>();
@@ -486,5 +488,10 @@ public class MoonFolderScript : MonoBehaviour {
         changes.Clear();
 
         gameObject.SetActive(false);
+
+        if (interactionScript.uses == 0)
+        {
+            dialogueTrigger.TriggerRobotDialogue2_6();
+        }
     }
 }

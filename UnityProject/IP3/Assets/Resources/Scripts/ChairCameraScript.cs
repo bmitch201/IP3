@@ -8,6 +8,7 @@ public class ChairCameraScript : MonoBehaviour
     DayOneScript dos;
     InteractionScript ins;
     Stats statsScript;
+    RobotDialogueTrigger rdt;
 
     public float speedH = 1.0f;
     public float speedV = 1.0f;
@@ -33,6 +34,7 @@ public class ChairCameraScript : MonoBehaviour
         dos = player.GetComponentInParent<DayOneScript>();
         ins = player.GetComponentInParent<InteractionScript>();
         statsScript = GameObject.Find("GameInfoObject").GetComponent<Stats>();
+        rdt = FindObjectOfType<RobotDialogueTrigger>();
 
         pcAudio = GameObject.FindGameObjectWithTag("PC").GetComponent<AudioSource>();
 
@@ -145,6 +147,11 @@ public class ChairCameraScript : MonoBehaviour
                     else
                     {
                         ins.enabled = true;
+                    }
+
+                    if (ins.uses == 0)
+                    {
+                        rdt.TriggerRobotDialogue2_4();
                     }
 
                     player.SetActive(true);

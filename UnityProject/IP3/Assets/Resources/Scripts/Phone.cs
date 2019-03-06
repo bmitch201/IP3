@@ -59,7 +59,7 @@ public class Phone : MonoBehaviour
         interactionScript = playerObj.GetComponent<InteractionScript>();
 
         gameInfoObj = GameObject.Find("GameInfoObject");
-        statsScript = gameInfoObj.GetComponent<Stats>();
+        statsScript = FindObjectOfType<Stats>();
         dayOneScript = FindObjectOfType<DayOneScript>();
         robotDialogueTrigger = FindObjectOfType<RobotDialogueTrigger>();
 
@@ -117,6 +117,11 @@ public class Phone : MonoBehaviour
                 calls++;
                 dayOneScript.phoneActive = false;
             }
+        }
+
+        if (statsScript.time == 3)
+        {
+            phoneIsActive = true;
         }
 
         if (phoneIsActive == true)
