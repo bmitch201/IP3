@@ -16,18 +16,6 @@ public class EndOfDayScript : MonoBehaviour
     public string C;
     public string D;
 
-    public string policy1;
-    public string planet1;
-    public string description1;
-
-    public string policy2;
-    public string planet2;
-    public string description2;
-
-    public string policy3;
-    public string planet3;
-    public string description3;
-
     public string phone1A;
     public string phone1B;
 
@@ -38,6 +26,10 @@ public class EndOfDayScript : MonoBehaviour
     public string conferenceA;
     public string conferenceB;
     public string conferenceC;
+
+    public string[] policyName;
+    public string[] policyDescription;
+    List<int> description = new List<int>();
 
     public Text taskText;
 
@@ -164,7 +156,19 @@ public class EndOfDayScript : MonoBehaviour
         //    policyText.text = "There was no Movement Policy chosen this day.";
         //}
 
-        //policy1 = 
+        for (int i = 0; i < policyName.Length; i++)
+        {
+            foreach (string j in statsScript.chosenPolicies)
+            {
+                if (j == policyName[i])
+                {
+                    description.Add(i);
+                }
+            }
+
+        }
+
+        policy1Text.text = "You also took your first steps into shaping the future of the independent moon by enacting the " + statsScript.chosenPolicies[0] + " policy for Earth, which means " + policyDescription[description[0]] + ". Following that, you enacted the " + statsScript.chosenPolicies[1] + " policy for " + statsScript.chosenPlanets[1] + ", which means " + policyDescription[description[1]]; 
     }
 
     public void CheckPhone()

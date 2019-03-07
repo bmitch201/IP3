@@ -292,6 +292,8 @@ public class DayOneScript : MonoBehaviour {
                         policyChoices.movementChoice = policyScript.movement;
                         policyChoices.planetType = policyScript.pfm;
 
+                        statsScript.phonecallAccept.Add(phoneScript.phonecall);
+
                         folderScript.DisableButton();
                         statsScript.UpdateScreen();
                         answered = false;
@@ -360,7 +362,7 @@ public class DayOneScript : MonoBehaviour {
                         Destroy(prefab);
                         holding = !holding;
 
-                        
+                        statsScript.phonecallDecline.Add(phoneScript.phonecall);
 
                         policyIntractable = true;
                         statsScript.TimeForward();

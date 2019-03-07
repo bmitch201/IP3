@@ -9,6 +9,7 @@ public class Phone : MonoBehaviour
     [TextArea(3, 154)]
     public string[] phoneCalls;
     public Text phoneCallText;
+    public string phonecall;
 
     [Header("Booleans")]
     public bool isRinging;
@@ -95,6 +96,8 @@ public class Phone : MonoBehaviour
 
                     binChangedNames.Add("Mars_Relationship");
 
+                    phonecall = "Mars Helium";
+
                 }
                 else if (!firstCall)
                 {
@@ -109,9 +112,11 @@ public class Phone : MonoBehaviour
                     faxChangedNames.Add("System_Tension");
                     faxChangedNames.Add("Autonomy");
 
-                    binChanges.Add(-5);
+                    binChanges.Add(-10);
 
-                    binChangedNames.Add("Earth_Relationship");
+                    binChangedNames.Add("Venus_Relationship");
+
+                    phonecall = "Venus Moon Territory";
                 }
 
                 calls++;

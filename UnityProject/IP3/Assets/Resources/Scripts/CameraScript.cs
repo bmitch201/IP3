@@ -68,6 +68,8 @@ public class CameraScript : MonoBehaviour {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
+        es.SetActive(true);
+
         //if the player hits F then activate the player and deactivate the PC camera/screen
         if (Input.GetKeyDown(KeyCode.F))
         {

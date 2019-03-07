@@ -30,7 +30,9 @@ public class Stats : MonoBehaviour {
     public string conPlanet;
     public float[] contactApprove = new float[8];
     public float[] contactDecline = new float[8];
-    
+
+    public List<string> phonecallAccept = new List<string>();
+    public List<string> phonecallDecline = new List<string>();
 
     public bool conferenceAccept = false;
     public bool conferenceAcceptWithHaggle = false;
@@ -181,112 +183,112 @@ public class Stats : MonoBehaviour {
 
     public void StatChanges()
     {
-        for (int i = 0; i < statNames.Length; i++)
-        {
-            if (statNames[i] == "Autonomy")
-            {               
-                if (stats[i] > 75)
-                {
-                    stats[5] = erOld;
-                    stats[5] = stats[5] - 10;
-                }
-                else if (stats[i] > 50 && stats[i] <= 75)
-                {
-                    stats[5] = erOld;
-                    stats[5] = stats[5] - 5;
-                }
-                else if (stats[i] > 25 && stats[i] <= 50)
-                {
-                    stats[5] = erOld;
-                    stats[5] = stats[5] + 5;
-                }
-                else if (stats[i] <= 25)
-                {
-                    stats[5] = erOld;
-                    stats[5] = stats[5] + 10;
-                }
+        //for (int i = 0; i < statNames.Length; i++)
+        //{
+        //    if (statNames[i] == "Autonomy")
+        //    {               
+        //        if (stats[i] > 75)
+        //        {
+        //            stats[5] = erOld;
+        //            stats[5] = stats[5] - 10;
+        //        }
+        //        else if (stats[i] > 50 && stats[i] <= 75)
+        //        {
+        //            stats[5] = erOld;
+        //            stats[5] = stats[5] - 5;
+        //        }
+        //        else if (stats[i] > 25 && stats[i] <= 50)
+        //        {
+        //            stats[5] = erOld;
+        //            stats[5] = stats[5] + 5;
+        //        }
+        //        else if (stats[i] <= 25)
+        //        {
+        //            stats[5] = erOld;
+        //            stats[5] = stats[5] + 10;
+        //        }
 
-                erNew = stats[5];
-            }
+        //        erNew = stats[5];
+        //    }
 
-            if (statNames[i] == "Revenue")
-            {             
-                if (stats[i] > 75)
-                {
-                    stats[4] = stOld;
-                    stats[4] = stats[4] + 10;
-                }
-                else if (stats[i] > 50 && stats[i] <= 75)
-                {
-                    stats[4] = stOld;
-                    stats[4] = stats[4] + 5;
-                }
-                else if (stats[i] > 25 && stats[i] <= 50)
-                {
-                    stats[4] = stOld;
-                    stats[4] = stats[4] - 5;
-                }
-                else if (stats[i] <= 25)
-                {
-                    stats[4] = stOld;
-                    stats[4] = stats[4] - 10;
-                }
+        //    if (statNames[i] == "Revenue")
+        //    {             
+        //        if (stats[i] > 75)
+        //        {
+        //            stats[4] = stOld;
+        //            stats[4] = stats[4] + 10;
+        //        }
+        //        else if (stats[i] > 50 && stats[i] <= 75)
+        //        {
+        //            stats[4] = stOld;
+        //            stats[4] = stats[4] + 5;
+        //        }
+        //        else if (stats[i] > 25 && stats[i] <= 50)
+        //        {
+        //            stats[4] = stOld;
+        //            stats[4] = stats[4] - 5;
+        //        }
+        //        else if (stats[i] <= 25)
+        //        {
+        //            stats[4] = stOld;
+        //            stats[4] = stats[4] - 10;
+        //        }
 
-                stNew = stats[4];
-            }
+        //        stNew = stats[4];
+        //    }
 
-            if (statNames[i] == "Public_Support")
-            {             
-                if (stats[i] > 75)
-                {
-                    stats[3] = csOld;
-                    stats[3] = stats[3] - 10;
-                }
-                else if (stats[i] > 50 && stats[i] <= 75)
-                {
-                    stats[3] = csOld;
-                    stats[3] = stats[3] - 5;
-                }
-                else if (stats[i] > 25 && stats[i] <= 50)
-                {
-                    stats[3] = csOld;
-                    stats[3] = stats[3] + 5;
-                }
-                else if (stats[i] <= 25)
-                {
-                    stats[3] = csOld;
-                    stats[3] = stats[3] + 10;
-                }
+        //    if (statNames[i] == "Public_Support")
+        //    {             
+        //        if (stats[i] > 75)
+        //        {
+        //            stats[3] = csOld;
+        //            stats[3] = stats[3] - 10;
+        //        }
+        //        else if (stats[i] > 50 && stats[i] <= 75)
+        //        {
+        //            stats[3] = csOld;
+        //            stats[3] = stats[3] - 5;
+        //        }
+        //        else if (stats[i] > 25 && stats[i] <= 50)
+        //        {
+        //            stats[3] = csOld;
+        //            stats[3] = stats[3] + 5;
+        //        }
+        //        else if (stats[i] <= 25)
+        //        {
+        //            stats[3] = csOld;
+        //            stats[3] = stats[3] + 10;
+        //        }
 
-                csNew = stats[3];
-            }
+        //        csNew = stats[3];
+        //    }
 
-            if (statNames[i] == "Mars_Relationship")
-            {          
-                if (stats[i] > 75)
-                {
-                    stats[7] = vrOld;
-                    stats[7] = stats[7] - 10;
-                }
-                else if (stats[i] > 50 && stats[i] <= 75)
-                {
-                    stats[7] = vrOld;
-                    stats[7] = stats[7] - 5;
-                }
-                else if (stats[i] > 25 && stats[i] <= 50)
-                {
-                    stats[7] = vrOld;
-                    stats[7] = stats[7] + 5;
-                }
-                else if (stats[i] <= 25)
-                {
-                    stats[7] = vrOld;
-                    stats[7] = stats[7] + 10;
-                }
+        //    if (statNames[i] == "Mars_Relationship")
+        //    {          
+        //        if (stats[i] > 75)
+        //        {
+        //            stats[7] = vrOld;
+        //            stats[7] = stats[7] - 10;
+        //        }
+        //        else if (stats[i] > 50 && stats[i] <= 75)
+        //        {
+        //            stats[7] = vrOld;
+        //            stats[7] = stats[7] - 5;
+        //        }
+        //        else if (stats[i] > 25 && stats[i] <= 50)
+        //        {
+        //            stats[7] = vrOld;
+        //            stats[7] = stats[7] + 5;
+        //        }
+        //        else if (stats[i] <= 25)
+        //        {
+        //            stats[7] = vrOld;
+        //            stats[7] = stats[7] + 10;
+        //        }
 
-                vrNew = stats[7];
-            }
-        }        
+        //        vrNew = stats[7];
+        //    }
+        //}        
     }
 
 

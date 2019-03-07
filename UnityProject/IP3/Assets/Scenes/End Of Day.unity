@@ -23,10 +23,10 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -35,10 +35,10 @@ RenderSettings:
   m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
-  m_ReflectionIntensity: 1
+  m_ReflectionIntensity: 0
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 0}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -732,15 +732,6 @@ MonoBehaviour:
     daily tasks you complete, the more support you\u2019ll get from the cabinet!"
   D: brilliant! Keep this up and surely great things will follow for the Moon! The
     cabinet definitely made the right choice with you and they know it!
-  policy1: 
-  planet1: 
-  description1: 
-  policy2: 
-  planet2: 
-  description2: 
-  policy3: 
-  planet3: 
-  description3: 
   phone1A: struck a deal with Mars to supply them with high quality helium, which
     would generate a good amount of revenue for the Moon, but angered the population
     slightly.
@@ -774,6 +765,40 @@ MonoBehaviour:
     remove their new hard border. It is clear that this will cause too many unnecessary
     issues for both our and their citizens but it seems they are determined to proceed
     with this nonsense!\u201D"
+  policyName:
+  - No Tax
+  - Low Tax
+  - High Tax
+  - Very High Tax
+  - Free Worker Movement
+  - No Worker Movement
+  - Free Tourist Movement
+  - No Tourist Movement
+  - Free Student Movement
+  - No Student Movement
+  - Open Export
+  - Closed Export
+  - Open Import
+  - Closed Import
+  - Open Trade
+  - Closed Trade
+  policyDescription:
+  - their citizens will pay no taxes while on the Moon.
+  - their citizens will pay low taxes while on the Moon.
+  - their citizens will pay high taxes while on the Moon.
+  - their citizens will pay very high taxes while on the Moon.
+  - their citizens will have the right to work on the Moon.
+  - their citizens will not have the right to work on the Moon.
+  - their citizens will have the right to visit the Moon as tourists.
+  - their citizens will not have the right to visit the Moon as tourists
+  - their citizens will have the right to study on the Moon.
+  - their citizens will not have the right to study on the Moon.
+  - the Moon will open the export of trade goods to them.
+  - the Moon will close the export of trade goods to them.
+  - the Moon will open the import of trade goods from there.
+  - the Moon will close the import of trade goods from there.
+  - the Moon will allow trade routes to pass through its territory for them.
+  - the Moon will refuse trade routes to pass through its territory for them.
   taskText: {fileID: 2081710018}
   policy1Text: {fileID: 123231831}
   policy2Text: {fileID: 123231831}
@@ -1296,6 +1321,7 @@ GameObject:
   - component: {fileID: 2054610340}
   - component: {fileID: 2054610339}
   - component: {fileID: 2054610338}
+  - component: {fileID: 2054610341}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -1343,8 +1369,8 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
+  m_HDR: 0
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -1363,6 +1389,63 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2054610341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2054610337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23c1ce4fb46143f46bc5cb5224c934f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  clearColorMode: 0
+  backgroundColorHDR: {r: 0.025, g: 0.07, b: 0.19, a: 0}
+  clearDepth: 1
+  renderingPath: 0
+  volumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  aperture: 8
+  shutterSpeed: 0.005
+  iso: 400
+  m_FrameSettings:
+    enableShadow: 1
+    enableContactShadows: 1
+    enableSSR: 1
+    enableSSAO: 1
+    enableSubsurfaceScattering: 1
+    enableTransmission: 1
+    enableAtmosphericScattering: 1
+    enableVolumetrics: 1
+    diffuseGlobalDimmer: 1
+    specularGlobalDimmer: 1
+    enableForwardRenderingOnly: 0
+    enableDepthPrepassWithDeferredRendering: 0
+    enableTransparentPrepass: 1
+    enableMotionVectors: 1
+    enableObjectMotionVectors: 1
+    enableDBuffer: 1
+    enableRoughRefraction: 1
+    enableTransparentPostpass: 1
+    enableDistortion: 1
+    enablePostprocess: 1
+    enableStereo: 1
+    enableAsyncCompute: 1
+    enableOpaqueObjects: 1
+    enableTransparentObjects: 1
+    enableMSAA: 0
+    enableShadowMask: 1
+    lightLoopSettings:
+      enableTileAndCluster: 1
+      enableComputeLightEvaluation: 1
+      enableComputeLightVariants: 1
+      enableComputeMaterialVariants: 1
+      enableFptlForForwardOpaque: 1
+      enableBigTilePrepass: 1
+      isFptlEnabled: 1
 --- !u!1 &2081710016
 GameObject:
   m_ObjectHideFlags: 0
