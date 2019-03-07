@@ -104,7 +104,7 @@ public class RobotDialogueManager : MonoBehaviour {
     Stats statsScript;
     RobotDialogueTrigger robotDialogueTrigger;
     DayOneScript dayOneScript;
-    InteractionScript interactionScript;
+    //InteractionScript interactionScript;
     Phone phoneScript;
 
     float timerForDialogue = 5f;
@@ -114,7 +114,7 @@ public class RobotDialogueManager : MonoBehaviour {
     {
         robotDialogueTrigger = GameObject.Find("Robot").GetComponent<RobotDialogueTrigger>();
         dayOneScript = FindObjectOfType<DayOneScript>();
-        interactionScript = FindObjectOfType<InteractionScript>();
+        //interactionScript = FindObjectOfType<InteractionScript>();
         phoneScript = FindObjectOfType<Phone>();
         robotAudioSource = GameObject.Find("Robot").GetComponent<AudioSource>();
         panel = GameObject.Find("RobotPanel");

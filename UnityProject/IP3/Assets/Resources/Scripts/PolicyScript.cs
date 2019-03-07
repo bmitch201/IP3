@@ -5,7 +5,6 @@ using UnityEngine;
 public class PolicyScript : MonoBehaviour
 {
     Stats statsScript;
-    PolicyChoices policyChoicesScript;
 
     public string[] names;
     public float[] decreases;
@@ -26,7 +25,6 @@ public class PolicyScript : MonoBehaviour
     void Awake()
     {
         statsScript = GameObject.Find("GameInfoObject").GetComponent<Stats>();
-        policyChoicesScript = GameObject.Find("GameInfoObject").GetComponent<PolicyChoices>();
 
         amount = statsScript.statNames.Length;
 

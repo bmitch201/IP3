@@ -50,7 +50,7 @@ public class ChairCameraScript : MonoBehaviour
 
     void Update()
     {
-        if (player.active)
+        if (player.activeInHierarchy)
         {
             player.SetActive(false);
             dos.enabled = false;

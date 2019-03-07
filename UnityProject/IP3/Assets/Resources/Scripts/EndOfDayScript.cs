@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class EndOfDayScript : MonoBehaviour
 {
     Stats statsScript;
-    PolicyChoices policyChoices;
+    //PolicyChoices policyChoices;
 
     public int noOfTasks = 0;
 
@@ -47,7 +47,7 @@ public class EndOfDayScript : MonoBehaviour
     void Start()
     {
         statsScript = GameObject.FindObjectOfType<Stats>();
-        policyChoices = GameObject.FindObjectOfType<PolicyChoices>();
+        //policyChoices = GameObject.FindObjectOfType<PolicyChoices>();
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;

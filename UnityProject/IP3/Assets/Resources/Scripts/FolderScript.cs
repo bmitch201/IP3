@@ -8,10 +8,10 @@ public class FolderScript : MonoBehaviour {
     InteractionScript interactionScript;
     DayOneScript dayOneScript;
     RobotDialogueTrigger dialogueTrigger;
-    PolicyChoices policyChoices;
+    //PolicyChoices policyChoices;
     Stats statsScript;
 
-    bool firstUse = true;
+    //bool firstUse = true;
 
     [Header ("Animations")]
     public Animator anim;
@@ -39,7 +39,7 @@ public class FolderScript : MonoBehaviour {
 
     void Start()
     {
-        policyChoices = GameObject.Find("GameInfoObject").GetComponent<PolicyChoices>();
+        //policyChoices = GameObject.Find("GameInfoObject").GetComponent<PolicyChoices>();
         statsScript = GameObject.Find("GameInfoObject").GetComponent<Stats>();
     }
 
@@ -79,7 +79,7 @@ public class FolderScript : MonoBehaviour {
 
         if(statsScript == null)
         {
-            policyChoices = GameObject.Find("GameInfoObject").GetComponent<PolicyChoices>();
+            //policyChoices = GameObject.Find("GameInfoObject").GetComponent<PolicyChoices>();
             statsScript = GameObject.Find("GameInfoObject").GetComponent<Stats>();
         }
 
@@ -771,10 +771,10 @@ public class FolderScript : MonoBehaviour {
 
             policyScript = dayOneScript.prefab.GetComponent<PolicyScript>();
 
-            if (dayOneScript.uses == 2)
-            {
-                firstUse = false;
-            }
+            //if (dayOneScript.uses == 2)
+            //{
+            //    firstUse = false;
+            //}
         }
 
         //Sets up the stats for the policy script

@@ -42,12 +42,11 @@ public class Phone : MonoBehaviour
     AudioSource audioSource;
 
     GameObject playerObj;
-    GameObject gameInfoObj;
 
     InteractionScript interactionScript;
     Stats statsScript;
     DayOneScript dayOneScript;
-    RobotDialogueTrigger robotDialogueTrigger;
+    //RobotDialogueTrigger robotDialogueTrigger;
 
     void Start()
     {
@@ -59,10 +58,9 @@ public class Phone : MonoBehaviour
         playerObj = GameObject.FindGameObjectWithTag("Player");
         interactionScript = playerObj.GetComponent<InteractionScript>();
 
-        gameInfoObj = GameObject.Find("GameInfoObject");
         statsScript = FindObjectOfType<Stats>();
         dayOneScript = FindObjectOfType<DayOneScript>();
-        robotDialogueTrigger = FindObjectOfType<RobotDialogueTrigger>();
+        //robotDialogueTrigger = FindObjectOfType<RobotDialogueTrigger>();
 
         audioSource = GameObject.FindGameObjectWithTag("Phone").GetComponent<AudioSource>();
     }

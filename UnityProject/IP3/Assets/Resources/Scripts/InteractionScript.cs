@@ -13,7 +13,6 @@ public class InteractionScript : MonoBehaviour
     public TextMesh info;
     GameObject es;
     GameObject paper;
-    GameObject gameInfoObject;
 
     [Header("Cameras")]
     public GameObject pcCamera, chairCamera, boardCamera;
@@ -31,7 +30,6 @@ public class InteractionScript : MonoBehaviour
     RobotDialogueTrigger robotDialogueTrigger;
     RobotDialogueManager robotDialogueManager;
     DialogueManager dialogueManager;
-    DayOneScript dayOneScript;
     public ContactScript contactScript;
     public MoonFolderScript moonFolderScript;
 
@@ -59,9 +57,6 @@ public class InteractionScript : MonoBehaviour
     public GameObject robotPanel;
     public GameObject femaleHologram;
 
-    float maxIntensity = 2.0f;
-    float totalSec = 0.2f;
-
     PolicyChoices policyChoices;
 
     AudioSource trashAudio, faxAudio;
@@ -83,7 +78,6 @@ public class InteractionScript : MonoBehaviour
         dialogueTrigger = FindObjectOfType<DialogueTrigger>();
         dialogueManager = FindObjectOfType<DialogueManager>();
         folderScript = FindObjectOfType<FolderScript>();
-        dayOneScript = FindObjectOfType<DayOneScript>();
         robotDialogueManager = FindObjectOfType<RobotDialogueManager>();
 
         trashAudio = GameObject.FindGameObjectWithTag("Bin").GetComponent<AudioSource>();
@@ -97,13 +91,8 @@ public class InteractionScript : MonoBehaviour
 
         if (GameObject.Find("GameInfoObject DDL") != null)
         {
-            gameInfoObject = GameObject.Find("GameInfoObject DDL");
             pcCamera.GetComponent<CameraScript>().statsScript = GameObject.Find("GameInfoObject DDL").GetComponent<Stats>();
             pcCamera.GetComponent<CameraScript>().CheckScript();
-        }
-        else
-        {
-            gameInfoObject = GameObject.Find("GameInfoObject");
         }
 
         FolderOn();
@@ -249,6 +238,7 @@ public class InteractionScript : MonoBehaviour
                             {
                                 folderScript.buttons = policyScript.buttonAmount;
                                 folderScript.type = policyScript.type;
+                                folderScript.DisableButton();
                             }
                             else
                             {
@@ -262,7 +252,7 @@ public class InteractionScript : MonoBehaviour
                                 policyChoices.planetType = policyScript.pfm;
                             }
 
-                            folderScript.DisableButton();
+
                             answered = false;
 
                             if (policy)
