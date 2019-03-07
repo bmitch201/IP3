@@ -30,7 +30,6 @@ public class Stats : MonoBehaviour {
     public string conPlanet;
     public float[] contactApprove = new float[8];
     public float[] contactDecline = new float[8];
-    
 
     public bool conferenceAccept = false;
     public bool conferenceAcceptWithHaggle = false;
@@ -47,7 +46,7 @@ public class Stats : MonoBehaviour {
     private float erNew, stNew, csNew, vrNew;
 
     GameObject bigHand;
-    public GameObject pcCamera, earthCam, marsCam, venusCam, moonCam, player;
+    public GameObject pcCamera, earthCam, marsCam, venusCam, moonCam, player, moonCanvas;
 
     public int time = 10;
     public int day = 1;
@@ -417,6 +416,11 @@ public class Stats : MonoBehaviour {
                 NewDay();
             }
         }
+
+		if(day == 1)
+		{
+			moonCanvas.SetActive(false);
+		}
     }
 
     public void SaveGame()
