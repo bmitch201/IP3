@@ -508,6 +508,22 @@ public class InteractionScript : MonoBehaviour
                 }
             }
         }
+
+        if (statsScript.day == 2)
+        {
+            if (statsScript.time == 4)
+            {
+                robotDialogueTrigger.TriggerRobotDialogue2_11();
+            }
+            if (statsScript.time == 3)
+            {
+                robotDialogueTrigger.TriggerRobotDialogue2_12();
+            }
+            if (statsScript.time == 2)
+            {
+                robotDialogueTrigger.TriggerRobotDialogue2_13();
+            }
+        }
     }
 
     //Used to activate the EventSystem so that the buttons do not get clicked when the folder is inactive

@@ -1993,22 +1993,6 @@ public class RobotDialogueManager : MonoBehaviour {
             }
         }
 
-        if (statsScript.day == 2)
-        {
-            if (statsScript.time == 4)
-            {
-                robotDialogueTrigger.TriggerRobotDialogue2_11();
-            }
-            if (statsScript.time == 3)
-            {
-                robotDialogueTrigger.TriggerRobotDialogue2_12();
-            }
-            if (statsScript.time == 2)
-            {
-                robotDialogueTrigger.TriggerRobotDialogue2_13();
-            }
-        }
-
         //if (dayOneScript.clockActive == true)
         //{
         //    if (timerForDialogue > 0)
