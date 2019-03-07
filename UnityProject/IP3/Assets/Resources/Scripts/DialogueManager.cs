@@ -19,6 +19,7 @@ public class DialogueManager : MonoBehaviour {
     DialogueTrigger dialogueTrigger;
     RobotDialogueTrigger robotDialogueTrigger;
     DayOneScript dayOneScript;
+    InteractionScript interactionScript;
 
     public GameObject conferenceCall;
     public GameObject player;
@@ -80,6 +81,7 @@ public class DialogueManager : MonoBehaviour {
         dialogueTrigger = FindObjectOfType<DialogueTrigger>();
         robotDialogueTrigger = FindObjectOfType<RobotDialogueTrigger>();
         dayOneScript = FindObjectOfType<DayOneScript>();
+        interactionScript = FindObjectOfType<InteractionScript>();
 
         audioSource = GameObject.FindGameObjectWithTag("ConferenceCall").GetComponent<AudioSource>();
 
@@ -1210,11 +1212,13 @@ public class DialogueManager : MonoBehaviour {
     public void EndConferenceDialogue9()
     {
         conferenceCall.SetActive(false);
-        dayOneScript.femaleHologram.SetActive(false);
+        interactionScript.femaleHologram.SetActive(false);
         player.SetActive(true);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        dayOneScript.conferenceCallInteractable = false;
+        interactionScript.conferenceCallInteractable = false;
+        robotDialogueTrigger.TriggerRobotDialogue2_15();
+        //statsScript.conferenceAccept = false;
     }
 
     public void StartConferenceDialogue10(Dialogue dialogue)
@@ -1255,10 +1259,12 @@ public class DialogueManager : MonoBehaviour {
     public void EndConferenceDialogue10()
     {
         conferenceCall.SetActive(false);
-        dayOneScript.femaleHologram.SetActive(false);
+        interactionScript.femaleHologram.SetActive(false);
         player.SetActive(true);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        dayOneScript.conferenceCallInteractable = false;
+        interactionScript.conferenceCallInteractable = false;
+        robotDialogueTrigger.TriggerRobotDialogue2_15();
+        //statsScript.conferenceAccept = false;
     }
 }

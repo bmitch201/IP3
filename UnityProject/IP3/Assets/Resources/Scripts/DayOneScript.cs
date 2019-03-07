@@ -82,6 +82,7 @@ public class DayOneScript : MonoBehaviour {
 
     void Start()
     {
+
         robotDialogueTrigger = FindObjectOfType<RobotDialogueTrigger>();
         robotDialogueManager = FindObjectOfType<RobotDialogueManager>();
         phoneScript = FindObjectOfType<Phone>();

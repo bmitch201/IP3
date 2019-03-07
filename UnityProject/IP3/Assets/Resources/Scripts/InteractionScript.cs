@@ -42,9 +42,11 @@ public class InteractionScript : MonoBehaviour
     bool phoneCanvasOn;
     public bool folder;
     public bool pcActive;
+    public bool contact;
 
     float dist;
     public int uses;
+    public int contactUses;
 
     string item;
 
@@ -103,6 +105,7 @@ public class InteractionScript : MonoBehaviour
         }
 
         uses = 0;
+        contactUses = 0;
     }
 
     void Update()
@@ -260,12 +263,16 @@ public class InteractionScript : MonoBehaviour
                                 uses++;
                                 statsScript.chosenPolicies.Add(policyScript.chosenPolicy);
                                 statsScript.chosenPlanets.Add(policyScript.planet);
-                                policy = false;
-                            }
 
-                            if (uses == 1)
-                            {
-                                robotDialogueTrigger.TriggerRobotDialogue2_7();
+                                if (statsScript.day == 2)
+                                {
+                                    if (uses == 1)
+                                    {
+                                        robotDialogueTrigger.TriggerRobotDialogue2_7();
+                                    }
+                                }
+
+                                policy = false;
                             }
 
                             holdingPolicy = false;
@@ -274,11 +281,31 @@ public class InteractionScript : MonoBehaviour
                         {
                             prefab.GetComponent<ContactScript>().Enact();
 
+                            contactUses++;
+
+                            if (statsScript.day == 2)
+                            {
+                                if (contactUses == 1)
+                                {
+                                    robotDialogueTrigger.TriggerRobotDialogue2_10();
+                                }
+                            }
+
                             holdingContact = false;
                         }
                         else if (holdingPhone)
                         {
                             statsScript.phonecallAccept.Add(phoneScript.phonecall);
+
+                            if (phoneScript.calls == 2)
+                            {
+                                robotDialogueTrigger.TriggerRobotDialogue2_14();
+                                conferenceCallInteractable = true;
+                                conferenceCallAudio.clip = conferenceCallFX;
+                                conferenceCallAudio.Play();
+                                phoneScript.calls = 0;
+                            }
+
                             holdingPhone = false;
                         }
 
@@ -326,24 +353,47 @@ public class InteractionScript : MonoBehaviour
                         else if (holdingPhone)
                         {
                             statsScript.phonecallDecline.Add(phoneScript.phonecall);
+
+                            if (phoneScript.calls == 2)
+                            {
+                                robotDialogueTrigger.TriggerRobotDialogue2_14();
+                                conferenceCallInteractable = true;
+                                conferenceCallAudio.clip = conferenceCallFX;
+                                conferenceCallAudio.Play();
+                                phoneScript.calls = 0;
+                            }
+
                             holdingPhone = false;
                         }
 
                         if (policy)
                         {
                             uses++;
+
+                            if (statsScript.day == 2)
+                            {
+                                if (uses == 1)
+                                {
+                                    robotDialogueTrigger.TriggerRobotDialogue2_7();
+                                }
+                            }
+
                             policy = false;
                         }
 
-                        if (uses == 1)
+                        if (holdingContact)
                         {
-                            robotDialogueTrigger.TriggerRobotDialogue2_7();
-                        }
+                            contactUses++;
 
-                        if (phoneScript.calls == 2)
-                        {
-                            phoneScript.calls = 0;
-                        }
+                            if (statsScript.day == 2)
+                            {
+                                if (contactUses == 1)
+                                {
+                                    robotDialogueTrigger.TriggerRobotDialogue2_10();
+                                }
+                            }
+                            holdingContact = false;
+                        }                     
                     }
                 }
             }
@@ -399,11 +449,15 @@ public class InteractionScript : MonoBehaviour
                     dialogueManager.speakerPanel.SetActive(true);
                     femaleHologram.SetActive(true);
                     robotDialogueManager.conferencePhoneRing = false;
-                    dialogueTrigger.TriggerDialogue();
                     folder = true;
                     FolderOn();
                     statsScript.TimeForward();
                     gameObject.SetActive(false);
+
+                    if (statsScript.day == 2)
+                    {
+                        dialogueTrigger.TriggerConferenceDialogue1();
+                    }
                 }
             }
             //Any other object remove the info

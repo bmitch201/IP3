@@ -1381,6 +1381,7 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue2_7 = false;
         //robotAudioSource.Stop();
         panel.SetActive(false);
+        timer2 = true;
     }
 
     public void StartRobotDialogue2_8(RobotDialogue robotDialogue)
@@ -1771,8 +1772,26 @@ public class RobotDialogueManager : MonoBehaviour {
     public void EndRobotDialogue2_15()
     {
         dialogue2_15 = false;
-        //robotAudioSource.Stop();
         panel.SetActive(false);
+        robotAudioSource.Stop();
+
+        GameObject.Find("GameInfoObject").name = "GameInfoObject DDL";
+        GameObject.Find("Earth Folder").name = "Earth Folder DDL";
+        GameObject.Find("Mars Folder").name = "Mars Folder DDL";
+        GameObject.Find("Venus Folder").name = "Venus Folder DDL";
+
+        DontDestroyOnLoad(GameObject.Find("GameInfoObject DDL"));
+        DontDestroyOnLoad(GameObject.Find("Earth Folder DDL"));
+        DontDestroyOnLoad(GameObject.Find("Mars Folder DDL"));
+        DontDestroyOnLoad(GameObject.Find("Venus Folder DDL"));
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        phoneScript.dayOne = false;
+        statsScript.time = 9;
+        statsScript.day++;
+        SceneManager.LoadScene("End Of Day");
+        statsScript.newDay = true;
     }
 
     #endregion
@@ -1928,24 +1947,24 @@ public class RobotDialogueManager : MonoBehaviour {
             else
             {
                 robotDialogueTrigger.TriggerRobotDialogue2_2();
-                timerForDialogue = 1f;
+                timerForDialogue = 5f;
                 timer1 = false;
             }
         }
 
-        //if (timer2)
-        //{
-        //    if (timerForDialogue > 0)
-        //    {
-        //        timerForDialogue -= Time.deltaTime;
-        //    }
-        //    else
-        //    {
-                
-        //        timerForDialogue = 5f;
-        //        timer2 = false;
-        //    }
-        //}
+        if (timer2)
+        {
+            if (timerForDialogue > 0)
+            {
+                timerForDialogue -= Time.deltaTime;
+            }
+            else
+            {
+                robotDialogueTrigger.TriggerRobotDialogue2_8();
+                timerForDialogue = 5f;
+                timer2 = false;
+            }
+        }
 
         if (dayOneScript.wbActive == true)
         {
@@ -1971,6 +1990,22 @@ public class RobotDialogueManager : MonoBehaviour {
                 dayOneScript.faxActive = false;
                 robotDialogueTrigger.TriggerRobotDialogue6();
                 timerForDialogue = 5f;
+            }
+        }
+
+        if (statsScript.day == 2)
+        {
+            if (statsScript.time == 4)
+            {
+                robotDialogueTrigger.TriggerRobotDialogue2_11();
+            }
+            if (statsScript.time == 3)
+            {
+                robotDialogueTrigger.TriggerRobotDialogue2_12();
+            }
+            if (statsScript.time == 2)
+            {
+                robotDialogueTrigger.TriggerRobotDialogue2_13();
             }
         }
 

@@ -8,7 +8,7 @@ public class CameraScript : MonoBehaviour {
     public GameObject player, chairCamera, canvas, homePage, statsPage, ocPage, currentPage, lastPage, backButton, ocHomePage, earthPage, marsPage, venusPage, moonCanvas, earthCanvas, marsCanvas, venusCanvas, es;
     GameObject prefab;
 
-    bool firstPCUse = true;
+    bool firstPCUse;
 
     InteractionScript interactionScript;
     RobotDialogueTrigger robotDialogueTrigger;
@@ -33,6 +33,8 @@ public class CameraScript : MonoBehaviour {
 
         statNames.Add("Autonomy");
         statNames.Add("Public_Support");
+
+        firstPCUse = true;
     }
 
     void Awake()
@@ -300,6 +302,12 @@ public class CameraScript : MonoBehaviour {
 
         statApprove.Clear();
         statDecline.Clear();
+
+        if (statsScript.day == 2 && firstPCUse == true)
+        {
+            robotDialogueTrigger.TriggerRobotDialogue2_9();
+            firstPCUse = false;
+        }
 
         gameObject.SetActive(false);
     }

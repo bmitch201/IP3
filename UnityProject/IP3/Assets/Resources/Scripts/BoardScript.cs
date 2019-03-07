@@ -35,11 +35,6 @@ public class BoardScript : MonoBehaviour {
                 dayOneScript.Light();
                 dayOneScript.boardActive = false;
             }
-            else if (statsScript.day == 2 && firstBoardUse == true)
-            {
-                robotDialogueTrigger.TriggerRobotDialogue2_8();
-                firstBoardUse = false;
-            }
         }
     }
 }
