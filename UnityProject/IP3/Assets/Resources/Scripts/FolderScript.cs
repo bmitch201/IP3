@@ -60,7 +60,10 @@ public class FolderScript : MonoBehaviour {
 
         canvas3 = GameObject.Find("Moon Folder Canvas");
 
-        canvas3.SetActive(false);
+        if (canvas3 != null)
+        {
+            canvas3.SetActive(false);
+        }
 
         dialogueTrigger = FindObjectOfType<RobotDialogueTrigger>();
     }
@@ -80,7 +83,7 @@ public class FolderScript : MonoBehaviour {
             statsScript = GameObject.Find("GameInfoObject").GetComponent<Stats>();
         }
 
-        if(canvas3 == null)
+        if(canvas3 == null && statsScript.day != 1)
         {
             canvas3 = GameObject.Find("Moon Folder Canvas");
             canvas3.SetActive(false);
@@ -719,7 +722,11 @@ public class FolderScript : MonoBehaviour {
 
         canvas1.SetActive(true);
         canvas2.SetActive(true);
-        canvas3.SetActive(true);
+
+        if (canvas3 != null)
+        {
+            canvas3.SetActive(true);
+        }
 
         //Sets the current page active to false
         current.SetActive(false);
