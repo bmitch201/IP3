@@ -15,7 +15,6 @@ public class ContactScript : MonoBehaviour {
     public float[] dec = new float[8];
     public float[] app = new float[8];
 
-
     int amount;
 
     void Awake()
@@ -28,8 +27,6 @@ public class ContactScript : MonoBehaviour {
         amount = statsScript.statNames.Length;
 
         names = new string[amount];
-
-        Debug.Log(amount);
         
         for (int i = 0; i < amount; i++)
         {
@@ -41,23 +38,14 @@ public class ContactScript : MonoBehaviour {
     {
         int k = 0;
 
-        Debug.Log(amount);
-        Debug.Log(approved[0]);
-        Debug.Log(declined[0]);
-
         planet = plan;
 
         //cName = conName;
 
         for (int i = 0; i < amount; i++)
         {
-            Debug.Log(i);
-
-
             foreach (string name in changedStats)
             {
-                Debug.Log(name);
-
                 if (name == names[i])
                 {
                     app[i] = approved[k];
