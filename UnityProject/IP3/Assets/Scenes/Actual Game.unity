@@ -42713,6 +42713,11 @@ Prefab:
       propertyPath: moonCam
       value: 
       objectReference: {fileID: 907788970}
+    - target: {fileID: 114380465661335342, guid: 1ee0306f9eb69e04b92776491f738ccd,
+        type: 2}
+      propertyPath: moonCanvas
+      value: 
+      objectReference: {fileID: 1437514941}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ee0306f9eb69e04b92776491f738ccd, type: 2}
   m_IsPrefabAsset: 0

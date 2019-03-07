@@ -34,6 +34,7 @@ public class Stats : MonoBehaviour {
     public List<string> phonecallAccept = new List<string>();
     public List<string> phonecallDecline = new List<string>();
 
+
     public bool conferenceAccept = false;
     public bool conferenceAcceptWithHaggle = false;
 
@@ -49,7 +50,7 @@ public class Stats : MonoBehaviour {
     private float erNew, stNew, csNew, vrNew;
 
     GameObject bigHand;
-    public GameObject pcCamera, earthCam, marsCam, venusCam, moonCam, player;
+    public GameObject pcCamera, earthCam, marsCam, venusCam, moonCam, player, moonCanvas;
 
     public int time = 10;
     public int day = 1;
@@ -419,6 +420,11 @@ public class Stats : MonoBehaviour {
                 NewDay();
             }
         }
+
+		if(day == 1)
+		{
+			moonCanvas.SetActive(false);
+		}
     }
 
     public void SaveGame()
