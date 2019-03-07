@@ -448,6 +448,8 @@ public class MoonFolderScript : MonoBehaviour {
         canvas2.SetActive(true);
         canvas3.SetActive(true);
 
+        interactionScript.policy = true;
+
         //Activate the player
         player.SetActive(true);
         
