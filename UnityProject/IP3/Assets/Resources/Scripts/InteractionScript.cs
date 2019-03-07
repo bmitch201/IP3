@@ -36,7 +36,7 @@ public class InteractionScript : MonoBehaviour
     [Header("Booleans")]
     public bool holding;
     bool holdingPaper;
-    public bool holdingPolicy, holdingContact;
+    public bool holdingPolicy, holdingContact, holdingPhone;
     public bool withinAnswerDistance;
     public bool answered;
     bool phoneCanvasOn;
@@ -276,6 +276,11 @@ public class InteractionScript : MonoBehaviour
 
                             holdingContact = false;
                         }
+                        else if (holdingPhone)
+                        {
+                            statsScript.phonecallAccept.Add(phoneScript.phonecall);
+                            holdingPhone = false;
+                        }
 
                         statsScript.UpdateScreen();
                         statsScript.TimeForward();
@@ -316,6 +321,12 @@ public class InteractionScript : MonoBehaviour
                             }
 
                             answered = false;
+                        }
+
+                        else if (holdingPhone)
+                        {
+                            statsScript.phonecallDecline.Add(phoneScript.phonecall);
+                            holdingPhone = false;
                         }
 
                         if (policy)
@@ -416,6 +427,8 @@ public class InteractionScript : MonoBehaviour
             {
                 if (phoneScript.calls == 1)
                 {
+                    holding = true;
+                    holdingPhone = true;
                     phonePanel.SetActive(false);
                     phoneScript.stopAudio = true;
                     robotDialogueTrigger.TriggerRobotDialogue2_3();
@@ -423,8 +436,9 @@ public class InteractionScript : MonoBehaviour
                 }
                 else
                 {
+                    holding = true;
+                    holdingPhone = true;
                     phonePanel.SetActive(false);
-
                     phoneScript.stopAudio = true;
 
                     prefab = Instantiate(paper, spawnPos.position, GameObject.Find("MainCamera").transform.rotation);

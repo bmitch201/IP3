@@ -32,7 +32,7 @@ public class DayOneScript : MonoBehaviour {
     public bool conferenceCallInteractable = false;
 
     public bool folder = false;
-    public bool holding = false;
+    public bool holding, holdingPolicy, holdingPhone;
     public bool policy = false;
     public bool firstFolder = true;
 
@@ -286,9 +286,7 @@ public class DayOneScript : MonoBehaviour {
                         folderScript.type = policyScript.type;
 
                         policyChoices.movementChoice = policyScript.movement;
-                        policyChoices.planetType = policyScript.pfm;
-
-                        statsScript.phonecallAccept.Add(phoneScript.phonecall);
+                        policyChoices.planetType = policyScript.pfm;                        
 
                         folderScript.DisableButton();
                         statsScript.UpdateScreen();
@@ -305,6 +303,11 @@ public class DayOneScript : MonoBehaviour {
                             uses++;
                             policy = false;
                         }
+                        else if (holdingPhone)
+                        {
+                            statsScript.phonecallAccept.Add(phoneScript.phonecall);
+                            holdingPhone = false;
+                        }                      
 
                         if (firstPolicy)
                         {
@@ -360,7 +363,11 @@ public class DayOneScript : MonoBehaviour {
                         Destroy(prefab);
                         holding = !holding;
 
-                        statsScript.phonecallDecline.Add(phoneScript.phonecall);
+                        if (holdingPhone)
+                        {
+                            statsScript.phonecallDecline.Add(phoneScript.phonecall);
+                            holdingPhone = false;
+                        }
 
                         policyIntractable = true;
                         statsScript.TimeForward();
@@ -485,6 +492,7 @@ public class DayOneScript : MonoBehaviour {
                 prefab = Instantiate(paper, spawnPos.position, GameObject.Find("MainCamera").transform.rotation);
                 prefab.transform.parent = GameObject.Find("SpawnPos").transform;
                 holding = true;
+                holdingPhone = true;
 
                 PolicyScript();
 

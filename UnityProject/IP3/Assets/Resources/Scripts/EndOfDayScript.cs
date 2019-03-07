@@ -156,19 +156,29 @@ public class EndOfDayScript : MonoBehaviour
         //    policyText.text = "There was no Movement Policy chosen this day.";
         //}
 
-        for (int i = 0; i < policyName.Length; i++)
+        foreach (string j in statsScript.chosenPolicies)
         {
-            foreach (string j in statsScript.chosenPolicies)
+            for (int i = 0; i < policyName.Length; i++)
             {
                 if (j == policyName[i])
                 {
                     description.Add(i);
                 }
             }
-
         }
 
-        policy1Text.text = "You also took your first steps into shaping the future of the independent moon by enacting the " + statsScript.chosenPolicies[0] + " policy for Earth, which means " + policyDescription[description[0]] + ". Following that, you enacted the " + statsScript.chosenPolicies[1] + " policy for " + statsScript.chosenPlanets[1] + ", which means " + policyDescription[description[1]]; 
+        if (statsScript.chosenPolicies.Count == 1)
+        {
+            policy1Text.text = "You also took your first steps into shaping the future of the independent moon by enacting the " + statsScript.chosenPolicies[0] + " policy for Earth, which means " + policyDescription[description[0]];
+        }
+        else if (statsScript.chosenPolicies.Count == 2)
+        {
+            policy1Text.text = "You also took your first steps into shaping the future of the independent moon by enacting the " + statsScript.chosenPolicies[0] + " policy for Earth, which means " + policyDescription[description[0]] + " Following that, you enacted the " + statsScript.chosenPolicies[1] + " policy for " + statsScript.chosenPlanets[1] + ", which means " + policyDescription[description[1]];
+        }
+        else if (statsScript.chosenPolicies.Count == 3)
+        {
+            policy1Text.text = "You also took your first steps into shaping the future of the independent moon by enacting the " + statsScript.chosenPolicies[0] + " policy for Earth, which means " + policyDescription[description[0]] + " Following that, you enacted the " + statsScript.chosenPolicies[1] + " policy for " + statsScript.chosenPlanets[1] + ", which means " + policyDescription[description[1]] + " After that, you enacted the " + statsScript.chosenPolicies[2] + " policy for " + statsScript.chosenPlanets[1] + ", which means " + policyDescription[description[2]];
+        }
     }
 
     public void CheckPhone()
