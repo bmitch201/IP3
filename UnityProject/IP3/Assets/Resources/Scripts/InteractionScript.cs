@@ -210,7 +210,7 @@ public class InteractionScript : MonoBehaviour
                         }
 
                         StartCoroutine(FolderOut(rot));
-
+                        folderCamera.GetComponent<FolderScript>().enabled = true;
                         GameObject.Find("MainCamera").transform.LookAt(hit.collider.gameObject.transform);
                     }
                 }
@@ -545,7 +545,6 @@ public class InteractionScript : MonoBehaviour
         rot.endPos = GameObject.Find(folderScript.planet + "FolderStartPos").transform;
 
         rot.enabled = false;
-        folderScript.enabled = true;
         folder = true;
 
         FolderOn();
@@ -558,6 +557,7 @@ public class InteractionScript : MonoBehaviour
         this.transform.position = folderScript.playerSpawn.transform.position;
 
         folderCamera.SetActive(true);
+        folderScript.enabled = true;
         gameObject.SetActive(false);
 
         statsScript.TimeForward();

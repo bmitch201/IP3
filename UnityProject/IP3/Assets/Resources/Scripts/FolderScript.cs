@@ -9,7 +9,7 @@ public class FolderScript : MonoBehaviour {
     DayOneScript dayOneScript;
     RobotDialogueTrigger dialogueTrigger;
     //PolicyChoices policyChoices;
-    Stats statsScript;
+    public Stats statsScript;
 
     //bool firstUse = true;
 
@@ -37,12 +37,6 @@ public class FolderScript : MonoBehaviour {
     [Header("Planet")]
     public string planet;
 
-    void Start()
-    {
-        //policyChoices = GameObject.Find("GameInfoObject").GetComponent<PolicyChoices>();
-        statsScript = GameObject.Find("GameInfoObject").GetComponent<Stats>();
-    }
-
     void Awake()
     {
         //Sets the current page to be false as long as the variable is holding an object
@@ -51,14 +45,25 @@ public class FolderScript : MonoBehaviour {
             current.SetActive(false);
         }
 
+        statsScript = GameObject.Find("GameInfoObject").GetComponent<Stats>();
+
         //Set it to the front page
         current = frontPage;
         current.SetActive(true);
 
-        //Sets up the interaction from the player
-        dayOneScript = player.GetComponent<DayOneScript>();
+        player = statsScript.player;
 
-        canvas3 = GameObject.Find("Moon Folder Canvas");
+        //Sets up the interaction from the player
+        if (statsScript.day == 1)
+        {
+            dayOneScript = player.GetComponent<DayOneScript>();
+        }
+        else
+        {
+            interactionScript = player.GetComponent<InteractionScript>();
+        }
+
+        canvas3 = statsScript.moonCanvas;
 
         if (canvas3 != null)
         {
