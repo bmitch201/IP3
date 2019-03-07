@@ -158,6 +158,8 @@ public class ChairCameraScript : MonoBehaviour
 
                     moonCamera.SetActive(true);
 
+                    statsScript.TimeForward();
+
                     gameObject.SetActive(false);
                 }
             }

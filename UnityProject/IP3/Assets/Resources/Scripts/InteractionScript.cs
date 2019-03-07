@@ -9,7 +9,6 @@ public class InteractionScript : MonoBehaviour
     [Header("Game Objects")]
     public GameObject prefab;
     public Transform spawnPos;
-    //public GameObject obj;
     public GameObject phonePanel;
     public TextMesh info;
     GameObject es;
@@ -55,8 +54,6 @@ public class InteractionScript : MonoBehaviour
 
     public bool policy = false;
 
-    // public bool phoneActive = false;
-
     public GameObject earthCanvas, marsCanvas, venusCanvas, moonCanvas;
     public GameObject earthCamera, marsCamera, venusCamera, folderCamera;
     public GameObject robotPanel;
@@ -80,6 +77,7 @@ public class InteractionScript : MonoBehaviour
         info.gameObject.SetActive(false);
 
         statsScript = FindObjectOfType<Stats>();
+        policyChoices = FindObjectOfType<PolicyChoices>();
         robotDialogueTrigger = FindObjectOfType<RobotDialogueTrigger>();
         phoneScript = FindObjectOfType<Phone>();
         dialogueTrigger = FindObjectOfType<DialogueTrigger>();
@@ -251,7 +249,6 @@ public class InteractionScript : MonoBehaviour
                             {
                                 folderScript.buttons = policyScript.buttonAmount;
                                 folderScript.type = policyScript.type;
-                                policyChoices.movementChoice = policyScript.movement;
                             }
                             else
                             {
@@ -259,10 +256,11 @@ public class InteractionScript : MonoBehaviour
                                 moonFolderScript.type = policyScript.type;
                             }
 
-                            statsScript.chosenPolicies.Add(policyScript.chosenPolicy);
-                            statsScript.chosenPlanets.Add(policyScript.planet);
-
-                            policyChoices.planetType = policyScript.pfm;
+                            if (policyChoices.movementChoice != "")
+                            {
+                                policyChoices.movementChoice = policyScript.movement;
+                                policyChoices.planetType = policyScript.pfm;
+                            }
 
                             folderScript.DisableButton();
                             answered = false;
@@ -270,6 +268,8 @@ public class InteractionScript : MonoBehaviour
                             if (policy)
                             {
                                 uses++;
+                                statsScript.chosenPolicies.Add(policyScript.chosenPolicy);
+                                statsScript.chosenPlanets.Add(policyScript.planet);
                                 policy = false;
                             }
 

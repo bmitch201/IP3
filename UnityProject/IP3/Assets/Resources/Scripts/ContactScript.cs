@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ContactScript : MonoBehaviour {
 
-    Stats statsScript;
+    public Stats statsScript;
     InteractionScript interactionScript;
 
     public string[] names;
@@ -12,13 +12,13 @@ public class ContactScript : MonoBehaviour {
     string planet;
     string cName;
 
-    float[] dec = new float[8];
-    float[] app = new float[8];
+    public float[] dec = new float[8];
+    public float[] app = new float[8];
 
 
     int amount;
 
-    void Start()
+    void Awake()
     {
         statsScript = GameObject.Find("GameInfoObject").GetComponent<Stats>();
         interactionScript = GameObject.Find("PlayerController").GetComponent<InteractionScript>();
@@ -29,25 +29,36 @@ public class ContactScript : MonoBehaviour {
 
         names = new string[amount];
 
+        Debug.Log(amount);
+        
         for (int i = 0; i < amount; i++)
         {
             names[i] = statsScript.statNames[i];
         }
     }
-	
-	public void UpdateContact(/*string conName,*/ List<string> changedStats, List<float> approved, List<float> declined, string plan)
+
+    public void UpdateContact(/*string conName,*/ List<string> changedStats, List<float> approved, List<float> declined, string plan)
     {
         int k = 0;
+
+        Debug.Log(amount);
+        Debug.Log(approved[0]);
+        Debug.Log(declined[0]);
 
         planet = plan;
 
         //cName = conName;
 
-        for(int i = 0; i < amount; i++)
+        for (int i = 0; i < amount; i++)
         {
-            foreach(string name in changedStats)
+            Debug.Log(i);
+
+
+            foreach (string name in changedStats)
             {
-                if(name == names[i])
+                Debug.Log(name);
+
+                if (name == names[i])
                 {
                     app[i] = approved[k];
                     dec[i] = declined[k];

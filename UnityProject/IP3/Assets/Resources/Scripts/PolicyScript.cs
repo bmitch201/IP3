@@ -5,7 +5,7 @@ using UnityEngine;
 public class PolicyScript : MonoBehaviour
 {
     Stats statsScript;
-    public PolicyChoices policyChoicesScript;
+    PolicyChoices policyChoicesScript;
 
     public string[] names;
     public float[] decreases;

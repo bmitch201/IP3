@@ -15,9 +15,9 @@ public class CameraScript : MonoBehaviour {
     DayOneScript dayOneScript;
     public Stats statsScript;
 
-    List<string> statNames = new List<string>();
-    List<float> statApprove = new List<float>();
-    List<float> statDecline = new List<float>();
+    public List<string> statNames = new List<string>();
+    public List<float> statApprove = new List<float>();
+    public List<float> statDecline = new List<float>();
 
     string planet;
 
@@ -170,7 +170,7 @@ public class CameraScript : MonoBehaviour {
         statApprove.Add(5f);
 
         statDecline.Add(5f);
-        statApprove.Add(-5f);
+        statDecline.Add(-5f);
 
         planet = "Earth";
 
@@ -198,7 +198,7 @@ public class CameraScript : MonoBehaviour {
         statApprove.Add(5f);
 
         statDecline.Add(5f);
-        statApprove.Add(-5f);
+        statDecline.Add(-5f);
 
         planet = "Mars";
 
@@ -226,7 +226,7 @@ public class CameraScript : MonoBehaviour {
         statApprove.Add(5f);
 
         statDecline.Add(5f);
-        statApprove.Add(-5f);
+        statDecline.Add(-5f);
 
         planet = "Venus";
 
@@ -295,6 +295,8 @@ public class CameraScript : MonoBehaviour {
             canvas.SetActive(true);
             interactionScript.pcActive = false;
         }
+
+        statsScript.TimeForward();
 
         statApprove.Clear();
         statDecline.Clear();
