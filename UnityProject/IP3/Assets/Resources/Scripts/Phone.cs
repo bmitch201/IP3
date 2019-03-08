@@ -122,14 +122,6 @@ public class Phone : MonoBehaviour
             }
         }
 
-        if (statsScript.day == 2)
-        {
-            if (statsScript.time == 3)
-            {
-                phoneIsActive = true;
-            }
-        }
-
         if (phoneIsActive == true)
         {
             audioSource.clip = phoneRing;
@@ -137,34 +129,34 @@ public class Phone : MonoBehaviour
             isRinging = true;
             calls++;
 
-            //if (statsScript.day == 2)
-            //{
+            if (statsScript.day == 2)
+            {
                 if (calls == 1)
                 {
                     phoneCallText.GetComponent<Text>().text = phoneCalls[2];
                 }
                 else if (calls == 2)
-            {
-                phoneCallText.GetComponent<Text>().text = phoneCalls[3];
-                ringTimerActive = true;
+                {
+                    phoneCallText.GetComponent<Text>().text = phoneCalls[3];
+                    ringTimerActive = true;
 
-                faxChanges.Add(10);
-                faxChanges.Add(-15);
-                faxChanges.Add(-10);
+                    faxChanges.Add(10);
+                    faxChanges.Add(-15);
+                    faxChanges.Add(-10);
 
-                faxChangedNames.Add("Earth_Relationship");
-                faxChangedNames.Add("System_Tension");
-                faxChangedNames.Add("Autonomy");
+                    faxChangedNames.Add("Earth_Relationship");
+                    faxChangedNames.Add("System_Tension");
+                    faxChangedNames.Add("Autonomy");
 
-                binChanges.Add(-10);
-                binChanges.Add(20);
-                binChanges.Add(10);
+                    binChanges.Add(-10);
+                    binChanges.Add(20);
+                    binChanges.Add(10);
 
-                binChangedNames.Add("Earth_Relationship");
-                binChangedNames.Add("System_Tension");
-                binChangedNames.Add("Autonomy");
+                    binChangedNames.Add("Earth_Relationship");
+                    binChangedNames.Add("System_Tension");
+                    binChangedNames.Add("Autonomy");
+                }
             }
-            //}
 
             phoneIsActive = false;
         }
@@ -206,8 +198,8 @@ public class Phone : MonoBehaviour
             ringTimer -= Time.deltaTime;
         }
 
-       if(ringTimer < 0)
-       {
+        if (ringTimer < 0)
+        {
             interactionScript.answered = false;
             statsScript.phone2Answered = false;
             ringTimerActive = false;
@@ -216,16 +208,22 @@ public class Phone : MonoBehaviour
             callMissed = true;
             firstCall = false;
             ringTimer = 15;
+
             if (dayOne)
             {
                 statsScript.stats[7] -= 5;
                 dayOneScript.phoneActive = false;
             }
-            else if (calls == 2)
+            else if (statsScript.day == 2)
             {
-                statsScript.stats[5] -= 5;
-                statsScript.stats[4] += 5;
-                phoneIsActive = false;
+                if (calls == 2)
+                {
+                    statsScript.wifeCounter++;
+                    statsScript.stats[5] -= 5;
+                    statsScript.stats[4] += 5;
+                    statsScript.TimeForward();
+                    phoneIsActive = false;
+                }
             }
             //statsScript.TimeForward();
         }
@@ -260,21 +258,27 @@ public class Phone : MonoBehaviour
             }
         }
 
-        //if (statsScript.day == 2)
-        //{
-        if (interactionScript.answered == true)
+        if (statsScript.day == 2)
         {
-            isRinging = false;
-
-            if (calls == 1)
+            if (interactionScript.answered == true && newAudio == true)
             {
-                audioSource.Stop();
-            }
+                isRinging = false;
 
-            interactionScript.answered = false;
-            phoneIsActive = false;
+                if (calls == 1)
+                {
+                    audioSource.Stop();
+                    interactionScript.answered = false;
+                }
+                else if (calls == 2)
+                {
+                    audioSource.Stop();
+                    interactionScript.answered = false;
+                    phoneIsActive = false;
+                }
+
+                newAudio = false;
+            }
         }
-        //}
 
         //if (callMissed == true && stopAudio == true)
         //{

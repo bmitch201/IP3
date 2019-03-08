@@ -927,7 +927,7 @@ public class RobotDialogueManager : MonoBehaviour {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         phoneScript.dayOne = false;
-        statsScript.time = 9;
+        statsScript.time = 10;
         statsScript.day++;
         SceneManager.LoadScene("End Of Day");
         statsScript.newDay = true;
@@ -1749,7 +1749,7 @@ public class RobotDialogueManager : MonoBehaviour {
 
     public void DisplayNextRobotSentence2_15()
     {
-        if (robotSentences2_4.Count == 0)
+        if (robotSentences2_15.Count == 0)
         {
             EndRobotDialogue2_15();
             return;
@@ -1788,7 +1788,7 @@ public class RobotDialogueManager : MonoBehaviour {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         phoneScript.dayOne = false;
-        statsScript.time = 9;
+        statsScript.time = 10;
         statsScript.day++;
         SceneManager.LoadScene("End Of Day");
         statsScript.newDay = true;

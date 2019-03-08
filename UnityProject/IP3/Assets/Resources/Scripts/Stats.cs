@@ -55,6 +55,8 @@ public class Stats : MonoBehaviour {
     public int time;
     public int day;
 
+    public int wifeCounter;
+
     //Sets up the PC Screen initally to display the stats on screen
     void Start()
     {
@@ -317,7 +319,7 @@ public class Stats : MonoBehaviour {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             day++;
-            time = 9;
+            time = 10;
             newDay = true;
             SceneManager.LoadScene("End Of Day");
 
