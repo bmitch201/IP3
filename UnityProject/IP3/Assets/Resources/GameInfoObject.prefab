@@ -100,8 +100,8 @@ MonoBehaviour:
   - Mars_Relationship (%)
   - Venus_Relationship (%)
   names: {fileID: 0}
-  PCnames: {fileID: 0}
   nums: {fileID: 0}
+  PCnames: {fileID: 0}
   PCnums: {fileID: 0}
   whiteboardText: {fileID: 0}
   auto: {fileID: 0}
@@ -115,11 +115,53 @@ MonoBehaviour:
   tasks:
   - '- Increase Earth''s Opinion above/to 50%   - Increase Mars'' Opinion above/to
     60%         - Increase Public Support above/to 60%    - Increase Autonomy to 30%          '
-  - '- Decrease System Tension below/to 20%   - End the day with 2.5 billion moon
-    bucks        - Increase Venus'' Opinion above/to 55%    - Organise healthcare
-    for moon citizens           -  Discard any family interests               '
+  - '- Decrease System Tension to 20%     - Have at least 2..5 billion moon bucks        -
+    Increase Venus'' Opinion above/to 55%    - Organise healthcare for moon citizens            -  Follow
+    any family interests'
   chosenPlanets: []
   chosenPolicies: []
+  contactNames: []
+  contactPlanets: []
+  conPlanet: 
+  con: 
+  contactApprove:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  contactDecline:
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  healthEarth: {fileID: 0}
+  travelEarth: {fileID: 0}
+  workEarth: {fileID: 0}
+  healthMars: {fileID: 0}
+  travelMars: {fileID: 0}
+  workMars: {fileID: 0}
+  healthVenus: {fileID: 0}
+  travelVenus: {fileID: 0}
+  workVenus: {fileID: 0}
+  hEText: 
+  tEText: 
+  wEText: 
+  hMText: 
+  tMText: 
+  wMText: 
+  hVText: 
+  tVText: 
+  wVText: 
+  phonecallAccept: []
+  phonecallDecline: []
   conferenceAccept: 0
   conferenceAcceptWithHaggle: 0
   phone1Answered: 0
@@ -128,5 +170,12 @@ MonoBehaviour:
   phone2Accept: 0
   newDay: 0
   pcCamera: {fileID: 0}
+  earthCam: {fileID: 0}
+  marsCam: {fileID: 0}
+  venusCam: {fileID: 0}
+  moonCam: {fileID: 0}
+  player: {fileID: 0}
+  moonCanvas: {fileID: 0}
   time: 10
   day: 1
+  wifeCounter: 0

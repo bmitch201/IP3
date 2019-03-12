@@ -12,14 +12,14 @@ public class Stats : MonoBehaviour {
     public string[] statDisplay = new string[8];
 
     [Header("Text")]
-    public Text names;
-    public Text PCnames;
-    public Text nums;
-    public Text PCnums;
+    public Text names, nums;
+    public Text PCnames, PCnums;
     public Text whiteboardText;
 
+    [Header("Sliders")]
     public Slider auto, rev, pubs, cabs, syst, earth, venus, mars;
 
+    [Header("Lists")]
     public string[] tasks;
     public List<string> chosenPlanets = new List<string>();
     public List<string> chosenPolicies = new List<string>();
@@ -27,13 +27,16 @@ public class Stats : MonoBehaviour {
     public List<string> contactNames = new List<string>();
     public List<string> contactPlanets = new List<string>();
 
-    public string conPlanet;
+    [Header("Outbound Contacts")]
+    public string conPlanet, con;
     public float[] contactApprove = new float[8];
     public float[] contactDecline = new float[8];
+    int conNum = 0;
+    public Text healthEarth, travelEarth, workEarth, healthMars, travelMars, workMars, healthVenus, travelVenus, workVenus;
+    public string hEText, tEText, wEText, hMText, tMText, wMText, hVText, tVText, wVText;
 
     public List<string> phonecallAccept = new List<string>();
     public List<string> phonecallDecline = new List<string>();
-
 
     public bool conferenceAccept = false;
     public bool conferenceAcceptWithHaggle = false;
@@ -94,6 +97,18 @@ public class Stats : MonoBehaviour {
         stNew = stats[4];
         csNew = stats[3];
         vrNew = stats[7];
+
+        hEText = "Open";
+        tEText = "Open";
+        wEText = "Open";
+
+        hMText = "Open";
+        tMText = "Open";
+        wMText = "Open";
+
+        hVText = "Open";
+        tVText = "Open";
+        wVText = "Open";
 
         UpdateScreen();
         NewDay();
@@ -168,6 +183,27 @@ public class Stats : MonoBehaviour {
             PCnums.text = PCnums.text + "\n" + stats[i] + "\n";
         }
 
+        if (healthEarth != null)
+        {
+            healthEarth.text = hEText;
+            healthMars.text = hMText;
+            healthVenus.text = hVText;
+        }
+
+        if (travelMars != null)
+        {
+            travelEarth.text = tEText;
+            travelMars.text = tMText;
+            travelVenus.text = tVText;
+        }
+
+        if (workVenus != null)
+        {
+            workEarth.text = wEText;
+            workMars.text = wMText;
+            workVenus.text = wVText;
+        }
+
         auto.value = stats[0];
         pubs.value = stats[2];
         cabs.value = stats[3];
@@ -176,12 +212,12 @@ public class Stats : MonoBehaviour {
         mars.value = stats[6];
         venus.value = stats[7];
 
-        erOld = stats[5] - erNew + erOld;
-        stOld = stats[4] - stNew + stOld;
-        csOld = stats[3] - csNew + csOld;
-        vrOld = stats[7] - vrNew + vrOld;
+        //erOld = stats[5] - erNew + erOld;
+        //stOld = stats[4] - stNew + stOld;
+        //csOld = stats[3] - csNew + csOld;
+        //vrOld = stats[7] - vrNew + vrOld;
 
-        StatChanges();
+        //StatChanges();
     }
 
     public void StatChanges()
@@ -325,47 +361,130 @@ public class Stats : MonoBehaviour {
 
             if (day > 1)
             {
-                if (conPlanet == "Earth" && stats[5] > 60)
+                for (int k = conNum; k < contactNames.Count; k++)
                 {
-                    for (int i = 0; i < stats.Length; i++)
+                    if (contactPlanets[k] == "Earth" && stats[5] > 60)
                     {
-                        contactApprove[i] += stats[i];
+                        for (int i = 0; i < stats.Length; i++)
+                        {
+                            contactApprove[i] += stats[i];
+                        }
+
+                        if(contactNames[k] == "Healthcare")
+                        {
+                            hEText = "Approved";
+                        }
+                        else if(contactNames[k] == "Travel")
+                        {
+                            tEText = "Approved";
+                        }
+                        else if (contactNames[k] == "Worker Rights")
+                        {
+                            wEText = "Approved";
+                        }
                     }
-                }
-                else if (conPlanet == "Mars" && stats[6] > 60)
-                {
-                    for (int i = 0; i < stats.Length; i++)
+                    else if (contactPlanets[k] == "Earth" && stats[5] <= 60)
                     {
-                        contactApprove[i] += stats[i];
+                        for (int i = 0; i < stats.Length; i++)
+                        {
+                            contactDecline[i] += stats[i];
+                        }
+
+                        if (contactNames[k] == "Healthcare")
+                        {
+                            hEText = "Declined";
+                        }
+                        else if (contactNames[k] == "Travel")
+                        {
+                            tEText = "Declined";
+                        }
+                        else if (contactNames[k] == "Worker Rights")
+                        {
+                            wEText = "Declined";
+                        }
                     }
-                }
-                else if (conPlanet == "Venus" && stats[7] > 60)
-                {
-                    for (int i = 0; i < stats.Length; i++)
+                    else if (contactPlanets[k] == "Mars" && stats[6] > 60)
                     {
-                        contactApprove[i] += stats[i];
+                        for (int i = 0; i < stats.Length; i++)
+                        {
+                            contactApprove[i] += stats[i];
+                        }
+
+                        if (contactNames[k] == "Healthcare")
+                        {
+                            hMText = "Approved";
+                        }
+                        else if (contactNames[k] == "Travel")
+                        {
+                            tMText = "Approved";
+                        }
+                        else if (contactNames[k] == "Worker Rights")
+                        {
+                            wMText = "Approved";
+                        }
                     }
-                }
-                else if (conPlanet == "Earth" && stats[5] <= 60)
-                {
-                    for (int i = 0; i < stats.Length; i++)
+                    else if (contactPlanets[k] == "Mars" && stats[6] <= 60)
                     {
-                        contactDecline[i] += stats[i];
+                        for (int i = 0; i < stats.Length; i++)
+                        {
+                            contactDecline[i] += stats[i];
+                        }
+
+                        if (contactNames[k] == "Healthcare")
+                        {
+                            hMText = "Declined";
+                        }
+                        else if (contactNames[k] == "Travel")
+                        {
+                            tMText = "Declined";
+                        }
+                        else if (contactNames[k] == "Worker Rights")
+                        {
+                            wMText = "Declined";
+                        }
                     }
-                }
-                else if (conPlanet == "Mars" && stats[6] <= 60)
-                {
-                    for (int i = 0; i < stats.Length; i++)
+                    else if (contactPlanets[k] == "Venus" && stats[7] > 60)
                     {
-                        contactDecline[i] += stats[i];
+                        for (int i = 0; i < stats.Length; i++)
+                        {
+                            contactApprove[i] += stats[i];
+                        }
+
+                        if (contactNames[k] == "Healthcare")
+                        {
+                            hVText = "Approved";
+                        }
+                        else if (contactNames[k] == "Travel")
+                        {
+                            tVText = "Approved";
+                        }
+                        else if (contactNames[k] == "Worker Rights")
+                        {
+                            wVText = "Approved";
+                        }
                     }
-                }
-                else if (conPlanet == "Venus" && stats[7] <= 60)
-                {
-                    for (int i = 0; i < stats.Length; i++)
+                    else if (contactPlanets[k] == "Venus" && stats[7] <= 60)
                     {
-                        contactDecline[i] += stats[i];
+                        for (int i = 0; i < stats.Length; i++)
+                        {
+                            contactDecline[i] += stats[i];
+                        }
+
+                        if (contactNames[k] == "Healthcare")
+                        {
+                            hVText = "Declined";
+                        }
+                        else if (contactNames[k] == "Travel")
+                        {
+                            tVText = "Declined";
+                        }
+                        else if (contactNames[k] == "Worker Rights")
+                        {
+                            wVText = "Declined";
+                        }
                     }
+
+                    conNum = k++;
                 }
 
                 for (int i = 0; i < stats.Length; i++)
@@ -396,8 +515,10 @@ public class Stats : MonoBehaviour {
             {
                 pcCamera.SetActive(true);
                 pcCamera.GetComponent<CameraScript>().statsPage.SetActive(true);
+
                 PCnames = GameObject.Find("Text_Name_PC").GetComponent<Text>();
                 PCnums = GameObject.Find("Text_Numbers_PC").GetComponent<Text>();
+
                 pcCamera.GetComponent<CameraScript>().statsPage.SetActive(false);
                 pcCamera.SetActive(false);
             }
@@ -428,6 +549,65 @@ public class Stats : MonoBehaviour {
 			moonCanvas.SetActive(false);
 		}
     }
+
+    public void Submitted()
+    {
+        if (conPlanet == "Earth")
+        {
+            if(con == "Healthcare")
+            {
+                healthEarth.text = "Submitted";
+                hEText = "Submitted";
+            }
+            else if (con == "Travel")
+            {
+                travelEarth.text = "Submitted";
+                tEText = "Submitted";
+            }
+            else if(con == "Worker Rights")
+            {
+                workVenus.text = "Submitted";
+                wVText = "Submitted";
+            }
+        }
+        else if (conPlanet == "Mars")
+        {
+            if (con == "Healthcare")
+            {
+                healthMars.text = "Submitted";
+                hMText = "Submitted";
+            }
+            else if (con == "Travel")
+            {
+                travelMars.text = "Submitted";
+                tMText = "Submitted";
+            }
+            else if (con == "Worker Rights")
+            {
+                workMars.text = "Submitted";
+                wMText = "Submitted";
+            }
+        }
+        else if(conPlanet == "Venus")
+        {
+            if (con == "Healthcare")
+            {
+                healthVenus.text = "Submitted";
+                hVText = "Submitted";
+            }
+            else if (con == "Travel")
+            {
+                travelVenus.text = "Submitted";
+                tVText = "Submitted";
+            }
+            else if (con == "Worker Rights")
+            {
+                workVenus.text = "Submitted";
+                wVText = "Submitted";
+            }
+        }
+    }
+      
 
     public void SaveGame()
     {

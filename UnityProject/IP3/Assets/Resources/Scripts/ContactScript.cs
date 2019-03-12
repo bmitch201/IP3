@@ -34,13 +34,13 @@ public class ContactScript : MonoBehaviour {
         }
     }
 
-    public void UpdateContact(/*string conName,*/ List<string> changedStats, List<float> approved, List<float> declined, string plan)
+    public void UpdateContact(string conName, List<string> changedStats, List<float> approved, List<float> declined, string plan)
     {
         int k = 0;
 
         planet = plan;
 
-        //cName = conName;
+        cName = conName;
 
         for (int i = 0; i < amount; i++)
         {
@@ -59,15 +59,18 @@ public class ContactScript : MonoBehaviour {
 
     public void Enact()
     {
-        statsScript.conPlanet = planet;        
+        statsScript.conPlanet = planet;
+        statsScript.con = cName;
         
-        //statsScript.contactNames.Add(cName);
+        statsScript.contactNames.Add(cName);
         statsScript.contactPlanets.Add(planet);
 
         for(int i = 0; i < app.Length; i++)
         {
-            statsScript.contactApprove[i] += app[i];
-            statsScript.contactDecline[i] += dec[i];
+            statsScript.contactApprove[i] = app[i];
+            statsScript.contactDecline[i] = dec[i];
         }
+
+        statsScript.Submitted();
     }
 }

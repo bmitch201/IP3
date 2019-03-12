@@ -19,13 +19,14 @@ public class CameraScript : MonoBehaviour {
     public List<float> statApprove = new List<float>();
     public List<float> statDecline = new List<float>();
 
-    string planet;
+    string planet, contactName;
 
-    void Start()
+    void Awake()
     {
         interactionScript = GameObject.Find("PlayerController").GetComponentInParent<InteractionScript>();
         dayOneScript = GameObject.Find("PlayerController").GetComponent<DayOneScript>();
         robotDialogueTrigger = FindObjectOfType<RobotDialogueTrigger>();
+        statsScript = GameObject.Find("GameInfoObject").GetComponent<Stats>();
 
         earthCanvas = GameObject.Find("Earth Folder Canvas");
         marsCanvas = GameObject.Find("Mars Folder Canvas");
@@ -34,17 +35,12 @@ public class CameraScript : MonoBehaviour {
         statNames.Add("Autonomy");
         statNames.Add("Public_Support");
 
-        firstPCUse = true;
-    }
-
-    void Awake()
-    {
-        statsScript = GameObject.Find("GameInfoObject").GetComponent<Stats>();
-
-        es.SetActive(true);
-
         statsScript.PCnames = GameObject.Find("Text_Name_PC").GetComponent<Text>();
         statsScript.PCnums = GameObject.Find("Text_Numbers_PC").GetComponent<Text>();
+
+        firstPCUse = true;
+
+        es.SetActive(true);
 
         homePage.SetActive(true);
         statsPage.SetActive(false);
@@ -145,6 +141,48 @@ public class CameraScript : MonoBehaviour {
         lastPage = homePage;
 
         ocHomePage.SetActive(true);
+
+        if (statsScript.healthEarth == null || statsScript.travelEarth == null || statsScript.workEarth == null)
+        {
+            statsScript.healthEarth = GameObject.Find("HEALTH_TEXT_EARTH").GetComponent<Text>();
+            statsScript.travelEarth = GameObject.Find("TRAVEL_TEXT_EARTH").GetComponent<Text>();
+            statsScript.workEarth = GameObject.Find("WORK_RIGHTS_EARTH").GetComponent<Text>();
+        }
+
+        if (statsScript.healthMars == null || statsScript.travelMars == null || statsScript.workMars == null)
+        {
+            statsScript.healthMars = GameObject.Find("HEALTH_TEXT_MARS").GetComponent<Text>();
+            statsScript.travelMars = GameObject.Find("TRAVEL_TEXT_MARS").GetComponent<Text>();
+            statsScript.workMars = GameObject.Find("WORK_RIGHTS_MARS").GetComponent<Text>();
+        }
+
+        if (statsScript.healthVenus == null || statsScript.travelVenus == null || statsScript.workVenus == null)
+        {
+            statsScript.healthVenus = GameObject.Find("HEALTH_TEXT_VENUS").GetComponent<Text>();
+            statsScript.travelVenus = GameObject.Find("TRAVEL_TEXT_VENUS").GetComponent<Text>();
+            statsScript.workVenus = GameObject.Find("WORK_RIGHTS_VENUS").GetComponent<Text>();
+        }
+
+        if(statsScript.day == 2)
+        {
+            GameObject.Find("TRAVEL_EARTH").SetActive(false);
+            GameObject.Find("WORKRIGHTS_EARTH").SetActive(false);
+            GameObject.Find("WORK_RIGHTS_EARTH").SetActive(false);
+            GameObject.Find("TRAVEL_TEXT_EARTH").SetActive(false);
+
+            GameObject.Find("TRAVEL_MARS").SetActive(false);
+            GameObject.Find("WORKRIGHTS_MARS").SetActive(false);
+            GameObject.Find("WORK_RIGHTS_MARS").SetActive(false);
+            GameObject.Find("TRAVEL_TEXT_MARS").SetActive(false);
+
+            GameObject.Find("TRAVEL_VENUS").SetActive(false);
+            GameObject.Find("WORKRIGHTS_VENUS").SetActive(false);
+            GameObject.Find("TRAVEL_TEXT_VENUS").SetActive(false);
+            GameObject.Find("WORK_RIGHTS_VENUS").SetActive(false);
+
+            statsScript.UpdateScreen();
+        }
+
         earthPage.SetActive(false);
         marsPage.SetActive(false);
         venusPage.SetActive(false);
@@ -175,8 +213,6 @@ public class CameraScript : MonoBehaviour {
         statDecline.Add(-5f);
 
         planet = "Earth";
-
-        ReturnToPlayer();
     }
 
     #endregion
@@ -203,8 +239,6 @@ public class CameraScript : MonoBehaviour {
         statDecline.Add(-5f);
 
         planet = "Mars";
-
-        ReturnToPlayer();
     }
 
     #endregion
@@ -231,11 +265,30 @@ public class CameraScript : MonoBehaviour {
         statDecline.Add(-5f);
 
         planet = "Venus";
+    }
+
+    #endregion
+
+    public void Healthcare()
+    {
+        contactName = "Healthcare";
 
         ReturnToPlayer();
     }
 
-    #endregion
+    public void Travel()
+    {
+        contactName = "Travel";
+
+        ReturnToPlayer();
+    }
+
+    public void Worker()
+    {
+        contactName = "Worker Rigths";
+        
+        ReturnToPlayer();
+    }
 
     public void Back()
     {
@@ -279,7 +332,7 @@ public class CameraScript : MonoBehaviour {
 
         ContactScript conSc = interactionScript.prefab.GetComponent<ContactScript>();
 
-        conSc.UpdateContact(statNames, statApprove, statDecline, planet);
+        conSc.UpdateContact(contactName, statNames, statApprove, statDecline, planet);
 
         //Calls the folder and policy methods within the interaction script
         interactionScript.FolderOn();
