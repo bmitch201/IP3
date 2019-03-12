@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 //[RequireComponent(typeof(Phone))]
 
@@ -536,6 +537,11 @@ public class InteractionScript : MonoBehaviour
                     triggerOnce2 = false;
                 }
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            SceneManager.LoadScene("Main Menu");
         }
     }
 

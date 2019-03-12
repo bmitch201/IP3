@@ -8,6 +8,8 @@ public class PlayerData {
     public int day;
     public int time;
     public float[] statistics;
+    public float[] chosenPolicies;
+    public float[] chosenPlanets;
 
     public PlayerData (Stats stats)
     {
