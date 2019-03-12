@@ -175,6 +175,7 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndDialogue()
     {
+        Debug.Log("1");
         speakerPanel.SetActive(false);
         answerPanel.SetActive(true);
 
@@ -256,6 +257,7 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndDialogue2()
     {
+        Debug.Log("2");
         speakerPanel.SetActive(false);
         answerPanel.SetActive(true);
         option1.GetComponentInChildren<Text>().text = answers2[0];
@@ -340,6 +342,7 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndDialogue3()
     {
+        Debug.Log("3");
         speakerPanel.SetActive(false);
         answerPanel.SetActive(true);
         option1.GetComponentInChildren<Text>().text = answers1[0];
@@ -434,12 +437,14 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndDialogue4()
     {
+        Debug.Log("4");
         conferenceCall.SetActive(false);
         player.SetActive(true);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         robotDialogueTrigger.TriggerRobotDialogue14();
         statsScript.conferenceAccept = true;
+        statsScript.connferenceCallAccept.Add("Earth Moonpath");
     }
 
     public void StartDialogue5(Dialogue dialogue)
@@ -494,6 +499,7 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndDialogue5()
     {
+        Debug.Log("5");
         speakerPanel.SetActive(false);
         answerPanel.SetActive(true);
         option1.GetComponentInChildren<Text>().text = answers1[0];
@@ -567,6 +573,7 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndDialogue7()
     {
+        Debug.Log("7");
         speakerPanel.SetActive(false);
         answerPanel.SetActive(true);
 
@@ -691,6 +698,7 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndDialogue9()
     {
+        Debug.Log("9");
         conferenceCall.SetActive(false);
         dayOneScript.femaleHologram.SetActive(false);
         player.SetActive(true);
@@ -699,6 +707,7 @@ public class DialogueManager : MonoBehaviour {
         dayOneScript.conferenceCallInteractable = false;
         robotDialogueTrigger.TriggerRobotDialogue14();
         statsScript.conferenceAccept = false;
+        statsScript.connferenceCallDecline.Add("Earth Moonpath");
 
     }
 
@@ -737,6 +746,7 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndConferenceDialogue1()
     {
+        Debug.Log("1");
         speakerPanel.SetActive(false);
         answerPanel.SetActive(true);
 
@@ -802,6 +812,7 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndConferenceDialogue2()
     {
+        Debug.Log("2");
         speakerPanel.SetActive(false);
         answerPanel.SetActive(true);
 
@@ -868,6 +879,7 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndConferenceDialogue3()
     {
+        Debug.Log("3");
         speakerPanel.SetActive(false);
         answerPanel.SetActive(true);
 
@@ -919,6 +931,7 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndConferenceDialogue4()
     {
+        Debug.Log("4");
         speakerPanel.SetActive(false);
         answerPanel.SetActive(true);
 
@@ -975,6 +988,7 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndConferenceDialogue5()
     {
+        Debug.Log("5");
         speakerPanel.SetActive(false);
         answerPanel.SetActive(true);
 
@@ -1024,6 +1038,7 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndConferenceDialogue6()
     {
+        Debug.Log("6");
         speakerPanel.SetActive(false);
         answerPanel.SetActive(true);
 
@@ -1083,6 +1098,7 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndConferenceDialogue7()
     {
+        Debug.Log("7");
         speakerPanel.SetActive(false);
         answerPanel.SetActive(true);
 
@@ -1142,6 +1158,7 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndConferenceDialogue8()
     {
+        Debug.Log("8");
         speakerPanel.SetActive(false);
         answerPanel.SetActive(true);
 
@@ -1211,6 +1228,7 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndConferenceDialogue9()
     {
+        Debug.Log("9");
         conferenceCall.SetActive(false);
         interactionScript.femaleHologram.SetActive(false);
         player.SetActive(true);
@@ -1258,6 +1276,7 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndConferenceDialogue10()
     {
+        Debug.Log("10");
         conferenceCall.SetActive(false);
         interactionScript.femaleHologram.SetActive(false);
         player.SetActive(true);

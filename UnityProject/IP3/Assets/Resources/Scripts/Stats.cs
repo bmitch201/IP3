@@ -34,6 +34,8 @@ public class Stats : MonoBehaviour {
     public List<string> phonecallAccept = new List<string>();
     public List<string> phonecallDecline = new List<string>();
 
+    public List<string> connferenceCallAccept = new List<string>();
+    public List<string> connferenceCallDecline = new List<string>();
 
     public bool conferenceAccept = false;
     public bool conferenceAcceptWithHaggle = false;
