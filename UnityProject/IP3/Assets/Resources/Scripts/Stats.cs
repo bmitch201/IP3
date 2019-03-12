@@ -433,4 +433,21 @@ public class Stats : MonoBehaviour {
     {
         SaveLoad.SavePlayer(this);
     }
+
+    public void LoadGame()
+    {
+        PlayerData data = SaveLoad.LoadPlayer();
+
+        day = data.day;
+        time = data.time;
+
+        stats[0] = data.statistics[0];
+        stats[1] = data.statistics[1];
+        stats[2] = data.statistics[2];
+        stats[3] = data.statistics[3];
+        stats[4] = data.statistics[4];
+        stats[5] = data.statistics[5];
+        stats[6] = data.statistics[6];
+        stats[7] = data.statistics[7];
+    }
 }
