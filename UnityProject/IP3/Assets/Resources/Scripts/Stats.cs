@@ -62,6 +62,7 @@ public class Stats : MonoBehaviour {
     public int day;
 
     public int wifeCounter;
+    public int policyCounter;
 
     //Sets up the PC Screen initally to display the stats on screen
     void Start()
