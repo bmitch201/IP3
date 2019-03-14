@@ -128,7 +128,6 @@ public class Stats : MonoBehaviour {
 
     void Tasks()
     {
-
         if(day == 1)
         {
             if(stats[5] >= 50)
@@ -353,9 +352,15 @@ public class Stats : MonoBehaviour {
             player = GameObject.Find("PlayerController");
         }
 
+        if(Input.GetKeyDown(KeyCode.M))
+        {
+            time = 0;
+        }
+
         if (time <= 0)
         {
             DontDestroyOnLoad(gameObject);
+            gameObject.name = gameObject.name + " DDL";
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             day++;
@@ -612,7 +617,6 @@ public class Stats : MonoBehaviour {
         }
     }
       
-
     public void SaveGame()
     {
         SaveLoad.SavePlayer(this);

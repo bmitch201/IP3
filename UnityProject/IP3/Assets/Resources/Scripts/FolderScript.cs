@@ -77,7 +77,6 @@ public class FolderScript : MonoBehaviour {
     {
         if(player == null)
         {
-            Debug.Log("Hey");
             player = statsScript.player;
             interactionScript = player.GetComponent<InteractionScript>();
         }
