@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 0}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13551,6 +13551,11 @@ Prefab:
       value: "Your wife asks you to ignore Earth\u2019s call today.\nPress 'R' to
         close"
       objectReference: {fileID: 0}
+    - target: {fileID: 23361574268635226, guid: 48c323d8c0d253e4e991c0f79716bae0,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a8e661c2672c25042847aad76c19c377, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48c323d8c0d253e4e991c0f79716bae0, type: 2}
   m_IsPrefabAsset: 0
@@ -13722,7 +13727,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!135 &559981130
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -19894,6 +19899,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5705ee66325e3f943ab92e524411bae7, type: 2}
+    - target: {fileID: 2300002, guid: 11f0b036a1bcb9f4daa31bbe7ee52a4e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100002, guid: 11f0b036a1bcb9f4daa31bbe7ee52a4e, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11f0b036a1bcb9f4daa31bbe7ee52a4e, type: 3}
   m_IsPrefabAsset: 0
