@@ -70,6 +70,7 @@ public class EndOfDayScript : MonoBehaviour
         else if (statsScript.day - 1 == 2)
         {
             CheckTasks();
+            CheckPolicy();
         }
 
 

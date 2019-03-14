@@ -163,7 +163,7 @@ public class DialogueManager : MonoBehaviour {
         }
     }
 
-    IEnumerator TypeSentence (string sentence)
+    IEnumerator TypeSentence(string sentence)
     {
         dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())
@@ -358,7 +358,7 @@ public class DialogueManager : MonoBehaviour {
 
     public void StartDialogue4(Dialogue dialogue)
     {
-        if(dialogue2Visited)
+        if (dialogue2Visited)
         {
             statsScript.stats[5] += 15;
             statsScript.stats[0] -= 10;
@@ -723,9 +723,9 @@ public class DialogueManager : MonoBehaviour {
 
         call2sentences1.Clear();
 
-        foreach (string sentence in dialogue.call2sentences1)
+        foreach (string sentence2_1 in dialogue.call2sentences1)
         {
-            call2sentences1.Enqueue(sentence);
+            call2sentences1.Enqueue(sentence2_1);
         }
 
         DisplayNextConferenceSentence1();
@@ -739,9 +739,9 @@ public class DialogueManager : MonoBehaviour {
             return;
         }
 
-        string sentence = call2sentences1.Dequeue();
+        string sentence2_1 = call2sentences1.Dequeue();
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        StartCoroutine(TypeSentence(sentence2_1));
     }
 
     public void EndConferenceDialogue1()
@@ -753,9 +753,11 @@ public class DialogueManager : MonoBehaviour {
         option1.GetComponentInChildren<Text>().text = call2answers1[0];
         option2.GetComponentInChildren<Text>().text = call2answers1[1];
         option3.GetComponentInChildren<Text>().text = call2answers1[2];
-       
+
+        option1.onClick.RemoveAllListeners();
         option1.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue9);
 
+        option2.onClick.RemoveAllListeners();
         if (statsScript.stats[6] >= 39)
         {
             option2.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue2);
@@ -765,6 +767,7 @@ public class DialogueManager : MonoBehaviour {
             option2.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue3);
         }
 
+        option3.onClick.RemoveAllListeners();
         if (statsScript.stats[6] >= 34)
         {
             option3.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue7);
@@ -789,9 +792,9 @@ public class DialogueManager : MonoBehaviour {
 
         call2sentences2.Clear();
 
-        foreach (string sentence in dialogue.call2sentences2)
+        foreach (string sentence2_2 in dialogue.call2sentences2)
         {
-            call2sentences2.Enqueue(sentence);
+            call2sentences2.Enqueue(sentence2_2);
         }
 
         DisplayNextConferenceSentence2();
@@ -805,9 +808,9 @@ public class DialogueManager : MonoBehaviour {
             return;
         }
 
-        string sentence = call2sentences2.Dequeue();
+        string sentence2_2 = call2sentences2.Dequeue();
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        StartCoroutine(TypeSentence(sentence2_2));
     }
 
     public void EndConferenceDialogue2()
@@ -856,9 +859,9 @@ public class DialogueManager : MonoBehaviour {
 
         call2sentences3.Clear();
 
-        foreach (string sentence in dialogue.call2sentences3)
+        foreach (string sentence2_3 in dialogue.call2sentences3)
         {
-            call2sentences3.Enqueue(sentence);
+            call2sentences3.Enqueue(sentence2_3);
         }
 
         DisplayNextConferenceSentence3();
@@ -872,9 +875,9 @@ public class DialogueManager : MonoBehaviour {
             return;
         }
 
-        string sentence = call2sentences3.Dequeue();
+        string sentence2_3 = call2sentences3.Dequeue();
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        StartCoroutine(TypeSentence(sentence2_3));
     }
 
     public void EndConferenceDialogue3()
@@ -908,9 +911,9 @@ public class DialogueManager : MonoBehaviour {
 
         call2sentences4.Clear();
 
-        foreach (string sentence in dialogue.call2sentences4)
+        foreach (string sentence2_4 in dialogue.call2sentences4)
         {
-            call2sentences4.Enqueue(sentence);
+            call2sentences4.Enqueue(sentence2_4);
         }
 
         DisplayNextConferenceSentence4();
@@ -924,9 +927,9 @@ public class DialogueManager : MonoBehaviour {
             return;
         }
 
-        string sentence = call2sentences4.Dequeue();
+        string sentence2_4 = call2sentences4.Dequeue();
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        StartCoroutine(TypeSentence(sentence2_4));
     }
 
     public void EndConferenceDialogue4()
@@ -965,9 +968,9 @@ public class DialogueManager : MonoBehaviour {
 
         call2sentences5.Clear();
 
-        foreach (string sentence in dialogue.call2sentences5)
+        foreach (string sentence2_5 in dialogue.call2sentences5)
         {
-            call2sentences5.Enqueue(sentence);
+            call2sentences5.Enqueue(sentence2_5);
         }
 
         DisplayNextConferenceSentence5();
@@ -981,9 +984,9 @@ public class DialogueManager : MonoBehaviour {
             return;
         }
 
-        string sentence = call2sentences5.Dequeue();
+        string sentence2_5 = call2sentences5.Dequeue();
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        StartCoroutine(TypeSentence(sentence2_5));
     }
 
     public void EndConferenceDialogue5()
@@ -1015,9 +1018,9 @@ public class DialogueManager : MonoBehaviour {
 
         call2sentences6.Clear();
 
-        foreach (string sentence in dialogue.call2sentences6)
+        foreach (string sentence2_6 in dialogue.call2sentences6)
         {
-            call2sentences6.Enqueue(sentence);
+            call2sentences6.Enqueue(sentence2_6);
         }
 
         DisplayNextConferenceSentence6();
@@ -1031,9 +1034,9 @@ public class DialogueManager : MonoBehaviour {
             return;
         }
 
-        string sentence = call2sentences6.Dequeue();
+        string sentence2_6 = call2sentences6.Dequeue();
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        StartCoroutine(TypeSentence(sentence2_6));
     }
 
     public void EndConferenceDialogue6()
@@ -1075,9 +1078,9 @@ public class DialogueManager : MonoBehaviour {
 
         call2sentences7.Clear();
 
-        foreach (string sentence in dialogue.call2sentences7)
+        foreach (string sentence2_7 in dialogue.call2sentences7)
         {
-            call2sentences7.Enqueue(sentence);
+            call2sentences7.Enqueue(sentence2_7);
         }
 
         DisplayNextConferenceSentence7();
@@ -1091,9 +1094,9 @@ public class DialogueManager : MonoBehaviour {
             return;
         }
 
-        string sentence = call2sentences7.Dequeue();
+        string sentence2_7 = call2sentences7.Dequeue();
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        StartCoroutine(TypeSentence(sentence2_7));
     }
 
     public void EndConferenceDialogue7()
@@ -1135,9 +1138,9 @@ public class DialogueManager : MonoBehaviour {
 
         call2sentences8.Clear();
 
-        foreach (string sentence in dialogue.call2sentences8)
+        foreach (string sentence2_8 in dialogue.call2sentences8)
         {
-            call2sentences8.Enqueue(sentence);
+            call2sentences8.Enqueue(sentence2_8);
         }
 
         DisplayNextConferenceSentence8();
@@ -1151,9 +1154,9 @@ public class DialogueManager : MonoBehaviour {
             return;
         }
 
-        string sentence = call2sentences8.Dequeue();
+        string sentence2_8 = call2sentences8.Dequeue();
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        StartCoroutine(TypeSentence(sentence2_8));
     }
 
     public void EndConferenceDialogue8()
@@ -1205,9 +1208,9 @@ public class DialogueManager : MonoBehaviour {
 
         call2sentences9.Clear();
 
-        foreach (string sentence in dialogue.call2sentences9)
+        foreach (string sentence2_9 in dialogue.call2sentences9)
         {
-            call2sentences9.Enqueue(sentence);
+            call2sentences9.Enqueue(sentence2_9);
         }
 
         DisplayNextConferenceSentence9();
@@ -1221,9 +1224,9 @@ public class DialogueManager : MonoBehaviour {
             return;
         }
 
-        string sentence = call2sentences9.Dequeue();
+        string sentence2_9 = call2sentences9.Dequeue();
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        StartCoroutine(TypeSentence(sentence2_9));
     }
 
     public void EndConferenceDialogue9()
@@ -1253,9 +1256,9 @@ public class DialogueManager : MonoBehaviour {
 
         call2sentences10.Clear();
 
-        foreach (string sentence in dialogue.call2sentences10)
+        foreach (string sentence2_10 in dialogue.call2sentences10)
         {
-            call2sentences10.Enqueue(sentence);
+            call2sentences10.Enqueue(sentence2_10);
         }
 
         DisplayNextConferenceSentence10();
@@ -1269,9 +1272,9 @@ public class DialogueManager : MonoBehaviour {
             return;
         }
 
-        string sentence = call2sentences10.Dequeue();
+        string sentence2_10 = call2sentences10.Dequeue();
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence));
+        StartCoroutine(TypeSentence(sentence2_10));
     }
 
     public void EndConferenceDialogue10()
