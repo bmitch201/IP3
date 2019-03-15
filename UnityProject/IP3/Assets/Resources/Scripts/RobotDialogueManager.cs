@@ -914,23 +914,25 @@ public class RobotDialogueManager : MonoBehaviour {
         phoneScript.phoneIsActive = true;
         phoneScript.firstCall = true;
 
-        GameObject.Find("GameInfoObject").name = "GameInfoObject DDL";
-        GameObject.Find("Earth Folder").name = "Earth Folder DDL";
-        GameObject.Find("Mars Folder").name = "Mars Folder DDL";
-        GameObject.Find("Venus Folder").name = "Venus Folder DDL";
+        statsScript.time--;
 
-        DontDestroyOnLoad(GameObject.Find("GameInfoObject DDL"));
-        DontDestroyOnLoad(GameObject.Find("Earth Folder DDL"));
-        DontDestroyOnLoad(GameObject.Find("Mars Folder DDL"));
-        DontDestroyOnLoad(GameObject.Find("Venus Folder DDL"));
+        //GameObject.Find("GameInfoObject").name = "GameInfoObject DDL";
+        //GameObject.Find("Earth Folder").name = "Earth Folder DDL";
+        //GameObject.Find("Mars Folder").name = "Mars Folder DDL";
+        //GameObject.Find("Venus Folder").name = "Venus Folder DDL";
 
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-        phoneScript.dayOne = false;
-        statsScript.time = 10;
-        statsScript.day++;
-        SceneManager.LoadScene("End Of Day");
-        statsScript.newDay = true;
+        //DontDestroyOnLoad(GameObject.Find("GameInfoObject DDL"));
+        //DontDestroyOnLoad(GameObject.Find("Earth Folder DDL"));
+        //DontDestroyOnLoad(GameObject.Find("Mars Folder DDL"));
+        //DontDestroyOnLoad(GameObject.Find("Venus Folder DDL"));
+
+        //Cursor.lockState = CursorLockMode.None;
+        //Cursor.visible = true;
+        //phoneScript.dayOne = false;
+        //statsScript.time = 10;
+        //statsScript.day++;
+        //SceneManager.LoadScene("End Of Day");
+        //statsScript.newDay = true;
     }
 
     //public void StartRobotDialogue15(RobotDialogue robotDialogue)
@@ -1772,23 +1774,17 @@ public class RobotDialogueManager : MonoBehaviour {
     public void EndRobotDialogue2_15()
     {
 
-        GameObject.Find("GameInfoObject").name = "GameInfoObject DDL";
-        GameObject.Find("Earth Folder").name = "Earth Folder DDL";
-        GameObject.Find("Mars Folder").name = "Mars Folder DDL";
-        GameObject.Find("Venus Folder").name = "Venus Folder DDL";
+        //GameObject.Find("GameInfoObject").name = "GameInfoObject DDL";
+        //GameObject.Find("Earth Folder").name = "Earth Folder DDL";
+        //GameObject.Find("Mars Folder").name = "Mars Folder DDL";
+        //GameObject.Find("Venus Folder").name = "Venus Folder DDL";
 
-        DontDestroyOnLoad(GameObject.Find("GameInfoObject DDL"));
-        DontDestroyOnLoad(GameObject.Find("Earth Folder DDL"));
-        DontDestroyOnLoad(GameObject.Find("Mars Folder DDL"));
-        DontDestroyOnLoad(GameObject.Find("Venus Folder DDL"));
+        //DontDestroyOnLoad(GameObject.Find("GameInfoObject DDL"));
+        //DontDestroyOnLoad(GameObject.Find("Earth Folder DDL"));
+        //DontDestroyOnLoad(GameObject.Find("Mars Folder DDL"));
+        //DontDestroyOnLoad(GameObject.Find("Venus Folder DDL"));
 
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-        phoneScript.dayOne = false;
-        statsScript.time = 10;
-        statsScript.day++;
-        SceneManager.LoadScene("End Of Day");
-        statsScript.newDay = true;
+        statsScript.time--;
 
         dialogue2_15 = false;
         panel.SetActive(false);

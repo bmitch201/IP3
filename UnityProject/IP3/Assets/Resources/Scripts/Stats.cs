@@ -355,12 +355,32 @@ public class Stats : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.M))
         {
             time = 0;
+
+            GameObject.Find("GameInfoObject").name = "GameInfoObject DDL";
+            GameObject.Find("Earth Folder").name = "Earth Folder DDL";
+            GameObject.Find("Mars Folder").name = "Mars Folder DDL";
+            GameObject.Find("Venus Folder").name = "Venus Folder DDL";
+
+            DontDestroyOnLoad(GameObject.Find("GameInfoObject DDL"));
+            DontDestroyOnLoad(GameObject.Find("Earth Folder DDL"));
+            DontDestroyOnLoad(GameObject.Find("Mars Folder DDL"));
+            DontDestroyOnLoad(GameObject.Find("Venus Folder DDL"));
+
+            SceneManager.LoadScene("End Of Day");
         }
 
         if (time <= 0)
         {
-            DontDestroyOnLoad(gameObject);
-            gameObject.name = gameObject.name + " DDL";
+            GameObject.Find("GameInfoObject").name = "GameInfoObject DDL";
+            GameObject.Find("Earth Folder").name = "Earth Folder DDL";
+            GameObject.Find("Mars Folder").name = "Mars Folder DDL";
+            GameObject.Find("Venus Folder").name = "Venus Folder DDL";
+
+            DontDestroyOnLoad(GameObject.Find("GameInfoObject DDL"));
+            DontDestroyOnLoad(GameObject.Find("Earth Folder DDL"));
+            DontDestroyOnLoad(GameObject.Find("Mars Folder DDL"));
+            DontDestroyOnLoad(GameObject.Find("Venus Folder DDL"));
+
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             day++;
