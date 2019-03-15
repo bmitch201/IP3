@@ -163,7 +163,7 @@ public class CameraScript : MonoBehaviour {
             statsScript.workVenus = GameObject.Find("WORK_RIGHTS_VENUS").GetComponent<Text>();
         }
 
-        if(statsScript.day == 2)
+        if(statsScript.day == 2 && GameObject.Find("TRAVEL_EARTH") != null)
         {
             GameObject.Find("TRAVEL_EARTH").SetActive(false);
             GameObject.Find("WORKRIGHTS_EARTH").SetActive(false);
@@ -346,10 +346,11 @@ public class CameraScript : MonoBehaviour {
         venusCanvas.SetActive(true);
 
         if (interactionScript.pcActive == true)
-        {
-            canvas.SetActive(true);
+        { 
             interactionScript.pcActive = false;
         }
+
+        canvas.SetActive(true);
 
         statsScript.TimeForward();
 

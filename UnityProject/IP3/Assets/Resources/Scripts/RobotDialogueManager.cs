@@ -101,7 +101,7 @@ public class RobotDialogueManager : MonoBehaviour {
     bool timer1;
     bool timer2;
 
-    Stats statsScript;
+    public Stats statsScript;
     RobotDialogueTrigger robotDialogueTrigger;
     DayOneScript dayOneScript;
     //InteractionScript interactionScript;
@@ -117,6 +117,7 @@ public class RobotDialogueManager : MonoBehaviour {
         //interactionScript = FindObjectOfType<InteractionScript>();
         phoneScript = FindObjectOfType<Phone>();
         robotAudioSource = GameObject.Find("Robot").GetComponent<AudioSource>();
+        statsScript = GameObject.Find("GameInfoObject").GetComponent<Stats>();
         panel = GameObject.Find("RobotPanel");
 
         robotSentences1 = new Queue<string>();
@@ -173,7 +174,7 @@ public class RobotDialogueManager : MonoBehaviour {
 
     void Start()
     {
-        statsScript = GameObject.Find("GameInfoObject").GetComponent<Stats>();
+        
     }
 
     #region DayOne
@@ -1784,7 +1785,9 @@ public class RobotDialogueManager : MonoBehaviour {
         //DontDestroyOnLoad(GameObject.Find("Mars Folder DDL"));
         //DontDestroyOnLoad(GameObject.Find("Venus Folder DDL"));
 
-        statsScript.time--;
+        Debug.Log("15");
+
+        statsScript.time= statsScript.time - 1;
 
         dialogue2_15 = false;
         panel.SetActive(false);
@@ -1796,6 +1799,11 @@ public class RobotDialogueManager : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
+        if(statsScript == null)
+        {
+            statsScript = GameObject.Find("GameInfoObject").GetComponent<Stats>();
+        }
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (dialogue1)
