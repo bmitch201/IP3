@@ -1771,9 +1771,6 @@ public class RobotDialogueManager : MonoBehaviour {
 
     public void EndRobotDialogue2_15()
     {
-        dialogue2_15 = false;
-        panel.SetActive(false);
-        robotAudioSource.Stop();
 
         GameObject.Find("GameInfoObject").name = "GameInfoObject DDL";
         GameObject.Find("Earth Folder").name = "Earth Folder DDL";
@@ -1792,6 +1789,10 @@ public class RobotDialogueManager : MonoBehaviour {
         statsScript.day++;
         SceneManager.LoadScene("End Of Day");
         statsScript.newDay = true;
+
+        dialogue2_15 = false;
+        panel.SetActive(false);
+        robotAudioSource.Stop();
     }
 
     #endregion
