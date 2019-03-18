@@ -221,11 +221,9 @@ public class Phone : MonoBehaviour
                     statsScript.wifeCounter++;
                     statsScript.stats[5] -= 5;
                     statsScript.stats[4] += 5;
-                    statsScript.TimeForward();
                     phoneIsActive = false;
                 }
             }
-            //statsScript.TimeForward();
         }
 
         if (dayOne)

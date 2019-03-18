@@ -460,7 +460,7 @@ public class InteractionScript : MonoBehaviour
 
                     if (statsScript.day == 2)
                     {
-                        dialogueTrigger.TriggerConferenceDialogue1();
+                        dialogueTrigger.TriggerDialogue();
                     }
                 }
             }

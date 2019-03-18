@@ -15,6 +15,12 @@ public class EndOfDayScript : MonoBehaviour
     public string B;
     public string C;
     public string D;
+
+    public string A_2;
+    public string B_2;
+    public string C_2;
+    public string D_2;
+
     public string E;
     public string F;
 
@@ -29,24 +35,31 @@ public class EndOfDayScript : MonoBehaviour
     public string conferenceB;
     public string conferenceC;
 
+    public string conferenceA_2;
+    public string conferenceB_2;
+
     public string[] policyName;
     public string[] policyDescription;
     List<int> description = new List<int>();
 
     public Text taskText;
+    public Text taskText_2;
 
     public Text policy1Text;
-    public Text policy2Text;
-    public Text policy3Text;
+    public Text policyText_2;
 
     public Text phone1Text;
     public Text phone2Text;
 
     public Text conferenceText;
+    public Text conferenceText_2;
 
     public Text wifeText;
 
     public Button saveButton;
+
+    public GameObject day1Panel;
+    public GameObject day2Panel;
 
     void Start()
     {
@@ -62,6 +75,9 @@ public class EndOfDayScript : MonoBehaviour
 
         if (statsScript.day - 1 == 1)
         {
+            day1Panel.gameObject.SetActive(true);
+            day2Panel.gameObject.SetActive(false);
+
             CheckTasks();
             CheckPolicy();
             CheckPhone();
@@ -69,8 +85,14 @@ public class EndOfDayScript : MonoBehaviour
         }
         else if (statsScript.day - 1 == 2)
         {
+            day1Panel.gameObject.SetActive(false);
+            day2Panel.gameObject.SetActive(true);
+
             CheckTasks();
+            CheckWife();
+            CheckMoonPolicy();
             CheckPolicy();
+            CheckConferenceCall();
         }
 
 
@@ -164,21 +186,43 @@ public class EndOfDayScript : MonoBehaviour
         }
 
         //Determines what text to display based on the number of tasks completed
-        if (noOfTasks == 0)
+        if (statsScript.day - 1 == 1)
         {
-            taskText.text = "On your first day you managed to complete " + noOfTasks + " of your daily tasks, which is " + A;
+            if (noOfTasks == 0)
+            {
+                taskText.text = "On your first day you managed to complete " + noOfTasks + " of your daily tasks, which is " + A;
+            }
+            else if (noOfTasks == 1)
+            {
+                taskText.text = "On your first day you managed to complete  " + noOfTasks + " of your daily tasks, which is " + B;
+            }
+            else if (noOfTasks == 2 || noOfTasks == 3)
+            {
+                taskText.text = "On your first day you managed to complete  " + noOfTasks + " of your daily tasks, which is " + C;
+            }
+            else if (noOfTasks == 4)
+            {
+                taskText.text = "On your first day you managed to complete  " + noOfTasks + " of your daily tasks, which is " + D;
+            }
         }
-        else if (noOfTasks == 1)
+        else if (statsScript.day - 1 == 2)
         {
-            taskText.text = "On your first day you managed to complete  " + noOfTasks + " of your daily tasks, which is " + B;
-        }
-        else if (noOfTasks == 2 || noOfTasks == 3)
-        {
-            taskText.text = "On your first day you managed to complete  " + noOfTasks + " of your daily tasks, which is " + C;
-        }
-        else if (noOfTasks == 4)
-        {
-            taskText.text = "On your first day you managed to complete  " + noOfTasks + " of your daily tasks, which is " + D;
+            if (noOfTasks == 0)
+            {
+                taskText.text = "On your first day you managed to complete " + noOfTasks + " of your daily tasks, which is " + A_2;
+            }
+            else if (noOfTasks == 1)
+            {
+                taskText.text = "On your first day you managed to complete  " + noOfTasks + " of your daily tasks, which is " + B_2;
+            }
+            else if (noOfTasks == 2 || noOfTasks == 3)
+            {
+                taskText.text = "On your first day you managed to complete  " + noOfTasks + " of your daily tasks, which is " + C_2;
+            }
+            else if (noOfTasks == 4)
+            {
+                taskText.text = "On your first day you managed to complete  " + noOfTasks + " of your daily tasks, which is " + D_2;
+            }
         }
     }
 
@@ -305,18 +349,32 @@ public class EndOfDayScript : MonoBehaviour
 
     public void CheckConferenceCall()
     {
-        //Checks if player chose to open or close the border during the conference call
-        if (statsScript.conferenceAccept == true && statsScript.conferenceAcceptWithHaggle == true)
+        if (statsScript.day - 1 == 1)
         {
-            conferenceText.text = "The result of your conference call from Earth made headlines as their president made the following announcement on social media: " + conferenceB;
+            //Checks if player chose to open or close the border during the conference call
+            if (statsScript.conferenceAccept == true && statsScript.conferenceAcceptWithHaggle == true)
+            {
+                conferenceText.text = "The result of your conference call from Earth made headlines as their president made the following announcement on social media: " + conferenceB;
+            }
+            else if (statsScript.conferenceAccept == true)
+            {
+                conferenceText.text = "The result of your conference call from Earth made headlines as their president made the following announcement on social media: " + conferenceA;
+            }
+            else if (statsScript.conferenceAccept == false)
+            {
+                conferenceText.text = "The result of your conference call from Earth made headlines as their president made the following announcement on social media: " + conferenceC;
+            }
         }
-        else if (statsScript.conferenceAccept == true)
+        else if (statsScript.day - 1 == 2)
         {
-            conferenceText.text = "The result of your conference call from Earth made headlines as their president made the following announcement on social media: " + conferenceA;
-        }
-        else if (statsScript.conferenceAccept == false)
-        {
-            conferenceText.text = "The result of your conference call from Earth made headlines as their president made the following announcement on social media: " + conferenceC;
+            if (statsScript.conferenceAccept == true)
+            {
+                conferenceText.text = "Your negotiations with the Martians went " + conferenceA_2;
+            }
+            else
+            {
+                conferenceText.text = "Your negotiations with the Martians went " + conferenceB_2;
+            }
         }
     }
 
@@ -326,11 +384,11 @@ public class EndOfDayScript : MonoBehaviour
         {
             if (statsScript.wifeCounter == 1)
             {
-                wifeText.text = "Your wife called you today, asking if you could ignore or discard Earth’s request. Which you " + E;
+                wifeText.text = "Your wife called you today, asking if you could ignore or discard Earth’s request. Which you " + E + " There will probably be fallout from this action.";
             }
             else
             {
-                wifeText.text = "Your wife called you today, asking if you could ignore or discard Earth’s request. Which you " + F;
+                wifeText.text = "Your wife called you today, asking if you could ignore or discard Earth’s request. Which you " + F + " There will probably be fallout from this action.";
             }
         }
     }
@@ -345,6 +403,8 @@ public class EndOfDayScript : MonoBehaviour
         statsScript.phone1Answered = false;
         statsScript.phone2Accept = false;
         statsScript.phone1Answered = false;
+        statsScript.conferenceAccept = false;
+        statsScript.conferenceAcceptWithHaggle = false;
         SceneManager.LoadScene("Actual Game");
     }
 }

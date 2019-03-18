@@ -28077,7 +28077,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     planet1: Earth Minister
-    planet2: 
+    planet2: Mars Minister
     sentences:
     - Good evening, Mr. Prime Moonister! We are calling you regarding the Moon's recent
       decision to claim independence from us.
@@ -28113,8 +28113,7 @@ MonoBehaviour:
     - Good night, Mr. Prime Moonister!
     call2sentences1:
     - Greetings, Mr. Prime Moonister! We hope you are doing well! The reason for our
-      call this evening is business.Greetings, Mr. Prime Moonister! We hope you are
-      doing well! The reason for our call this evening is business.
+      call this evening is business.
     - The earthlings have been unwilling to sell the precious moon metals to us for
       decades, but now that the moon is an independent planetary body, we hope you
       are more reasonable.

@@ -48,53 +48,53 @@ public class DialogueTrigger : MonoBehaviour {
     }
 
 
-    public void TriggerConferenceDialogue1()
+    //public void TriggerConferenceDialogue1()
+    //{
+    //    dialogueManager.StartConferenceDialogue1(dialogue);
+    //}
+
+    //public void TriggerConferenceDialogue2()
+    //{
+    //    dialogueManager.StartConferenceDialogue2(dialogue);
+    //}
+
+    //public void TriggerConferenceDialogue3()
+    //{
+    //    dialogueManager.StartConferenceDialogue3(dialogue);
+    //}
+
+    //public void TriggerConferenceDialogue4()
+    //{
+    //    dialogueManager.StartConferenceDialogue4(dialogue);
+    //}
+
+    //public void TriggerConferenceDialogue5()
+    //{
+    //    dialogueManager.StartConferenceDialogue5(dialogue);
+    //}
+
+    public void TriggerDialogue6()
     {
-        dialogueManager.StartConferenceDialogue1(dialogue);
+        dialogueManager.StartDialogue6(dialogue);
     }
 
-    public void TriggerConferenceDialogue2()
+    //public void TriggerConferenceDialogue7()
+    //{
+    //    dialogueManager.StartConferenceDialogue7(dialogue);
+    //}
+
+    public void TriggerDialogue8()
     {
-        dialogueManager.StartConferenceDialogue2(dialogue);
+        dialogueManager.StartDialogue8(dialogue);
     }
 
-    public void TriggerConferenceDialogue3()
-    {
-        dialogueManager.StartConferenceDialogue3(dialogue);
-    }
+    //public void TriggerConferenceDialogue9()
+    //{
+    //    dialogueManager.StartConferenceDialogue9(dialogue);
+    //}
 
-    public void TriggerConferenceDialogue4()
+    public void TriggerDialogue10()
     {
-        dialogueManager.StartConferenceDialogue4(dialogue);
-    }
-
-    public void TriggerConferenceDialogue5()
-    {
-        dialogueManager.StartConferenceDialogue5(dialogue);
-    }
-
-    public void TriggerConferenceDialogue6()
-    {
-        dialogueManager.StartConferenceDialogue6(dialogue);
-    }
-
-    public void TriggerConferenceDialogue7()
-    {
-        dialogueManager.StartConferenceDialogue7(dialogue);
-    }
-
-    public void TriggerConferenceDialogue8()
-    {
-        dialogueManager.StartConferenceDialogue8(dialogue);
-    }
-
-    public void TriggerConferenceDialogue9()
-    {
-        dialogueManager.StartConferenceDialogue9(dialogue);
-    }
-
-    public void TriggerConferenceDialogue10()
-    {
-        dialogueManager.StartConferenceDialogue10(dialogue);
+        dialogueManager.StartDialogue10(dialogue);
     }
 }
