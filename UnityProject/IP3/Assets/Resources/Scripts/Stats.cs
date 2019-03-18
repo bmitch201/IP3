@@ -14,13 +14,13 @@ public class Stats : MonoBehaviour {
     [Header("Text")]
     public Text names, nums;
     public Text PCnames, PCnums;
-    public Text whiteboardText;
+    public Text whiteboardText, familyText;
 
     [Header("Sliders")]
     public Slider auto, rev, pubs, cabs, syst, earth, venus, mars;
 
     [Header("Lists")]
-    public string[] tasks;
+    string[] tasks = new string[4];
     public List<string> chosenPlanets = new List<string>();
     public List<string> chosenPolicies = new List<string>();
 
@@ -60,6 +60,7 @@ public class Stats : MonoBehaviour {
 
     public int time;
     public int day;
+    int tasksAmount = 4;
 
     public int wifeCounter;
     public int policyCounter;
@@ -71,6 +72,7 @@ public class Stats : MonoBehaviour {
         nums = GameObject.Find("Text_Numbers").GetComponent<Text>();
 
         whiteboardText = GameObject.Find("WhiteboardText").GetComponent<Text>();
+        familyText = GameObject.Find("FamilyText").GetComponent<Text>();
 
         pcCamera = GameObject.Find("PC Camera");
 
@@ -120,9 +122,53 @@ public class Stats : MonoBehaviour {
 
     public void NewDay()
     {
+        if(day == 1)
+        {
+            tasks[0] = "Increase Earth's Opinion to atleast 50%";
+            tasks[1] = "Increase Mars' Opinion to atleast 60%  ";
+            tasks[2] = "Increase Autonomy to atleast 30%    ";
+            tasks[3] = "Increase Public Support to atleast 60% ";
+        }
+        else if (day == 2)
+        {
+            tasks[0] = "Increase Revenue to 2..5 mil moon bucks";
+            tasks[1] = "Decrease System Tension to atleast 20%";
+            tasks[2] = "Increase Venus' Opinion to atleast 55% ";
+            tasks[3] = "Organise Healthcare for citizens abroad";
+        }
+        else if (day == 3)
+        {
+            tasks[0] = "Increase Mars' Opinion to atleast 65%  ";
+            tasks[1] = "Increase Venus' Opinion to atleast 65% ";
+            tasks[2] = "Increase Public Support to atleast 65% ";
+            tasks[3] = "Decrease System Tension to atleast 15% ";
+        }
+        else if (day == 4)
+        {
+            tasks[0] = "Increase Earth's Opinion to atleast 65%";
+            tasks[1] = "Have at leat 2..6 mil moon bucks     ";
+            tasks[2] = "Increase Autonomy to atleast 50%     ";
+            tasks[3] = "Organise travel for citizens to Earth  ";
+        }
+
         if (whiteboardText != null)
         {
-            whiteboardText.text = "Day " + day + "\n" + "\n" + tasks[day - 1];
+            whiteboardText.text = "Day " + day + "\n" + "\n" + tasks[0] + "\n" + tasks[1] + "\n" + tasks[2] + "\n" + tasks[3];
+        }
+    }
+
+    public void Family()
+    {
+        if (familyText != null)
+        {
+            if (day == 2)
+            {
+                familyText.text = "Wife's request: Ignore the request from Earth over the phone";
+            }
+            else if (day == 3)
+            {
+                familyText.text = "Wife's request: Leave the office at 5PM to make dinner";
+            }
         }
     }
 
@@ -569,6 +615,7 @@ public class Stats : MonoBehaviour {
             if (whiteboardText == null)
             {
                 whiteboardText = GameObject.Find("WhiteboardText").GetComponent<Text>();
+                familyText = GameObject.Find("FamilyText").GetComponent<Text>();
                 NewDay();
             }
         }

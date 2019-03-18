@@ -1186,6 +1186,7 @@ public class RobotDialogueManager : MonoBehaviour {
     {
         dialogue2_3 = false;
         //robotAudioSource.Stop();
+        statsScript.Family();
         panel.SetActive(false);
     }
 
