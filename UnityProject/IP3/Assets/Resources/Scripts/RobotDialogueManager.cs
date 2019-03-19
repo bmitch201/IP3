@@ -104,7 +104,7 @@ public class RobotDialogueManager : MonoBehaviour {
     public Stats statsScript;
     RobotDialogueTrigger robotDialogueTrigger;
     DayOneScript dayOneScript;
-    //InteractionScript interactionScript;
+    InteractionScript interactionScript;
     Phone phoneScript;
 
     float timerForDialogue = 5f;
@@ -114,8 +114,9 @@ public class RobotDialogueManager : MonoBehaviour {
     {
         robotDialogueTrigger = GameObject.Find("Robot").GetComponent<RobotDialogueTrigger>();
         dayOneScript = FindObjectOfType<DayOneScript>();
-        //interactionScript = FindObjectOfType<InteractionScript>();
+        interactionScript = FindObjectOfType<InteractionScript>();
         phoneScript = FindObjectOfType<Phone>();
+
         robotAudioSource = GameObject.Find("Robot").GetComponent<AudioSource>();
         statsScript = GameObject.Find("GameInfoObject").GetComponent<Stats>();
         panel = GameObject.Find("RobotPanel");
@@ -1138,6 +1139,7 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue2_2 = false;
         //robotAudioSource.Stop();
         panel.SetActive(false);
+        interactionScript.phoneInteractable = true;
     }
 
     public void StartRobotDialogue2_3(RobotDialogue robotDialogue)
@@ -1533,6 +1535,7 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue2_10 = false;
         //robotAudioSource.Stop();
         panel.SetActive(false);
+        interactionScript.folderInteractable = true;
     }
 
     public void StartRobotDialogue2_11(RobotDialogue robotDialogue)
@@ -1631,6 +1634,7 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue2_12 = false;
         //robotAudioSource.Stop();
         panel.SetActive(false);
+        interactionScript.phoneInteractable = true;
     }
 
     public void StartRobotDialogue2_13(RobotDialogue robotDialogue)

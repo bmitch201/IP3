@@ -53,6 +53,9 @@ public class InteractionScript : MonoBehaviour
     string item;
 
     public bool conferenceCallInteractable = false;
+    public bool phoneInteractable = false;
+    public bool folderInteractable;
+    public bool chairInteractable;
 
     public bool policy = false;
 
@@ -103,6 +106,8 @@ public class InteractionScript : MonoBehaviour
 
         if (statsScript.day == 2)
         {
+            folderInteractable = false;
+            chairInteractable = true;
             robotDialogueTrigger.TriggerRobotDialogue2_1();
         }
 
@@ -149,7 +154,7 @@ public class InteractionScript : MonoBehaviour
             //Get the distance to the object from the current position
             float dist = Vector3.Distance(transform.position, hit.collider.gameObject.transform.position);
 
-            if (hit.collider.gameObject.tag == "Chair")
+            if (hit.collider.gameObject.tag == "Chair" && chairInteractable)
             {
                 //If the distance to the object is less than 2.5
                 if (dist <= 2.5f)
@@ -179,7 +184,7 @@ public class InteractionScript : MonoBehaviour
                     gameObject.SetActive(false);
                 }
             }
-            else if (hit.collider.gameObject.tag == "Folder")
+            else if (hit.collider.gameObject.tag == "Folder" && folderInteractable == true)
             {
                 //If the distance to the object is less than 2.5
                 if (dist <= 2.5f)
@@ -297,6 +302,11 @@ public class InteractionScript : MonoBehaviour
                         }
                         else if (holdingPhone)
                         {
+                            for (int i = 0; i < policyScript.decreases.Length; i++)
+                            {
+                                statsScript.stats[i] += policyScript.decreases[i];
+                            }
+
                             statsScript.phonecallAccept.Add(phoneScript.phonecall);
 
                             if (phoneScript.calls == 2)
@@ -359,6 +369,8 @@ public class InteractionScript : MonoBehaviour
                                     robotDialogueTrigger.TriggerRobotDialogue2_14();
                                     conferenceCallInteractable = true;
                                     conferenceCallAudio.clip = conferenceCallFX;
+                                    folderInteractable = false;
+                                    chairInteractable = false;
                                     conferenceCallAudio.Play();
                                     phoneScript.calls = 0;
                                 }
@@ -400,7 +412,7 @@ public class InteractionScript : MonoBehaviour
             }
             //If the phone is ringing and If the object hit is the phone and the distance to it is less than 2.5 then 
             //show the player a message to allow them to answer the phone
-            else if (phoneScript.isRinging == true && hit.collider.gameObject.tag == "Phone" && dist <= 2.5f)
+            else if (phoneScript.isRinging == true && hit.collider.gameObject.tag == "Phone" && dist <= 2.5f && phoneInteractable == true)
             {
                 info.text = "Press 'F' to answer";
                 info.gameObject.SetActive(true);
@@ -420,6 +432,7 @@ public class InteractionScript : MonoBehaviour
                             phoneScript.isRinging = false;
                             phonePanel.SetActive(true);
                             phoneCanvasOn = true;
+                            phoneInteractable = false;
                         }
                         else
                         {
@@ -431,6 +444,7 @@ public class InteractionScript : MonoBehaviour
                             phoneScript.isRinging = false;
                             phonePanel.SetActive(true);
                             phoneCanvasOn = true;
+                            phoneInteractable = true;
                             statsScript.TimeForward();
                         }
                     }

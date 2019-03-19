@@ -26,6 +26,7 @@ public class ChairCameraScript : MonoBehaviour
     public Text info;
 
     bool dosEnabled;
+    public bool moonFolderInteractable = true;
 
     void Start()
     {

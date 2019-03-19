@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1133847479640598}
+  m_IsPrefabAsset: 1
+--- !u!1 &1133847479640598
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4194684474121822}
+  - component: {fileID: 114056202854650008}
+  m_Layer: 0
+  m_Name: RobotDialogueManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4194684474121822
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1133847479640598}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114056202854650008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1133847479640598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83be5bff65b2d5a439bd2e62928a9186, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 0}
+  robotDialogueText: {fileID: 0}
+  robotClip1:
+  - {fileID: 8300000, guid: c09e3c231d1eb584ebd2a6855e889dd9, type: 3}
+  - {fileID: 8300000, guid: 0b23fece9d61e2448aa352a327cfa664, type: 3}
+  - {fileID: 8300000, guid: fb0cbb09e35f69042a19a94848171c59, type: 3}
+  robotClip2:
+  - {fileID: 8300000, guid: e348c5cc8799d0a42b86a68b8c2d1bd0, type: 3}
+  robotClip3:
+  - {fileID: 8300000, guid: db40dd8fb2208ef429753d84ea367226, type: 3}
+  - {fileID: 8300000, guid: b16ad5d6a504d6f459e12d747ee32abc, type: 3}
+  - {fileID: 8300000, guid: 463c235ab74ac1f4fa37be4b9d072a34, type: 3}
+  robotClip4:
+  - {fileID: 8300000, guid: fac1d400e03136d418e751051356e0f3, type: 3}
+  robotClip5:
+  - {fileID: 8300000, guid: 7245f9704903ba54bb1ad532effe3775, type: 3}
+  robotClip6:
+  - {fileID: 8300000, guid: 1e389ac8c649cb242950d1c94d253e20, type: 3}
+  robotClip7:
+  - {fileID: 8300000, guid: 78996d8d163e19743b9d69a72f99590a, type: 3}
+  - {fileID: 0}
+  robotClip8:
+  - {fileID: 8300000, guid: 3c1cd550ebcb3694ba79c1da0f3dcd2f, type: 3}
+  - {fileID: 8300000, guid: 01cc0f85e669aac43b36923be725a2fc, type: 3}
+  robotClip9:
+  - {fileID: 8300000, guid: 889917ceddad9fa4fb688b23010086d7, type: 3}
+  - {fileID: 8300000, guid: c56bd7eb249da354393c0fadaeec09ed, type: 3}
+  robotClip10:
+  - {fileID: 8300000, guid: 9ddeb8651a8dbc843937ce8107616d65, type: 3}
+  - {fileID: 8300000, guid: cccd578addbba2245b521ba89e435838, type: 3}
+  robotClip11:
+  - {fileID: 8300000, guid: 870ab6a770b8c4d4e95557beda58f21c, type: 3}
+  - {fileID: 8300000, guid: 79fdd326fe4e3b94c9834f027ea7ff73, type: 3}
+  robotClip12:
+  - {fileID: 8300000, guid: 9a13cd8c2d8fea7419c8f34709f1279f, type: 3}
+  - {fileID: 8300000, guid: d80bbdc5cad7a5f44b9c479a6d2783e5, type: 3}
+  robotClip13:
+  - {fileID: 8300000, guid: de22450bb0e1dc749bb6afc40d8c19fb, type: 3}
+  - {fileID: 8300000, guid: 8d5f0827904f3ee409122baa696cf0ec, type: 3}
+  robotClip14:
+  - {fileID: 8300000, guid: 6e513dd98c82d044f8c7dd9865f334b5, type: 3}
+  - {fileID: 8300000, guid: db1ef5e39bff6314cb733d725948450f, type: 3}
+  conferencePhoneRing: 0
+  statsScript: {fileID: 0}
