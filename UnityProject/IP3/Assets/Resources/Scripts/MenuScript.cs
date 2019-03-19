@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour {
 
+    void Awake()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
     public GameObject hightlight_NewGame;
     public GameObject hightlight_LoadGame;
     public GameObject hightlight_QuitGame;

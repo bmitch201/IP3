@@ -473,7 +473,7 @@ public class DayOneScript : MonoBehaviour {
         //If the phone canvas is active i.e. the user has picked up the phone
         if (phoneCanvasOn)
         {
-            if (Input.GetKeyDown(KeyCode.R))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 phonePanel.SetActive(false);
 

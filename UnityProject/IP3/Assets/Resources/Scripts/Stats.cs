@@ -453,7 +453,12 @@ public class Stats : MonoBehaviour {
 
     void Update()
     {
-        if(player == null)
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Main Menu");
+        }
+
+        if (player == null)
         {
             player = GameObject.Find("PlayerController");
         }
