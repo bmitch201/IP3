@@ -80,6 +80,7 @@ public class DialogueManager : MonoBehaviour {
         robotDialogueTrigger = FindObjectOfType<RobotDialogueTrigger>();
         dayOneScript = FindObjectOfType<DayOneScript>();
         interactionScript = FindObjectOfType<InteractionScript>();
+        statsScript = GameObject.Find("GameInfoObject").GetComponent<Stats>();
 
         audioSource = GameObject.FindGameObjectWithTag("ConferenceCall").GetComponent<AudioSource>();
 
@@ -118,7 +119,15 @@ public class DialogueManager : MonoBehaviour {
 
     void Start()
     {
-        statsScript = GameObject.Find("GameInfoObject").GetComponent<Stats>();
+        
+    }
+
+    void Update()
+    {
+        if(statsScript == null)
+        {
+            statsScript = GameObject.Find("GameInfoObject").GetComponent<Stats>();
+        }
     }
 
     #region Conference Call 1

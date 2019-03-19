@@ -13537,7 +13537,7 @@ Prefab:
     - target: {fileID: 114977083791510324, guid: 48c323d8c0d253e4e991c0f79716bae0,
         type: 2}
       propertyPath: phoneCalls.Array.data[2]
-      value: "Your wife asks you to ignore Earth\u2019s call today.\nPress 'R' to
+      value: "Your wife asks you to ignore Earth\u2019s call today.\nPress 'E' to
         close"
       objectReference: {fileID: 0}
     - target: {fileID: 114977083791510324, guid: 48c323d8c0d253e4e991c0f79716bae0,
@@ -13545,13 +13545,13 @@ Prefab:
       propertyPath: phoneCalls.Array.data[1]
       value: "Venus wants to pass through Moon territory on its way to Earth.\r\nFax
         = Venus Opinion +  ; System Tension -  ; \rAutonomy -\nTrash = Venus Opinion
-        - \r\nPress 'R' to close"
+        - \r\nPress 'E' to close"
       objectReference: {fileID: 0}
     - target: {fileID: 114977083791510324, guid: 48c323d8c0d253e4e991c0f79716bae0,
         type: 2}
       propertyPath: phoneCalls.Array.data[0]
       value: "Mars wants you to export your sacred helium to them. \nFax = Revenue
-        + ; Mars Opinion + ;  Public Support - \nTrash = Mars Opinion -  \nPress 'R'
+        + ; Mars Opinion + ;  Public Support - \nTrash = Mars Opinion -  \nPress 'E'
         to close"
       objectReference: {fileID: 0}
     - target: {fileID: 114977083791510324, guid: 48c323d8c0d253e4e991c0f79716bae0,
@@ -13559,7 +13559,7 @@ Prefab:
       propertyPath: phoneCalls.Array.data[3]
       value: "Earth wants to send inspectors to search your nuclear power stations.\nFax
         = Earth Opinion + ; System Tension - ;  Autonomy - \nTrash = Earth Opinion
-        - ; System Tension + ;  Autonomy +  \nPress 'R' to close"
+        - ; System Tension + ;  Autonomy +  \nPress 'E' to close"
       objectReference: {fileID: 0}
     - target: {fileID: 114977083791510324, guid: 48c323d8c0d253e4e991c0f79716bae0,
         type: 2}

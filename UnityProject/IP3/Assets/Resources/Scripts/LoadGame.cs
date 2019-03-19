@@ -9,6 +9,18 @@ public class LoadGame : MonoBehaviour {
     public int time;
     public float[] statistics = new float[8];
 
+    public string[] policies;
+    public string[] policyPlanet;
+
+    public string[] contact;
+    public string[] contactPlanet;
+
+    public string[] phoneCallAccept;
+    public string[] phoneCallDecline;
+
+    public string[] conferenceCallAccept;
+    public string[] conferenceCallDecline;
+
     public void Load()
     {
         PlayerData data = SaveLoad.LoadPlayer();
@@ -24,6 +36,62 @@ public class LoadGame : MonoBehaviour {
         statistics[5] = data.statistics[5];
         statistics[6] = data.statistics[6];
         statistics[7] = data.statistics[7];
+
+        policies = new string[data.policies.Length];
+
+        for (int i = 0; i < data.policies.Length; i++)
+        {
+            policies[i] = data.policies[i];
+        }
+
+        policyPlanet = new string[data.policyPlanet.Length];
+
+        for (int i = 0; i < data.policyPlanet.Length; i++)
+        {
+            policyPlanet[i] = data.policyPlanet[i];
+        }
+
+        contact = new string[data.contact.Length];
+
+        for (int i = 0; i < data.contact.Length; i++)
+        {
+            contact[i] = data.contact[i];
+        }
+
+        contactPlanet = new string[data.contactPlanet.Length];
+
+        for (int i = 0; i < data.contactPlanet.Length; i++)
+        {
+            contactPlanet[i] = data.contactPlanet[i];
+        }
+
+        phoneCallAccept = new string[data.phoneCallAccept.Length];
+
+        for (int i = 0; i < data.phoneCallAccept.Length; i++)
+        {
+            phoneCallAccept[i] = data.phoneCallAccept[i];
+        }
+
+        phoneCallDecline = new string[data.phoneCallDecline.Length];
+
+        for (int i = 0; i < data.phoneCallDecline.Length; i++)
+        {
+            phoneCallDecline[i] = data.phoneCallDecline[i];
+        }
+
+        conferenceCallAccept = new string[data.conferenceCallAccept.Length];
+
+        for (int i = 0; i < data.conferenceCallAccept.Length; i++)
+        {
+            conferenceCallAccept[i] = data.conferenceCallAccept[i];
+        }
+
+        conferenceCallDecline = new string[data.conferenceCallDecline.Length];
+
+        for (int i = 0; i < data.conferenceCallDecline.Length; i++)
+        {
+            conferenceCallDecline[i] = data.conferenceCallDecline[i];
+        }
 
         DontDestroyOnLoad(this);
 

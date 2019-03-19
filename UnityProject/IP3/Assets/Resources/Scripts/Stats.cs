@@ -21,11 +21,18 @@ public class Stats : MonoBehaviour {
 
     [Header("Lists")]
     string[] tasks = new string[4];
+
     public List<string> chosenPlanets = new List<string>();
     public List<string> chosenPolicies = new List<string>();
 
     public List<string> contactNames = new List<string>();
     public List<string> contactPlanets = new List<string>();
+
+    public List<string> phonecallAccept = new List<string>();
+    public List<string> phonecallDecline = new List<string>();
+
+    public List<string> connferenceCallAccept = new List<string>();
+    public List<string> connferenceCallDecline = new List<string>();
 
     [Header("Outbound Contacts")]
     public string conPlanet, con;
@@ -34,12 +41,6 @@ public class Stats : MonoBehaviour {
     int conNum = 0;
     public Text healthEarth, travelEarth, workEarth, healthMars, travelMars, workMars, healthVenus, travelVenus, workVenus;
     public string hEText, tEText, wEText, hMText, tMText, wMText, hVText, tVText, wVText;
-
-    public List<string> phonecallAccept = new List<string>();
-    public List<string> phonecallDecline = new List<string>();
-
-    public List<string> connferenceCallAccept = new List<string>();
-    public List<string> connferenceCallDecline = new List<string>();
 
     public bool conferenceAccept = false;
     public bool conferenceAcceptWithHaggle = false;
@@ -81,6 +82,46 @@ public class Stats : MonoBehaviour {
             stats[5] = loadScript.statistics[5];
             stats[6] = loadScript.statistics[6];
             stats[7] = loadScript.statistics[7];
+
+            foreach(string m in loadScript.policies)
+            {
+                chosenPolicies.Add(m);
+            }
+
+            foreach (string m in loadScript.policyPlanet)
+            {
+                chosenPlanets.Add(m);
+            }
+
+            foreach (string m in loadScript.contact)
+            {
+                contactNames.Add(m);
+            }
+
+            foreach (string m in loadScript.contactPlanet)
+            {
+                contactPlanets.Add(m);
+            }
+
+            foreach (string m in loadScript.phoneCallAccept)
+            {
+                phonecallAccept.Add(m);
+            }
+
+            foreach (string m in loadScript.phoneCallDecline)
+            {
+                phonecallDecline.Add(m);
+            }
+
+            foreach (string m in loadScript.conferenceCallAccept)
+            {
+                connferenceCallAccept.Add(m);
+            }
+
+            foreach (string m in loadScript.conferenceCallDecline)
+            {
+                connferenceCallDecline.Add(m);
+            }
         }
     }
 
@@ -412,7 +453,12 @@ public class Stats : MonoBehaviour {
 
     void Update()
     {
-        if(player == null)
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("Main Menu");
+        }
+
+        if (player == null)
         {
             player = GameObject.Find("PlayerController");
         }
