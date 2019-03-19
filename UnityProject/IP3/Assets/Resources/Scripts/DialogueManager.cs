@@ -1204,6 +1204,8 @@ public class DialogueManager : MonoBehaviour {
         }
         else if (statsScript.day == 2)
         {
+            statsScript.conferenceAccept = true;
+            statsScript.connferenceCallAccept.Add("Mars Moon Metals");
             interactionScript.conferenceCallInteractable = false;
             robotDialogueTrigger.TriggerRobotDialogue2_15();
         }
@@ -1211,21 +1213,24 @@ public class DialogueManager : MonoBehaviour {
 
     public void StartDialogue10(Dialogue dialogue)
     {
-        statsScript.stats[6] -= 15;
-        statsScript.stats[0] += 10;
-        statsScript.stats[2] += 10;
-
         speakerPanel.SetActive(true);
         answerPanel.SetActive(false);
 
-        planetText.text = dialogue.planet2;
+        continueButton.onClick.RemoveAllListeners();
         continueButton.onClick.AddListener(DisplayNextConferenceSentence10);
 
-        call2sentences10.Clear();
-
-        foreach (string sentence2_10 in dialogue.call2sentences10)
+        if (statsScript.day == 2)
         {
-            call2sentences10.Enqueue(sentence2_10);
+            statsScript.stats[6] -= 15;
+            statsScript.stats[0] += 10;
+            statsScript.stats[2] += 10;
+
+            call2sentences10.Clear();
+
+            foreach (string sentence2_10 in dialogue.call2sentences10)
+            {
+                call2sentences10.Enqueue(sentence2_10);
+            }
         }
 
         DisplayNextConferenceSentence10();
@@ -1233,15 +1238,18 @@ public class DialogueManager : MonoBehaviour {
 
     public void DisplayNextConferenceSentence10()
     {
-        if (call2sentences10.Count == 0)
+        if (statsScript.day == 2)
         {
-            EndConferenceDialogue10();
-            return;
-        }
+            if (call2sentences10.Count == 0)
+            {
+                EndConferenceDialogue10();
+                return;
+            }
 
-        string sentence2_10 = call2sentences10.Dequeue();
-        StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence2_10));
+            string sentence2_10 = call2sentences10.Dequeue();
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(sentence2_10));
+        }
     }
 
     public void EndConferenceDialogue10()
@@ -1253,7 +1261,12 @@ public class DialogueManager : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         interactionScript.conferenceCallInteractable = false;
-        robotDialogueTrigger.TriggerRobotDialogue2_15();
+        if (statsScript.day == 2)
+        {
+            statsScript.connferenceCallDecline.Add("Mars Moon Metals");
+            robotDialogueTrigger.TriggerRobotDialogue2_15();
+            statsScript.conferenceAccept = false;
+        }
         //statsScript.conferenceAccept = false;
     }
 

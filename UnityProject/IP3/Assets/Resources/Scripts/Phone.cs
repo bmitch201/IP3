@@ -155,6 +155,8 @@ public class Phone : MonoBehaviour
                     binChangedNames.Add("Earth_Relationship");
                     binChangedNames.Add("System_Tension");
                     binChangedNames.Add("Autonomy");
+
+                    phonecall = "Earth Nuclear Inspectors";
                 }
             }
 

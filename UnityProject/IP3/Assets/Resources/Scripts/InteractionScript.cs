@@ -309,13 +309,16 @@ public class InteractionScript : MonoBehaviour
 
                             statsScript.phonecallAccept.Add(phoneScript.phonecall);
 
-                            if (phoneScript.calls == 2)
+                            if (statsScript.day == 2)
                             {
-                                robotDialogueTrigger.TriggerRobotDialogue2_14();
-                                conferenceCallInteractable = true;
-                                conferenceCallAudio.clip = conferenceCallFX;
-                                conferenceCallAudio.Play();
-                                phoneScript.calls = 0;
+                                if (phoneScript.calls == 2)
+                                {
+                                    robotDialogueTrigger.TriggerRobotDialogue2_14();
+                                    conferenceCallInteractable = true;
+                                    conferenceCallAudio.clip = conferenceCallFX;
+                                    conferenceCallAudio.Play();
+                                    phoneScript.calls = 0;
+                                }
                             }
 
                             holdingPhone = false;
