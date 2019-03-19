@@ -32,6 +32,8 @@ public static class SaveLoad {
             PlayerData data = formatter.Deserialize(stream) as PlayerData;
             stream.Close();
 
+            Debug.Log("Data loaded");
+
             return data;
         }
         else

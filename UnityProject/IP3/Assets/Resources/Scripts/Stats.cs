@@ -60,10 +60,29 @@ public class Stats : MonoBehaviour {
 
     public int time;
     public int day;
-    int tasksAmount = 4;
 
     public int wifeCounter;
     public int policyCounter;
+
+    void Awake()
+    {
+        if(GameObject.Find("LoadObject") != null)
+        {
+            LoadGame loadScript = GameObject.Find("LoadObject").GetComponent<LoadGame>();
+
+            day = loadScript.day;
+            time = loadScript.time;
+
+            stats[0] = loadScript.statistics[0];
+            stats[1] = loadScript.statistics[1];
+            stats[2] = loadScript.statistics[2];
+            stats[3] = loadScript.statistics[3];
+            stats[4] = loadScript.statistics[4];
+            stats[5] = loadScript.statistics[5];
+            stats[6] = loadScript.statistics[6];
+            stats[7] = loadScript.statistics[7];
+        }
+    }
 
     //Sets up the PC Screen initally to display the stats on screen
     void Start()

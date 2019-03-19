@@ -126,18 +126,7 @@ public class DayOneScript : MonoBehaviour {
 
         if (statsScript.day > 1)
         {
-            interactionScript.enabled = true;
-
-            pcCamera.SetActive(true);
-
-            GameObject.Destroy(GameObject.Find("Earth Folder"));
-            GameObject.Destroy(GameObject.Find("Mars Folder"));
-            GameObject.Destroy(GameObject.Find("Venus Folder"));
-            GameObject.Destroy(GameObject.Find("GameInfoObject"));
-
-            policyChoices.UpdatePolicies();
-
-            this.enabled = false;
+            Load();
         }
         else
         {
@@ -826,5 +815,24 @@ public class DayOneScript : MonoBehaviour {
         marsCanvas.SetActive(true);
         venusCanvas.SetActive(true);
         moonCanvas.SetActive(true);
+    }
+
+    public void Load()
+    {
+        interactionScript.enabled = true;
+
+        pcCamera.SetActive(true);
+
+        if (GameObject.Find("GameInfoObject DDL"))
+        {
+            GameObject.Destroy(GameObject.Find("Earth Folder"));
+            GameObject.Destroy(GameObject.Find("Mars Folder"));
+            GameObject.Destroy(GameObject.Find("Venus Folder"));
+            GameObject.Destroy(GameObject.Find("GameInfoObject"));
+
+            policyChoices.UpdatePolicies();
+        }
+
+        this.enabled = false;
     }
 }
