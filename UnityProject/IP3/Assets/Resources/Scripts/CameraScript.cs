@@ -23,8 +23,8 @@ public class CameraScript : MonoBehaviour {
 
     void Awake()
     {
-        interactionScript = GameObject.Find("PlayerController").GetComponentInParent<InteractionScript>();
-        dayOneScript = GameObject.Find("PlayerController").GetComponent<DayOneScript>();
+        interactionScript = player.GetComponent<InteractionScript>();
+        dayOneScript = player.GetComponent<DayOneScript>();
         robotDialogueTrigger = FindObjectOfType<RobotDialogueTrigger>();
         statsScript = GameObject.Find("GameInfoObject").GetComponent<Stats>();
 
@@ -314,7 +314,7 @@ public class CameraScript : MonoBehaviour {
 
         player.SetActive(true);
 
-        player.GetComponentInParent<InteractionScript>().enabled = true;
+        interactionScript.enabled = true;
 
         //Sets the current page active to false
         currentPage.SetActive(false);
