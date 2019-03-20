@@ -93,6 +93,13 @@ public class FolderScript : MonoBehaviour {
             canvas3.SetActive(false);
         }
 
+        if (canvas1.active || canvas2.active || canvas3.active)
+        {
+            canvas1.SetActive(false);
+            canvas2.SetActive(false);
+            canvas3.SetActive(false);
+        }
+
         if (statsScript.day > 1 || (dayOneScript != null && dayOneScript.firstPolicy == false))
         {
             //If the player hits F while in the folder
@@ -749,6 +756,7 @@ public class FolderScript : MonoBehaviour {
             interactionScript.prefab.transform.parent = GameObject.Find("SpawnPos").transform;
             interactionScript.holdingPolicy = true;
             interactionScript.holding = true;
+            interactionScript.policy = true;
             interactionScript.folder = false;
 
             //Calls the folder and policy methods within the interaction script

@@ -62,6 +62,13 @@ public class MoonFolderScript : MonoBehaviour {
 
     void Update()
     {
+        if(canvas1.active)
+        {
+            canvas1.SetActive(false);
+            canvas2.SetActive(false);
+            canvas3.SetActive(false);
+        }
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
