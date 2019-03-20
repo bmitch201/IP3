@@ -66,4 +66,15 @@ public class MenuScript : MonoBehaviour {
     {
         hightlight_Options.gameObject.SetActive(false);
     }
+
+    void Update()
+    {
+        if(GameObject.Find("GameInfoObject") != null)
+        {
+            Destroy(GameObject.Find("GameInfoObject"));
+            Destroy(GameObject.Find("Earth Folder"));
+            Destroy(GameObject.Find("Mars Folder"));
+            Destroy(GameObject.Find("Venus Folder"));
+        }
+    }
 }

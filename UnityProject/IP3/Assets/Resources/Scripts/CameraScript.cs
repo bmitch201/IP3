@@ -63,6 +63,18 @@ public class CameraScript : MonoBehaviour {
 
     void Update ()
     {
+        if(statsScript.day > 1 && firstPCUse == true)
+        {
+            homePage.SetActive(true);
+            statsPage.SetActive(false);
+
+            currentPage = homePage;
+
+            backButton.SetActive(true);
+
+            firstPCUse = false;
+        }
+
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
@@ -73,6 +85,7 @@ public class CameraScript : MonoBehaviour {
         {
             chairCamera.SetActive(true);
             gameObject.SetActive(false);
+            canvas.SetActive(true);
             dayOneScript.pcAudio.Stop();
 
             if (statsScript.day == 1 && firstPCUse == true)
@@ -84,13 +97,11 @@ public class CameraScript : MonoBehaviour {
 
             if (statsScript.day == 1 && dayOneScript.pcIntractable == true)
             {
-                canvas.SetActive(true);
                 dayOneScript.Light();
             }
 
             if (interactionScript.pcActive == true)
             {
-                canvas.SetActive(true);
                 interactionScript.pcActive = false;
             }
 
