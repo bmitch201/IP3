@@ -22,7 +22,7 @@ public class MoonFolderScript : MonoBehaviour {
     string buttonClicked;
 
     [Header("UI")]
-    public int buttons = 3;
+    public int buttons;
     public Text fundsText;
 
     [Header("Lists")]
@@ -37,16 +37,7 @@ public class MoonFolderScript : MonoBehaviour {
 
     void Awake()
     {
-        anim.Play("Open");
-
-        //Deactivate player while this is open
-        player.SetActive(false);
         interactionScript = player.GetComponent<InteractionScript>();
-
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-
-        es.SetActive(true);
 
         //Sets the current page to be false as long as the variable is holding an object
         if (currentPage != null)
@@ -177,7 +168,7 @@ public class MoonFolderScript : MonoBehaviour {
         currentPage.SetActive(false);
         lastPage = currentPage;
         currentPage = fundsPage;
-        type = "Population Funds";
+        type = "PopFunds";
         buttons = 3;
         currentPage.SetActive(true);
 
@@ -200,6 +191,7 @@ public class MoonFolderScript : MonoBehaviour {
         changedNames.Add("Public_Support");
 
         buttonClicked = "Education";
+        buttons = 1;
 
         ReturnToPlayer();
     }
@@ -213,6 +205,7 @@ public class MoonFolderScript : MonoBehaviour {
         changedNames.Add("Public_Support");
 
         buttonClicked = "Healthcare";
+        buttons = 1;
 
         ReturnToPlayer();
     }
@@ -228,6 +221,7 @@ public class MoonFolderScript : MonoBehaviour {
         changedNames.Add("Public_Support");
 
         buttonClicked = "National Services";
+        buttons = 1;
 
         ReturnToPlayer();
     }
@@ -243,6 +237,7 @@ public class MoonFolderScript : MonoBehaviour {
         changedNames.Add("Public_Support");
 
         buttonClicked = "Border Control";
+        buttons = 1;
 
         ReturnToPlayer();
     }
@@ -256,9 +251,9 @@ public class MoonFolderScript : MonoBehaviour {
         changedNames.Add("Revenue");
         changedNames.Add("Autonomy");
         changedNames.Add("Public_Support");
-
-
+        
         buttonClicked = "Worker Regulations";
+        buttons = 1;
 
         ReturnToPlayer();
     }
@@ -284,6 +279,7 @@ public class MoonFolderScript : MonoBehaviour {
         changedNames.Add("Public_Support");
 
         buttonClicked = "Wage Increase";
+        buttons = 3;
 
         ReturnToPlayer();
     }
@@ -299,6 +295,7 @@ public class MoonFolderScript : MonoBehaviour {
         changedNames.Add("Public_Support");
 
         buttonClicked = "Wage Decrease";
+        buttons = 3;
 
         ReturnToPlayer();
     }
@@ -320,6 +317,7 @@ public class MoonFolderScript : MonoBehaviour {
         changedNames.Add("Public_Support");
 
         buttonClicked = "Pension Increase";
+        buttons = 3;
 
         ReturnToPlayer();
     }
@@ -333,6 +331,7 @@ public class MoonFolderScript : MonoBehaviour {
         changedNames.Add("Public_Support");
 
         buttonClicked = "Pension Decrease";
+        buttons = 3;
 
         ReturnToPlayer();
     }
@@ -346,12 +345,13 @@ public class MoonFolderScript : MonoBehaviour {
     public void TaxInc()
     {
         changes.Add(0.3f);
-        changes.Add(10f);
+        changes.Add(-10f);
 
         changedNames.Add("Revenue");
         changedNames.Add("Public_Support");
 
         buttonClicked = "Tax Increase";
+        buttons = 3;
 
         ReturnToPlayer();
     }
@@ -367,6 +367,7 @@ public class MoonFolderScript : MonoBehaviour {
         changedNames.Add("Public_Support");
 
         buttonClicked = "Tax Decrease";
+        buttons = 3;
 
         ReturnToPlayer();
     }
@@ -397,22 +398,33 @@ public class MoonFolderScript : MonoBehaviour {
     //Disables the buttons on a page if the player has selected a policy
     public void DisableButton()
     {
+        currentPage.SetActive(false);
+
         //Sets the last page to active in order to deactivate the buttons
         lastPage.SetActive(true);
 
-        //Sets a text object to be displayed to the player to inform them of their choice
-        fundsText.gameObject.SetActive(true);
-        fundsText.text = buttonClicked + " is the chosen policy";
-
-        //For each of the buttons on said page
-        for (int i = 1; i <= buttons; i++)
+        if (type == "PopFunds")
         {
-            //Deactivate the button
-            GameObject.Find(type + "Button" + i).GetComponent<Button>().interactable = false;
+            //Sets a text object to be displayed to the player to inform them of their choice
+            fundsText.gameObject.SetActive(true);
+            fundsText.text = buttonClicked + " is the chosen policy";
+
+            //For each of the buttons on said page
+            for (int i = 1; i <= buttons; i++)
+            {
+                //Deactivate the button
+                GameObject.Find(type + "Button" + i).GetComponent<Button>().interactable = false;
+            }
+        }
+        else
+        {
+            GameObject.Find("Button").GetComponent<Button>().interactable = false;
         }
 
         //Set the last page to be inactive
         lastPage.SetActive(false);
+
+        currentPage.SetActive(true);
     }
 
     //Resets the pages 

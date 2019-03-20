@@ -257,6 +257,7 @@ public class InteractionScript : MonoBehaviour
                             {
                                 moonFolderScript.buttons = policyScript.buttonAmount;
                                 moonFolderScript.type = policyScript.type;
+                                moonFolderScript.DisableButton();
                             }
 
                             if (policyChoices.movementChoice != "")

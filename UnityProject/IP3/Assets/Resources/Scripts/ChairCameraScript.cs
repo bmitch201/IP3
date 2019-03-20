@@ -16,9 +16,8 @@ public class ChairCameraScript : MonoBehaviour
     float yaw = -100f;
     float pitch;
 
-    public GameObject pcCamera, moonCamera;
+    public GameObject pcCamera, moonCamera, player;
     public GameObject canvas;
-    GameObject player;
 
     AudioSource pcAudio;
     public AudioClip typingFX;
@@ -30,8 +29,6 @@ public class ChairCameraScript : MonoBehaviour
 
     void Start()
     {
-        player = GameObject.Find("MainCamera");
-
         dos = player.GetComponentInParent<DayOneScript>();
         ins = player.GetComponentInParent<InteractionScript>();
         statsScript = GameObject.Find("GameInfoObject").GetComponent<Stats>();
@@ -155,11 +152,15 @@ public class ChairCameraScript : MonoBehaviour
                         rdt.TriggerRobotDialogue2_4();
                     }
 
-                    player.SetActive(true);
-
                     moonCamera.SetActive(true);
 
                     statsScript.TimeForward();
+
+                    moonCamera.GetComponent<MoonFolderScript>().anim.Play("Open");
+                    moonCamera.GetComponent<MoonFolderScript>().es.SetActive(true);
+
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
 
                     gameObject.SetActive(false);
                 }
