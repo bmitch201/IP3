@@ -483,11 +483,7 @@ public class InteractionScript : MonoBehaviour
                     FolderOn();
                     statsScript.TimeForward();
                     gameObject.SetActive(false);
-
-                    if (statsScript.day == 2)
-                    {
-                        dialogueTrigger.TriggerDialogue();
-                    }
+                    dialogueTrigger.TriggerDialogue();
                 }
             }
             else if (hit.collider.gameObject.tag == "Door" && door)

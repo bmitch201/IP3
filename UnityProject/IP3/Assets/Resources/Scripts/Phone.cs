@@ -328,18 +328,9 @@ public class Phone : MonoBehaviour
             {
                 isRinging = false;
 
-                if (calls == 1)
-                {
-                    audioSource.Stop();
-                    interactionScript.answered = false;
-                }
-                else if (calls == 2)
-                {
-                    audioSource.Stop();
-                    interactionScript.answered = false;
-                    phoneIsActive = false;
-                }
-
+                audioSource.Stop();
+                interactionScript.answered = false;
+                phoneIsActive = false;
                 newAudio = false;
             }
         }

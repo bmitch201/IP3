@@ -56,6 +56,8 @@ public class EndOfDayScript : MonoBehaviour
 
     public Text wifeText;
 
+    public Text contactText;
+
     public Button saveButton;
 
     public GameObject day1Panel;
@@ -90,12 +92,10 @@ public class EndOfDayScript : MonoBehaviour
 
             CheckTasks();
             CheckWife();
-            CheckMoonPolicy();
-            //CheckPolicy();
+            CheckContacts();
+            CheckPolicy();
             CheckConferenceCall();
         }
-
-
     }
 
     public void CheckTasks()
@@ -209,19 +209,19 @@ public class EndOfDayScript : MonoBehaviour
         {
             if (noOfTasks == 0)
             {
-                taskText.text = "On your first day you managed to complete " + noOfTasks + " of your daily tasks, which is " + A_2;
+                taskText_2.text = "Second day on the job and you managed to complete " + noOfTasks + " of your daily tasks, which is " + A_2;
             }
             else if (noOfTasks == 1)
             {
-                taskText.text = "On your first day you managed to complete  " + noOfTasks + " of your daily tasks, which is " + B_2;
+                taskText_2.text = "Second day on the job and you managed to complete  " + noOfTasks + " of your daily tasks, which is " + B_2;
             }
             else if (noOfTasks == 2 || noOfTasks == 3)
             {
-                taskText.text = "On your first day you managed to complete  " + noOfTasks + " of your daily tasks, which is " + C_2;
+                taskText_2.text = "Second day on the job and you managed to complete  " + noOfTasks + " of your daily tasks, which is " + C_2;
             }
             else if (noOfTasks == 4)
             {
-                taskText.text = "On your first day you managed to complete  " + noOfTasks + " of your daily tasks, which is " + D_2;
+                taskText_2.text = "Second day on the job and you managed to complete  " + noOfTasks + " of your daily tasks, which is " + D_2;
             }
         }
     }
@@ -264,17 +264,17 @@ public class EndOfDayScript : MonoBehaviour
             {
                 if (statsScript.chosenPolicies.Count == 2)
                 {
-                    policy1Text.text = "Then you had some time to yourself, where you enacted the " + statsScript.chosenPolicies[1] + " policy for " + statsScript.chosenPlanets[1] + ", which means " + policyDescription[description[1]];
+                    policy1Text.text = "You then enacted some policies; where you enacted the " + statsScript.chosenPolicies[1] + " policy for " + statsScript.chosenPlanets[1] + ", which means " + policyDescription[description[1]];
                     statsScript.policyCounter = 2;
                 }
                 else if (statsScript.chosenPolicies.Count == 3)
                 {
-                    policy1Text.text = "Then you had some time to yourself, where you enacted the " + statsScript.chosenPolicies[1] + " policy for " + statsScript.chosenPlanets[1] + ", which means " + policyDescription[description[1]] + " You then enacted the " + statsScript.chosenPolicies[2] + " policy for " + statsScript.chosenPlanets[2] + ", which means " + policyDescription[description[2]];
+                    policy1Text.text = "You then enacted some policies; where you enacted the " + statsScript.chosenPolicies[1] + " policy for " + statsScript.chosenPlanets[1] + ", which means " + policyDescription[description[1]] + " You then enacted the " + statsScript.chosenPolicies[2] + " policy for " + statsScript.chosenPlanets[2] + ", which means " + policyDescription[description[2]];
                     statsScript.policyCounter = 3;
                 }
                 else if (statsScript.chosenPolicies.Count == 4)
                 {
-                    policy1Text.text = "Then you had some time to yourself, where you enacted the " + statsScript.chosenPolicies[1] + " policy for " + statsScript.chosenPlanets[1] + ", which means " + policyDescription[description[1]] + " You then enacted the " + statsScript.chosenPolicies[2] + " policy for " + statsScript.chosenPlanets[2] + ", which means " + policyDescription[description[2]] + "As you had some free time, you also enacted the " + statsScript.chosenPolicies[3] + " policy for " + statsScript.chosenPlanets[3] + ", which means " + policyDescription[description[3]];
+                    policy1Text.text = "You then enacted some policies; where you enacted the " + statsScript.chosenPolicies[1] + " policy for " + statsScript.chosenPlanets[1] + ", which means " + policyDescription[description[1]] + " You then enacted the " + statsScript.chosenPolicies[2] + " policy for " + statsScript.chosenPlanets[2] + ", which means " + policyDescription[description[2]] + "As you had some free time, you also enacted the " + statsScript.chosenPolicies[3] + " policy for " + statsScript.chosenPlanets[3] + ", which means " + policyDescription[description[3]];
                     statsScript.policyCounter = 4;
                 }
             }
@@ -282,17 +282,17 @@ public class EndOfDayScript : MonoBehaviour
             {
                 if (statsScript.chosenPolicies.Count == 3)
                 {
-                    policy1Text.text = "Then you had some time to yourself, where you enacted the " + statsScript.chosenPolicies[2] + " policy for " + statsScript.chosenPlanets[2] + ", which means " + policyDescription[description[2]];
+                    policy1Text.text = "You then enacted some policies; where you enacted the " + statsScript.chosenPolicies[2] + " policy for " + statsScript.chosenPlanets[2] + ", which means " + policyDescription[description[2]];
                     statsScript.policyCounter = 3;
                 }
                 else if (statsScript.chosenPolicies.Count == 4)
                 {
-                    policy1Text.text = "Then you had some time to yourself, where you enacted the " + statsScript.chosenPolicies[2] + " policy for " + statsScript.chosenPlanets[2] + ", which means " + policyDescription[description[2]] + " You then enacted the " + statsScript.chosenPolicies[3] + " policy for " + statsScript.chosenPlanets[3] + ", which means " + policyDescription[description[3]];
+                    policy1Text.text = "You then enacted some policies; where you enacted the " + statsScript.chosenPolicies[2] + " policy for " + statsScript.chosenPlanets[2] + ", which means " + policyDescription[description[2]] + " You then enacted the " + statsScript.chosenPolicies[3] + " policy for " + statsScript.chosenPlanets[3] + ", which means " + policyDescription[description[3]];
                     statsScript.policyCounter = 4;
                 }
                 else if (statsScript.chosenPolicies.Count == 5)
                 {
-                    policy1Text.text = "Then you had some time to yourself, where you enacted the " + statsScript.chosenPolicies[2] + " policy for " + statsScript.chosenPlanets[2] + ", which means " + policyDescription[description[2]] + " You then enacted the " + statsScript.chosenPolicies[3] + " policy for " + statsScript.chosenPlanets[3] + ", which means " + policyDescription[description[3]] + "As you had some free time, you also enacted the " + statsScript.chosenPolicies[4] + " policy for " + statsScript.chosenPlanets[4] + ", which means " + policyDescription[description[4]];
+                    policy1Text.text = "You then enacted some policies; where you enacted the " + statsScript.chosenPolicies[2] + " policy for " + statsScript.chosenPlanets[2] + ", which means " + policyDescription[description[2]] + " You then enacted the " + statsScript.chosenPolicies[3] + " policy for " + statsScript.chosenPlanets[3] + ", which means " + policyDescription[description[3]] + "As you had some free time, you also enacted the " + statsScript.chosenPolicies[4] + " policy for " + statsScript.chosenPlanets[4] + ", which means " + policyDescription[description[4]];
                     statsScript.policyCounter = 5;
                 }
             }
@@ -300,26 +300,21 @@ public class EndOfDayScript : MonoBehaviour
             {
                 if (statsScript.chosenPolicies.Count == 4)
                 {
-                    policy1Text.text = "Then you had some time to yourself, where you enacted the " + statsScript.chosenPolicies[3] + " policy for " + statsScript.chosenPlanets[3] + ", which means " + policyDescription[description[3]];
+                    policy1Text.text = "You then enacted some policies; where you enacted the " + statsScript.chosenPolicies[3] + " policy for " + statsScript.chosenPlanets[3] + ", which means " + policyDescription[description[3]];
                     statsScript.policyCounter = 4;
                 }
                 else if (statsScript.chosenPolicies.Count == 5)
                 {
-                    policy1Text.text = "Then you had some time to yourself, where you enacted the " + statsScript.chosenPolicies[3] + " policy for " + statsScript.chosenPlanets[3] + ", which means " + policyDescription[description[3]] + " You then enacted the " + statsScript.chosenPolicies[4] + " policy for " + statsScript.chosenPlanets[4] + ", which means " + policyDescription[description[4]];
+                    policy1Text.text = "You then enacted some policies; where you enacted the " + statsScript.chosenPolicies[3] + " policy for " + statsScript.chosenPlanets[3] + ", which means " + policyDescription[description[3]] + " You then enacted the " + statsScript.chosenPolicies[4] + " policy for " + statsScript.chosenPlanets[4] + ", which means " + policyDescription[description[4]];
                     statsScript.policyCounter = 5;
                 }
                 else if (statsScript.chosenPolicies.Count == 6)
                 {
-                    policy1Text.text = "Then you had some time to yourself, where you enacted the " + statsScript.chosenPolicies[3] + " policy for " + statsScript.chosenPlanets[3] + ", which means " + policyDescription[description[3]] + " You then enacted the " + statsScript.chosenPolicies[4] + " policy for " + statsScript.chosenPlanets[4] + ", which means " + policyDescription[description[4]] + "As you had some free time, you also enacted the " + statsScript.chosenPolicies[5] + " policy for " + statsScript.chosenPlanets[5] + ", which means " + policyDescription[description[5]];
+                    policy1Text.text = "You then enacted some policies; where you enacted the " + statsScript.chosenPolicies[3] + " policy for " + statsScript.chosenPlanets[3] + ", which means " + policyDescription[description[3]] + " You then enacted the " + statsScript.chosenPolicies[4] + " policy for " + statsScript.chosenPlanets[4] + ", which means " + policyDescription[description[4]] + "As you had some free time, you also enacted the " + statsScript.chosenPolicies[5] + " policy for " + statsScript.chosenPlanets[5] + ", which means " + policyDescription[description[5]];
                     statsScript.policyCounter = 6;
                 }
             }
         }
-    }
-
-    public void CheckMoonPolicy()
-    {
-
     }
 
     public void CheckPhone()
@@ -369,11 +364,11 @@ public class EndOfDayScript : MonoBehaviour
         {
             if (statsScript.conferenceAccept == true)
             {
-                conferenceText.text = "Your negotiations with the Martians went " + conferenceA_2;
+                conferenceText_2.text = "Your negotiations with the Martians went " + conferenceA_2;
             }
             else
             {
-                conferenceText.text = "Your negotiations with the Martians went " + conferenceB_2;
+                conferenceText_2.text = "Your negotiations with the Martians went " + conferenceB_2;
             }
         }
     }
@@ -384,11 +379,46 @@ public class EndOfDayScript : MonoBehaviour
         {
             if (statsScript.wifeCounter == 1)
             {
-                wifeText.text = "Your wife called you today, asking if you could ignore or discard Earth’s request. Which you " + E + " There will probably be fallout from this action.";
+                wifeText.text = "Your wife called you today, asking if you could ignore or discard Earth’s request, which you " + E + " There will probably be fallout from this action.";
             }
             else
             {
-                wifeText.text = "Your wife called you today, asking if you could ignore or discard Earth’s request. Which you " + F + " There will probably be fallout from this action.";
+                wifeText.text = "Your wife called you today, asking if you could ignore or discard Earth’s request, which you " + F + " There will probably be fallout from this action.";
+            }
+        }
+    }
+
+    public void CheckContacts()
+    {
+        if (statsScript.day - 1 == 2)
+        {
+            if (statsScript.hEText != "Open" && statsScript.hMText != "Open" && statsScript.hVText != "Open")
+            {
+                contactText.text = "You learned how to use the Outbound Contact system, and asked Earth, Venus and Mars to provide Moon citizens with Free Healthcare abroad.";
+            }
+            else if (statsScript.hEText != "Open" && statsScript.hMText != "Open")
+            {
+                contactText.text = "You learned how to use the Outbound Contact system, and asked Earth and Mars to provide Moon citizens with Free Healthcare abroad.";
+            }
+            else if (statsScript.hEText != "Open" && statsScript.hVText != "Open")
+            {
+                contactText.text = "You learned how to use the Outbound Contact system, and asked Earth and Venus to provide Moon citizens with Free Healthcare abroad.";
+            }
+            else if (statsScript.hMText != "Open" && statsScript.hVText != "Open")
+            {
+                contactText.text = "You learned how to use the Outbound Contact system, and asked Mars and Venus to provide Moon citizens with Free Healthcare abroad.";
+            }
+            else if (statsScript.hEText != "Open")
+            {
+                contactText.text = "You learned how to use the Outbound Contact system, and asked Earth to provide Moon citizens with Free Healthcare abroad.";
+            }
+            else if (statsScript.hMText != "Open")
+            {
+                contactText.text = "You learned how to use the Outbound Contact system, and asked Mars to provide Moon citizens with Free Healthcare abroad.";
+            }
+            else if (statsScript.hVText != "Open")
+            {
+                contactText.text = "You learned how to use the Outbound Contact system, and asked Venus to provide Moon citizens with Free Healthcare abroad.";
             }
         }
     }
