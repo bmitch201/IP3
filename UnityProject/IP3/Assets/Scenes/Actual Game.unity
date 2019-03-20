@@ -35378,7 +35378,7 @@ Prefab:
         type: 2}
       propertyPath: robotDialogue.robotSentences3_4.Array.data[1]
       value: "Wanna enact a policy? Or maybe continue with the healthcare issue if
-        you haven\u2019t request it from all the other planets?"
+        you haven\u2019t requested it from all the other planets?"
       objectReference: {fileID: 0}
     - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
         type: 2}

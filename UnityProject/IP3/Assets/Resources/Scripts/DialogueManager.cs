@@ -262,7 +262,6 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndDialogue()
     {
-        Debug.Log("1");
         speakerPanel.SetActive(false);
         answerPanel.SetActive(true);
 
@@ -451,7 +450,6 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndDialogue2()
     {
-        Debug.Log("2");
         speakerPanel.SetActive(false);
         answerPanel.SetActive(true);
 
@@ -624,7 +622,6 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndDialogue3()
     {
-        Debug.Log("3");
         speakerPanel.SetActive(false);
         answerPanel.SetActive(true);
         option1.GetComponentInChildren<Text>().text = answers1[0];
@@ -762,8 +759,6 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndDialogue4()
     {
-        Debug.Log("4");
-
         if (statsScript.day == 1)
         {
             conferenceCall.SetActive(false);
@@ -881,7 +876,6 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndDialogue5()
     {
-        Debug.Log("5");
         speakerPanel.SetActive(false);
         answerPanel.SetActive(true);
         option1.GetComponentInChildren<Text>().text = answers1[0];
@@ -949,7 +943,6 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndDialogue6()
     {
-        Debug.Log("6");
         speakerPanel.SetActive(false);
         answerPanel.SetActive(true);
 
@@ -1056,7 +1049,6 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndDialogue7()
     {
-        Debug.Log("7");
         speakerPanel.SetActive(false);
         answerPanel.SetActive(true);
 
@@ -1185,7 +1177,6 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndDialogue8()
     {
-        Debug.Log("8");
         speakerPanel.SetActive(false);
         answerPanel.SetActive(true);
 
@@ -1319,7 +1310,6 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndDialogue9()
     {
-        Debug.Log("9");
         conferenceCall.SetActive(false);
         dayOneScript.femaleHologram.SetActive(false);
         player.SetActive(true);
@@ -1384,7 +1374,6 @@ public class DialogueManager : MonoBehaviour {
 
     public void EndConferenceDialogue10()
     {
-        Debug.Log("10");
         conferenceCall.SetActive(false);
         interactionScript.femaleHologram.SetActive(false);
         player.SetActive(true);
