@@ -43,6 +43,7 @@ public class InteractionScript : MonoBehaviour
     public bool folder;
     public bool pcActive;
     public bool contact;
+    public bool door;
 
     bool triggerOnce;
     bool triggerOnce2;
@@ -462,7 +463,6 @@ public class InteractionScript : MonoBehaviour
                     }
                 }
             }
-
             //If the conference call is hit, it is interactable and the distance is less than 2.5, then display info text
             else if (hit.collider.gameObject.tag == "ConferenceCall" && conferenceCallInteractable == true && dist <= 2.5f)
             {
@@ -488,6 +488,21 @@ public class InteractionScript : MonoBehaviour
                     {
                         dialogueTrigger.TriggerDialogue();
                     }
+                }
+            }
+            else if (hit.collider.gameObject.tag == "Door" && door)
+            {
+                //If the distance to the object is less than 2.5
+                if (dist <= 2.5f)
+                {
+                    info.text = "Press 'F' to leave office";
+                    info.gameObject.SetActive(true);
+                }
+
+                if (Input.GetKeyDown(KeyCode.F))
+                {
+                    statsScript.time -= 2;
+                    door = false;
                 }
             }
             //Any other object remove the info

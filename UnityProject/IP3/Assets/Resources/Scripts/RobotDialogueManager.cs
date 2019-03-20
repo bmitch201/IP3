@@ -1973,6 +1973,7 @@ public class RobotDialogueManager : MonoBehaviour {
     public void EndRobotDialogue3_3()
     {
         dialogue3_3 = false;
+        statsScript.Family();
         //robotAudioSource.Stop();
         panel.SetActive(false);
         timerForDialogue = 1.5f;
@@ -2122,6 +2123,7 @@ public class RobotDialogueManager : MonoBehaviour {
     public void EndRobotDialogue3_6()
     {
         dialogue3_6 = false;
+        interactionScript.door = true;
         //robotAudioSource.Stop();
         panel.SetActive(false);
     }
