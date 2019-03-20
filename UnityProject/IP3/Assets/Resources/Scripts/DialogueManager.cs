@@ -70,6 +70,17 @@ public class DialogueManager : MonoBehaviour {
     private Queue<string> call2sentences9;
     private Queue<string> call2sentences10;
 
+    private Queue<string> sentences3_1;
+    private Queue<string> sentences3_2;
+    private Queue<string> sentences3_3;
+    private Queue<string> sentences3_4;
+    private Queue<string> sentences3_5;
+    private Queue<string> sentences3_6;
+    private Queue<string> sentences3_7;
+    private Queue<string> sentences3_8;
+    private Queue<string> sentences3_9;
+    private Queue<string> sentences3_10;
+
     //bool conferenceDialogue2Visited;
     //bool conferenceDialogue4Visited;
 
@@ -111,6 +122,17 @@ public class DialogueManager : MonoBehaviour {
         call2sentences9 = new Queue<string>();
         call2sentences10 = new Queue<string>();
 
+        sentences3_1 = new Queue<string>();
+        sentences3_2 = new Queue<string>();
+        sentences3_3 = new Queue<string>();
+        sentences3_4 = new Queue<string>();
+        sentences3_5 = new Queue<string>();
+        sentences3_6 = new Queue<string>();
+        sentences3_7 = new Queue<string>();
+        sentences3_8 = new Queue<string>();
+        sentences3_9 = new Queue<string>();
+        sentences3_10 = new Queue<string>();
+
         dialogue2Visited = false;
         dialogue4Visited = false;
         dialogue5Visited = false;
@@ -130,8 +152,6 @@ public class DialogueManager : MonoBehaviour {
         }
     }
 
-    #region Conference Call 1
-
     public void StartDialogue(Dialogue dialogue)
     {
         if (statsScript.day == 1)
@@ -141,6 +161,10 @@ public class DialogueManager : MonoBehaviour {
         else if (statsScript.day == 2)
         {
             planetText.text = dialogue.planet2;
+        }
+        else if (statsScript.day == 3)
+        {
+            planetText.text = dialogue.planet3;
         }
         continueButton.onClick.AddListener(DisplayNextSentence);
 
@@ -164,6 +188,13 @@ public class DialogueManager : MonoBehaviour {
             foreach (string sentence in dialogue.call2sentences1)
             {
                 call2sentences1.Enqueue(sentence);
+            }
+        }
+        else if (statsScript.day == 3)
+        {
+            foreach (string sentence in dialogue.sentences3_1)
+            {
+                sentences3_1.Enqueue(sentence);
             }
         }
 
@@ -193,7 +224,6 @@ public class DialogueManager : MonoBehaviour {
                 audioSource.PlayOneShot(audio);
             }
         }
-
         else if (statsScript.day == 2)
         {
             if (call2sentences1.Count == 0)
@@ -203,6 +233,18 @@ public class DialogueManager : MonoBehaviour {
             }
 
             string sentence = call2sentences1.Dequeue();
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(sentence));
+        }
+        else if (statsScript.day == 3)
+        {
+            if (sentences3_1.Count == 0)
+            {
+                EndDialogue();
+                return;
+            }
+
+            string sentence = sentences3_1.Dequeue();
             StopAllCoroutines();
             StartCoroutine(TypeSentence(sentence));
         }
@@ -275,6 +317,31 @@ public class DialogueManager : MonoBehaviour {
                 option3.onClick.AddListener(dialogueTrigger.TriggerDialogue10);
             }
         }
+        else if (statsScript.day == 3)
+        {
+            option1.onClick.RemoveAllListeners();
+            option1.onClick.AddListener(dialogueTrigger.TriggerDialogue9);
+
+            option2.onClick.RemoveAllListeners();
+            if (statsScript.stats[7] >= 34)
+            {
+                option2.onClick.AddListener(dialogueTrigger.TriggerDialogue2);
+            }
+            else
+            {
+                option2.onClick.AddListener(dialogueTrigger.TriggerDialogue3);
+            }
+
+            option3.onClick.RemoveAllListeners();
+            if (statsScript.stats[7] >= 34)
+            {
+                option3.onClick.AddListener(dialogueTrigger.TriggerDialogue6);
+            }
+            else
+            {
+                option3.onClick.AddListener(dialogueTrigger.TriggerDialogue10);
+            }
+        }
     }
 
     public void StartDialogue2(Dialogue dialogue)
@@ -286,6 +353,10 @@ public class DialogueManager : MonoBehaviour {
         else if (statsScript.day == 2)
         {
             statsScript.stats[6] -= 5;
+        }
+        else if (statsScript.day == 2)
+        {
+            statsScript.stats[7] -= 5;
         }
 
         statsScript.conferenceAcceptWithHaggle = true;
@@ -316,6 +387,13 @@ public class DialogueManager : MonoBehaviour {
             foreach (string sentence in dialogue.call2sentences2)
             {
                 call2sentences2.Enqueue(sentence);
+            }
+        }
+        else if (statsScript.day == 3)
+        {
+            foreach (string sentence in dialogue.sentences3_2)
+            {
+                sentences3_2.Enqueue(sentence);
             }
         }
 
@@ -354,6 +432,18 @@ public class DialogueManager : MonoBehaviour {
             }
 
             string sentence = call2sentences2.Dequeue();
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(sentence));
+        }
+        else if (statsScript.day == 3)
+        {
+            if (sentences3_2.Count == 0)
+            {
+                EndDialogue2();
+                return;
+            }
+
+            string sentence = sentences3_2.Dequeue();
             StopAllCoroutines();
             StartCoroutine(TypeSentence(sentence));
         }
@@ -421,6 +511,31 @@ public class DialogueManager : MonoBehaviour {
                 option3.onClick.AddListener(dialogueTrigger.TriggerDialogue10);
             }
         }
+        else if (statsScript.day == 3)
+        {
+            option1.onClick.RemoveAllListeners();
+            option1.onClick.AddListener(dialogueTrigger.TriggerDialogue9);
+
+            option2.onClick.RemoveAllListeners();
+            if (statsScript.stats[7] >= 34)
+            {
+                option2.onClick.AddListener(dialogueTrigger.TriggerDialogue4);
+            }
+            else
+            {
+                option2.onClick.AddListener(dialogueTrigger.TriggerDialogue5);
+            }
+
+            option3.onClick.RemoveAllListeners();
+            if (statsScript.stats[7] >= 34)
+            {
+                option3.onClick.AddListener(dialogueTrigger.TriggerDialogue7);
+            }
+            else
+            {
+                option3.onClick.AddListener(dialogueTrigger.TriggerDialogue10);
+            }
+        }
     }
 
     public void StartDialogue3(Dialogue dialogue)
@@ -433,6 +548,10 @@ public class DialogueManager : MonoBehaviour {
         else if (statsScript.day == 2)
         {
             statsScript.stats[6] -= 5;
+        }
+        else if (statsScript.day == 3)
+        {
+            
         }
         speakerPanel.SetActive(true);
         answerPanel.SetActive(false);
@@ -1025,19 +1144,24 @@ public class DialogueManager : MonoBehaviour {
 
     public void StartDialogue8(Dialogue dialogue)
     {
-        statsScript.stats[6] -= 5;
-
         speakerPanel.SetActive(true);
         answerPanel.SetActive(false);
 
-        planetText.text = dialogue.planet2;
-        continueButton.onClick.AddListener(DisplayNextSentence8);
-
-        call2sentences8.Clear();
-
-        foreach (string sentence2_8 in dialogue.call2sentences8)
+        if (statsScript.day == 2)
         {
-            call2sentences8.Enqueue(sentence2_8);
+            statsScript.stats[6] -= 5;
+
+
+
+            planetText.text = dialogue.planet2;
+            continueButton.onClick.AddListener(DisplayNextSentence8);
+
+            call2sentences8.Clear();
+
+            foreach (string sentence2_8 in dialogue.call2sentences8)
+            {
+                call2sentences8.Enqueue(sentence2_8);
+            }
         }
 
         DisplayNextSentence8();
@@ -1045,15 +1169,18 @@ public class DialogueManager : MonoBehaviour {
 
     public void DisplayNextSentence8()
     {
-        if (call2sentences8.Count == 0)
+        if (statsScript.day == 2)
         {
-            EndDialogue8();
-            return;
-        }
+            if (call2sentences8.Count == 0)
+            {
+                EndDialogue8();
+                return;
+            }
 
-        string sentence2_8 = call2sentences8.Dequeue();
-        StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence2_8));
+            string sentence2_8 = call2sentences8.Dequeue();
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(sentence2_8));
+        }
     }
 
     public void EndDialogue8()
@@ -1062,15 +1189,18 @@ public class DialogueManager : MonoBehaviour {
         speakerPanel.SetActive(false);
         answerPanel.SetActive(true);
 
-        option1.GetComponentInChildren<Text>().text = answers2[0];
-        option2.gameObject.SetActive(false);
-        option3.GetComponentInChildren<Text>().text = answers2[2];
+        if (statsScript.day == 2)
+        {
+            option1.GetComponentInChildren<Text>().text = answers2[0];
+            option2.gameObject.SetActive(false);
+            option3.GetComponentInChildren<Text>().text = answers2[2];
 
-        option1.onClick.RemoveAllListeners();
-        option1.onClick.AddListener(dialogueTrigger.TriggerDialogue9);
+            option1.onClick.RemoveAllListeners();
+            option1.onClick.AddListener(dialogueTrigger.TriggerDialogue9);
 
-        option3.onClick.RemoveAllListeners();
-        option3.onClick.AddListener(dialogueTrigger.TriggerDialogue10);
+            option3.onClick.RemoveAllListeners();
+            option3.onClick.AddListener(dialogueTrigger.TriggerDialogue10);
+        }
     }
 
     public void StartDialogue9(Dialogue dialogue)
@@ -1267,487 +1397,5 @@ public class DialogueManager : MonoBehaviour {
             robotDialogueTrigger.TriggerRobotDialogue2_15();
             statsScript.conferenceAccept = false;
         }
-        //statsScript.conferenceAccept = false;
     }
-
-    #endregion
-
-    //public void StartConferenceDialogue1(Dialogue dialogue)
-    //{
-    //    conferenceDialogue2Visited = false;
-    //    conferenceDialogue4Visited = false;
-
-    //    planetText.text = dialogue.planet2;
-    //    continueButton.onClick.AddListener(DisplayNextConferenceSentence1);
-
-    //    call2sentences1.Clear();
-
-    //    foreach (string sentence2_1 in dialogue.call2sentences1)
-    //    {
-    //        call2sentences1.Enqueue(sentence2_1);
-    //    }
-
-    //    DisplayNextConferenceSentence1();
-    //}
-
-    //public void DisplayNextConferenceSentence1()
-    //{
-    //    if (call2sentences1.Count == 0)
-    //    {
-    //        EndConferenceDialogue1();
-    //        return;
-    //    }
-
-    //    string sentence2_1 = call2sentences1.Dequeue();
-    //    StopAllCoroutines();
-    //    StartCoroutine(TypeSentence(sentence2_1));
-    //}
-
-    //public void EndConferenceDialogue1()
-    //{
-    //    Debug.Log("1");
-    //    speakerPanel.SetActive(false);
-    //    answerPanel.SetActive(true);
-
-    //    option1.GetComponentInChildren<Text>().text = call2answers1[0];
-    //    option2.GetComponentInChildren<Text>().text = call2answers1[1];
-    //    option3.GetComponentInChildren<Text>().text = call2answers1[2];
-
-    //    option1.onClick.RemoveAllListeners();
-    //    option1.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue9);
-
-    //    option2.onClick.RemoveAllListeners();
-    //    if (statsScript.stats[6] >= 39)
-    //    {
-    //        option2.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue2);
-    //    }
-    //    else
-    //    {
-    //        option2.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue3);
-    //    }
-
-    //    option3.onClick.RemoveAllListeners();
-    //    if (statsScript.stats[6] >= 34)
-    //    {
-    //        option3.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue7);
-    //    }
-    //    else
-    //    {
-    //        option3.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue10);
-    //    }
-    //}
-
-    //public void StartConferenceDialogue2(Dialogue dialogue)
-    //{
-    //    statsScript.stats[6] -= 5;
-
-    //    speakerPanel.SetActive(true);
-    //    answerPanel.SetActive(false);
-
-    //    conferenceDialogue2Visited = true;
-
-    //    planetText.text = dialogue.planet2;
-    //    continueButton.onClick.AddListener(DisplayNextConferenceSentence2);
-
-    //    call2sentences2.Clear();
-
-    //    foreach (string sentence2_2 in dialogue.call2sentences2)
-    //    {
-    //        call2sentences2.Enqueue(sentence2_2);
-    //    }
-
-    //    DisplayNextConferenceSentence2();
-    //}
-
-    //public void DisplayNextConferenceSentence2()
-    //{
-    //    if (call2sentences2.Count == 0)
-    //    {
-    //        EndConferenceDialogue2();
-    //        return;
-    //    }
-
-    //    string sentence2_2 = call2sentences2.Dequeue();
-    //    StopAllCoroutines();
-    //    StartCoroutine(TypeSentence(sentence2_2));
-    //}
-
-    //public void EndConferenceDialogue2()
-    //{
-    //    Debug.Log("2");
-    //    speakerPanel.SetActive(false);
-    //    answerPanel.SetActive(true);
-
-    //    option1.GetComponentInChildren<Text>().text = call2answers2[0];
-    //    option2.GetComponentInChildren<Text>().text = call2answers2[1];
-    //    option3.GetComponentInChildren<Text>().text = call2answers2[2];
-
-    //    option1.onClick.RemoveAllListeners();
-    //    option1.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue9);
-
-    //    option2.onClick.RemoveAllListeners();
-    //    if (statsScript.stats[6] > 34)
-    //    {
-    //        option2.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue4);
-    //    }
-    //    else
-    //    {
-    //        option2.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue5);
-    //    }
-
-    //    option3.onClick.RemoveAllListeners();
-    //    if (statsScript.stats[6] > 34)
-    //    {
-    //        option3.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue7);
-    //    }
-    //    else
-    //    {
-    //        option3.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue10);
-    //    }
-    //}
-
-    //public void StartConferenceDialogue3(Dialogue dialogue)
-    //{
-    //    statsScript.stats[6] -= 5;
-
-    //    speakerPanel.SetActive(true);
-    //    answerPanel.SetActive(false);
-
-    //    planetText.text = dialogue.planet2;
-    //    continueButton.onClick.AddListener(DisplayNextConferenceSentence3);
-
-    //    call2sentences3.Clear();
-
-    //    foreach (string sentence2_3 in dialogue.call2sentences3)
-    //    {
-    //        call2sentences3.Enqueue(sentence2_3);
-    //    }
-
-    //    DisplayNextConferenceSentence3();
-    //}
-
-    //public void DisplayNextConferenceSentence3()
-    //{
-    //    if (call2sentences3.Count == 0)
-    //    {
-    //        EndConferenceDialogue3();
-    //        return;
-    //    }
-
-    //    string sentence2_3 = call2sentences3.Dequeue();
-    //    StopAllCoroutines();
-    //    StartCoroutine(TypeSentence(sentence2_3));
-    //}
-
-    //public void EndConferenceDialogue3()
-    //{
-    //    Debug.Log("3");
-    //    speakerPanel.SetActive(false);
-    //    answerPanel.SetActive(true);
-
-    //    option1.GetComponentInChildren<Text>().text = call2answers1[0];
-    //    option2.gameObject.SetActive(false);
-    //    option3.GetComponentInChildren<Text>().text = call2answers1[2];
-
-    //    option1.onClick.RemoveAllListeners();
-    //    option1.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue9);
-
-    //    option3.onClick.RemoveAllListeners();
-    //    option3.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue10);
-    //}
-
-    //public void StartConferenceDialogue4(Dialogue dialogue)
-    //{
-    //    statsScript.stats[6] -= 5;
-
-    //    speakerPanel.SetActive(true);
-    //    answerPanel.SetActive(false);
-
-    //    conferenceDialogue4Visited = true;
-
-    //    planetText.text = dialogue.planet2;
-    //    continueButton.onClick.AddListener(DisplayNextConferenceSentence4);
-
-    //    call2sentences4.Clear();
-
-    //    foreach (string sentence2_4 in dialogue.call2sentences4)
-    //    {
-    //        call2sentences4.Enqueue(sentence2_4);
-    //    }
-
-    //    DisplayNextConferenceSentence4();
-    //}
-
-    //public void DisplayNextConferenceSentence4()
-    //{
-    //    if (call2sentences4.Count == 0)
-    //    {
-    //        EndConferenceDialogue4();
-    //        return;
-    //    }
-
-    //    string sentence2_4 = call2sentences4.Dequeue();
-    //    StopAllCoroutines();
-    //    StartCoroutine(TypeSentence(sentence2_4));
-    //}
-
-    //public void EndConferenceDialogue4()
-    //{
-    //    Debug.Log("4");
-    //    speakerPanel.SetActive(false);
-    //    answerPanel.SetActive(true);
-
-    //    option1.GetComponentInChildren<Text>().text = call2answers2[0];
-    //    option2.gameObject.SetActive(false);
-    //    option3.GetComponentInChildren<Text>().text = call2answers2[2];
-
-    //    option1.onClick.RemoveAllListeners();
-    //    option1.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue9);
-
-    //    option3.onClick.RemoveAllListeners();
-    //    if (statsScript.stats[6] > 34)
-    //    {
-    //        option3.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue8);
-    //    }
-    //    else if (statsScript.stats[6] <= 34)
-    //    {
-    //        option3.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue10);
-    //    }
-    //}
-
-    //public void StartConferenceDialogue5(Dialogue dialogue)
-    //{
-    //    statsScript.stats[6] -= 5;
-
-    //    speakerPanel.SetActive(true);
-    //    answerPanel.SetActive(false);
-
-    //    planetText.text = dialogue.planet2;
-    //    continueButton.onClick.AddListener(DisplayNextConferenceSentence5);
-
-    //    call2sentences5.Clear();
-
-    //    foreach (string sentence2_5 in dialogue.call2sentences5)
-    //    {
-    //        call2sentences5.Enqueue(sentence2_5);
-    //    }
-
-    //    DisplayNextConferenceSentence5();
-    //}
-
-    //public void DisplayNextConferenceSentence5()
-    //{
-    //    if (call2sentences5.Count == 0)
-    //    {
-    //        EndConferenceDialogue5();
-    //        return;
-    //    }
-
-    //    string sentence2_5 = call2sentences5.Dequeue();
-    //    StopAllCoroutines();
-    //    StartCoroutine(TypeSentence(sentence2_5));
-    //}
-
-    //public void EndConferenceDialogue5()
-    //{
-    //    Debug.Log("5");
-    //    speakerPanel.SetActive(false);
-    //    answerPanel.SetActive(true);
-
-    //    option1.GetComponentInChildren<Text>().text = call2answers2[0];
-    //    option2.gameObject.SetActive(false);
-    //    option3.GetComponentInChildren<Text>().text = call2answers2[2];
-
-    //    option1.onClick.RemoveAllListeners();
-    //    option1.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue9);
-
-    //    option3.onClick.RemoveAllListeners();
-    //    option3.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue10);
-    //}
-
-    //public void StartConferenceDialogue6(Dialogue dialogue)
-    //{
-    //    statsScript.stats[6] -= 5;
-
-    //    speakerPanel.SetActive(true);
-    //    answerPanel.SetActive(false);
-
-    //    planetText.text = dialogue.planet2;
-    //    continueButton.onClick.AddListener(DisplayNextConferenceSentence6);
-
-    //    call2sentences6.Clear();
-
-    //    foreach (string sentence2_6 in dialogue.call2sentences6)
-    //    {
-    //        call2sentences6.Enqueue(sentence2_6);
-    //    }
-
-    //    DisplayNextConferenceSentence6();
-    //}
-
-    //public void DisplayNextConferenceSentence6()
-    //{
-    //    if (call2sentences6.Count == 0)
-    //    {
-    //        EndConferenceDialogue6();
-    //        return;
-    //    }
-
-    //    string sentence2_6 = call2sentences6.Dequeue();
-    //    StopAllCoroutines();
-    //    StartCoroutine(TypeSentence(sentence2_6));
-    //}
-
-    //public void EndConferenceDialogue6()
-    //{
-    //    Debug.Log("6");
-    //    speakerPanel.SetActive(false);
-    //    answerPanel.SetActive(true);
-
-    //    option1.GetComponentInChildren<Text>().text = call2answers1[0];
-    //    option2.GetComponentInChildren<Text>().text = call2answers1[1];
-    //    option3.GetComponentInChildren<Text>().text = call2answers1[2];
-
-    //    option1.onClick.RemoveAllListeners();
-    //    option1.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue9);
-
-    //    option2.onClick.RemoveAllListeners();
-    //    if (statsScript.stats[6] >= 34)
-    //    {
-    //        option2.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue2);
-    //    }
-    //    else
-    //    {
-    //        option2.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue3);
-    //    }
-
-    //    option3.onClick.RemoveAllListeners();
-    //    option3.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue10);
-    //}
-
-    //public void StartConferenceDialogue7(Dialogue dialogue)
-    //{
-    //    statsScript.stats[6] -= 5;
-
-    //    speakerPanel.SetActive(true);
-    //    answerPanel.SetActive(false);
-
-    //    planetText.text = dialogue.planet2;
-    //    continueButton.onClick.AddListener(DisplayNextConferenceSentence7);
-
-    //    call2sentences7.Clear();
-
-    //    foreach (string sentence2_7 in dialogue.call2sentences7)
-    //    {
-    //        call2sentences7.Enqueue(sentence2_7);
-    //    }
-
-    //    DisplayNextConferenceSentence7();
-    //}
-
-    //public void DisplayNextConferenceSentence7()
-    //{
-    //    if (call2sentences6.Count == 0)
-    //    {
-    //        EndConferenceDialogue7();
-    //        return;
-    //    }
-
-    //    string sentence2_7 = call2sentences7.Dequeue();
-    //    StopAllCoroutines();
-    //    StartCoroutine(TypeSentence(sentence2_7));
-    //}
-
-    //public void EndConferenceDialogue7()
-    //{
-    //    Debug.Log("7");
-    //    speakerPanel.SetActive(false);
-    //    answerPanel.SetActive(true);
-
-    //    option1.GetComponentInChildren<Text>().text = call2answers2[0];
-    //    option2.GetComponentInChildren<Text>().text = call2answers2[1];
-    //    option3.GetComponentInChildren<Text>().text = call2answers2[2];
-
-    //    option1.onClick.RemoveAllListeners();
-    //    option1.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue9);
-
-    //    option2.onClick.RemoveAllListeners();
-    //    if (statsScript.stats[6] > 29)
-    //    {
-    //        option2.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue4);
-    //    }
-    //    else
-    //    {
-    //        option2.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue5);
-    //    }
-
-    //    option3.onClick.RemoveAllListeners();
-    //    option3.onClick.AddListener(dialogueTrigger.TriggerConferenceDialogue10);
-    //}
-
-    //public void StartConferenceDialogue9(Dialogue dialogue)
-    //{
-    //    statsScript.stats[4] += 10;
-
-    //    speakerPanel.SetActive(true);
-    //    answerPanel.SetActive(false);
-
-    //    if (conferenceDialogue2Visited)
-    //    {
-    //        statsScript.stats[1] += 0.5f;
-    //        statsScript.stats[6] += 15;
-    //        statsScript.stats[2] -= 5;
-    //    }
-    //    else if (conferenceDialogue2Visited && conferenceDialogue4Visited)
-    //    {
-    //        statsScript.stats[1] += 0.5f;
-    //        statsScript.stats[6] += 15;
-    //    }
-    //    else
-    //    {
-    //        statsScript.stats[1] += 0.3f;
-    //        statsScript.stats[6] += 15;
-    //        statsScript.stats[0] -= 5;
-    //        statsScript.stats[2] -= 10;
-    //    }
-
-
-    //    planetText.text = dialogue.planet2;
-    //    continueButton.onClick.AddListener(DisplayNextConferenceSentence9);
-
-    //    call2sentences9.Clear();
-
-    //    foreach (string sentence2_9 in dialogue.call2sentences9)
-    //    {
-    //        call2sentences9.Enqueue(sentence2_9);
-    //    }
-
-    //    DisplayNextConferenceSentence9();
-    //}
-
-    //public void DisplayNextConferenceSentence9()
-    //{
-    //    if (call2sentences9.Count == 0)
-    //    {
-    //        EndConferenceDialogue9();
-    //        return;
-    //    }
-
-    //    string sentence2_9 = call2sentences9.Dequeue();
-    //    StopAllCoroutines();
-    //    StartCoroutine(TypeSentence(sentence2_9));
-    //}
-
-    //public void EndConferenceDialogue9()
-    //{
-    //    Debug.Log("9");
-    //    conferenceCall.SetActive(false);
-    //    interactionScript.femaleHologram.SetActive(false);
-    //    player.SetActive(true);
-    //    Cursor.lockState = CursorLockMode.Locked;
-    //    Cursor.visible = false;
-    //    interactionScript.conferenceCallInteractable = false;
-    //    robotDialogueTrigger.TriggerRobotDialogue2_15();
-    //    //statsScript.conferenceAccept = false;
-    //}
 }

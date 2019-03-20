@@ -47,51 +47,15 @@ public class DialogueTrigger : MonoBehaviour {
         dialogueManager.StartDialogue9(dialogue);
     }
 
-
-    //public void TriggerConferenceDialogue1()
-    //{
-    //    dialogueManager.StartConferenceDialogue1(dialogue);
-    //}
-
-    //public void TriggerConferenceDialogue2()
-    //{
-    //    dialogueManager.StartConferenceDialogue2(dialogue);
-    //}
-
-    //public void TriggerConferenceDialogue3()
-    //{
-    //    dialogueManager.StartConferenceDialogue3(dialogue);
-    //}
-
-    //public void TriggerConferenceDialogue4()
-    //{
-    //    dialogueManager.StartConferenceDialogue4(dialogue);
-    //}
-
-    //public void TriggerConferenceDialogue5()
-    //{
-    //    dialogueManager.StartConferenceDialogue5(dialogue);
-    //}
-
     public void TriggerDialogue6()
     {
         dialogueManager.StartDialogue6(dialogue);
     }
 
-    //public void TriggerConferenceDialogue7()
-    //{
-    //    dialogueManager.StartConferenceDialogue7(dialogue);
-    //}
-
     public void TriggerDialogue8()
     {
         dialogueManager.StartDialogue8(dialogue);
     }
-
-    //public void TriggerConferenceDialogue9()
-    //{
-    //    dialogueManager.StartConferenceDialogue9(dialogue);
-    //}
 
     public void TriggerDialogue10()
     {

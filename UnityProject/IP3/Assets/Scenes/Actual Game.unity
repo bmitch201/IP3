@@ -28228,6 +28228,7 @@ MonoBehaviour:
   dialogue:
     planet1: Earth Minister
     planet2: Mars Minister
+    planet3: Venus Minister
     sentences:
     - Good evening, Mr. Prime Moonister! We are calling you regarding the Moon's recent
       decision to claim independence from us.
@@ -28313,6 +28314,32 @@ MonoBehaviour:
       Seems like things will be the same as before, but on a smaller, less significant
       scale."
     - Good evening, Mr. Prime Moonister.
+    sentences3_1:
+    - Good evening, Mr. Prime Moonister! Thank you for taking the time to take our
+      call.
+    - "The matter we\u2019d like to discuss is a personal one, but we are confident
+      you\u2019ll take our stand."
+    - "As we are sure you know, we\u2019ve had a bit of an antagonistic relationship
+      with Mars."
+    - "Now that you are independent, we\u2019d like to ask your permission to set
+      up a blockade on the Moonpath that will stop Mars\u2019 continuous gun trade
+      with Earth."
+    - "This might make things a bit tense in the system, and we\u2019re confident
+      they won\u2019t like it, but we will be extremely grateful and I\u2019m sure
+      your people will also support this decision."
+    sentences3_2:
+    - "So the fact that you\u2019ll be saving innocent lives is not enough for you?"
+    - "Perhaps you\u2019re not so different from the earthlings after all...\r"
+    - "Fine, we\u2019ll be willing to pay you a significant sum to allow us to form
+      the blockade."
+    sentences3_3: []
+    sentences3_4: []
+    sentences3_5: []
+    sentences3_6: []
+    sentences3_7: []
+    sentences3_8: []
+    sentences3_9: []
+    sentences3_10: []
 --- !u!1 &1169786156 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1792064841724622, guid: 9c53ab48a89f16d449e1b178b191de2e,
