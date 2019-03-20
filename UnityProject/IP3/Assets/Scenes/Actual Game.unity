@@ -13495,7 +13495,7 @@ Prefab:
     - target: {fileID: 114977083791510324, guid: 48c323d8c0d253e4e991c0f79716bae0,
         type: 2}
       propertyPath: phoneCalls.Array.size
-      value: 4
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4344750462096504, guid: 48c323d8c0d253e4e991c0f79716bae0, type: 2}
       propertyPath: m_LocalPosition.x
@@ -13564,14 +13564,35 @@ Prefab:
     - target: {fileID: 114977083791510324, guid: 48c323d8c0d253e4e991c0f79716bae0,
         type: 2}
       propertyPath: phoneCalls.Array.data[4]
-      value: "Your wife asks you to ignore Earth\u2019s call today.\nPress 'R' to
-        close"
+      value: 'Your wife asks you to leave the office at 5PM to make the dinner reservation
+        on time.
+
+        Press ''E'' to close'
       objectReference: {fileID: 0}
     - target: {fileID: 23361574268635226, guid: 48c323d8c0d253e4e991c0f79716bae0,
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: a8e661c2672c25042847aad76c19c377, type: 3}
+    - target: {fileID: 114977083791510324, guid: 48c323d8c0d253e4e991c0f79716bae0,
+        type: 2}
+      propertyPath: phoneCalls.Array.data[5]
+      value: "Mars wants you to help them acquire the right to legally mine on Jupiter\u2019s
+        moon.\nFax = Mars Opinion + ; Revenue + ; System Tension -\nTrash = Mars Opinion
+        - ; Autonomy +  \nPress 'E' to close"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114977083791510324, guid: 48c323d8c0d253e4e991c0f79716bae0,
+        type: 2}
+      propertyPath: phoneCalls.Array.data[6]
+      value: "Earth invites you to attend their Royal Wedding.\nFax = Earth Opinion
+        + ; Public Support - ;  Revenue - ; Autonomy -\nTrash = Earth Opinion - ;
+        Public Support - ;  Autonomy +  \nPress 'E' to close"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114977083791510324, guid: 48c323d8c0d253e4e991c0f79716bae0,
+        type: 2}
+      propertyPath: isRinging
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48c323d8c0d253e4e991c0f79716bae0, type: 2}
   m_IsPrefabAsset: 0
@@ -35166,6 +35187,36 @@ Prefab:
       propertyPath: robotDialogue.robotSentences2_2.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences3_1.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences3_2.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences3_3.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences3_4.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences3_5.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences3_6.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4615552985344788, guid: 0251e78afb64189439e1ab5de7fcee12, type: 2}
       propertyPath: m_LocalPosition.x
       value: 8.74284
@@ -35216,6 +35267,64 @@ Prefab:
     - target: {fileID: 1429839449048868, guid: 0251e78afb64189439e1ab5de7fcee12, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences3_1.Array.data[0]
+      value: Hey, boss! How are you doing this morning?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences3_1.Array.data[1]
+      value: "Yesterday was fun, wasn\u2019t it? Hope you are ready for more of that!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences3_2.Array.data[0]
+      value: "Oh, I guess I\u2019ll have to get used to the phone ringing this early,
+        eh?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences3_3.Array.data[0]
+      value: "The wifey again, huh? I\u2019ll add her request to the board again so
+        you don\u2019t forget."
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences3_4.Array.data[0]
+      value: So how do you wanna start today?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences3_4.Array.data[1]
+      value: "Wanna enact a policy? Or maybe continue with the healthcare issue if
+        you haven\u2019t request it from all the other planets?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences3_5.Array.data[0]
+      value: "That\u2019s a good choice, boss!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences3_6.Array.data[0]
+      value: "It is 5PM, boss! Didn\u2019t your wife ask you to leave at this time?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences3_6.Array.data[1]
+      value: "But you\u2019ll miss the conference call if you do!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences3_6.Array.data[2]
+      value: "Boy, that\u2019s a tough choice\u2026"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences2_8.Array.data[2]
+      value: This will take the same amount of time that choosing a policy does.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0251e78afb64189439e1ab5de7fcee12, type: 2}

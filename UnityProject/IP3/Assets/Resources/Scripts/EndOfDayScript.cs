@@ -91,7 +91,7 @@ public class EndOfDayScript : MonoBehaviour
             CheckTasks();
             CheckWife();
             CheckMoonPolicy();
-            CheckPolicy();
+            //CheckPolicy();
             CheckConferenceCall();
         }
 

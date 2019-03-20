@@ -43,8 +43,11 @@ public class InteractionScript : MonoBehaviour
     public bool folder;
     public bool pcActive;
     public bool contact;
+
     bool triggerOnce;
     bool triggerOnce2;
+    bool triggerOnce3;
+    bool triggerOnce4;
 
     float dist;
     public int uses;
@@ -110,12 +113,20 @@ public class InteractionScript : MonoBehaviour
             chairInteractable = true;
             robotDialogueTrigger.TriggerRobotDialogue2_1();
         }
+        else if (statsScript.day == 3)
+        {
+            folderInteractable = true;
+            chairInteractable = true;
+            robotDialogueTrigger.TriggerRobotDialogue3_1();
+        }
 
         uses = 0;
         contactUses = 0;
 
         triggerOnce = true;
         triggerOnce2 = true;
+        triggerOnce3 = true;
+        triggerOnce4 = true;
     }
 
     void Update()
@@ -409,7 +420,7 @@ public class InteractionScript : MonoBehaviour
                                 }
                             }
                             holdingContact = false;
-                        }                     
+                        }
                     }
                 }
             }
@@ -423,33 +434,30 @@ public class InteractionScript : MonoBehaviour
                 //If the phone is ringing
                 if (Input.GetKeyDown(KeyCode.F))
                 {
-                    if (statsScript.day == 2)
+                    if (phoneScript.calls == 1)
                     {
-                        if (phoneScript.calls == 1)
-                        {
-                            info.gameObject.SetActive(false);
-                            answered = true;
-                            phoneScript.newAudio = true;
-                            phoneScript.callMissed = false;
-                            phoneScript.ringTimerActive = false;
-                            phoneScript.isRinging = false;
-                            phonePanel.SetActive(true);
-                            phoneCanvasOn = true;
-                            phoneInteractable = false;
-                        }
-                        else
-                        {
-                            info.gameObject.SetActive(false);
-                            answered = true;
-                            phoneScript.newAudio = true;
-                            phoneScript.callMissed = false;
-                            phoneScript.ringTimerActive = false;
-                            phoneScript.isRinging = false;
-                            phonePanel.SetActive(true);
-                            phoneCanvasOn = true;
-                            phoneInteractable = true;
-                            statsScript.TimeForward();
-                        }
+                        info.gameObject.SetActive(false);
+                        answered = true;
+                        phoneScript.newAudio = true;
+                        phoneScript.callMissed = false;
+                        phoneScript.ringTimerActive = false;
+                        phoneScript.isRinging = false;
+                        phonePanel.SetActive(true);
+                        phoneCanvasOn = true;
+                        phoneInteractable = false;
+                    }
+                    else
+                    {
+                        info.gameObject.SetActive(false);
+                        answered = true;
+                        phoneScript.newAudio = true;
+                        phoneScript.callMissed = false;
+                        phoneScript.ringTimerActive = false;
+                        phoneScript.isRinging = false;
+                        phonePanel.SetActive(true);
+                        phoneCanvasOn = true;
+                        phoneInteractable = true;
+                        statsScript.TimeForward();
                     }
                 }
             }
@@ -504,8 +512,6 @@ public class InteractionScript : MonoBehaviour
                 {
                     if (phoneScript.calls == 1)
                     {
-                        holding = true;
-                        holdingPhone = true;
                         phonePanel.SetActive(false);
                         phoneScript.stopAudio = true;
                         robotDialogueTrigger.TriggerRobotDialogue2_3();
@@ -514,6 +520,35 @@ public class InteractionScript : MonoBehaviour
                     else if (phoneScript.calls == 2)
                     {
                         robotDialogueTrigger.TriggerRobotDialogue2_13();
+                        holding = true;
+                        holdingPhone = true;
+                        phonePanel.SetActive(false);
+                        phoneScript.stopAudio = true;
+
+                        prefab = Instantiate(paper, spawnPos.position, GameObject.Find("MainCamera").transform.rotation);
+                        prefab.transform.parent = GameObject.Find("SpawnPos").transform;
+                        holding = true;
+
+                        PolicyScript();
+
+                        policyScript.UpdatePolicy(phoneScript.faxChanges, phoneScript.faxChangedNames);
+                        policyScript.UpdateBin(phoneScript.binChanges, phoneScript.binChangedNames);
+
+                        phoneCanvasOn = false;
+                    }
+                }
+
+                else if (statsScript.day == 3)
+                {
+                    if (phoneScript.calls == 1)
+                    {
+                        phonePanel.SetActive(false);
+                        phoneScript.stopAudio = true;
+                        robotDialogueTrigger.TriggerRobotDialogue3_3();
+                        phoneCanvasOn = false;
+                    }
+                    else if (phoneScript.calls == 2 || phoneScript.calls == 3)
+                    {
                         holding = true;
                         holdingPhone = true;
                         phonePanel.SetActive(false);
@@ -551,6 +586,49 @@ public class InteractionScript : MonoBehaviour
                     robotDialogueTrigger.TriggerRobotDialogue2_12();
                     phoneScript.phoneIsActive = true;
                     triggerOnce2 = false;
+                }
+            }
+        }
+
+        if (statsScript.day == 3)
+        {
+            if (statsScript.time == 9)
+            {
+                if (triggerOnce)
+                {
+                    robotDialogueTrigger.TriggerRobotDialogue3_5();
+                    triggerOnce = false;
+                }
+            }
+            if (statsScript.time == 8)
+            {
+                if (triggerOnce2)
+                {
+                    phoneScript.phoneIsActive = true;
+                    phoneInteractable = true;
+                    triggerOnce2 = false;
+                }
+            }
+            if (statsScript.time == 4)
+            {
+                if (triggerOnce3)
+                {
+                    phoneScript.phoneIsActive = true;
+                    phoneInteractable = true;
+                    triggerOnce3 = false;
+                }
+            }
+            if (statsScript.time == 2)
+            {
+                if (triggerOnce4)
+                {
+                    conferenceCallInteractable = true;
+                    conferenceCallAudio.clip = conferenceCallFX;
+                    folderInteractable = false;
+                    chairInteractable = false;
+                    conferenceCallAudio.Play();
+                    robotDialogueTrigger.TriggerRobotDialogue3_6();
+                    triggerOnce4 = false;
                 }
             }
         }

@@ -159,6 +159,59 @@ public class Phone : MonoBehaviour
                     phonecall = "Earth Nuclear Inspectors";
                 }
             }
+            if (statsScript.day == 3)
+            {
+                if (calls == 1)
+                {
+                    phoneCallText.GetComponent<Text>().text = phoneCalls[4];
+                }
+                else if (calls == 2)
+                {
+                    phoneCallText.GetComponent<Text>().text = phoneCalls[5];
+                    ringTimerActive = true;
+
+                    faxChanges.Add(10);
+                    faxChanges.Add(0.2f);
+                    faxChanges.Add(10);
+
+                    faxChangedNames.Add("Mars_Relationship");
+                    faxChangedNames.Add("Revenue");
+                    faxChangedNames.Add("System_Tension");
+
+                    binChanges.Add(-10);
+                    binChanges.Add(-5);
+
+                    binChangedNames.Add("Mars_Relationship");
+                    binChangedNames.Add("Autonomy");
+
+                    phonecall = "Mars Mining";
+                }
+                else if (calls == 3)
+                {
+                    phoneCallText.GetComponent<Text>().text = phoneCalls[6];
+                    ringTimerActive = true;
+
+                    faxChanges.Add(10);
+                    faxChanges.Add(5);
+                    faxChanges.Add(-0.2f);
+                    faxChanges.Add(-10);
+
+                    faxChangedNames.Add("Earth_Relationship");
+                    faxChangedNames.Add("Public_Support");
+                    faxChangedNames.Add("Revenue");
+                    faxChangedNames.Add("Autonomy");
+
+                    binChanges.Add(-10);
+                    binChanges.Add(-5);
+                    binChanges.Add(10);
+
+                    binChangedNames.Add("Earth_Relationship");
+                    binChangedNames.Add("Public_Support");
+                    binChangedNames.Add("Autonomy");
+
+                    phonecall = "Earth Royal Wedding";
+                }
+            }
 
             phoneIsActive = false;
         }
@@ -226,6 +279,17 @@ public class Phone : MonoBehaviour
                     phoneIsActive = false;
                 }
             }
+            else if (statsScript.day == 3)
+            {
+                if (calls == 2)
+                {
+                    statsScript.stats[6] -= 5;
+                }
+                else if (calls == 3)
+                {
+                    statsScript.stats[5] -= 5;
+                }
+            }
         }
 
         if (dayOne)
@@ -258,7 +322,7 @@ public class Phone : MonoBehaviour
             }
         }
 
-        if (statsScript.day == 2)
+        if (statsScript.day == 2 || statsScript.day == 3)
         {
             if (interactionScript.answered == true && newAudio == true)
             {
