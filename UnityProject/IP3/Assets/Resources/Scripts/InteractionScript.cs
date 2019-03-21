@@ -23,7 +23,7 @@ public class InteractionScript : MonoBehaviour
     public GameObject conferenceCanvas;
 
     Phone phoneScript;
-    Stats statsScript;
+    public Stats statsScript;
     PolicyScript policyScript;
     public FolderScript folderScript;
     DialogueTrigger dialogueTrigger;
