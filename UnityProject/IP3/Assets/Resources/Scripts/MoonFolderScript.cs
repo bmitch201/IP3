@@ -467,6 +467,8 @@ public class MoonFolderScript : MonoBehaviour {
         canvas2.SetActive(true);
         canvas3.SetActive(true);
 
+        statsScript.TimeForward();
+
         interactionScript.policy = true;
 
         //Activate the player

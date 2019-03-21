@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class ContactScript : MonoBehaviour {
 
-    public Stats statsScript;
+    Stats statsScript;
     InteractionScript interactionScript;
+    public CameraScript cameraScript;
 
     public string[] names;
 
@@ -64,6 +65,8 @@ public class ContactScript : MonoBehaviour {
         
         statsScript.contactNames.Add(cName);
         statsScript.contactPlanets.Add(planet);
+
+        cameraScript.DisableButton();
 
         for(int i = 0; i < app.Length; i++)
         {

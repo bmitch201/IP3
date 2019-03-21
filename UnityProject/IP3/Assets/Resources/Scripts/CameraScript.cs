@@ -19,7 +19,7 @@ public class CameraScript : MonoBehaviour {
     public List<float> statApprove = new List<float>();
     public List<float> statDecline = new List<float>();
 
-    string planet, contactName;
+    string planet, contactName, buttonClicked;
 
     void Awake()
     {
@@ -224,6 +224,7 @@ public class CameraScript : MonoBehaviour {
         statDecline.Add(-5f);
 
         planet = "Earth";
+        buttonClicked = "EARTH";
     }
 
     #endregion
@@ -250,6 +251,7 @@ public class CameraScript : MonoBehaviour {
         statDecline.Add(-5f);
 
         planet = "Mars";
+        buttonClicked = "MARS";
     }
 
     #endregion
@@ -276,6 +278,7 @@ public class CameraScript : MonoBehaviour {
         statDecline.Add(-5f);
 
         planet = "Venus";
+        buttonClicked = "VENUS";
     }
 
     #endregion
@@ -283,13 +286,15 @@ public class CameraScript : MonoBehaviour {
     public void Healthcare()
     {
         contactName = "Healthcare";
-
+        buttonClicked = "HEALTHCARE_" + buttonClicked;
+        
         ReturnToPlayer();
     }
 
     public void Travel()
     {
         contactName = "Travel";
+        buttonClicked = "TRAVEL_" + buttonClicked;
 
         ReturnToPlayer();
     }
@@ -297,7 +302,8 @@ public class CameraScript : MonoBehaviour {
     public void Worker()
     {
         contactName = "Worker Rigths";
-        
+        buttonClicked = "WORKRIGTHS_" + buttonClicked;
+
         ReturnToPlayer();
     }
 
@@ -316,6 +322,22 @@ public class CameraScript : MonoBehaviour {
         }
 
         currentPage.SetActive(true);
+    }
+
+    public void DisableButton()
+    {
+        this.gameObject.SetActive(true);
+        currentPage.SetActive(false);
+        lastPage.SetActive(true);
+
+        Debug.Log(lastPage);
+        Debug.Log(GameObject.Find(buttonClicked));
+
+        GameObject.Find(buttonClicked).GetComponent<Button>().interactable = false;
+
+        this.gameObject.SetActive(false);
+        currentPage.SetActive(true);
+        lastPage.SetActive(false);
     }
 
     void ReturnToPlayer()
@@ -343,6 +365,7 @@ public class CameraScript : MonoBehaviour {
 
         ContactScript conSc = interactionScript.prefab.GetComponent<ContactScript>();
 
+        conSc.cameraScript = this;
         conSc.UpdateContact(contactName, statNames, statApprove, statDecline, planet);
 
         //Calls the folder and policy methods within the interaction script

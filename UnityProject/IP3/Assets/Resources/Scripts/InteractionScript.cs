@@ -166,7 +166,7 @@ public class InteractionScript : MonoBehaviour
             //Get the distance to the object from the current position
             float dist = Vector3.Distance(transform.position, hit.collider.gameObject.transform.position);
 
-            if (hit.collider.gameObject.tag == "Chair" && chairInteractable)
+            if (hit.collider.gameObject.tag == "Chair" && !holding)
             {
                 //If the distance to the object is less than 2.5
                 if (dist <= 2.5f)
@@ -196,7 +196,7 @@ public class InteractionScript : MonoBehaviour
                     gameObject.SetActive(false);
                 }
             }
-            else if (hit.collider.gameObject.tag == "Folder" && folderInteractable == true)
+            else if (hit.collider.gameObject.tag == "Folder" && !holding)
             {
                 //If the distance to the object is less than 2.5
                 if (dist <= 2.5f)
@@ -430,7 +430,7 @@ public class InteractionScript : MonoBehaviour
             }
             //If the phone is ringing and If the object hit is the phone and the distance to it is less than 2.5 then 
             //show the player a message to allow them to answer the phone
-            else if (phoneScript.isRinging == true && hit.collider.gameObject.tag == "Phone" && dist <= 2.5f && phoneInteractable == true)
+            else if (phoneScript.isRinging == true && hit.collider.gameObject.tag == "Phone" && dist <= 2.5f && phoneInteractable == true && !holding)
             {
                 info.text = "Press 'F' to answer";
                 info.gameObject.SetActive(true);
@@ -697,8 +697,6 @@ public class InteractionScript : MonoBehaviour
         folderCamera.SetActive(true);
         folderScript.enabled = true;
         gameObject.SetActive(false);
-
-        statsScript.TimeForward();
     }
 
 }

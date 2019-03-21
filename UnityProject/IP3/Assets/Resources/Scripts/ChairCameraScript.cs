@@ -25,7 +25,7 @@ public class ChairCameraScript : MonoBehaviour
     public Text info;
 
     bool dosEnabled;
-    public bool moonFolderInteractable = true;
+    public bool moonFolderFirst = false;
 
     void Start()
     {
@@ -93,7 +93,7 @@ public class ChairCameraScript : MonoBehaviour
         if (Physics.Raycast(ray, out hit))
         {
             //If the object has a Tag of PC then display a message to the player telling them they can "open" this object 
-            if (hit.collider.gameObject.tag == "PC")
+            if (hit.collider.gameObject.tag == "PC" && !moonFolderFirst)
             {
                 info.text = "Press 'F' to open";
                 info.gameObject.SetActive(true);
@@ -150,11 +150,10 @@ public class ChairCameraScript : MonoBehaviour
                     if (ins.uses == 0)
                     {
                         rdt.TriggerRobotDialogue2_4();
+                        moonFolderFirst = false;
                     }
 
                     moonCamera.SetActive(true);
-
-                    statsScript.TimeForward();
 
                     moonCamera.GetComponent<MoonFolderScript>().anim.Play("Open");
                     moonCamera.GetComponent<MoonFolderScript>().es.SetActive(true);

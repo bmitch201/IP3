@@ -118,6 +118,7 @@ public class RobotDialogueManager : MonoBehaviour {
     bool timer4 = false;
 
     public Stats statsScript;
+    public ChairCameraScript chairCameraScript;
     RobotDialogueTrigger robotDialogueTrigger;
     DayOneScript dayOneScript;
     InteractionScript interactionScript;
@@ -1214,6 +1215,7 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue2_3 = false;
         //robotAudioSource.Stop();
         statsScript.Family();
+        chairCameraScript.moonFolderFirst = true;
         panel.SetActive(false);
     }
 
@@ -2140,7 +2142,7 @@ public class RobotDialogueManager : MonoBehaviour {
             statsScript = GameObject.Find("GameInfoObject").GetComponent<Stats>();
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0))
         {
             if (dialogue1)
             {

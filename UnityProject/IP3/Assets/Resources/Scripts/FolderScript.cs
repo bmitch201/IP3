@@ -717,6 +717,8 @@ public class FolderScript : MonoBehaviour {
     //Returns the player to the character when they choose a policy
     void ReturnToPlayer()
     {
+        statsScript.TimeForward();
+
         //Gets the policy page prefab from the resources folder
         prefab = (GameObject)Resources.Load("Policy", typeof(GameObject));
 
