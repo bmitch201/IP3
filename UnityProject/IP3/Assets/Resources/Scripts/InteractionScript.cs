@@ -264,12 +264,14 @@ public class InteractionScript : MonoBehaviour
                                 folderScript.buttons = policyScript.buttonAmount;
                                 folderScript.type = policyScript.type;
                                 folderScript.DisableButton();
+                                folderScript = null;
                             }
                             else
                             {
                                 moonFolderScript.buttons = policyScript.buttonAmount;
                                 moonFolderScript.type = policyScript.type;
                                 moonFolderScript.DisableButton();
+                                moonFolderScript = null;
                             }
 
                             if (policyChoices.movementChoice != "")
