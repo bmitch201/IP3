@@ -112,10 +112,10 @@ public class RobotDialogueManager : MonoBehaviour {
     bool dialogue3_6;
 
     public bool conferencePhoneRing = false;
-    bool timer1;
-    bool timer2;
-    bool timer3;
-    bool timer4;
+    bool timer1 = false;
+    bool timer2 = false;
+    bool timer3 = false;
+    bool timer4 = false;
 
     public Stats statsScript;
     RobotDialogueTrigger robotDialogueTrigger;
@@ -312,6 +312,7 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue2 = false;
         robotAudioSource.Stop();
         panel.SetActive(false);
+        timer1 = true;
     }
 
     public void StartRobotDialogue3(RobotDialogue robotDialogue)
@@ -472,6 +473,7 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue5 = false;
         panel.SetActive(false);
         robotAudioSource.Stop();
+        timer2 = true;
     }
 
     public void StartRobotDialogue6(RobotDialogue robotDialogue)
@@ -2303,84 +2305,96 @@ public class RobotDialogueManager : MonoBehaviour {
             //}
         }
 
-        if (timer1)
+        if (statsScript.day == 2)
         {
-            if (timerForDialogue > 0)
+            if (timer1)
             {
-                timerForDialogue -= Time.deltaTime;
+                if (timerForDialogue > 0)
+                {
+                    timerForDialogue -= Time.deltaTime;
+                }
+                else
+                {
+                    robotDialogueTrigger.TriggerRobotDialogue2_2();
+                    timerForDialogue = 5f;
+                    timer1 = false;
+                }
             }
-            else
+
+            if (timer2)
             {
-                robotDialogueTrigger.TriggerRobotDialogue2_2();
-                timerForDialogue = 5f;
-                timer1 = false;
+                if (timerForDialogue > 0)
+                {
+                    timerForDialogue -= Time.deltaTime;
+                }
+                else
+                {
+                    robotDialogueTrigger.TriggerRobotDialogue2_8();
+                    timerForDialogue = 5f;
+                    timer2 = false;
+                }
             }
         }
-
-        if (timer2)
+        if (statsScript.day == 3)
         {
-            if (timerForDialogue > 0)
+
+            if (timer3)
             {
-                timerForDialogue -= Time.deltaTime;
+                if (timerForDialogue > 0)
+                {
+                    timerForDialogue -= Time.deltaTime;
+                }
+                else
+                {
+                    robotDialogueTrigger.TriggerRobotDialogue3_2();
+                    timer3 = false;
+                }
             }
-            else
+
+            if (timer4)
             {
-                robotDialogueTrigger.TriggerRobotDialogue2_8();
-                timerForDialogue = 5f;
-                timer2 = false;
+                if (timerForDialogue > 0)
+                {
+                    timerForDialogue -= Time.deltaTime;
+                }
+                else
+                {
+                    robotDialogueTrigger.TriggerRobotDialogue3_4();
+                    timer4 = false;
+                }
             }
         }
+        
 
-        if (timer3)
+        if (statsScript.day == 1)
         {
-            if (timerForDialogue > 0)
+            if (timer1)
             {
-                timerForDialogue -= Time.deltaTime;
+                if (timerForDialogue > 0)
+                {
+                    timerForDialogue -= Time.deltaTime;
+                }
+                else
+                {
+                    robotDialogueTrigger.TriggerRobotDialogue3();
+                    timerForDialogue = 5f;
+                    timer1 = false;
+                }
             }
-            else
-            {
-                robotDialogueTrigger.TriggerRobotDialogue3_2();
-                timer3 = false;
-            }
-        }
 
-        if (timer4)
-        {
-            if (timerForDialogue > 0)
+            if (timer2)
             {
-                timerForDialogue -= Time.deltaTime;
-            }
-            else
-            {
-                robotDialogueTrigger.TriggerRobotDialogue3_4();
-                timer4 = false;
-            }
-        }
-
-        if (dayOneScript.wbActive == true)
-        {
-            if (timerForDialogue > 0)
-            {
-                timerForDialogue -= Time.deltaTime;
-            }
-            else
-            {
-                robotDialogueTrigger.TriggerRobotDialogue3();
-                timerForDialogue = 5f;
-            }
-        }
-
-        if(dayOneScript.faxActive == true)
-        {
-            if(timerForDialogue > 0)
-            {
-                timerForDialogue -= Time.deltaTime;
-            }
-            else
-            {
-                dayOneScript.faxActive = false;
-                robotDialogueTrigger.TriggerRobotDialogue6();
-                timerForDialogue = 5f;
+                if (timerForDialogue > 0)
+                {
+                    timerForDialogue -= Time.deltaTime;
+                }
+                else
+                {
+                    dayOneScript.faxActive = false;
+                    robotDialogueTrigger.TriggerRobotDialogue6();
+                    timerForDialogue = 5f;
+                    timer2 = false;
+                }
             }
         }
 
