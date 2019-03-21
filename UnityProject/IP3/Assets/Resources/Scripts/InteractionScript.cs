@@ -328,10 +328,6 @@ public class InteractionScript : MonoBehaviour
                             {
                                 if (phoneScript.calls == 2)
                                 {
-                                    robotDialogueTrigger.TriggerRobotDialogue2_14();
-                                    conferenceCallInteractable = true;
-                                    conferenceCallAudio.clip = conferenceCallFX;
-                                    conferenceCallAudio.Play();
                                     phoneScript.calls = 0;
                                 }
                             }
@@ -383,13 +379,6 @@ public class InteractionScript : MonoBehaviour
                             {
                                 if (phoneScript.calls == 2)
                                 {
-                                    statsScript.wifeCounter++;
-                                    robotDialogueTrigger.TriggerRobotDialogue2_14();
-                                    conferenceCallInteractable = true;
-                                    conferenceCallAudio.clip = conferenceCallFX;
-                                    folderInteractable = false;
-                                    chairInteractable = false;
-                                    conferenceCallAudio.Play();
                                     phoneScript.calls = 0;
                                 }
                             }
@@ -600,6 +589,19 @@ public class InteractionScript : MonoBehaviour
                     robotDialogueTrigger.TriggerRobotDialogue2_12();
                     phoneScript.phoneIsActive = true;
                     triggerOnce2 = false;
+                }
+            }
+            if (statsScript.time == 2)
+            {
+                if (triggerOnce3)
+                {
+                    robotDialogueTrigger.TriggerRobotDialogue2_14();
+                    conferenceCallInteractable = true;
+                    conferenceCallAudio.clip = conferenceCallFX;
+                    conferenceCallAudio.Play();
+                    chairInteractable = false;
+                    folderInteractable = false;
+                    triggerOnce3 = false;
                 }
             }
         }
