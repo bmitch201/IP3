@@ -911,18 +911,24 @@ public class DialogueManager : MonoBehaviour {
 
     public void StartDialogue6(Dialogue dialogue)
     {
-        statsScript.stats[6] -= 5;
-
         speakerPanel.SetActive(true);
         answerPanel.SetActive(false);
+
+        if (statsScript.day == 2)
+        {
+            statsScript.stats[6] -= 5;
+        }
 
         continueButton.onClick.AddListener(DisplayNextSentence6);
 
         call2sentences6.Clear();
 
-        foreach (string sentence in dialogue.call2sentences6)
+        if (statsScript.day == 2)
         {
-            call2sentences6.Enqueue(sentence);
+            foreach (string sentence in dialogue.call2sentences6)
+            {
+                call2sentences6.Enqueue(sentence);
+            }
         }
 
         DisplayNextSentence6();
@@ -930,15 +936,18 @@ public class DialogueManager : MonoBehaviour {
 
     public void DisplayNextSentence6()
     {
-        if (call2sentences6.Count == 0)
+        if (statsScript.day == 2)
         {
-            EndDialogue6();
-            return;
-        }
+            if (call2sentences6.Count == 0)
+            {
+                EndDialogue6();
+                return;
+            }
 
-        string sentence2_6 = call2sentences6.Dequeue();
-        StopAllCoroutines();
-        StartCoroutine(TypeSentence(sentence2_6));
+            string sentence2_6 = call2sentences6.Dequeue();
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(sentence2_6));
+        }
     }
 
     public void EndDialogue6()
@@ -946,25 +955,28 @@ public class DialogueManager : MonoBehaviour {
         speakerPanel.SetActive(false);
         answerPanel.SetActive(true);
 
-        option1.GetComponentInChildren<Text>().text = answers1[0];
-        option2.GetComponentInChildren<Text>().text = answers1[1];
-        option3.GetComponentInChildren<Text>().text = answers1[2];
-
-        option1.onClick.RemoveAllListeners();
-        option1.onClick.AddListener(dialogueTrigger.TriggerDialogue9);
-
-        option2.onClick.RemoveAllListeners();
-        if (statsScript.stats[6] >= 34)
+        if (statsScript.day == 2)
         {
-            option2.onClick.AddListener(dialogueTrigger.TriggerDialogue2);
-        }
-        else
-        {
-            option2.onClick.AddListener(dialogueTrigger.TriggerDialogue3);
-        }
+            option1.GetComponentInChildren<Text>().text = answers1[0];
+            option2.GetComponentInChildren<Text>().text = answers1[1];
+            option3.GetComponentInChildren<Text>().text = answers1[2];
 
-        option3.onClick.RemoveAllListeners();
-        option3.onClick.AddListener(dialogueTrigger.TriggerDialogue10);
+            option1.onClick.RemoveAllListeners();
+            option1.onClick.AddListener(dialogueTrigger.TriggerDialogue9);
+
+            option2.onClick.RemoveAllListeners();
+            if (statsScript.stats[6] >= 34)
+            {
+                option2.onClick.AddListener(dialogueTrigger.TriggerDialogue2);
+            }
+            else
+            {
+                option2.onClick.AddListener(dialogueTrigger.TriggerDialogue3);
+            }
+
+            option3.onClick.RemoveAllListeners();
+            option3.onClick.AddListener(dialogueTrigger.TriggerDialogue10);
+        }
     }
 
     public void StartDialogue7(Dialogue dialogue)
@@ -1096,6 +1108,7 @@ public class DialogueManager : MonoBehaviour {
                 option1.onClick.RemoveAllListeners();
                 option1.onClick.AddListener(dialogueTrigger.TriggerDialogue4);
 
+                option2.onClick.RemoveAllListeners();
                 if (statsScript.stats[5] > 40)
                 {
                     option2.onClick.AddListener(dialogueTrigger.TriggerDialogue5);
@@ -1120,11 +1133,11 @@ public class DialogueManager : MonoBehaviour {
             option1.onClick.AddListener(dialogueTrigger.TriggerDialogue9);
 
             option2.onClick.RemoveAllListeners();
-            if (statsScript.stats[6] >= 29)
+            if (statsScript.stats[6] >= 30)
             {
                 option2.onClick.AddListener(dialogueTrigger.TriggerDialogue4);
             }
-            else
+            else if (statsScript.stats[6] < 30)
             {
                 option2.onClick.AddListener(dialogueTrigger.TriggerDialogue5);
             }
@@ -1143,9 +1156,9 @@ public class DialogueManager : MonoBehaviour {
         {
             statsScript.stats[6] -= 5;
 
-
-
             planetText.text = dialogue.planet2;
+
+            continueButton.onClick.RemoveAllListeners();
             continueButton.onClick.AddListener(DisplayNextSentence8);
 
             call2sentences8.Clear();
