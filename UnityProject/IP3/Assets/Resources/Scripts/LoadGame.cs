@@ -96,5 +96,62 @@ public class LoadGame : MonoBehaviour {
         DontDestroyOnLoad(this);
 
         SceneManager.LoadScene("Actual Game");
+
+        UpdateObjects();
+    }
+
+    void UpdateObjects()
+    {
+        FolderScript folderScript = FindObjectOfType<FolderScript>();
+        MoonFolderScript moonFolderScript = FindObjectOfType<MoonFolderScript>();
+        CameraScript cameraScript = FindObjectOfType<CameraScript>();
+
+        for (int i = 0; i < policyPlanet.Length; i++)
+        {
+            if(policyPlanet[i] == "Earth")
+            {
+                
+            }
+            else if(policyPlanet[i] == "Mars")
+            {
+
+            }
+            else if(policyPlanet[i] == "Venus")
+            {
+
+            }
+            else if(policyPlanet[i] == "Moon")
+            {
+                if(policies[i] == "Tax Decrease" || policies[i] == "Tax Increase" || policies[i] == "Pension Decrease" || policies[i] == "Pension Increase" || policies[i] == "Wage Decrease" || policies[i] == "Wage Increase")
+                {
+                    moonFolderScript.type = "PopFunds";
+
+                    moonFolderScript.DisableButton();
+                }
+                else
+                {
+                    moonFolderScript.DisableButton();
+
+                    Debug.Log("Moon");
+                }
+                
+            }
+        }
+
+        for (int i = 0; i < contactPlanet.Length; i++)
+        {
+            if (contactPlanet[i] == "Earth")
+            {
+
+            }
+            else if (contactPlanet[i] == "Mars")
+            {
+
+            }
+            else if (contactPlanet[i] == "Venus")
+            {
+
+            }
+        }
     }
 }

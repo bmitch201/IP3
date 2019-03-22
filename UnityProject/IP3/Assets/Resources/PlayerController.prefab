@@ -47,7 +47,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1651905769139520
 GameObject:
   m_ObjectHideFlags: 1
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 222727426215977628}
   - component: {fileID: 114164261566833128}
   m_Layer: 5
-  m_Name: Text
+  m_Name: PhoneText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -423,26 +423,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
-  spawnPos: {fileID: 1810933643752240}
-  obj: {fileID: 0}
+  spawnPos: {fileID: 4842163768127350}
   phonePanel: {fileID: 1936055236665854}
   info: {fileID: 102104408520516218}
   pcCamera: {fileID: 0}
   chairCamera: {fileID: 0}
   boardCamera: {fileID: 0}
-  earthFolderCamera: {fileID: 0}
-  marsFolderCamera: {fileID: 0}
-  venusFolderCamera: {fileID: 0}
   conferenceCamera: {fileID: 0}
   canvas: {fileID: 0}
   conferenceCanvas: {fileID: 0}
+  statsScript: {fileID: 0}
   folderScript: {fileID: 0}
+  contactScript: {fileID: 0}
+  moonFolderScript: {fileID: 0}
   holding: 0
   holdingPolicy: 0
+  holdingContact: 0
+  holdingPhone: 0
   withinAnswerDistance: 0
   answered: 0
   folder: 0
   pcActive: 0
+  contact: 0
+  door: 0
+  uses: 0
+  contactUses: 0
+  conferenceCallInteractable: 0
+  phoneInteractable: 0
+  folderInteractable: 0
+  chairInteractable: 0
+  policy: 0
+  earthCanvas: {fileID: 0}
+  marsCanvas: {fileID: 0}
+  venusCanvas: {fileID: 0}
+  moonCanvas: {fileID: 0}
+  earthCamera: {fileID: 0}
+  marsCamera: {fileID: 0}
+  venusCamera: {fileID: 0}
+  folderCamera: {fileID: 0}
+  robotPanel: {fileID: 0}
+  femaleHologram: {fileID: 0}
+  conferenceCallAudio: {fileID: 0}
+  pcAudio: {fileID: 0}
+  trashFX: {fileID: 8300000, guid: 5f8da869983133a43866b1f52591caba, type: 3}
+  faxFX: {fileID: 8300000, guid: 877c7810710d9a34aa57604ba685f205, type: 3}
+  typingFX: {fileID: 8300000, guid: 92674a9d87962404fbd7ef4fe2d817eb, type: 3}
+  conferenceCallFX: {fileID: 8300000, guid: ef62ea51e24a91846bedecfc080cc16d, type: 3}
 --- !u!114 &114376430136042418
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -713,6 +739,8 @@ MonoBehaviour:
   conferenceCallInteractable: 0
   folder: 0
   holding: 0
+  holdingPolicy: 0
+  holdingPhone: 0
   policy: 0
   firstFolder: 1
   firstPolicy: 1
@@ -727,6 +755,7 @@ MonoBehaviour:
   earthCanvas: {fileID: 0}
   marsCanvas: {fileID: 0}
   venusCanvas: {fileID: 0}
+  moonCanvas: {fileID: 0}
   earthCamera: {fileID: 0}
   marsCamera: {fileID: 0}
   venusCamera: {fileID: 0}
@@ -899,7 +928,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0.00006003458, y: -240.98366}
-  m_SizeDelta: {x: 250, y: 60}
+  m_SizeDelta: {x: 500, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224464617544106140
 RectTransform:

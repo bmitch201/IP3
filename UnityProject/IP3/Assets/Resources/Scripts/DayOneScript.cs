@@ -552,7 +552,7 @@ public class DayOneScript : MonoBehaviour {
 
         if (boardActive)
         {
-            StartCoroutine(FlashBoard());
+            //StartCoroutine(FlashBoard());
             return;
         }
         else

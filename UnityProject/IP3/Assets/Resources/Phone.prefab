@@ -177,7 +177,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 50
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -399,13 +399,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   phoneCalls:
-  - "\u201CMars wants you to export your sacred helium to them.\u201D  \nFax = Revenue
-    + ; Mars Opinion + ;  Public Support - \nTrash = Mars Opinion -  \nPress 'R' to
-    close"
-  - "\u201CVenus wants to pass through Moon territory on its way to Earth.\r\"\nFax
-    = Venus Opinion +  ; System Tension -  ; \rAutonomy -\nTrash = Venus Opinion -
-    \r\nPress 'R' to close"
+  - "Mars wants you to export your sacred helium to them. \nFax = Revenue + ; Mars
+    Opinion + ;  Public Support - \nTrash = Mars Opinion -  \nPress 'E' to close"
+  - "Venus wants to pass through Moon territory on its way to Earth.\r\nFax = Venus
+    Opinion +  ; System Tension -  ; \rAutonomy -\nTrash = Venus Opinion - \r\nPress
+    'E' to close"
+  - "Your wife asks you to ignore Earth\u2019s call today.\nPress 'E' to close"
+  - "Earth wants to send inspectors to search your nuclear power stations.\nFax =
+    Earth Opinion + ; System Tension - ;  Autonomy - \nTrash = Earth Opinion - ; System
+    Tension + ;  Autonomy +  \nPress 'E' to close"
+  - 'Your wife asks you to leave the office at 5PM to make the dinner reservation
+    on time.
+
+    Press ''E'' to close'
+  - "Mars wants you to help them acquire the right to legally mine on Jupiter\u2019s
+    moon.\nFax = Mars Opinion + ; Revenue + ; System Tension -\nTrash = Mars Opinion
+    - ; Autonomy +  \nPress 'E' to close"
+  - "Earth invites you to attend their Royal Wedding.\nFax = Earth Opinion + ; Public
+    Support - ;  Revenue - ; Autonomy -\nTrash = Earth Opinion - ; Public Support
+    - ;  Autonomy +  \nPress 'E' to close"
   phoneCallText: {fileID: 0}
+  phonecall: 
   isRinging: 0
   timeUntilRingTimerActive: 0
   ringTimerActive: 0
