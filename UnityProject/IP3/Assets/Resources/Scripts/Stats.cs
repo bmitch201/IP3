@@ -67,62 +67,7 @@ public class Stats : MonoBehaviour {
 
     void Awake()
     {
-        if(GameObject.Find("LoadObject") != null)
-        {
-            LoadGame loadScript = GameObject.Find("LoadObject").GetComponent<LoadGame>();
 
-            day = loadScript.day;
-            time = loadScript.time;
-
-            stats[0] = loadScript.statistics[0];
-            stats[1] = loadScript.statistics[1];
-            stats[2] = loadScript.statistics[2];
-            stats[3] = loadScript.statistics[3];
-            stats[4] = loadScript.statistics[4];
-            stats[5] = loadScript.statistics[5];
-            stats[6] = loadScript.statistics[6];
-            stats[7] = loadScript.statistics[7];
-
-            foreach(string m in loadScript.policies)
-            {
-                chosenPolicies.Add(m);
-            }
-
-            foreach (string m in loadScript.policyPlanet)
-            {
-                chosenPlanets.Add(m);
-            }
-
-            foreach (string m in loadScript.contact)
-            {
-                contactNames.Add(m);
-            }
-
-            foreach (string m in loadScript.contactPlanet)
-            {
-                contactPlanets.Add(m);
-            }
-
-            foreach (string m in loadScript.phoneCallAccept)
-            {
-                phonecallAccept.Add(m);
-            }
-
-            foreach (string m in loadScript.phoneCallDecline)
-            {
-                phonecallDecline.Add(m);
-            }
-
-            foreach (string m in loadScript.conferenceCallAccept)
-            {
-                connferenceCallAccept.Add(m);
-            }
-
-            foreach (string m in loadScript.conferenceCallDecline)
-            {
-                connferenceCallDecline.Add(m);
-            }
-        }
     }
 
     //Sets up the PC Screen initally to display the stats on screen
@@ -175,6 +120,65 @@ public class Stats : MonoBehaviour {
         hVText = "Open";
         tVText = "Open";
         wVText = "Open";
+
+        if (GameObject.Find("LoadObject") != null)
+        {
+            LoadGame loadScript = GameObject.Find("LoadObject").GetComponent<LoadGame>();
+
+            day = loadScript.day;
+            time = loadScript.time;
+
+            stats[0] = loadScript.statistics[0];
+            stats[1] = loadScript.statistics[1];
+            stats[2] = loadScript.statistics[2];
+            stats[3] = loadScript.statistics[3];
+            stats[4] = loadScript.statistics[4];
+            stats[5] = loadScript.statistics[5];
+            stats[6] = loadScript.statistics[6];
+            stats[7] = loadScript.statistics[7];
+
+            foreach (string m in loadScript.policies)
+            {
+                chosenPolicies.Add(m);
+            }
+
+            foreach (string m in loadScript.policyPlanet)
+            {
+                chosenPlanets.Add(m);
+            }
+
+            foreach (string m in loadScript.contact)
+            {
+                contactNames.Add(m);
+            }
+
+            foreach (string m in loadScript.contactPlanet)
+            {
+                contactPlanets.Add(m);
+            }
+
+            foreach (string m in loadScript.phoneCallAccept)
+            {
+                phonecallAccept.Add(m);
+            }
+
+            foreach (string m in loadScript.phoneCallDecline)
+            {
+                phonecallDecline.Add(m);
+            }
+
+            foreach (string m in loadScript.conferenceCallAccept)
+            {
+                connferenceCallAccept.Add(m);
+            }
+
+            foreach (string m in loadScript.conferenceCallDecline)
+            {
+                connferenceCallDecline.Add(m);
+            }
+
+            loadScript.UpdateObjects(moonCam.GetComponent<MoonFolderScript>());
+        }
 
         UpdateScreen();
         NewDay();

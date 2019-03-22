@@ -18,21 +18,21 @@ public class MenuScript : MonoBehaviour {
     public GameObject hightlight_QuitGame;
     public GameObject hightlight_Options;
 
-    //public GameObject loadingPanel;
+    public GameObject loadingPanel;
     //public Slider loadingSlider;
     //public Text perctenageText;
 
     public void StartGame()
     {
+        loadingPanel.gameObject.SetActive(true);
         SceneManager.LoadScene("Actual Game");
         //StartCoroutine(LoadAsynchronously());
     }
 
     //IEnumerator LoadAsynchronously()
     //{
-    //    AsyncOperation operation = SceneManager.LoadSceneAsync("Actual Game");
 
-    //    loadingPanel.gameObject.SetActive(true);
+    //    AsyncOperation operation = SceneManager.LoadSceneAsync("Actual Game");
 
     //    while (!operation.isDone)
     //    {

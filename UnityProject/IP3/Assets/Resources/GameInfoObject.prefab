@@ -104,6 +104,7 @@ MonoBehaviour:
   PCnames: {fileID: 0}
   PCnums: {fileID: 0}
   whiteboardText: {fileID: 0}
+  familyText: {fileID: 0}
   auto: {fileID: 0}
   rev: {fileID: 0}
   pubs: {fileID: 0}
@@ -112,16 +113,14 @@ MonoBehaviour:
   earth: {fileID: 0}
   venus: {fileID: 0}
   mars: {fileID: 0}
-  tasks:
-  - '- Increase Earth''s Opinion above/to 50%   - Increase Mars'' Opinion above/to
-    60%         - Increase Public Support above/to 60%    - Increase Autonomy to 30%          '
-  - '- Decrease System Tension to 20%     - Have at least 2..5 billion moon bucks        -
-    Increase Venus'' Opinion above/to 55%    - Organise healthcare for moon citizens            -  Follow
-    any family interests'
   chosenPlanets: []
   chosenPolicies: []
   contactNames: []
   contactPlanets: []
+  phonecallAccept: []
+  phonecallDecline: []
+  connferenceCallAccept: []
+  connferenceCallDecline: []
   conPlanet: 
   con: 
   contactApprove:
@@ -160,8 +159,6 @@ MonoBehaviour:
   hVText: 
   tVText: 
   wVText: 
-  phonecallAccept: []
-  phonecallDecline: []
   conferenceAccept: 0
   conferenceAcceptWithHaggle: 0
   phone1Answered: 0
@@ -179,3 +176,4 @@ MonoBehaviour:
   time: 10
   day: 1
   wifeCounter: 0
+  policyCounter: 0

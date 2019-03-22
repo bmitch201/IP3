@@ -231,9 +231,9 @@ MeshCollider:
   m_GameObject: {fileID: 1476000126406404}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: e67997c8e2960224d90e207334d5bda4, type: 3}
@@ -332,9 +332,11 @@ MonoBehaviour:
   speedV: 1
   pcCamera: {fileID: 0}
   moonCamera: {fileID: 0}
+  player: {fileID: 0}
   canvas: {fileID: 0}
   typingFX: {fileID: 8300000, guid: 92674a9d87962404fbd7ef4fe2d817eb, type: 3}
   info: {fileID: 114843392135018942}
+  moonFolderFirst: 0
 --- !u!114 &114763774920423016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -397,7 +399,7 @@ SphereCollider:
   m_GameObject: {fileID: 1476000126406404}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 5
   m_Center: {x: -1, y: 7.026579, z: -1}

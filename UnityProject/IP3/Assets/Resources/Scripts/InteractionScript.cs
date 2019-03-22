@@ -79,10 +79,19 @@ public class InteractionScript : MonoBehaviour
     //Used to setup the objects
     void Start()
     {
+        if (GameObject.Find("GameInfoObject DDL") != null)
+        {
+            statsScript = GameObject.Find("GameInfoObject DDL").GetComponent<Stats>();
+            pcCamera.GetComponent<CameraScript>().statsScript = GameObject.Find("GameInfoObject DDL").GetComponent<Stats>();
+            pcCamera.GetComponent<CameraScript>().CheckScript();
+        }
+        else
+        {
+            statsScript = FindObjectOfType<Stats>();
+        }
 
         info.gameObject.SetActive(false);
-
-        statsScript = FindObjectOfType<Stats>();
+        
         policyChoices = FindObjectOfType<PolicyChoices>();
         robotDialogueTrigger = FindObjectOfType<RobotDialogueTrigger>();
         phoneScript = FindObjectOfType<Phone>();
@@ -100,25 +109,17 @@ public class InteractionScript : MonoBehaviour
 
         paper = (GameObject)Resources.Load("Policy", typeof(GameObject));
 
-        if (GameObject.Find("GameInfoObject DDL") != null)
-        {
-            pcCamera.GetComponent<CameraScript>().statsScript = GameObject.Find("GameInfoObject DDL").GetComponent<Stats>();
-            pcCamera.GetComponent<CameraScript>().CheckScript();
-        }
-
         FolderOn();
 
         if (statsScript.day == 2)
         {
             folderInteractable = false;
             chairInteractable = true;
-            robotDialogueTrigger.TriggerRobotDialogue2_1();
         }
         else if (statsScript.day == 3)
         {
             folderInteractable = true;
             chairInteractable = true;
-            robotDialogueTrigger.TriggerRobotDialogue3_1();
         }
 
         uses = 0;

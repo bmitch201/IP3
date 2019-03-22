@@ -18,8 +18,7 @@ public class MoonFolderScript : MonoBehaviour {
     GameObject prefab, canvas1, canvas2, canvas3;
 
     [Header("Button Type")]
-    public string type;
-    string buttonClicked;
+    public string type, buttonClicked;
 
     [Header("UI")]
     public int buttons;

@@ -785,8 +785,6 @@ public class DayOneScript : MonoBehaviour {
         folderCamera.SetActive(true);
         gameObject.SetActive(false);
 
-        statsScript.TimeForward();
-
         if (firstPolicy)
         {
             robotDialogueTrigger.TriggerRobotDialogue8();
@@ -831,6 +829,15 @@ public class DayOneScript : MonoBehaviour {
             GameObject.Destroy(GameObject.Find("GameInfoObject"));
 
             policyChoices.UpdatePolicies();
+        }
+
+        if(statsScript.day == 2)
+        {
+            robotDialogueTrigger.TriggerRobotDialogue2_1();
+        }
+        else if(statsScript.day == 3)
+        {
+            robotDialogueTrigger.TriggerRobotDialogue3_1();
         }
 
         this.enabled = false;

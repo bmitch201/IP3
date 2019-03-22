@@ -351,7 +351,8 @@ MonoBehaviour:
     robotSentences2_1:
     - Ah! Morning Boss! Sleep Well?
     - 'Me too, the whole 24.3 minutes! Ready for day 2? '
-    robotSentences2_2: []
+    robotSentences2_2:
+    - "Hm\u2026 Who could this be so early in the morning?"
     robotSentences2_3:
     - "The wife, eh? I\u2019ll add her request to the board later so you don\u2019t
       forget, they say family is everything!"
@@ -372,8 +373,7 @@ MonoBehaviour:
       them to provide free healthcare to Moon citizens when they visit.
     - "To do so, you should get on that computer doo-da of yours at your desk and
       use the \u2018Contacts\u2019 section."
-    - 'This will take the same amount of time that choosing a policy does. This will
-      take the same amount of time that choosing a policy does. '
+    - This will take the same amount of time that choosing a policy does.
     - You should pick one now, just so you know how.
     robotSentences2_9:
     - "Now that you\u2019ve printed it, you can go and fax it to them, or you can
@@ -394,6 +394,24 @@ MonoBehaviour:
     robotSentences2_15:
     - "Long day, eh? Let\u2019s just quickly check how it went and you can go rest
       with the family."
+    robotSentences3_1:
+    - Hey, boss! How are you doing this morning?
+    - "Yesterday was fun, wasn\u2019t it? Hope you are ready for more of that!"
+    robotSentences3_2:
+    - "Oh, I guess I\u2019ll have to get used to the phone ringing this early, eh?"
+    robotSentences3_3:
+    - "The wifey again, huh? I\u2019ll add her request to the board again so you don\u2019t
+      forget."
+    robotSentences3_4:
+    - So how do you wanna start today?
+    - "Wanna enact a policy? Or maybe continue with the healthcare issue if you haven\u2019t
+      requested it from all the other planets?"
+    robotSentences3_5:
+    - "That\u2019s a good choice, boss!"
+    robotSentences3_6:
+    - "It is 5PM, boss! Didn\u2019t your wife ask you to leave at this time?"
+    - "But you\u2019ll miss the conference call if you do!"
+    - "Boy, that\u2019s a tough choice\u2026"
   robotDialogueManager: {fileID: 0}
 --- !u!114 &114759653295825026
 MonoBehaviour:

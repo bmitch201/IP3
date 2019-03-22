@@ -422,9 +422,7 @@ public class EndOfDayScript : MonoBehaviour
             }
         }
     }
-
     
-
     public void Continue()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -436,5 +434,10 @@ public class EndOfDayScript : MonoBehaviour
         statsScript.conferenceAccept = false;
         statsScript.conferenceAcceptWithHaggle = false;
         SceneManager.LoadScene("Actual Game");
+    }
+
+    public void SaveGame()
+    {
+        statsScript.SaveGame();
     }
 }

@@ -97,14 +97,12 @@ public class LoadGame : MonoBehaviour {
 
         SceneManager.LoadScene("Actual Game");
 
-        UpdateObjects();
     }
 
-    void UpdateObjects()
+    public void UpdateObjects(MoonFolderScript mfs)
     {
-        FolderScript folderScript = FindObjectOfType<FolderScript>();
-        MoonFolderScript moonFolderScript = FindObjectOfType<MoonFolderScript>();
-        CameraScript cameraScript = FindObjectOfType<CameraScript>();
+        MoonFolderScript moonFolderScript = mfs;
+        CameraScript cameraScript = GameObject.Find("PC Camera").GetComponent<CameraScript>();
 
         for (int i = 0; i < policyPlanet.Length; i++)
         {
@@ -122,17 +120,80 @@ public class LoadGame : MonoBehaviour {
             }
             else if(policyPlanet[i] == "Moon")
             {
+                moonFolderScript.currentPage = moonFolderScript.frontPage;
+
                 if(policies[i] == "Tax Decrease" || policies[i] == "Tax Increase" || policies[i] == "Pension Decrease" || policies[i] == "Pension Increase" || policies[i] == "Wage Decrease" || policies[i] == "Wage Increase")
                 {
                     moonFolderScript.type = "PopFunds";
+                    moonFolderScript.buttons = 3;
+                    moonFolderScript.lastPage = moonFolderScript.fundsPage;
+
+                    if (policies[i] == "Wage Decrease" || policies[i] == "Wage Increase")
+                    {
+                        if(policies[i] == "Wage Increase")
+                        {
+                            moonFolderScript.buttonClicked = "Wage Increase";
+                        }
+                        else
+                        {
+                            moonFolderScript.buttonClicked = "Wage Decrease";
+                        }
+                    }
+                    else if (policies[i] == "Pension Decrease" || policies[i] == "Pension Increase")
+                    {
+                        if (policies[i] == "Pension Increase")
+                        {
+                            moonFolderScript.buttonClicked = "Pension Increase";
+                        }
+                        else
+                        {
+                            moonFolderScript.buttonClicked = "Pension Decrease";
+                        }
+                    }
+                    else if (policies[i] == "Tax Decrease" || policies[i] == "Tax Increase")
+                    {
+                        if (policies[i] == "Tax Increase")
+                        {
+                            moonFolderScript.buttonClicked = "Tax Increase";
+                        }
+                        else
+                        {
+                            moonFolderScript.buttonClicked = "Tax Decrease";
+                        }
+                    }
 
                     moonFolderScript.DisableButton();
                 }
                 else
                 {
-                    moonFolderScript.DisableButton();
+                    moonFolderScript.buttons = 1;
 
-                    Debug.Log("Moon");
+                    if (policies[i] == "Education")
+                    {
+                        moonFolderScript.type = "Education";
+                        moonFolderScript.lastPage = moonFolderScript.eduPage;
+                    }
+                    else if (policies[i] == "Healthcare")
+                    {
+                        moonFolderScript.type = "Healthcare";
+                        moonFolderScript.lastPage = moonFolderScript.healPage;
+                    }
+                    else if (policies[i] == "National Services")
+                    {
+                        moonFolderScript.type = "National Services";
+                        moonFolderScript.lastPage = moonFolderScript.nsPage;
+                    }
+                    else if (policies[i] == "Border Control")
+                    {
+                        moonFolderScript.type = "Border Control";
+                        moonFolderScript.lastPage = moonFolderScript.bcPage;
+                    }
+                    else if (policies[i] == "Worker Regualtions")
+                    {
+                        moonFolderScript.type = "Worker Regulations";
+                        moonFolderScript.lastPage = moonFolderScript.wrPage;
+                    }
+                    moonFolderScript.DisableButton();
                 }
                 
             }
