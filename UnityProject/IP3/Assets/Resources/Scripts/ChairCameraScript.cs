@@ -147,7 +147,7 @@ public class ChairCameraScript : MonoBehaviour
                         ins.enabled = true;
                     }
 
-                    if (ins.uses == 0)
+                    if (ins.uses == 0 && statsScript.day == 2)
                     {
                         rdt.TriggerRobotDialogue2_4();
                         moonFolderFirst = false;

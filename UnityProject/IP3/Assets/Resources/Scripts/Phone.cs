@@ -50,24 +50,37 @@ public class Phone : MonoBehaviour
 
     void Start()
     {
-        //timeUntilRingTimerActive = true;
-        ringTimerActive = false;
-        isRinging = false;
-        firstCall = true;
-
         playerObj = GameObject.FindGameObjectWithTag("Player");
         interactionScript = playerObj.GetComponent<InteractionScript>();
 
-        statsScript = FindObjectOfType<Stats>();
+        statsScript = GameObject.Find("GameInfoObject").GetComponent<Stats>();
         dayOneScript = FindObjectOfType<DayOneScript>();
         //robotDialogueTrigger = FindObjectOfType<RobotDialogueTrigger>();
 
         audioSource = GameObject.FindGameObjectWithTag("Phone").GetComponent<AudioSource>();
+
+        //timeUntilRingTimerActive = true;
+        ringTimerActive = false;
+        isRinging = false;
+
+        if (statsScript.day == 1)
+        {
+            firstCall = true;
+        }
+        else
+        {
+            firstCall = false;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (statsScript == null)
+        {
+            statsScript = GameObject.Find("GameInfoObject").GetComponent<Stats>();
+        }
+
         if (dayOne)
         {
             if (dayOneScript.phoneActive == true)
@@ -122,7 +135,7 @@ public class Phone : MonoBehaviour
             }
         }
 
-        if (phoneIsActive == true)
+        else if (phoneIsActive == true)
         {
             audioSource.clip = phoneRing;
             audioSource.Play();
@@ -159,7 +172,7 @@ public class Phone : MonoBehaviour
                     phonecall = "Earth Nuclear Inspectors";
                 }
             }
-            if (statsScript.day == 3)
+            else if (statsScript.day == 3)
             {
                 if (calls == 1)
                 {
@@ -322,7 +335,7 @@ public class Phone : MonoBehaviour
             }
         }
 
-        if (statsScript.day == 2 || statsScript.day == 3)
+        else if (statsScript.day == 2 || statsScript.day == 3)
         {
             if (interactionScript.answered == true && newAudio == true)
             {
