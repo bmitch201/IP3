@@ -61,6 +61,11 @@ public class CameraScript : MonoBehaviour {
         }
     }
 
+    void Start()
+    {
+        gameObject.SetActive(false);
+    }
+
     void Update ()
     {
         if(statsScript.day > 1 && firstPCUse == true)

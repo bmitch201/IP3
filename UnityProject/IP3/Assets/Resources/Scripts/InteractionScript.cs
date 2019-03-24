@@ -111,15 +111,17 @@ public class InteractionScript : MonoBehaviour
 
         FolderOn();
 
+        Debug.Log(statsScript.day);
+
         if (statsScript.day == 2)
         {
             folderInteractable = false;
-            chairInteractable = true;
+            chairInteractable = false;
         }
         else if (statsScript.day == 3)
         {
-            folderInteractable = true;
-            chairInteractable = true;
+            folderInteractable = false;
+            chairInteractable = false;
         }
 
         uses = 0;
@@ -167,7 +169,7 @@ public class InteractionScript : MonoBehaviour
             //Get the distance to the object from the current position
             float dist = Vector3.Distance(transform.position, hit.collider.gameObject.transform.position);
 
-            if (hit.collider.gameObject.tag == "Chair" && !holding)
+            if (hit.collider.gameObject.tag == "Chair" && !holding && chairInteractable)
             {
                 //If the distance to the object is less than 2.5
                 if (dist <= 2.5f)
@@ -197,7 +199,7 @@ public class InteractionScript : MonoBehaviour
                     gameObject.SetActive(false);
                 }
             }
-            else if (hit.collider.gameObject.tag == "Folder" && !holding)
+            else if (hit.collider.gameObject.tag == "Folder" && !holding && folderInteractable)
             {
                 //If the distance to the object is less than 2.5
                 if (dist <= 2.5f)
@@ -450,7 +452,7 @@ public class InteractionScript : MonoBehaviour
                         phoneScript.isRinging = false;
                         phonePanel.SetActive(true);
                         phoneCanvasOn = true;
-                        phoneInteractable = true;
+                        phoneInteractable = false;
                         statsScript.TimeForward();
                     }
                 }
@@ -520,6 +522,9 @@ public class InteractionScript : MonoBehaviour
                         phoneScript.stopAudio = true;
                         robotDialogueTrigger.TriggerRobotDialogue2_3();
                         phoneCanvasOn = false;
+
+                        chairInteractable = true;
+                        folderInteractable = true;
                     }
                     else if (phoneScript.calls == 2)
                     {
@@ -550,6 +555,9 @@ public class InteractionScript : MonoBehaviour
                         phoneScript.stopAudio = true;
                         robotDialogueTrigger.TriggerRobotDialogue3_3();
                         phoneCanvasOn = false;
+
+                        chairInteractable = true;
+                        folderInteractable = true;
                     }
                     else if (phoneScript.calls == 2 || phoneScript.calls == 3)
                     {

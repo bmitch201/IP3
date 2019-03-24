@@ -52,9 +52,17 @@ public class Phone : MonoBehaviour
     {
         playerObj = GameObject.FindGameObjectWithTag("Player");
         interactionScript = playerObj.GetComponent<InteractionScript>();
-
-        statsScript = GameObject.Find("GameInfoObject").GetComponent<Stats>();
         dayOneScript = FindObjectOfType<DayOneScript>();
+
+        if (GameObject.Find("GameInfoObject DDL") != null)
+        {
+            statsScript = GameObject.Find("GameInfoObject DDL").GetComponent<Stats>();
+        }
+        else
+        {
+            statsScript = GameObject.Find("GameInfoObject").GetComponent<Stats>();
+        }
+
         //robotDialogueTrigger = FindObjectOfType<RobotDialogueTrigger>();
 
         audioSource = GameObject.FindGameObjectWithTag("Phone").GetComponent<AudioSource>();
