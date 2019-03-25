@@ -335,9 +335,6 @@ public class CameraScript : MonoBehaviour {
         currentPage.SetActive(false);
         lastPage.SetActive(true);
 
-        Debug.Log(lastPage);
-        Debug.Log(GameObject.Find(buttonClicked));
-
         GameObject.Find(buttonClicked).GetComponent<Button>().interactable = false;
 
         this.gameObject.SetActive(false);

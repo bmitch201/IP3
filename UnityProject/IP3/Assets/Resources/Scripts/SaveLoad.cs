@@ -17,7 +17,7 @@ public static class SaveLoad {
         formatter.Serialize(stream, data);
         stream.Close();
 
-        Debug.Log("saved");
+        Debug.Log("Data Saved");
     }
 
     public static PlayerData LoadPlayer ()
