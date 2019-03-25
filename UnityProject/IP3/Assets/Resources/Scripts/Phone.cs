@@ -233,6 +233,36 @@ public class Phone : MonoBehaviour
                     phonecall = "Earth Royal Wedding";
                 }
             }
+            if (statsScript.day == 4)
+            {
+                if (calls == 1)
+                {
+                    phoneCallText.GetComponent<Text>().text = phoneCalls[7];
+                }
+                else if (calls == 2)
+                {
+                    phoneCallText.GetComponent<Text>().text = phoneCalls[8];
+                    ringTimerActive = true;
+
+                    faxChanges.Add(10);
+                    faxChanges.Add(0.2f);
+                    faxChanges.Add(-10);
+
+                    faxChangedNames.Add("Venus_Relationship");
+                    faxChangedNames.Add("Revenue");
+                    faxChangedNames.Add("Public_Support");
+
+                    binChanges.Add(-10);
+                    binChanges.Add(-0.2f);
+                    binChanges.Add(10);
+
+                    binChangedNames.Add("Venus_Relationship");
+                    binChangedNames.Add("Revenue");
+                    binChangedNames.Add("Public_Support");
+
+                    phonecall = "Venus Interplanetary Businesses";
+                }
+            }
 
             phoneIsActive = false;
         }
@@ -311,6 +341,13 @@ public class Phone : MonoBehaviour
                     statsScript.stats[5] -= 5;
                 }
             }
+            else if (statsScript.day == 4)
+            {
+                if (calls == 2)
+                {
+                    statsScript.stats[7] -= 5;
+                }
+            }
         }
 
         if (dayOne)
@@ -343,7 +380,7 @@ public class Phone : MonoBehaviour
             }
         }
 
-        else if (statsScript.day == 2 || statsScript.day == 3)
+        else if (statsScript.day > 1)
         {
             if (interactionScript.answered == true && newAudio == true)
             {

@@ -111,14 +111,7 @@ public class InteractionScript : MonoBehaviour
 
         FolderOn();
 
-        Debug.Log(statsScript.day);
-
-        if (statsScript.day == 2)
-        {
-            folderInteractable = false;
-            chairInteractable = false;
-        }
-        else if (statsScript.day == 3)
+        if (statsScript.day > 1)
         {
             folderInteractable = false;
             chairInteractable = false;
@@ -536,7 +529,6 @@ public class InteractionScript : MonoBehaviour
 
                         prefab = Instantiate(paper, spawnPos.position, GameObject.Find("MainCamera").transform.rotation);
                         prefab.transform.parent = GameObject.Find("SpawnPos").transform;
-                        holding = true;
 
                         PolicyScript();
 
@@ -568,7 +560,37 @@ public class InteractionScript : MonoBehaviour
 
                         prefab = Instantiate(paper, spawnPos.position, GameObject.Find("MainCamera").transform.rotation);
                         prefab.transform.parent = GameObject.Find("SpawnPos").transform;
+
+                        PolicyScript();
+
+                        policyScript.UpdatePolicy(phoneScript.faxChanges, phoneScript.faxChangedNames);
+                        policyScript.UpdateBin(phoneScript.binChanges, phoneScript.binChangedNames);
+
+                        phoneCanvasOn = false;
+                    }
+                }
+
+                else if (statsScript.day == 4)
+                {
+                    if (phoneScript.calls == 1)
+                    {
+                        phonePanel.SetActive(false);
+                        phoneScript.stopAudio = true;
+                        robotDialogueTrigger.TriggerRobotDialogue4_5();
+                        phoneCanvasOn = false;
+
+                        chairInteractable = true;
+                        folderInteractable = true;
+                    }
+                    else if (phoneScript.calls > 1)
+                    {
                         holding = true;
+                        holdingPhone = true;
+                        phonePanel.SetActive(false);
+                        phoneScript.stopAudio = true;
+
+                        prefab = Instantiate(paper, spawnPos.position, GameObject.Find("MainCamera").transform.rotation);
+                        prefab.transform.parent = GameObject.Find("SpawnPos").transform;
 
                         PolicyScript();
 
@@ -654,6 +676,39 @@ public class InteractionScript : MonoBehaviour
                     conferenceCallAudio.Play();
                     robotDialogueTrigger.TriggerRobotDialogue3_6();
                     triggerOnce4 = false;
+                }
+            }
+        }
+
+        if (statsScript.day == 4)
+        {
+            if (statsScript.time == 8)
+            {
+                if (triggerOnce)
+                {
+                    robotDialogueTrigger.TriggerRobotDialogue4_3();
+                    triggerOnce = false;
+                }
+            }
+            if (statsScript.time == 4)
+            {
+                if (triggerOnce2)
+                {
+                    phoneScript.phoneIsActive = true;
+                    phoneInteractable = true;
+                    triggerOnce2 = false;
+                }
+            }
+            if (statsScript.time == 2)
+            {
+                if (triggerOnce3)
+                {
+                    conferenceCallInteractable = true;
+                    conferenceCallAudio.clip = conferenceCallFX;
+                    conferenceCallAudio.Play();
+                    chairInteractable = false;
+                    folderInteractable = false;
+                    triggerOnce3 = false;
                 }
             }
         }

@@ -56,4 +56,14 @@ public class RobotDialogue {
     public string[] robotSentences3_6;
 
     #endregion
+
+    #region DayFour
+
+    public string[] robotSentences4_1;
+    public string[] robotSentences4_2;
+    public string[] robotSentences4_3;
+    public string[] robotSentences4_4;
+    public string[] robotSentences4_5;
+
+    #endregion
 }

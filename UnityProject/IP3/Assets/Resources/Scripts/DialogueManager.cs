@@ -322,7 +322,7 @@ public class DialogueManager : MonoBehaviour {
             option1.onClick.AddListener(dialogueTrigger.TriggerDialogue9);
 
             option2.onClick.RemoveAllListeners();
-            if (statsScript.stats[7] >= 34)
+            if (statsScript.stats[7] >= 40)
             {
                 option2.onClick.AddListener(dialogueTrigger.TriggerDialogue2);
             }
@@ -353,7 +353,7 @@ public class DialogueManager : MonoBehaviour {
         {
             statsScript.stats[6] -= 5;
         }
-        else if (statsScript.day == 2)
+        else if (statsScript.day == 3)
         {
             statsScript.stats[7] -= 5;
         }
@@ -549,8 +549,9 @@ public class DialogueManager : MonoBehaviour {
         }
         else if (statsScript.day == 3)
         {
-            
+            statsScript.stats[7] -= 5;
         }
+
         speakerPanel.SetActive(true);
         answerPanel.SetActive(false);
         continueButton.onClick.RemoveAllListeners();
@@ -575,6 +576,13 @@ public class DialogueManager : MonoBehaviour {
         else if (statsScript.day == 2)
         {
             foreach (string sentence in dialogue.call2sentences3)
+            {
+                call2sentences3.Enqueue(sentence);
+            }
+        }
+        else if (statsScript.day == 3)
+        {
+            foreach (string sentence in dialogue.sentences3_3)
             {
                 call2sentences3.Enqueue(sentence);
             }
@@ -618,6 +626,18 @@ public class DialogueManager : MonoBehaviour {
             StopAllCoroutines();
             StartCoroutine(TypeSentence(sentence));
         }
+        else if (statsScript.day == 3)
+        {
+            if (sentences3_3.Count == 0)
+            {
+                EndDialogue3();
+                return;
+            }
+
+            string sentence = sentences3_3.Dequeue();
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(sentence));
+        }
     }
 
     public void EndDialogue3()
@@ -636,7 +656,7 @@ public class DialogueManager : MonoBehaviour {
             option3.onClick.RemoveAllListeners();
             option3.onClick.AddListener(dialogueTrigger.TriggerDialogue9);
         }
-        else if (statsScript.day == 2)
+        else if (statsScript.day == 2 || statsScript.day == 3)
         {
             option1.onClick.RemoveAllListeners();
             option1.onClick.AddListener(dialogueTrigger.TriggerDialogue9);
@@ -686,6 +706,10 @@ public class DialogueManager : MonoBehaviour {
         {
             statsScript.stats[6] -= 5;
         }
+        else if (statsScript.day == 3)
+        {
+            statsScript.stats[7] -= 5;
+        }
 
         dialogue4Visited = true;
         speakerPanel.SetActive(true);
@@ -714,6 +738,13 @@ public class DialogueManager : MonoBehaviour {
             foreach (string sentence in dialogue.call2sentences4)
             {
                 call2sentences4.Enqueue(sentence);
+            }
+        }
+        else if (statsScript.day == 3)
+        {
+            foreach (string sentence in dialogue.sentences3_4)
+            {
+                sentences3_4.Enqueue(sentence);
             }
         }
 
@@ -755,6 +786,18 @@ public class DialogueManager : MonoBehaviour {
             StopAllCoroutines();
             StartCoroutine(TypeSentence(sentence));
         }
+        else if (statsScript.day == 3)
+        {
+            if (sentences3_4.Count == 0)
+            {
+                EndDialogue4();
+                return;
+            }
+
+            string sentence = sentences3_4.Dequeue();
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(sentence));
+        }
     }
 
     public void EndDialogue4()
@@ -769,7 +812,7 @@ public class DialogueManager : MonoBehaviour {
             statsScript.conferenceAccept = true;
             statsScript.connferenceCallAccept.Add("Earth Moonpath");
         }
-        else if (statsScript.day == 2)
+        else
         {
             speakerPanel.SetActive(false);
             answerPanel.SetActive(true);
@@ -782,13 +825,27 @@ public class DialogueManager : MonoBehaviour {
             option1.onClick.AddListener(dialogueTrigger.TriggerDialogue9);
 
             option3.onClick.RemoveAllListeners();
-            if (statsScript.stats[6] > 34)
+            if (statsScript.day == 2)
             {
-                option3.onClick.AddListener(dialogueTrigger.TriggerDialogue8);
+                if (statsScript.stats[6] >= 34)
+                {
+                    option3.onClick.AddListener(dialogueTrigger.TriggerDialogue8);
+                }
+                else
+                {
+                    option3.onClick.AddListener(dialogueTrigger.TriggerDialogue10);
+                }
             }
-            else if (statsScript.stats[6] <= 34)
+            else if (statsScript.day == 3)
             {
-                option3.onClick.AddListener(dialogueTrigger.TriggerDialogue10);
+                if (statsScript.stats[7] >= 34)
+                {
+                    option3.onClick.AddListener(dialogueTrigger.TriggerDialogue8);
+                }
+                else
+                {
+                    option3.onClick.AddListener(dialogueTrigger.TriggerDialogue10);
+                }
             }
         }
     }
@@ -802,6 +859,10 @@ public class DialogueManager : MonoBehaviour {
         else if (statsScript.day == 2)
         {
             statsScript.stats[6] -= 5;
+        }
+        else if (statsScript.day == 3)
+        {
+            statsScript.stats[7] -= 5;
         }
 
         dialogue5Visited = true;
@@ -831,6 +892,13 @@ public class DialogueManager : MonoBehaviour {
             foreach (string sentence in dialogue.call2sentences5)
             {
                 call2sentences5.Enqueue(sentence);
+            }
+        }
+        else if (statsScript.day == 3)
+        {
+            foreach (string sentence in dialogue.sentences3_5)
+            {
+                sentences3_5.Enqueue(sentence);
             }
         }
 
@@ -872,6 +940,18 @@ public class DialogueManager : MonoBehaviour {
             StopAllCoroutines();
             StartCoroutine(TypeSentence(sentence));
         }
+        else if (statsScript.day == 3)
+        {
+            if (sentences3_5.Count == 0)
+            {
+                EndDialogue5();
+                return;
+            }
+
+            string sentence = sentences3_5.Dequeue();
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(sentence));
+        }
     }
 
     public void EndDialogue5()
@@ -899,7 +979,7 @@ public class DialogueManager : MonoBehaviour {
                 option3.onClick.AddListener(dialogueTrigger.TriggerDialogue9);
             }
         }
-        else if (statsScript.day == 2)
+        else
         {
             option1.onClick.RemoveAllListeners();
             option1.onClick.AddListener(dialogueTrigger.TriggerDialogue9);
@@ -918,6 +998,10 @@ public class DialogueManager : MonoBehaviour {
         {
             statsScript.stats[6] -= 5;
         }
+        else if (statsScript.day == 3)
+        {
+            statsScript.stats[7] -= 5;
+        }
 
         continueButton.onClick.AddListener(DisplayNextSentence6);
 
@@ -928,6 +1012,13 @@ public class DialogueManager : MonoBehaviour {
             foreach (string sentence in dialogue.call2sentences6)
             {
                 call2sentences6.Enqueue(sentence);
+            }
+        }
+        else if (statsScript.day == 3)
+        {
+            foreach (string sentence in dialogue.sentences3_6)
+            {
+                sentences3_6.Enqueue(sentence);
             }
         }
 
@@ -948,6 +1039,18 @@ public class DialogueManager : MonoBehaviour {
             StopAllCoroutines();
             StartCoroutine(TypeSentence(sentence2_6));
         }
+        else if (statsScript.day == 3)
+        {
+            if (sentences3_6.Count == 0)
+            {
+                EndDialogue6();
+                return;
+            }
+
+            string sentence = sentences3_6.Dequeue();
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(sentence));
+        }
     }
 
     public void EndDialogue6()
@@ -955,15 +1058,18 @@ public class DialogueManager : MonoBehaviour {
         speakerPanel.SetActive(false);
         answerPanel.SetActive(true);
 
+        option1.GetComponentInChildren<Text>().text = answers1[0];
+        option2.GetComponentInChildren<Text>().text = answers1[1];
+        option3.GetComponentInChildren<Text>().text = answers1[2];
+
+        option1.onClick.RemoveAllListeners();
+        option1.onClick.AddListener(dialogueTrigger.TriggerDialogue9);
+
+        option3.onClick.RemoveAllListeners();
+        option3.onClick.AddListener(dialogueTrigger.TriggerDialogue10);
+
         if (statsScript.day == 2)
-        {
-            option1.GetComponentInChildren<Text>().text = answers1[0];
-            option2.GetComponentInChildren<Text>().text = answers1[1];
-            option3.GetComponentInChildren<Text>().text = answers1[2];
-
-            option1.onClick.RemoveAllListeners();
-            option1.onClick.AddListener(dialogueTrigger.TriggerDialogue9);
-
+        {         
             option2.onClick.RemoveAllListeners();
             if (statsScript.stats[6] >= 34)
             {
@@ -973,9 +1079,18 @@ public class DialogueManager : MonoBehaviour {
             {
                 option2.onClick.AddListener(dialogueTrigger.TriggerDialogue3);
             }
-
-            option3.onClick.RemoveAllListeners();
-            option3.onClick.AddListener(dialogueTrigger.TriggerDialogue10);
+        }
+        else if (statsScript.day == 3)
+        {
+            option2.onClick.RemoveAllListeners();
+            if (statsScript.stats[7] >= 40)
+            {
+                option2.onClick.AddListener(dialogueTrigger.TriggerDialogue2);
+            }
+            else
+            {
+                option2.onClick.AddListener(dialogueTrigger.TriggerDialogue3);
+            }
         }
     }
 
@@ -988,6 +1103,10 @@ public class DialogueManager : MonoBehaviour {
         else if (statsScript.day == 2)
         {
             statsScript.stats[6] -= 5;
+        }
+        else if (statsScript.day == 3)
+        {
+            statsScript.stats[7] -= 5;
         }
 
         speakerPanel.SetActive(true);
@@ -1016,6 +1135,13 @@ public class DialogueManager : MonoBehaviour {
             foreach (string sentence in dialogue.call2sentences7)
             {
                 call2sentences7.Enqueue(sentence);
+            }
+        }
+        else if (statsScript.day == 3)
+        {
+            foreach (string sentence in dialogue.sentences3_7)
+            {
+                sentences3_7.Enqueue(sentence);
             }
         }
 
@@ -1054,6 +1180,18 @@ public class DialogueManager : MonoBehaviour {
             }
 
             string sentence = call2sentences7.Dequeue();
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(sentence));
+        }
+        else if (statsScript.day == 3)
+        {
+            if (sentences3_7.Count == 0)
+            {
+                EndDialogue7();
+                return;
+            }
+
+            string sentence = sentences3_7.Dequeue();
             StopAllCoroutines();
             StartCoroutine(TypeSentence(sentence));
         }
@@ -1122,9 +1260,8 @@ public class DialogueManager : MonoBehaviour {
                 option3.onClick.AddListener(dialogueTrigger.TriggerDialogue9);
             }
         }
-        else if (statsScript.day == 2)
+        else
         {
-
             option1.GetComponentInChildren<Text>().text = answers2[0];
             option2.GetComponentInChildren<Text>().text = answers2[1];
             option3.GetComponentInChildren<Text>().text = answers2[2];
@@ -1132,18 +1269,32 @@ public class DialogueManager : MonoBehaviour {
             option1.onClick.RemoveAllListeners();
             option1.onClick.AddListener(dialogueTrigger.TriggerDialogue9);
 
-            option2.onClick.RemoveAllListeners();
-            if (statsScript.stats[6] >= 30)
-            {
-                option2.onClick.AddListener(dialogueTrigger.TriggerDialogue4);
-            }
-            else if (statsScript.stats[6] < 30)
-            {
-                option2.onClick.AddListener(dialogueTrigger.TriggerDialogue5);
-            }
-
             option3.onClick.RemoveAllListeners();
             option3.onClick.AddListener(dialogueTrigger.TriggerDialogue10);
+
+            option2.onClick.RemoveAllListeners();
+            if (statsScript.day == 2)
+            {
+                if (statsScript.stats[6] >= 30)
+                {
+                    option2.onClick.AddListener(dialogueTrigger.TriggerDialogue4);
+                }
+                else if (statsScript.stats[6] < 30)
+                {
+                    option2.onClick.AddListener(dialogueTrigger.TriggerDialogue5);
+                }
+            }
+            else if (statsScript.day == 3)
+            {
+                if (statsScript.stats[7] >= 35)
+                {
+                    option2.onClick.AddListener(dialogueTrigger.TriggerDialogue4);
+                }
+                else
+                {
+                    option2.onClick.AddListener(dialogueTrigger.TriggerDialogue5);
+                }
+            }
         }
     }
 
@@ -1155,17 +1306,25 @@ public class DialogueManager : MonoBehaviour {
         if (statsScript.day == 2)
         {
             statsScript.stats[6] -= 5;
+        }
 
-            planetText.text = dialogue.planet2;
+        continueButton.onClick.RemoveAllListeners();
+        continueButton.onClick.AddListener(DisplayNextSentence8);
 
-            continueButton.onClick.RemoveAllListeners();
-            continueButton.onClick.AddListener(DisplayNextSentence8);
+        call2sentences8.Clear();
 
-            call2sentences8.Clear();
-
+        if (statsScript.day == 2)
+        {
             foreach (string sentence2_8 in dialogue.call2sentences8)
             {
                 call2sentences8.Enqueue(sentence2_8);
+            }
+        }
+        else if (statsScript.day == 3)
+        {
+            foreach (string sentence in dialogue.sentences3_8)
+            {
+                sentences3_8.Enqueue(sentence);
             }
         }
 
@@ -1186,6 +1345,18 @@ public class DialogueManager : MonoBehaviour {
             StopAllCoroutines();
             StartCoroutine(TypeSentence(sentence2_8));
         }
+        else if (statsScript.day == 3)
+        {
+            if (sentences3_8.Count == 0)
+            {
+                EndDialogue8();
+                return;
+            }
+
+            string sentence = sentences3_8.Dequeue();
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(sentence));
+        }
     }
 
     public void EndDialogue8()
@@ -1193,18 +1364,15 @@ public class DialogueManager : MonoBehaviour {
         speakerPanel.SetActive(false);
         answerPanel.SetActive(true);
 
-        if (statsScript.day == 2)
-        {
-            option1.GetComponentInChildren<Text>().text = answers2[0];
-            option2.gameObject.SetActive(false);
-            option3.GetComponentInChildren<Text>().text = answers2[2];
+        option1.GetComponentInChildren<Text>().text = answers1[0];
+        option2.gameObject.SetActive(false);
+        option3.GetComponentInChildren<Text>().text = answers1[2];
 
-            option1.onClick.RemoveAllListeners();
-            option1.onClick.AddListener(dialogueTrigger.TriggerDialogue9);
+        option1.onClick.RemoveAllListeners();
+        option1.onClick.AddListener(dialogueTrigger.TriggerDialogue9);
 
-            option3.onClick.RemoveAllListeners();
-            option3.onClick.AddListener(dialogueTrigger.TriggerDialogue10);
-        }
+        option3.onClick.RemoveAllListeners();
+        option3.onClick.AddListener(dialogueTrigger.TriggerDialogue10);
     }
 
     public void StartDialogue9(Dialogue dialogue)
@@ -1251,6 +1419,35 @@ public class DialogueManager : MonoBehaviour {
                 statsScript.stats[2] -= 10;
             }
         }
+        else if (statsScript.day == 3)
+        {
+            statsScript.stats[5] -= 10;
+            statsScript.conferenceAccept = true;
+
+            if (dialogue2Visited)
+            {
+                statsScript.stats[7] += 15;
+                statsScript.stats[2] += 10;
+                statsScript.stats[1] += 0.3f;
+                statsScript.stats[6] -= 10;
+                statsScript.stats[4] += 10;
+            }
+            else if (dialogue2Visited && dialogue4Visited)
+            {
+                statsScript.stats[7] += 15;
+                statsScript.stats[2] += 15;
+                statsScript.stats[1] += 0.3f;
+                statsScript.stats[6] -= 10;
+                statsScript.stats[4] += 5;
+            }
+            else
+            {
+                statsScript.stats[7] += 15;
+                statsScript.stats[2] += 10;
+                statsScript.stats[6] -= 10;
+                statsScript.stats[4] += 10;
+            }
+        }
 
         speakerPanel.SetActive(true);
         answerPanel.SetActive(false);
@@ -1276,6 +1473,13 @@ public class DialogueManager : MonoBehaviour {
         else if (statsScript.day == 2)
         {
             foreach (string sentence in dialogue.call2sentences9)
+            {
+                call2sentences9.Enqueue(sentence);
+            }
+        }
+        else if (statsScript.day == 3)
+        {
+            foreach (string sentence in dialogue.sentences3_9)
             {
                 call2sentences9.Enqueue(sentence);
             }
@@ -1319,18 +1523,30 @@ public class DialogueManager : MonoBehaviour {
             StopAllCoroutines();
             StartCoroutine(TypeSentence(sentence));
         }
+        else if (statsScript.day == 3)
+        {
+            if (sentences3_9.Count == 0)
+            {
+                EndDialogue9();
+                return;
+            }
+
+            string sentence = sentences3_9.Dequeue();
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(sentence));
+        }
     }
 
     public void EndDialogue9()
     {
         conferenceCall.SetActive(false);
-        dayOneScript.femaleHologram.SetActive(false);
         player.SetActive(true);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         if (statsScript.day == 1)
         {
             dayOneScript.conferenceCallInteractable = false;
+            dayOneScript.femaleHologram.SetActive(false);
             robotDialogueTrigger.TriggerRobotDialogue14();
             statsScript.conferenceAccept = false;
             statsScript.connferenceCallDecline.Add("Earth Moonpath");
@@ -1340,7 +1556,16 @@ public class DialogueManager : MonoBehaviour {
             statsScript.conferenceAccept = true;
             statsScript.connferenceCallAccept.Add("Mars Moon Metals");
             interactionScript.conferenceCallInteractable = false;
+            interactionScript.femaleHologram.SetActive(false);
             robotDialogueTrigger.TriggerRobotDialogue2_15();
+        }
+        else if (statsScript.day == 3)
+        {
+            statsScript.conferenceAccept = true;
+            statsScript.connferenceCallAccept.Add("Venus Gun Trade");
+            interactionScript.conferenceCallInteractable = false;
+            interactionScript.femaleHologram.SetActive(false);
+            statsScript.time--;
         }
     }
 
@@ -1365,6 +1590,20 @@ public class DialogueManager : MonoBehaviour {
                 call2sentences10.Enqueue(sentence2_10);
             }
         }
+        else if (statsScript.day == 3)
+        {
+            statsScript.stats[5] += 5;
+            statsScript.stats[6] += 5;
+            statsScript.stats[7] -= 10;
+            statsScript.stats[2] -= 5;
+
+            sentences3_10.Clear();
+
+            foreach (string sentence in dialogue.sentences3_10)
+            {
+                sentences3_10.Enqueue(sentence);
+            }
+        }
 
         DisplayNextConferenceSentence10();
     }
@@ -1383,6 +1622,18 @@ public class DialogueManager : MonoBehaviour {
             StopAllCoroutines();
             StartCoroutine(TypeSentence(sentence2_10));
         }
+        if (statsScript.day == 3)
+        {
+            if (sentences3_10.Count == 0)
+            {
+                EndConferenceDialogue10();
+                return;
+            }
+
+            string sentence = sentences3_10.Dequeue();
+            StopAllCoroutines();
+            StartCoroutine(TypeSentence(sentence));
+        }
     }
 
     public void EndConferenceDialogue10()
@@ -1398,6 +1649,12 @@ public class DialogueManager : MonoBehaviour {
             statsScript.connferenceCallDecline.Add("Mars Moon Metals");
             robotDialogueTrigger.TriggerRobotDialogue2_15();
             statsScript.conferenceAccept = false;
+        }
+        else if (statsScript.day == 3)
+        {
+            statsScript.connferenceCallDecline.Add("Venus Gun Trade");
+            statsScript.conferenceAccept = false;
+            statsScript.time--;
         }
     }
 }

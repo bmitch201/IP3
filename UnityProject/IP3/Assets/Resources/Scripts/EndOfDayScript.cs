@@ -63,6 +63,11 @@ public class EndOfDayScript : MonoBehaviour
     public GameObject day1Panel;
     public GameObject day2Panel;
 
+    public GameObject loadingPanel;
+    public GameObject savePanel;
+
+    bool save;
+
     void Start()
     {
         statsScript = GameObject.FindObjectOfType<Stats>();
@@ -70,6 +75,11 @@ public class EndOfDayScript : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+
+        loadingPanel.gameObject.SetActive(false);
+        savePanel.gameObject.SetActive(false);
+
+        save = false;
 
         saveButton.onClick.AddListener(statsScript.SaveGame);
 
@@ -433,11 +443,26 @@ public class EndOfDayScript : MonoBehaviour
         statsScript.phone1Answered = false;
         statsScript.conferenceAccept = false;
         statsScript.conferenceAcceptWithHaggle = false;
+        loadingPanel.gameObject.SetActive(true);
         SceneManager.LoadScene("Actual Game");
     }
 
     public void SaveGame()
     {
         statsScript.SaveGame();
+        save = true;
+        savePanel.gameObject.SetActive(true);
+    }
+
+    private void Update()
+    {
+        if (save)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                savePanel.gameObject.SetActive(false);
+                save = false;
+            }
+        }
     }
 }

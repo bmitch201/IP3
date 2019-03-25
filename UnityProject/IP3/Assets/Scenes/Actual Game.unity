@@ -13133,6 +13133,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114977083791510324, guid: 48c323d8c0d253e4e991c0f79716bae0,
+        type: 2}
+      propertyPath: phoneCalls.Array.size
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 4344750462096504, guid: 48c323d8c0d253e4e991c0f79716bae0, type: 2}
       propertyPath: m_LocalPosition.x
       value: -3.718021
@@ -13170,6 +13175,21 @@ Prefab:
       propertyPath: phoneCallText
       value: 
       objectReference: {fileID: 827770955}
+    - target: {fileID: 114977083791510324, guid: 48c323d8c0d253e4e991c0f79716bae0,
+        type: 2}
+      propertyPath: phoneCalls.Array.data[7]
+      value: 'Your wife asks you to organise travel for Moon citizens to Mars.
+
+        Press ''E'' to close'
+      objectReference: {fileID: 0}
+    - target: {fileID: 114977083791510324, guid: 48c323d8c0d253e4e991c0f79716bae0,
+        type: 2}
+      propertyPath: phoneCalls.Array.data[8]
+      value: "Venus wants you to allow their interplanetary businesses on the Moon
+        to continue acting freely.\nFax = Venus Opinion + ; Public Support - ;  Revenue
+        + ; Autonomy -\nTrash = Venus Opinion - ; Public Support + ;  Revenue -  \nPress
+        'E' to close"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 48c323d8c0d253e4e991c0f79716bae0, type: 2}
   m_IsPrefabAsset: 0
@@ -27583,14 +27603,43 @@ MonoBehaviour:
     - "Perhaps you\u2019re not so different from the earthlings after all...\r"
     - "Fine, we\u2019ll be willing to pay you a significant sum to allow us to form
       the blockade."
-    sentences3_3: []
-    sentences3_4: []
-    sentences3_5: []
-    sentences3_6: []
-    sentences3_7: []
-    sentences3_8: []
-    sentences3_9: []
-    sentences3_10: []
+    sentences3_3:
+    - This is a matter of ethics, Mr. Prime Minister, not a trade!
+    - "The fact that you\u2019ll be doing good for the people of the solar system
+      is enough of a justification to allow us to form the blockade."
+    - So what will it be?
+    sentences3_4:
+    - So money is not enough for you?
+    - "What if we go public about it? Make sure your people know the good you\u2019re
+      doing and douse the tension this might cause?"
+    - Will you agree to the blockade then?
+    sentences3_5:
+    - "Argh\u2026 So you don\u2019t want to help us due to the same reason the earthlings
+      continue trading with the martians..."
+    - "Greed and desire for power\u2026 We will not fall into your trap."
+    - Accept or decline and let's be done with this.
+    sentences3_6:
+    - "You didn\u2019t even take a second to consider our proposal!"
+    - That is not how a leader should act! What we are asking will not only improve,
+      but also save lives.
+    - "Think about it, Mr. Prime Minister! You don\u2019t want to make a hasty decision."
+    sentences3_7:
+    - We offer you a monetary reward for the chance to do the right thing.
+    - And you simply brush us off? What is your aim here?
+    - "Don\u2019t you want to contribute to everyone\u2019s safety?"
+    sentences3_8:
+    - Why?! There is no downside to our request!
+    - "Do you benefit from the unethical business Mars and Earth conduct?\r"
+    - "Or are you just afraid of angering them?! We ask you to reconsider!\r"
+    sentences3_9:
+    - "Fabulous! We\u2019ll get it sorted as soon as possible!\r"
+    - "Thank you, Mr. Prime Minister! I\u2019m confident we\u2019ll have a great relationship
+      going forward!"
+    sentences3_10:
+    - "Urgh\u2026 It seems there\u2019s no sensible souls left in this system..."
+    - "So be it\u2026 I hope you understand that by ignoring a problem you contribute
+      to it!"
+    - Good night, Mr. Prime Minister!
 --- !u!1 &1172284814
 GameObject:
   m_ObjectHideFlags: 0
@@ -34353,6 +34402,31 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences4_1.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences4_2.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences4_3.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences4_4.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences4_5.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4615552985344788, guid: 0251e78afb64189439e1ab5de7fcee12, type: 2}
       propertyPath: m_LocalPosition.x
       value: 8.74284
@@ -34394,6 +34468,69 @@ Prefab:
         type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences4_1.Array.data[0]
+      value: Good morning, boss! Did you get your 8 hours?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences4_1.Array.data[1]
+      value: "Let\u2019s just wait for your wife to call and we\u2019ll start, ok?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences4_2.Array.data[0]
+      value: Hm, I guess she told you all she wanted before you left home, huh?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences4_2.Array.data[1]
+      value: I guess we can begin then?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences4_2.Array.data[2]
+      value: If you look at the board, the cabinet have requested that you arrange
+        for our people to be able to travel to Earth without needing a visa or something
+        like that.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences4_2.Array.data[3]
+      value: 'You can do that from the contacts folder on your PC. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences4_2.Array.data[4]
+      value: You can try to arrange the same for other planets too, but the cabinet
+        have not request that specifically, so it is up to you.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences4_2.Array.data[5]
+      value: So how do you wanna start today?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences4_3.Array.data[0]
+      value: "This is like second nature to you by now, isn\u2019t it? "
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences4_4.Array.data[0]
+      value: And there goes the phone again! I bet it is something important!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences4_5.Array.data[0]
+      value: I guess she slept late today, huh?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences4_5.Array.data[1]
+      value: "Do you want me to add it to the board? I\u2019ll add it to the board."
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0251e78afb64189439e1ab5de7fcee12, type: 2}

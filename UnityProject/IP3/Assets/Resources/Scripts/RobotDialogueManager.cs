@@ -50,6 +50,12 @@ public class RobotDialogueManager : MonoBehaviour {
     private Queue<string> robotSentences3_5;
     private Queue<string> robotSentences3_6;
 
+    private Queue<string> robotSentences4_1;
+    private Queue<string> robotSentences4_2;
+    private Queue<string> robotSentences4_3;
+    private Queue<string> robotSentences4_4;
+    private Queue<string> robotSentences4_5;
+
     AudioSource robotAudioSource;
 
     public AudioClip[] robotClip1, robotClip2, robotClip3, robotClip4, robotClip5, robotClip6, robotClip7, robotClip8, robotClip9, robotClip10, robotClip11, robotClip12, robotClip13, robotClip14;//, robotClip15, robotClip16;
@@ -110,6 +116,12 @@ public class RobotDialogueManager : MonoBehaviour {
     bool dialogue3_4;
     bool dialogue3_5;
     bool dialogue3_6;
+
+    bool dialogue4_1;
+    bool dialogue4_2;
+    bool dialogue4_3;
+    bool dialogue4_4;
+    bool dialogue4_5;
 
     public bool conferencePhoneRing = false;
     bool timer1 = false;
@@ -195,6 +207,11 @@ public class RobotDialogueManager : MonoBehaviour {
         robotSentences3_5 = new Queue<string>();
         robotSentences3_6 = new Queue<string>();
 
+        robotSentences4_1 = new Queue<string>();
+        robotSentences4_2 = new Queue<string>();
+        robotSentences4_3 = new Queue<string>();
+        robotSentences4_4 = new Queue<string>();
+        robotSentences4_5 = new Queue<string>();
     }
 
     void Start()
@@ -2134,6 +2151,265 @@ public class RobotDialogueManager : MonoBehaviour {
 
     #endregion
 
+    #region Day Four
+
+    public void StartRobotDialogue4_1(RobotDialogue robotDialogue)
+    {
+        dialogue4_1 = true;
+        panel.SetActive(true);
+        robotSentences4_1.Clear();
+        //robotAudio1.Clear();
+
+        foreach (string sentence in robotDialogue.robotSentences4_1)
+        {
+            robotSentences4_1.Enqueue(sentence);
+        }
+
+        //foreach (AudioClip clip in robotClip2)
+        //{
+        //    robotAudio2.Enqueue(clip);
+        //}
+
+        DisplayNextRobotSentence4_1();
+    }
+
+    public void DisplayNextRobotSentence4_1()
+    {
+        if (robotSentences4_1.Count == 0)
+        {
+            EndRobotDialogue4_1();
+            return;
+        }
+
+        string robotSentence = robotSentences4_1.Dequeue();
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(robotSentence));
+
+        //robotAudioSource.Stop();
+
+        //if (robotAudio2.Count > 0)
+        //{
+        //    AudioClip robotAudio = robotAudio2.Dequeue();
+        //    robotAudioSource.clip = robotAudio;
+        //    robotAudioSource.PlayOneShot(robotAudio);
+        //}
+    }
+
+    public void EndRobotDialogue4_1()
+    {
+        dialogue4_1 = false;
+        //robotAudioSource.Stop();
+        panel.SetActive(false);
+        timerForDialogue = 2f;
+        timer1 = true;
+    }
+
+    public void StartRobotDialogue4_2(RobotDialogue robotDialogue)
+    {
+        dialogue4_2 = true;
+        panel.SetActive(true);
+        robotSentences4_2.Clear();
+        //robotAudio1.Clear();
+
+        foreach (string sentence in robotDialogue.robotSentences4_2)
+        {
+            robotSentences4_2.Enqueue(sentence);
+        }
+
+        //foreach (AudioClip clip in robotClip2)
+        //{
+        //    robotAudio2.Enqueue(clip);
+        //}
+
+        DisplayNextRobotSentence4_2();
+    }
+
+    public void DisplayNextRobotSentence4_2()
+    {
+        if (robotSentences4_2.Count == 0)
+        {
+            EndRobotDialogue4_2();
+            return;
+        }
+
+        string robotSentence = robotSentences4_2.Dequeue();
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(robotSentence));
+
+        //robotAudioSource.Stop();
+
+        //if (robotAudio2.Count > 0)
+        //{
+        //    AudioClip robotAudio = robotAudio2.Dequeue();
+        //    robotAudioSource.clip = robotAudio;
+        //    robotAudioSource.PlayOneShot(robotAudio);
+        //}
+    }
+
+    public void EndRobotDialogue4_2()
+    {
+        dialogue4_2 = false;
+        //robotAudioSource.Stop();
+        panel.SetActive(false);
+        interactionScript.folderInteractable = true;
+        interactionScript.chairInteractable = true;
+    }
+
+    public void StartRobotDialogue4_3(RobotDialogue robotDialogue)
+    {
+        dialogue4_3 = true;
+        panel.SetActive(true);
+        robotSentences4_3.Clear();
+        //robotAudio1.Clear();
+
+        foreach (string sentence in robotDialogue.robotSentences4_3)
+        {
+            robotSentences4_3.Enqueue(sentence);
+        }
+
+        //foreach (AudioClip clip in robotClip2)
+        //{
+        //    robotAudio2.Enqueue(clip);
+        //}
+
+        DisplayNextRobotSentence4_3();
+    }
+
+    public void DisplayNextRobotSentence4_3()
+    {
+        if (robotSentences4_3.Count == 0)
+        {
+            EndRobotDialogue4_3();
+            return;
+        }
+
+        string robotSentence = robotSentences4_3.Dequeue();
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(robotSentence));
+
+        //robotAudioSource.Stop();
+
+        //if (robotAudio2.Count > 0)
+        //{
+        //    AudioClip robotAudio = robotAudio2.Dequeue();
+        //    robotAudioSource.clip = robotAudio;
+        //    robotAudioSource.PlayOneShot(robotAudio);
+        //}
+    }
+
+    public void EndRobotDialogue4_3()
+    {
+        dialogue4_3 = false;
+        //robotAudioSource.Stop();
+        panel.SetActive(false);
+        phoneScript.phoneIsActive = true;
+        interactionScript.folderInteractable = false;
+        interactionScript.chairInteractable = false;
+        timerForDialogue = 2f;
+        timer2 = true;
+    }
+
+    public void StartRobotDialogue4_4(RobotDialogue robotDialogue)
+    {
+        dialogue4_4 = true;
+        panel.SetActive(true);
+        robotSentences4_4.Clear();
+        //robotAudio1.Clear();
+
+        foreach (string sentence in robotDialogue.robotSentences4_4)
+        {
+            robotSentences4_4.Enqueue(sentence);
+        }
+
+        //foreach (AudioClip clip in robotClip2)
+        //{
+        //    robotAudio2.Enqueue(clip);
+        //}
+
+        DisplayNextRobotSentence4_4();
+    }
+
+    public void DisplayNextRobotSentence4_4()
+    {
+        if (robotSentences4_4.Count == 0)
+        {
+            EndRobotDialogue4_4();
+            return;
+        }
+
+        string robotSentence = robotSentences4_4.Dequeue();
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(robotSentence));
+
+        //robotAudioSource.Stop();
+
+        //if (robotAudio2.Count > 0)
+        //{
+        //    AudioClip robotAudio = robotAudio2.Dequeue();
+        //    robotAudioSource.clip = robotAudio;
+        //    robotAudioSource.PlayOneShot(robotAudio);
+        //}
+    }
+
+    public void EndRobotDialogue4_4()
+    {
+        dialogue4_4 = false;
+        //robotAudioSource.Stop();
+        panel.SetActive(false);
+        interactionScript.phoneInteractable = true;
+    }
+
+    public void StartRobotDialogue4_5(RobotDialogue robotDialogue)
+    {
+        dialogue4_5 = true;
+        panel.SetActive(true);
+        robotSentences4_5.Clear();
+        //robotAudio1.Clear();
+
+        foreach (string sentence in robotDialogue.robotSentences4_5)
+        {
+            robotSentences4_5.Enqueue(sentence);
+        }
+
+        //foreach (AudioClip clip in robotClip2)
+        //{
+        //    robotAudio2.Enqueue(clip);
+        //}
+
+        DisplayNextRobotSentence4_5();
+    }
+
+    public void DisplayNextRobotSentence4_5()
+    {
+        if (robotSentences4_5.Count == 0)
+        {
+            EndRobotDialogue4_5();
+            return;
+        }
+
+        string robotSentence = robotSentences4_5.Dequeue();
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(robotSentence));
+
+        //robotAudioSource.Stop();
+
+        //if (robotAudio2.Count > 0)
+        //{
+        //    AudioClip robotAudio = robotAudio2.Dequeue();
+        //    robotAudioSource.clip = robotAudio;
+        //    robotAudioSource.PlayOneShot(robotAudio);
+        //}
+    }
+
+    public void EndRobotDialogue4_5()
+    {
+        dialogue4_5 = false;
+        //robotAudioSource.Stop();
+        panel.SetActive(false);
+    }
+
+    #endregion
+
     // Update is called once per frame
     void Update ()
     {
@@ -2287,6 +2563,28 @@ public class RobotDialogueManager : MonoBehaviour {
                 DisplayNextRobotSentence3_6();
             }
 
+
+            else if (dialogue4_1)
+            {
+                DisplayNextRobotSentence4_1();
+            }
+            else if (dialogue4_2)
+            {
+                DisplayNextRobotSentence4_2();
+            }
+            else if (dialogue4_3)
+            {
+                DisplayNextRobotSentence4_3();
+            }
+            else if (dialogue4_4)
+            {
+                DisplayNextRobotSentence4_4();
+            }
+            else if (dialogue4_5)
+            {
+                DisplayNextRobotSentence4_5();
+            }
+
             //else if (dialogue15)
             //{
             //    DisplayNextRobotSentence15();
@@ -2366,7 +2664,34 @@ public class RobotDialogueManager : MonoBehaviour {
                 }
             }
         }
-        
+        if (statsScript.day == 4)
+        {
+            if (timer1)
+            {
+                if (timerForDialogue > 0)
+                {
+                    timerForDialogue -= Time.deltaTime;
+                }
+                else
+                {
+                    robotDialogueTrigger.TriggerRobotDialogue4_2();
+                    timer1 = false;
+                }
+            }
+            else if (timer2)
+            {
+                if (timerForDialogue > 0)
+                {
+                    timerForDialogue -= Time.deltaTime;
+                }
+                else
+                {
+                    robotDialogueTrigger.TriggerRobotDialogue4_4();
+                    timer2 = false;
+                }
+            }
+        }
+
 
         if (statsScript.day == 1)
         {
