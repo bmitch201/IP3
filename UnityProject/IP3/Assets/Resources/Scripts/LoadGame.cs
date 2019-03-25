@@ -213,6 +213,8 @@ public class LoadGame : MonoBehaviour {
             {
 
             }
+
+            GameObject.Find("PC Camera").SetActive(false);
         }
     }
 }
