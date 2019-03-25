@@ -111,8 +111,6 @@ public class InteractionScript : MonoBehaviour
 
         FolderOn();
 
-        Debug.Log(statsScript.day);
-
         if (statsScript.day == 2)
         {
             folderInteractable = false;
