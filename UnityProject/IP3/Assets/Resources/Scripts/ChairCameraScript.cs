@@ -100,6 +100,9 @@ public class ChairCameraScript : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.F))
                 {
+                    yaw = -100f;
+                    pitch = 0f;
+
                     if (dosEnabled == true)
                     {
                         dos.enabled = true;
@@ -110,8 +113,9 @@ public class ChairCameraScript : MonoBehaviour
                     }
 
                     pcCamera.SetActive(true);
-                    canvas.SetActive(false);
                     statsScript.UpdateScreen();
+                    canvas.SetActive(false);
+                    
                     pcAudio.clip = typingFX;
                     pcAudio.PlayOneShot(typingFX);
                     gameObject.SetActive(false);
@@ -138,6 +142,9 @@ public class ChairCameraScript : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.F))
                 {
+                    yaw = -100f;
+                    pitch = 0f;
+
                     if (dosEnabled == true)
                     {
                         dos.enabled = true;
@@ -170,6 +177,9 @@ public class ChairCameraScript : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.F))
                 {
+                    yaw = -100f;
+                    pitch = 0f;
+
                     if (dosEnabled == true)
                     {
                         dos.enabled = true;

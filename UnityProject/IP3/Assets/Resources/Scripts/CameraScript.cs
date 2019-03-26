@@ -8,7 +8,7 @@ public class CameraScript : MonoBehaviour {
     public GameObject player, chairCamera, canvas, homePage, statsPage, ocPage, currentPage, lastPage, backButton, ocHomePage, earthPage, marsPage, venusPage, moonCanvas, earthCanvas, marsCanvas, venusCanvas, es;
     GameObject prefab;
 
-    bool firstPCUse;
+    public bool firstPCUse;
 
     InteractionScript interactionScript;
     RobotDialogueTrigger robotDialogueTrigger;
@@ -19,7 +19,13 @@ public class CameraScript : MonoBehaviour {
     public List<float> statApprove = new List<float>();
     public List<float> statDecline = new List<float>();
 
-    string planet, contactName, buttonClicked;
+    public Button[] earthButtons = new Button[3];
+    public Button[] marsButtons = new Button[3];
+    public Button[] venusButtons = new Button[3];
+    public Button selected;
+
+    string planet, contactName;
+    public string buttonClicked;
 
     void Awake()
     {
@@ -163,6 +169,8 @@ public class CameraScript : MonoBehaviour {
             statsScript.healthEarth = GameObject.Find("HEALTH_TEXT_EARTH").GetComponent<Text>();
             statsScript.travelEarth = GameObject.Find("TRAVEL_TEXT_EARTH").GetComponent<Text>();
             statsScript.workEarth = GameObject.Find("WORK_RIGHTS_EARTH").GetComponent<Text>();
+
+            statsScript.UpdateScreen();
         }
 
         if (statsScript.healthMars == null || statsScript.travelMars == null || statsScript.workMars == null)
@@ -170,6 +178,8 @@ public class CameraScript : MonoBehaviour {
             statsScript.healthMars = GameObject.Find("HEALTH_TEXT_MARS").GetComponent<Text>();
             statsScript.travelMars = GameObject.Find("TRAVEL_TEXT_MARS").GetComponent<Text>();
             statsScript.workMars = GameObject.Find("WORK_RIGHTS_MARS").GetComponent<Text>();
+
+            statsScript.UpdateScreen();
         }
 
         if (statsScript.healthVenus == null || statsScript.travelVenus == null || statsScript.workVenus == null)
@@ -177,6 +187,8 @@ public class CameraScript : MonoBehaviour {
             statsScript.healthVenus = GameObject.Find("HEALTH_TEXT_VENUS").GetComponent<Text>();
             statsScript.travelVenus = GameObject.Find("TRAVEL_TEXT_VENUS").GetComponent<Text>();
             statsScript.workVenus = GameObject.Find("WORK_RIGHTS_VENUS").GetComponent<Text>();
+
+            statsScript.UpdateScreen();
         }
 
         if(statsScript.day == 2 && GameObject.Find("TRAVEL_EARTH") != null)
@@ -220,6 +232,7 @@ public class CameraScript : MonoBehaviour {
         currentPage.SetActive(true);
     }
 
+    //If the earth page is open and button is clicked
     public void EarthChoice()
     {
         statApprove.Add(-5f);
@@ -247,6 +260,7 @@ public class CameraScript : MonoBehaviour {
         currentPage.SetActive(true);
     }
 
+    //If the mars page is open and button is clicked
     public void MarsChoice()
     {
         statApprove.Add(-5f);
@@ -274,6 +288,7 @@ public class CameraScript : MonoBehaviour {
         currentPage.SetActive(true);
     }
 
+    //If the venus page is open and button is clicked
     public void VenusChoice()
     {
         statApprove.Add(-5f);
@@ -288,6 +303,7 @@ public class CameraScript : MonoBehaviour {
 
     #endregion
 
+    //If the healthcare button is clicked
     public void Healthcare()
     {
         contactName = "Healthcare";
@@ -296,6 +312,7 @@ public class CameraScript : MonoBehaviour {
         ReturnToPlayer();
     }
 
+    //if the travel button is clicked
     public void Travel()
     {
         contactName = "Travel";
@@ -304,14 +321,16 @@ public class CameraScript : MonoBehaviour {
         ReturnToPlayer();
     }
 
+    //If the worker button is clicked
     public void Worker()
     {
-        contactName = "Worker Rigths";
-        buttonClicked = "WORKRIGTHS_" + buttonClicked;
+        contactName = "Worker Rights";
+        buttonClicked = "WORKRIGHTS_" + buttonClicked;
 
         ReturnToPlayer();
     }
 
+    //When the back button is clicked the page is taken back to previous
     public void Back()
     {
         currentPage.SetActive(false);
@@ -329,19 +348,49 @@ public class CameraScript : MonoBehaviour {
         currentPage.SetActive(true);
     }
 
+    //Disables button after the paper has been submitted
     public void DisableButton()
     {
-        this.gameObject.SetActive(true);
-        currentPage.SetActive(false);
-        lastPage.SetActive(true);
+        if(planet == "Earth")
+        {
+            foreach(Button b in earthButtons)
+            {
+                if(b.name == buttonClicked)
+                {
+                    b.GetComponent<Button>().interactable = false;
+                }
+            }
+        }
+        else if (planet == "Mars")
+        {
+            foreach (Button b in marsButtons)
+            {
+                if (b.name == buttonClicked)
+                {
+                    b.GetComponent<Button>().interactable = false;
+                }
+            }
+        }
+        else if (planet == "Venus")
+        {
+            foreach (Button b in venusButtons)
+            {
+                if (b.name == buttonClicked)
+                {
+                    b.GetComponent<Button>().interactable = false;
+                }
+            }
+        }
 
-        GameObject.Find(buttonClicked).GetComponent<Button>().interactable = false;
-
-        this.gameObject.SetActive(false);
-        currentPage.SetActive(true);
-        lastPage.SetActive(false);
     }
 
+    //Used to disbale buttons when the game is loaded
+    public void Load()
+    {
+        selected.GetComponent<Button>().interactable = false;
+    }
+
+    //Returns the player to the player object with a paper with the crooect details to be faxed or binned
     void ReturnToPlayer()
     {
         //Gets the policy page prefab from the resources folder

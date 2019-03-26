@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LoadGame : MonoBehaviour {
 
     public int day;
     public int time;
     public float[] statistics = new float[8];
+    public string[] text = new string[9];
 
     public string[] policies;
     public string[] policyPlanet;
@@ -36,6 +38,16 @@ public class LoadGame : MonoBehaviour {
         statistics[5] = data.statistics[5];
         statistics[6] = data.statistics[6];
         statistics[7] = data.statistics[7];
+
+        text[0] = data.text[0];
+        text[1] = data.text[1];
+        text[2] = data.text[2];
+        text[3] = data.text[3];
+        text[4] = data.text[4];
+        text[5] = data.text[5];
+        text[6] = data.text[6];
+        text[7] = data.text[7];
+        text[8] = data.text[8];
 
         policies = new string[data.policies.Length];
 
@@ -104,6 +116,8 @@ public class LoadGame : MonoBehaviour {
         MoonFolderScript moonFolderScript = mfs;
         CameraScript cameraScript = cs;
 
+        moonFolderScript.currentPage = moonFolderScript.frontPage;
+
         for (int i = 0; i < policyPlanet.Length; i++)
         {
             if(policyPlanet[i] == "Earth")
@@ -120,7 +134,7 @@ public class LoadGame : MonoBehaviour {
             }
             else if(policyPlanet[i] == "Moon")
             {
-                moonFolderScript.currentPage = moonFolderScript.frontPage;
+                
 
                 if(policies[i] == "Tax Decrease" || policies[i] == "Tax Increase" || policies[i] == "Pension Decrease" || policies[i] == "Pension Increase" || policies[i] == "Wage Decrease" || policies[i] == "Wage Increase")
                 {
@@ -199,22 +213,55 @@ public class LoadGame : MonoBehaviour {
             }
         }
 
-        for (int i = 0; i < contactPlanet.Length; i++)
+        for (int i = 0; i < contact.Length; i++)
         {
             if (contactPlanet[i] == "Earth")
             {
-
+                if (contact[i] == "Healthcare")
+                {
+                    cs.selected = cs.earthButtons[0];
+                }
+                else if (contact[i] == "Travel")
+                {
+                    cs.selected = cs.earthButtons[1];
+                }
+                else if (contact[i] == "Worker Rights")
+                {
+                    cs.selected = cs.earthButtons[2];
+                }
             }
             else if (contactPlanet[i] == "Mars")
             {
-
+                if (contact[i] == "Healthcare")
+                {
+                    cs.selected = cs.marsButtons[0];
+                }
+                else if (contact[i] == "Travel")
+                {
+                    cs.selected = cs.marsButtons[1];
+                }
+                else if (contact[i] == "Worker Rights")
+                {
+                    cs.selected = cs.marsButtons[2];
+                }
             }
             else if (contactPlanet[i] == "Venus")
             {
-
+                if (contact[i] == "Healthcare")
+                {
+                    cs.selected = cs.venusButtons[0];
+                }
+                else if (contact[i] == "Travel")
+                {
+                    cs.selected = cs.venusButtons[1];
+                }
+                else if (contact[i] == "Worker Rights")
+                {
+                    cs.selected = cs.venusButtons[2];
+                }
             }
 
-            cs.gameObject.SetActive(false);
+            cs.Load();
         }
     }
 }

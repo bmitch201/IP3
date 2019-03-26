@@ -8,6 +8,7 @@ public class PlayerData {
     public int day;
     public int time;
     public float[] statistics;
+    public string[] text;
 
     public string[] policies;
     public string[] policyPlanet;
@@ -27,6 +28,7 @@ public class PlayerData {
         time = stats.time;
 
         statistics = new float[8];
+
         statistics[0] = stats.stats[0];
         statistics[1] = stats.stats[1];
         statistics[2] = stats.stats[2];
@@ -35,6 +37,18 @@ public class PlayerData {
         statistics[5] = stats.stats[5];
         statistics[6] = stats.stats[6];
         statistics[7] = stats.stats[7];
+
+        text = new string[9];
+
+        text[0] = stats.hEText;
+        text[1] = stats.tEText;
+        text[2] = stats.wEText;
+        text[3] = stats.hMText;
+        text[4] = stats.tMText;
+        text[5] = stats.wMText;
+        text[6] = stats.hVText;
+        text[7] = stats.tVText;
+        text[8] = stats.wVText;
 
         policies = new string[stats.chosenPolicies.Count];
 

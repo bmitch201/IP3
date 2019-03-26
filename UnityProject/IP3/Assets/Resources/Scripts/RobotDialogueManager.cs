@@ -1834,8 +1834,6 @@ public class RobotDialogueManager : MonoBehaviour {
         //DontDestroyOnLoad(GameObject.Find("Mars Folder DDL"));
         //DontDestroyOnLoad(GameObject.Find("Venus Folder DDL"));
 
-        Debug.Log("15");
-
         statsScript.time= statsScript.time - 1;
 
         dialogue2_15 = false;

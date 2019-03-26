@@ -53,8 +53,8 @@ public class Stats : MonoBehaviour {
 
     public bool newDay;
 
-    private float erOld, stOld, csOld, vrOld;
-    private float erNew, stNew, csNew, vrNew;
+    //private float erOld, stOld, csOld, vrOld;
+    //private float erNew, stNew, csNew, vrNew;
 
     GameObject bigHand;
     public GameObject pcCamera, earthCam, marsCam, venusCam, moonCam, player, moonCanvas;
@@ -97,15 +97,15 @@ public class Stats : MonoBehaviour {
 
         statDisplay[1] = statNames[1] + "(Billion_Moon_Bucks)";
 
-        erOld = stats[5];
-        stOld = stats[4];
-        csOld = stats[3];
-        vrOld = stats[7];
+        //erOld = stats[5];
+        //stOld = stats[4];
+        //csOld = stats[3];
+        //vrOld = stats[7];
 
-        erNew = stats[5];
-        stNew = stats[4];
-        csNew = stats[3];
-        vrNew = stats[7];
+        //erNew = stats[5];
+        //stNew = stats[4];
+        //csNew = stats[3];
+        //vrNew = stats[7];
 
         hEText = "Open";
         tEText = "Open";
@@ -134,6 +134,16 @@ public class Stats : MonoBehaviour {
             stats[5] = loadScript.statistics[5];
             stats[6] = loadScript.statistics[6];
             stats[7] = loadScript.statistics[7];
+
+            hEText = loadScript.text[0];
+            tEText = loadScript.text[1];
+            wEText = loadScript.text[2];
+            hMText = loadScript.text[3];
+            tMText = loadScript.text[4];
+            wMText = loadScript.text[5];
+            hVText = loadScript.text[6];
+            tVText = loadScript.text[7];
+            wVText = loadScript.text[8];
 
             foreach (string m in loadScript.policies)
             {
@@ -297,21 +307,21 @@ public class Stats : MonoBehaviour {
         if (healthEarth != null)
         {
             healthEarth.text = hEText;
-            healthMars.text = hMText;
-            healthVenus.text = hVText;
-        }
-
-        if (travelMars != null)
-        {
             travelEarth.text = tEText;
-            travelMars.text = tMText;
-            travelVenus.text = tVText;
+            workEarth.text = wEText;
         }
 
-        if (workVenus != null)
+        if (healthMars != null)
         {
-            workEarth.text = wEText;
+            healthMars.text = hMText;
+            travelMars.text = tMText;
             workMars.text = wMText;
+        }
+
+        if (healthVenus != null)
+        {
+            healthVenus.text = hVText;
+            travelVenus.text = tVText;
             workVenus.text = wVText;
         }
 
@@ -638,7 +648,7 @@ public class Stats : MonoBehaviour {
 
             if (pcCamera == null)
             {
-                pcCamera = GameObject.Find("PC Camera");
+                pcCamera = player.GetComponent<InteractionScript>().pcCamera;
             }
 
             if (PCnames == null && pcCamera != null)
@@ -744,20 +754,30 @@ public class Stats : MonoBehaviour {
         SaveLoad.SavePlayer(this);
     }
 
-    public void LoadGame()
-    {
-        PlayerData data = SaveLoad.LoadPlayer();
+    //public void LoadGame()
+    //{
+    //    PlayerData data = SaveLoad.LoadPlayer();
 
-        day = data.day;
-        time = data.time;
+    //    day = data.day;
+    //    time = data.time;
 
-        stats[0] = data.statistics[0];
-        stats[1] = data.statistics[1];
-        stats[2] = data.statistics[2];
-        stats[3] = data.statistics[3];
-        stats[4] = data.statistics[4];
-        stats[5] = data.statistics[5];
-        stats[6] = data.statistics[6];
-        stats[7] = data.statistics[7];
-    }
+    //    stats[0] = data.statistics[0];
+    //    stats[1] = data.statistics[1];
+    //    stats[2] = data.statistics[2];
+    //    stats[3] = data.statistics[3];
+    //    stats[4] = data.statistics[4];
+    //    stats[5] = data.statistics[5];
+    //    stats[6] = data.statistics[6];
+    //    stats[7] = data.statistics[7];
+
+    //    hEText = data.text[0];
+    //    tEText = data.text[1];
+    //    wEText = data.text[2];
+    //    hMText = data.text[3];
+    //    tMText = data.text[4];
+    //    wMText = data.text[5];
+    //    hVText = data.text[6];
+    //    tVText = data.text[7];
+    //    wVText = data.text[8];
+    //}
 }
