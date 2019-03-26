@@ -99,10 +99,10 @@ public class LoadGame : MonoBehaviour {
 
     }
 
-    public void UpdateObjects(MoonFolderScript mfs)
+    public void UpdateObjects(MoonFolderScript mfs, CameraScript cs)
     {
         MoonFolderScript moonFolderScript = mfs;
-        CameraScript cameraScript = GameObject.Find("PC Camera").GetComponent<CameraScript>();
+        CameraScript cameraScript = cs;
 
         for (int i = 0; i < policyPlanet.Length; i++)
         {
@@ -214,7 +214,7 @@ public class LoadGame : MonoBehaviour {
 
             }
 
-            GameObject.Find("PC Camera").SetActive(false);
+            cs.gameObject.SetActive(false);
         }
     }
 }

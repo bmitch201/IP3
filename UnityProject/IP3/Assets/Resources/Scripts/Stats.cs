@@ -67,12 +67,6 @@ public class Stats : MonoBehaviour {
 
     void Awake()
     {
-
-    }
-
-    //Sets up the PC Screen initally to display the stats on screen
-    void Start()
-    {
         names = GameObject.Find("Text_Name").GetComponent<Text>();
         nums = GameObject.Find("Text_Numbers").GetComponent<Text>();
 
@@ -91,7 +85,11 @@ public class Stats : MonoBehaviour {
         earth = GameObject.Find("EarthSlider").GetComponent<Slider>();
         mars = GameObject.Find("MarsSlider").GetComponent<Slider>();
         venus = GameObject.Find("VenusSlider").GetComponent<Slider>();
+    }
 
+    //Sets up the PC Screen initally to display the stats on screen
+    void Start()
+    {
         for (int i = 0; i < statDisplay.Length; i++)
         {
             statDisplay[i] = statNames[i] + "(%)";
@@ -177,7 +175,7 @@ public class Stats : MonoBehaviour {
                 connferenceCallDecline.Add(m);
             }
 
-            loadScript.UpdateObjects(moonCam.GetComponent<MoonFolderScript>());
+            loadScript.UpdateObjects(moonCam.GetComponent<MoonFolderScript>(), pcCamera.GetComponent<CameraScript>());
         }
 
         UpdateScreen();

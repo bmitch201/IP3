@@ -819,8 +819,6 @@ public class DayOneScript : MonoBehaviour {
     {
         interactionScript.enabled = true;
 
-        pcCamera.SetActive(true);
-
         if (GameObject.Find("GameInfoObject DDL"))
         {
             GameObject.Destroy(GameObject.Find("Earth Folder"));
