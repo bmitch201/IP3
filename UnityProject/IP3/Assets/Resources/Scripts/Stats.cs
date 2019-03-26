@@ -185,7 +185,7 @@ public class Stats : MonoBehaviour {
                 connferenceCallDecline.Add(m);
             }
 
-            loadScript.UpdateObjects(moonCam.GetComponent<MoonFolderScript>(), pcCamera.GetComponent<CameraScript>());
+            loadScript.UpdateObjects(moonCam.GetComponent<MoonFolderScript>(), pcCamera.GetComponent<CameraScript>(), earthCam.GetComponent<FolderScript>(), marsCam.GetComponent<FolderScript>(), venusCam.GetComponent<FolderScript>());
         }
 
         UpdateScreen();

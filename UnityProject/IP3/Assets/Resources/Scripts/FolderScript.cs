@@ -21,15 +21,13 @@ public class FolderScript : MonoBehaviour {
     GameObject prefab, page1, page2, page3, page4, pageMain ;
 
     [Header ("Text Objects")]
-    public Text taxText, tradeText, impText, expText, moveText;
-    Text currentText;
+    public Text taxText, tradeText, impText, expText, moveText, currentText;
 
     List<float> changes = new List<float>();
     List<string> changedNames = new List<string>();
 
     [Header ("Button Type")]
-    public string type;
-    string buttonClicked;
+    public string type, buttonClicked;
 
     [Header("Amount of Buttons")]
     public int buttons;
@@ -69,6 +67,12 @@ public class FolderScript : MonoBehaviour {
         {
             canvas3.SetActive(false);
         }
+
+        taxText.text = "";
+        tradeText.text = "";
+        impText.text = "";
+        expText.text = "";
+        moveText.text = "";
 
         dialogueTrigger = FindObjectOfType<RobotDialogueTrigger>();
     }
