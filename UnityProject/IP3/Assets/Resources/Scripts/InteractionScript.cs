@@ -375,6 +375,7 @@ public class InteractionScript : MonoBehaviour
                             {
                                 if (phoneScript.calls == 2)
                                 {
+                                    statsScript.wifeCounter++;
                                     phoneScript.calls = 0;
                                 }
                             }
@@ -484,6 +485,7 @@ public class InteractionScript : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.F))
                 {
+                    statsScript.wifeCounter++;
                     statsScript.time -= 2;
                     door = false;
                 }
