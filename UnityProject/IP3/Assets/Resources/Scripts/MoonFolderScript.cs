@@ -61,13 +61,6 @@ public class MoonFolderScript : MonoBehaviour {
 
     void Update()
     {
-        if(canvas1.active)
-        {
-            canvas1.SetActive(false);
-            canvas2.SetActive(false);
-            canvas3.SetActive(false);
-        }
-
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
@@ -455,6 +448,10 @@ public class MoonFolderScript : MonoBehaviour {
         {
             page3.SetActive(true);
         }
+
+        canvas1.SetActive(true);
+        canvas2.SetActive(true);
+        canvas3.SetActive(true);
     }
 
     void ReturnToPlayer()
@@ -462,9 +459,7 @@ public class MoonFolderScript : MonoBehaviour {
         //Close the folder
         anim.Play("Close");
 
-        canvas1.SetActive(true);
-        canvas2.SetActive(true);
-        canvas3.SetActive(true);
+
 
         statsScript.TimeForward();
 

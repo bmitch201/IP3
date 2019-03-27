@@ -97,13 +97,6 @@ public class FolderScript : MonoBehaviour {
             canvas3.SetActive(false);
         }
 
-        if (canvas1.active || canvas2.active || canvas3.active)
-        {
-            canvas1.SetActive(false);
-            canvas2.SetActive(false);
-            canvas3.SetActive(false);
-        }
-
         if (statsScript.day > 1 || (dayOneScript != null && dayOneScript.firstPolicy == false))
         {
             //If the player hits F while in the folder
@@ -716,6 +709,14 @@ public class FolderScript : MonoBehaviour {
         {
             page4.SetActive(true);
         }
+
+        canvas1.SetActive(true);
+        canvas2.SetActive(true);
+
+        if (canvas3 != null)
+        {
+            canvas3.SetActive(true);
+        }
     }
 
     //Returns the player to the character when they choose a policy
@@ -737,13 +738,7 @@ public class FolderScript : MonoBehaviour {
 
         StartCoroutine(FolderIn(rot));
 
-        canvas1.SetActive(true);
-        canvas2.SetActive(true);
 
-        if (canvas3 != null)
-        {
-            canvas3.SetActive(true);
-        }
 
         //Sets the current page active to false
         current.SetActive(false);
