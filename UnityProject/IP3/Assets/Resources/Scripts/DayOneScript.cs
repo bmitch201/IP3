@@ -154,10 +154,10 @@ public class DayOneScript : MonoBehaviour {
                 //If the distance to the object is less than 2.5
                 if (dist <= 2.5f)
                 {
-                    info.text = "Press 'F' to sit";
+                    info.text = "Press 'E' to sit";
                     info.gameObject.SetActive(true);
 
-                    if (Input.GetKeyDown(KeyCode.F))
+                    if (Input.GetKeyDown(KeyCode.E))
                     {
                         info.gameObject.SetActive(false);
                         chairCamera.SetActive(true);
@@ -169,11 +169,11 @@ public class DayOneScript : MonoBehaviour {
                 //If the distance to the object is less than 2.5
                 if (dist <= 2.5f)
                 {
-                    info.text = "Press 'F' to open";
+                    info.text = "Press 'E' to open";
                     info.gameObject.SetActive(true);
                 }
 
-                if (Input.GetKeyDown(KeyCode.F))
+                if (Input.GetKeyDown(KeyCode.E))
                 {
                     boardCamera.SetActive(true);
                     gameObject.SetActive(false);
@@ -186,11 +186,11 @@ public class DayOneScript : MonoBehaviour {
                     //If the distance to the object is less than 2.5
                     if (dist <= 2.5f)
                     {
-                        info.text = "Press 'F' to open";
+                        info.text = "Press 'E' to open";
                         info.gameObject.SetActive(true);
                     }
 
-                    if (Input.GetKeyDown(KeyCode.F))
+                    if (Input.GetKeyDown(KeyCode.E))
                     {
                         RotationScript rot = hit.collider.transform.parent.transform.parent.gameObject.GetComponent<RotationScript>();
 
@@ -215,11 +215,11 @@ public class DayOneScript : MonoBehaviour {
                     //If the distance to the object is less than 2.5
                     if (dist <= 2.5f)
                     {
-                        info.text = "Press 'F' to open";
+                        info.text = "Press 'E' to open";
                         info.gameObject.SetActive(true);
                     }
 
-                    if (Input.GetKeyDown(KeyCode.F))
+                    if (Input.GetKeyDown(KeyCode.E))
                     {
                         RotationScript rot = hit.collider.transform.parent.transform.parent.gameObject.GetComponent<RotationScript>();
 
@@ -256,13 +256,13 @@ public class DayOneScript : MonoBehaviour {
             {
                 if (dist <= 1.25f)
                 {
-                    info.text = "Press 'F' to enact";
+                    info.text = "Press 'E' to enact";
                     info.gameObject.SetActive(true);
 
                     //If the player hits F then Destroy the Policy, descrease the time and the stats, 
                     //Update the PC screen and set holding to false AND set answered to false so the
                     //phone can ring again
-                    if (Input.GetKeyDown(KeyCode.F))
+                    if (Input.GetKeyDown(KeyCode.E))
                     {
                         Destroy(prefab);
                         holding = !holding;
@@ -342,13 +342,13 @@ public class DayOneScript : MonoBehaviour {
                 //If the distance to the bin is less than 1
                 if (dist <= 1.25f)
                 {
-                    info.text = "Press 'F' to scrap";
+                    info.text = "Press 'E' to scrap";
                     info.gameObject.SetActive(true);
 
-                    //If the player hits F then Destroy the Policy, descrease the time, 
+                    //If the player hits E then Destroy the Policy, descrease the time, 
                     //set holding to false AND set answered to false so the
                     //phone can ring again
-                    if (Input.GetKeyDown(KeyCode.F))
+                    if (Input.GetKeyDown(KeyCode.E))
                     {
                         Destroy(prefab);
                         holding = !holding;
@@ -415,11 +415,11 @@ public class DayOneScript : MonoBehaviour {
             //show the player a message to allow them to answer the phone
             else if (phoneScript.isRinging == true && hit.collider.gameObject.tag == "Phone" && dist <= 2.5f)
             {
-                info.text = "Press 'F' to answer";
+                info.text = "Press 'E' to answer";
                 info.gameObject.SetActive(true);
 
                 //If the phone is ringing
-                if (Input.GetKeyDown(KeyCode.F))
+                if (Input.GetKeyDown(KeyCode.E))
                 {
                     info.gameObject.SetActive(false);
                     answered = true;
@@ -436,11 +436,11 @@ public class DayOneScript : MonoBehaviour {
             //If the conference call is hit, it is interactable and the distance is less than 2.5, then display info text
             else if (hit.collider.gameObject.tag == "ConferenceCall" && conferenceCallInteractable == true && dist <= 2.5f)
             {
-                info.text = "Press 'F' to start call";
+                info.text = "Press 'E' to start call";
                 info.gameObject.SetActive(true);
 
-                //If the player presses F, start conference call
-                if (Input.GetKeyDown(KeyCode.F))
+                //If the player presses E, start conference call
+                if (Input.GetKeyDown(KeyCode.E))
                 {
                     conferenceCallAudio.Stop();
                     conferenceCamera.SetActive(true);

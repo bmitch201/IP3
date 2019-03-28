@@ -95,10 +95,10 @@ public class ChairCameraScript : MonoBehaviour
             //If the object has a Tag of PC then display a message to the player telling them they can "open" this object 
             if (hit.collider.gameObject.tag == "PC" && !moonFolderFirst)
             {
-                info.text = "Press 'F' to open";
+                info.text = "Press 'E' to open";
                 info.gameObject.SetActive(true);
 
-                if (Input.GetKeyDown(KeyCode.F))
+                if (Input.GetKeyDown(KeyCode.E))
                 {
                     yaw = -100f;
                     pitch = 0f;
@@ -115,7 +115,7 @@ public class ChairCameraScript : MonoBehaviour
                     pcCamera.SetActive(true);
                     statsScript.UpdateScreen();
                     canvas.SetActive(false);
-                    
+
                     pcAudio.clip = typingFX;
                     pcAudio.PlayOneShot(typingFX);
                     gameObject.SetActive(false);
@@ -137,10 +137,10 @@ public class ChairCameraScript : MonoBehaviour
             }
             else if (hit.collider.gameObject.tag == "MoonFolder" && statsScript.day > 1)
             {
-                info.text = "Press 'F' to open";
+                info.text = "Press 'E' to open";
                 info.gameObject.SetActive(true);
 
-                if (Input.GetKeyDown(KeyCode.F))
+                if (Input.GetKeyDown(KeyCode.E))
                 {
                     yaw = -100f;
                     pitch = 0f;
@@ -174,24 +174,24 @@ public class ChairCameraScript : MonoBehaviour
             else
             {
                 info.gameObject.SetActive(false);
+            }
 
-                if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                yaw = -100f;
+                pitch = 0f;
+
+                if (dosEnabled == true)
                 {
-                    yaw = -100f;
-                    pitch = 0f;
-
-                    if (dosEnabled == true)
-                    {
-                        dos.enabled = true;
-                    }
-                    else
-                    {
-                        ins.enabled = true;
-                    }
-
-                    player.SetActive(true);
-                    gameObject.SetActive(false);
+                    dos.enabled = true;
                 }
+                else
+                {
+                    ins.enabled = true;
+                }
+
+                player.SetActive(true);
+                gameObject.SetActive(false);
             }
         }
     }
