@@ -1469,7 +1469,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.27899998, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2886,7 +2886,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -10141,8 +10141,8 @@ RectTransform:
   m_Father: {fileID: 261082606}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.27899998, y: 0}
-  m_AnchorMax: {x: 0.27899998, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -10394,7 +10394,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -11799,7 +11799,7 @@ MonoBehaviour:
   robotClip4:
   - {fileID: 8300000, guid: fac1d400e03136d418e751051356e0f3, type: 3}
   robotClip5:
-  - {fileID: 8300000, guid: 7245f9704903ba54bb1ad532effe3775, type: 3}
+  - {fileID: 0}
   robotClip6:
   - {fileID: 8300000, guid: 1e389ac8c649cb242950d1c94d253e20, type: 3}
   robotClip7:
@@ -11826,6 +11826,34 @@ MonoBehaviour:
   robotClip14:
   - {fileID: 8300000, guid: 6e513dd98c82d044f8c7dd9865f334b5, type: 3}
   - {fileID: 8300000, guid: db1ef5e39bff6314cb733d725948450f, type: 3}
+  robotClip2_1: []
+  robotClip2_2: []
+  robotClip2_3: []
+  robotClip2_4: []
+  robotClip2_5: []
+  robotClip2_6: []
+  robotClip2_7: []
+  robotClip2_8: []
+  robotClip2_9: []
+  robotClip2_10: []
+  robotClip2_11: []
+  robotClip2_12: []
+  robotClip2_13: []
+  robotClip2_14: []
+  robotClip2_15: []
+  robotClip3_1: []
+  robotClip3_2: []
+  robotClip3_3: []
+  robotClip3_4: []
+  robotClip3_5: []
+  robotClip3_6: []
+  robotClip4_1: []
+  robotClip4_2: []
+  robotClip4_3: []
+  robotClip4_4: []
+  robotClip4_5: []
+  robotClip5_1: []
+  robotClip5_2: []
   conferencePhoneRing: 0
   statsScript: {fileID: 0}
   chairCameraScript: {fileID: 1149122653}
@@ -11976,7 +12004,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 15.608001, y: -103.78001, z: 9.696}
 --- !u!1 &466727394
 GameObject:
@@ -15113,7 +15141,7 @@ Transform:
   m_LocalScale: {x: 0.020637602, y: 2.348554, z: 4.2762113}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: -48.265003, z: 0}
 --- !u!1 &664072468
 GameObject:
@@ -18124,8 +18152,8 @@ RectTransform:
   m_Father: {fileID: 1108650804}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: -0.21}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -20028,7 +20056,7 @@ Transform:
   m_LocalScale: {x: 0.20427202, y: 2.549695, z: 1.2787}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 30.000002, z: 0}
 --- !u!1 &981737851
 GameObject:
@@ -24917,7 +24945,7 @@ Transform:
   m_LocalScale: {x: 0.020637602, y: 1.6058489, z: 4.2762113}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: -12.397, z: 0}
 --- !u!1 &1009807302
 GameObject:
@@ -25781,8 +25809,8 @@ RectTransform:
   m_Father: {fileID: 1126288077}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -26686,8 +26714,8 @@ RectTransform:
   m_Father: {fileID: 351654039}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -0, y: -0.21}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -27392,7 +27420,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -32113,7 +32141,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1503010673
 GameObject:
@@ -33380,8 +33408,8 @@ RectTransform:
   m_Father: {fileID: 588146976}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -0, y: -0.41}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -33581,6 +33609,34 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36fe79a94590eb549983991ab7f33aad, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1640558771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 701863036}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1640558772}
+  m_Layer: 0
+  m_Name: Missing Prefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1640558772
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 701863036}
+  m_GameObject: {fileID: 1640558771}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1652472936
 GameObject:
   m_ObjectHideFlags: 0
@@ -34578,6 +34634,26 @@ Prefab:
     m_Modifications:
     - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
         type: 2}
+      propertyPath: robotDialogue.robotSentences1.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences2.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences5.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences7.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
       propertyPath: robotDialogue.robotSentences4_1.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -34600,6 +34676,16 @@ Prefab:
         type: 2}
       propertyPath: robotDialogue.robotSentences4_5.Array.size
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences5_1.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences5_2.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4615552985344788, guid: 0251e78afb64189439e1ab5de7fcee12, type: 2}
       propertyPath: m_LocalPosition.x
@@ -34705,6 +34791,125 @@ Prefab:
         type: 2}
       propertyPath: robotDialogue.robotSentences4_5.Array.data[1]
       value: "Do you want me to add it to the board? I\u2019ll add it to the board."
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences1.Array.data[3]
+      value: "Just don\u2019t let your personal interests affect your decision making.
+        Are you ready for your first day, boss?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences1.Array.data[0]
+      value: "Good morning, Sir! My name is PA, I\u2019m here to provide you with
+        all the general information you need!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences1.Array.data[1]
+      value: "Now that you\u2019re PM, you can decide what type of nation you want
+        us to be.A very wealthy one but without good relationships? Do you want to
+        unite all our people or empower our leaders?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences1.Array.data[2]
+      value: "You can also try and balance them all out, but judging by the last PM,
+        this can backfire and can leave you with a nation that doesn\u2019t know what
+        it wants."
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences2.Array.data[1]
+      value: These tasks are your primary objective as PM, so you must try your best
+        to complete them!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences3.Array.data[1]
+      value: "If you head over to the desk, you\u2019ll find that the values of all
+        important statistics you need to be aware of are displayed on the screen of
+        your personal computer."
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences4.Array.data[0]
+      value: They are also visible on the screens over there, so you can keep track
+        of them as you work!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences5.Array.data[1]
+      value: This is the Fax.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences5.Array.data[2]
+      value: And this is the Trash.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences5.Array.data[0]
+      value: "Let me show the fax machine and the trash now, you\u2019ll be using
+        them a lot!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences7.Array.data[1]
+      value: To interact with an object, look at it and press the F button, this works
+        with various items around the office.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences13.Array.data[0]
+      value: "That\u2019s the conference call now, boss! Let\u2019s get up to the
+        board room."
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences13.Array.data[1]
+      value: Just go down the hall, and up the lift.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences5_1.Array.data[0]
+      value: Well, here it is Boss!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences5_1.Array.data[1]
+      value: "The final day, it\u2019s been fun, and unbelievably stressful, but mostly
+        fun."
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences5_1.Array.data[2]
+      value: All we have to do today is to finally decide if we want to go with all
+        of your policy choices from the past few days.
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences5_1.Array.data[3]
+      value: "You should take a look on the computer at all the choices you\u2019ve
+        made so far, and really think about if these were the right choices."
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences5_2.Array.data[0]
+      value: Okay, now if you like your manifesto and are happy with your current
+        stats, take it to the fax machine and send it to the solar system, leading
+        the way for a new moon!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences5_2.Array.data[1]
+      value: "Or, if you don\u2019t like it so much, you should throw it away, and
+        I can get Earth on the phone and see if they take us back? Maybe try again?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114605454376236214, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: robotDialogue.robotSentences5_2.Array.data[2]
+      value: Remember, this is about the whole Moon, not just us, so choose wisely.
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0251e78afb64189439e1ab5de7fcee12, type: 2}
@@ -34901,7 +35106,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -35165,7 +35370,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: -3.4, y: -0.06}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -35421,7 +35626,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.90099996, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -36224,8 +36429,8 @@ RectTransform:
   m_Father: {fileID: 2090995099}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.90099996, y: 0}
-  m_AnchorMax: {x: 0.90099996, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -37769,7 +37974,7 @@ Transform:
   m_LocalScale: {x: 0.012648711, y: 0.010123048, z: 0.020543078}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 78.26501, y: 136.22101, z: 0.84300005}
 --- !u!1 &2004639477
 GameObject:
@@ -38281,7 +38486,7 @@ Transform:
   - {fileID: 1875534783}
   - {fileID: 1253734477}
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2033164152
 GameObject:
@@ -39343,8 +39548,8 @@ RectTransform:
   m_Father: {fileID: 1608775973}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.461, y: 0}
-  m_AnchorMax: {x: 0.461, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0.0000059604645, y: -0.000017642975}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -44959,7 +45164,7 @@ Transform:
   - {fileID: 753775431}
   - {fileID: 1722413273}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: -103.62501, z: 0}
 --- !u!1001 &2113337693
 Prefab:
@@ -45366,7 +45571,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2129266327
 GameObject:
@@ -50371,7 +50576,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -50444,7 +50649,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.461, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}

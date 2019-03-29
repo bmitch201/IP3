@@ -216,6 +216,17 @@ public class RobotDialogueTrigger : MonoBehaviour {
         robotDialogueManager.StartRobotDialogue4_5(robotDialogue);
     }
 
+
+    public void TriggerRobotDialogue5_1()
+    {
+        robotDialogueManager.StartRobotDialogue5_1(robotDialogue);
+    }
+
+    public void TriggerRobotDialogue5_2()
+    {
+        robotDialogueManager.StartRobotDialogue5_2(robotDialogue);
+    }
+
     //public void TriggerRobotDialogue16()
     //{
     //    robotDialogueManager.StartRobotDialogue14(robotDialogue);

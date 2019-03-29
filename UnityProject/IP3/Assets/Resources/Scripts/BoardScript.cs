@@ -30,9 +30,9 @@ public class BoardScript : MonoBehaviour {
 
             if (statsScript.day == 1 && firstBoardUse == true)
             {
-                robotDialogueTrigger.TriggerRobotDialogue5();
+                //robotDialogueTrigger.TriggerRobotDialogue5();
                 firstBoardUse = false;
-                dayOneScript.Light();
+                //dayOneScript.Light();
                 dayOneScript.boardActive = false;
             }
         }

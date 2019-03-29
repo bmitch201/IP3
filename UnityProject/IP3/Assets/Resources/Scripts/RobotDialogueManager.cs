@@ -56,9 +56,62 @@ public class RobotDialogueManager : MonoBehaviour {
     private Queue<string> robotSentences4_4;
     private Queue<string> robotSentences4_5;
 
+    private Queue<string> robotSentences5_1;
+    private Queue<string> robotSentences5_2;
+
     AudioSource robotAudioSource;
 
-    public AudioClip[] robotClip1, robotClip2, robotClip3, robotClip4, robotClip5, robotClip6, robotClip7, robotClip8, robotClip9, robotClip10, robotClip11, robotClip12, robotClip13, robotClip14;//, robotClip15, robotClip16;
+    [Header("Day One Audio")]
+    public AudioClip[] robotClip1;
+    public AudioClip[] robotClip2;
+    public AudioClip[] robotClip3;
+    public AudioClip[] robotClip4;
+    public AudioClip[] robotClip5;
+    public AudioClip[] robotClip6;
+    public AudioClip[] robotClip7;
+    public AudioClip[] robotClip8;
+    public AudioClip[] robotClip9;
+    public AudioClip[] robotClip10;
+    public AudioClip[] robotClip11;
+    public AudioClip[] robotClip12;
+    public AudioClip[] robotClip13;
+    public AudioClip[] robotClip14;
+
+    [Header("Day Two Audio")]
+    public AudioClip[] robotClip2_1;
+    public AudioClip[] robotClip2_2;
+    public AudioClip[] robotClip2_3;
+    public AudioClip[] robotClip2_4;
+    public AudioClip[] robotClip2_5;
+    public AudioClip[] robotClip2_6;
+    public AudioClip[] robotClip2_7;
+    public AudioClip[] robotClip2_8;
+    public AudioClip[] robotClip2_9;
+    public AudioClip[] robotClip2_10;
+    public AudioClip[] robotClip2_11;
+    public AudioClip[] robotClip2_12;
+    public AudioClip[] robotClip2_13;
+    public AudioClip[] robotClip2_14;
+    public AudioClip[] robotClip2_15;
+
+    [Header("Day Three Audio")]
+    public AudioClip[] robotClip3_1;
+    public AudioClip[] robotClip3_2;
+    public AudioClip[] robotClip3_3;
+    public AudioClip[] robotClip3_4;
+    public AudioClip[] robotClip3_5;
+    public AudioClip[] robotClip3_6;
+
+    [Header("Day Four Audio")]
+    public AudioClip[] robotClip4_1;
+    public AudioClip[] robotClip4_2;
+    public AudioClip[] robotClip4_3;
+    public AudioClip[] robotClip4_4;
+    public AudioClip[] robotClip4_5;
+
+    [Header("Day Five Audio")]
+    public AudioClip[] robotClip5_1;
+    public AudioClip[] robotClip5_2;
 
     private Queue<AudioClip> robotAudio1;
     private Queue<AudioClip> robotAudio2;
@@ -76,6 +129,38 @@ public class RobotDialogueManager : MonoBehaviour {
     private Queue<AudioClip> robotAudio14;
     //private Queue<AudioClip> robotAudio15;
     //private Queue<AudioClip> robotAudio16;
+
+    private Queue<AudioClip> robotAudio2_1;
+    private Queue<AudioClip> robotAudio2_2;
+    private Queue<AudioClip> robotAudio2_3;
+    private Queue<AudioClip> robotAudio2_4;
+    private Queue<AudioClip> robotAudio2_5;
+    private Queue<AudioClip> robotAudio2_6;
+    private Queue<AudioClip> robotAudio2_7;
+    private Queue<AudioClip> robotAudio2_8;
+    private Queue<AudioClip> robotAudio2_9;
+    private Queue<AudioClip> robotAudio2_10;
+    private Queue<AudioClip> robotAudio2_11;
+    private Queue<AudioClip> robotAudio2_12;
+    private Queue<AudioClip> robotAudio2_13;
+    private Queue<AudioClip> robotAudio2_14;
+    private Queue<AudioClip> robotAudio2_15;
+
+    private Queue<AudioClip> robotAudio3_1;
+    private Queue<AudioClip> robotAudio3_2;
+    private Queue<AudioClip> robotAudio3_3;
+    private Queue<AudioClip> robotAudio3_4;
+    private Queue<AudioClip> robotAudio3_5;
+    private Queue<AudioClip> robotAudio3_6;
+
+    private Queue<AudioClip> robotAudio4_1;
+    private Queue<AudioClip> robotAudio4_2;
+    private Queue<AudioClip> robotAudio4_3;
+    private Queue<AudioClip> robotAudio4_4;
+    private Queue<AudioClip> robotAudio4_5;
+
+    private Queue<AudioClip> robotAudio5_1;
+    private Queue<AudioClip> robotAudio5_2;
 
     bool dialogue1;
     bool dialogue2;
@@ -123,6 +208,9 @@ public class RobotDialogueManager : MonoBehaviour {
     bool dialogue4_4;
     bool dialogue4_5;
 
+    bool dialogue5_1;
+    bool dialogue5_2;
+
     public bool conferencePhoneRing = false;
     bool timer1 = false;
     bool timer2 = false;
@@ -167,23 +255,6 @@ public class RobotDialogueManager : MonoBehaviour {
         //robotSentences15 = new Queue<string>();
         //robotSentences16 = new Queue<string>();
 
-        robotAudio1 = new Queue<AudioClip>();
-        robotAudio2 = new Queue<AudioClip>();
-        robotAudio3 = new Queue<AudioClip>();
-        robotAudio4 = new Queue<AudioClip>();
-        robotAudio5 = new Queue<AudioClip>();
-        robotAudio6 = new Queue<AudioClip>();
-        robotAudio7 = new Queue<AudioClip>();
-        robotAudio8 = new Queue<AudioClip>();
-        robotAudio9 = new Queue<AudioClip>();
-        robotAudio10 = new Queue<AudioClip>();
-        robotAudio11 = new Queue<AudioClip>();
-        robotAudio12 = new Queue<AudioClip>();
-        robotAudio13 = new Queue<AudioClip>();
-        robotAudio14 = new Queue<AudioClip>();
-        //robotAudio15 = new Queue<AudioClip>();
-        //robotAudio16 = new Queue<AudioClip>();
-
         robotSentences2_1 = new Queue<string>();
         robotSentences2_2 = new Queue<string>();
         robotSentences2_3 = new Queue<string>();
@@ -212,6 +283,59 @@ public class RobotDialogueManager : MonoBehaviour {
         robotSentences4_3 = new Queue<string>();
         robotSentences4_4 = new Queue<string>();
         robotSentences4_5 = new Queue<string>();
+
+        robotSentences5_1 = new Queue<string>();
+        robotSentences5_2 = new Queue<string>();
+
+
+        robotAudio1 = new Queue<AudioClip>();
+        robotAudio2 = new Queue<AudioClip>();
+        robotAudio3 = new Queue<AudioClip>();
+        robotAudio4 = new Queue<AudioClip>();
+        robotAudio5 = new Queue<AudioClip>();
+        robotAudio6 = new Queue<AudioClip>();
+        robotAudio7 = new Queue<AudioClip>();
+        robotAudio8 = new Queue<AudioClip>();
+        robotAudio9 = new Queue<AudioClip>();
+        robotAudio10 = new Queue<AudioClip>();
+        robotAudio11 = new Queue<AudioClip>();
+        robotAudio12 = new Queue<AudioClip>();
+        robotAudio13 = new Queue<AudioClip>();
+        robotAudio14 = new Queue<AudioClip>();
+        //robotAudio15 = new Queue<AudioClip>();
+        //robotAudio16 = new Queue<AudioClip>();
+
+        robotAudio2_1 = new Queue<AudioClip>();
+        robotAudio2_2 = new Queue<AudioClip>();
+        robotAudio2_3 = new Queue<AudioClip>();
+        robotAudio2_4 = new Queue<AudioClip>();
+        robotAudio2_5 = new Queue<AudioClip>();
+        robotAudio2_6 = new Queue<AudioClip>();
+        robotAudio2_7 = new Queue<AudioClip>();
+        robotAudio2_8 = new Queue<AudioClip>();
+        robotAudio2_9 = new Queue<AudioClip>();
+        robotAudio2_10 = new Queue<AudioClip>();
+        robotAudio2_11 = new Queue<AudioClip>();
+        robotAudio2_12 = new Queue<AudioClip>();
+        robotAudio2_13 = new Queue<AudioClip>();
+        robotAudio2_14 = new Queue<AudioClip>();
+        robotAudio2_15 = new Queue<AudioClip>();
+
+        robotAudio3_1 = new Queue<AudioClip>();
+        robotAudio3_2 = new Queue<AudioClip>();
+        robotAudio3_3 = new Queue<AudioClip>();
+        robotAudio3_4 = new Queue<AudioClip>();
+        robotAudio3_5 = new Queue<AudioClip>();
+        robotAudio3_6 = new Queue<AudioClip>();
+
+        robotAudio4_1 = new Queue<AudioClip>();
+        robotAudio4_2 = new Queue<AudioClip>();
+        robotAudio4_3 = new Queue<AudioClip>();
+        robotAudio4_4 = new Queue<AudioClip>();
+        robotAudio4_5 = new Queue<AudioClip>();
+
+        robotAudio5_1 = new Queue<AudioClip>();
+        robotAudio5_2 = new Queue<AudioClip>();
     }
 
     void Start()
@@ -390,7 +514,7 @@ public class RobotDialogueManager : MonoBehaviour {
     public void StartRobotDialogue4(RobotDialogue robotDialogue)
     {
         dayOneScript.boardActive = true;
-        dayOneScript.Light();
+        //dayOneScript.Light();
 
         dialogue4 = true;
         panel.SetActive(true);
@@ -436,6 +560,7 @@ public class RobotDialogueManager : MonoBehaviour {
     {
         dayOneScript.boardIntractable = true;
 
+        timer3 = true;
         dialogue4 = false;
         panel.SetActive(false);
         robotAudioSource.Stop();
@@ -1088,17 +1213,17 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue2_1 = true;
         panel.SetActive(true);
         robotSentences2_1.Clear();
-        //robotAudio1.Clear();
+        robotAudio2_1.Clear();
 
         foreach (string sentence in robotDialogue.robotSentences2_1)
         {
             robotSentences2_1.Enqueue(sentence);
         }
 
-        //foreach (AudioClip clip in robotClip2)
-        //{
-        //    robotAudio2.Enqueue(clip);
-        //}
+        foreach (AudioClip clip in robotClip2_1)
+        {
+            robotAudio2_1.Enqueue(clip);
+        }
 
         DisplayNextRobotSentence2_1();
     }
@@ -1115,20 +1240,20 @@ public class RobotDialogueManager : MonoBehaviour {
         StopAllCoroutines();
         StartCoroutine(TypeSentence(robotSentence2_1));
 
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
 
-        //if (robotAudio2.Count > 0)
-        //{
-        //    AudioClip robotAudio = robotAudio2.Dequeue();
-        //    robotAudioSource.clip = robotAudio;
-        //    robotAudioSource.PlayOneShot(robotAudio);
-        //}
+        if (robotAudio2_1.Count > 0)
+        {
+            AudioClip robotAudio = robotAudio2_1.Dequeue();
+            robotAudioSource.clip = robotAudio;
+            robotAudioSource.PlayOneShot(robotAudio);
+        }
     }
 
     public void EndRobotDialogue2_1()
     {
         dialogue2_1 = false;
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
         panel.SetActive(false);
         phoneScript.phoneIsActive = true;
         timerForDialogue = 2f;
@@ -1140,17 +1265,17 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue2_2 = true;
         panel.SetActive(true);
         robotSentences2_1.Clear();
-        //robotAudio1.Clear();
+        robotAudio2_2.Clear();
 
         foreach (string sentence in robotDialogue.robotSentences2_2)
         {
             robotSentences2_2.Enqueue(sentence);
         }
 
-        //foreach (AudioClip clip in robotClip2)
-        //{
-        //    robotAudio2.Enqueue(clip);
-        //}
+        foreach (AudioClip clip in robotClip2_2)
+        {
+            robotAudio2_2.Enqueue(clip);
+        }
 
         DisplayNextRobotSentence2_2();
     }
@@ -1167,20 +1292,20 @@ public class RobotDialogueManager : MonoBehaviour {
         StopAllCoroutines();
         StartCoroutine(TypeSentence(robotSentence2_2));
 
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
 
-        //if (robotAudio2.Count > 0)
-        //{
-        //    AudioClip robotAudio = robotAudio2.Dequeue();
-        //    robotAudioSource.clip = robotAudio;
-        //    robotAudioSource.PlayOneShot(robotAudio);
-        //}
+        if (robotAudio2_2.Count > 0)
+        {
+            AudioClip robotAudio = robotAudio2_2.Dequeue();
+            robotAudioSource.clip = robotAudio;
+            robotAudioSource.PlayOneShot(robotAudio);
+        }
     }
 
     public void EndRobotDialogue2_2()
     {
         dialogue2_2 = false;
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
         panel.SetActive(false);
         interactionScript.phoneInteractable = true;
     }
@@ -1190,17 +1315,17 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue2_3 = true;
         panel.SetActive(true);
         robotSentences2_3.Clear();
-        //robotAudio1.Clear();
+        robotAudio2_3.Clear();
 
         foreach (string sentence in robotDialogue.robotSentences2_3)
         {
             robotSentences2_3.Enqueue(sentence);
         }
 
-        //foreach (AudioClip clip in robotClip2)
-        //{
-        //    robotAudio2.Enqueue(clip);
-        //}
+        foreach (AudioClip clip in robotClip2_3)
+        {
+            robotAudio2_3.Enqueue(clip);
+        }
 
         DisplayNextRobotSentence2_3();
     }
@@ -1217,20 +1342,20 @@ public class RobotDialogueManager : MonoBehaviour {
         StopAllCoroutines();
         StartCoroutine(TypeSentence(robotSentence2_3));
 
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
 
-        //if (robotAudio2.Count > 0)
-        //{
-        //    AudioClip robotAudio = robotAudio2.Dequeue();
-        //    robotAudioSource.clip = robotAudio;
-        //    robotAudioSource.PlayOneShot(robotAudio);
-        //}
+        if (robotAudio2_3.Count > 0)
+        {
+            AudioClip robotAudio = robotAudio2_3.Dequeue();
+            robotAudioSource.clip = robotAudio;
+            robotAudioSource.PlayOneShot(robotAudio);
+        }
     }
 
     public void EndRobotDialogue2_3()
     {
         dialogue2_3 = false;
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
         statsScript.Family();
         chairCameraScript.moonFolderFirst = true;
         panel.SetActive(false);
@@ -1241,17 +1366,17 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue2_4 = true;
         panel.SetActive(true);
         robotSentences2_3.Clear();
-        //robotAudio1.Clear();
+        robotAudio2_4.Clear();
 
         foreach (string sentence in robotDialogue.robotSentences2_4)
         {
             robotSentences2_4.Enqueue(sentence);
         }
 
-        //foreach (AudioClip clip in robotClip2)
-        //{
-        //    robotAudio2.Enqueue(clip);
-        //}
+        foreach (AudioClip clip in robotClip2_4)
+        {
+            robotAudio2_4.Enqueue(clip);
+        }
 
         DisplayNextRobotSentence2_4();
     }
@@ -1268,20 +1393,20 @@ public class RobotDialogueManager : MonoBehaviour {
         StopAllCoroutines();
         StartCoroutine(TypeSentence(robotSentence2_4));
 
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
 
-        //if (robotAudio2.Count > 0)
-        //{
-        //    AudioClip robotAudio = robotAudio2.Dequeue();
-        //    robotAudioSource.clip = robotAudio;
-        //    robotAudioSource.PlayOneShot(robotAudio);
-        //}
+        if (robotAudio2_4.Count > 0)
+        {
+            AudioClip robotAudio = robotAudio2_4.Dequeue();
+            robotAudioSource.clip = robotAudio;
+            robotAudioSource.PlayOneShot(robotAudio);
+        }
     }
 
     public void EndRobotDialogue2_4()
     {
         dialogue2_4 = false;
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
         panel.SetActive(false);
         robotDialogueTrigger.TriggerRobotDialogue2_5();
     }
@@ -1291,17 +1416,17 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue2_5 = true;
         panel.SetActive(true);
         robotSentences2_4.Clear();
-        //robotAudio1.Clear();
+        robotAudio2_5.Clear();
 
         foreach (string sentence in robotDialogue.robotSentences2_5)
         {
             robotSentences2_5.Enqueue(sentence);
         }
 
-        //foreach (AudioClip clip in robotClip2)
-        //{
-        //    robotAudio2.Enqueue(clip);
-        //}
+        foreach (AudioClip clip in robotClip2_5)
+        {
+            robotAudio2_5.Enqueue(clip);
+        }
 
         DisplayNextRobotSentence2_5();
     }
@@ -1318,20 +1443,20 @@ public class RobotDialogueManager : MonoBehaviour {
         StopAllCoroutines();
         StartCoroutine(TypeSentence(robotSentence2_5));
 
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
 
-        //if (robotAudio2.Count > 0)
-        //{
-        //    AudioClip robotAudio = robotAudio2.Dequeue();
-        //    robotAudioSource.clip = robotAudio;
-        //    robotAudioSource.PlayOneShot(robotAudio);
-        //}
+        if (robotAudio2_5.Count > 0)
+        {
+            AudioClip robotAudio = robotAudio2_5.Dequeue();
+            robotAudioSource.clip = robotAudio;
+            robotAudioSource.PlayOneShot(robotAudio);
+        }
     }
 
     public void EndRobotDialogue2_5()
     {
         dialogue2_5 = false;
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
         panel.SetActive(false);
     }
 
@@ -1340,17 +1465,17 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue2_6 = true;
         panel.SetActive(true);
         robotSentences2_5.Clear();
-        //robotAudio1.Clear();
+        robotAudio2_6.Clear();
 
         foreach (string sentence in robotDialogue.robotSentences2_6)
         {
             robotSentences2_6.Enqueue(sentence);
         }
 
-        //foreach (AudioClip clip in robotClip2)
-        //{
-        //    robotAudio2.Enqueue(clip);
-        //}
+        foreach (AudioClip clip in robotClip2_6)
+        {
+            robotAudio2_6.Enqueue(clip);
+        }
 
         DisplayNextRobotSentence2_6();
     }
@@ -1367,20 +1492,20 @@ public class RobotDialogueManager : MonoBehaviour {
         StopAllCoroutines();
         StartCoroutine(TypeSentence(robotSentence2_6));
 
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
 
-        //if (robotAudio2.Count > 0)
-        //{
-        //    AudioClip robotAudio = robotAudio2.Dequeue();
-        //    robotAudioSource.clip = robotAudio;
-        //    robotAudioSource.PlayOneShot(robotAudio);
-        //}
+        if (robotAudio2_6.Count > 0)
+        {
+            AudioClip robotAudio = robotAudio2_6.Dequeue();
+            robotAudioSource.clip = robotAudio;
+            robotAudioSource.PlayOneShot(robotAudio);
+        }
     }
 
     public void EndRobotDialogue2_6()
     {
         dialogue2_6 = false;
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
         panel.SetActive(false);
     }
 
@@ -1389,17 +1514,17 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue2_7 = true;
         panel.SetActive(true);
         robotSentences2_6.Clear();
-        //robotAudio1.Clear();
+        robotAudio2_7.Clear();
 
         foreach (string sentence in robotDialogue.robotSentences2_7)
         {
             robotSentences2_7.Enqueue(sentence);
         }
 
-        //foreach (AudioClip clip in robotClip2)
-        //{
-        //    robotAudio2.Enqueue(clip);
-        //}
+        foreach (AudioClip clip in robotClip2_7)
+        {
+            robotAudio2.Enqueue(clip);
+        }
 
         DisplayNextRobotSentence2_7();
     }
@@ -1416,20 +1541,20 @@ public class RobotDialogueManager : MonoBehaviour {
         StopAllCoroutines();
         StartCoroutine(TypeSentence(robotSentence2_7));
 
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
 
-        //if (robotAudio2.Count > 0)
-        //{
-        //    AudioClip robotAudio = robotAudio2.Dequeue();
-        //    robotAudioSource.clip = robotAudio;
-        //    robotAudioSource.PlayOneShot(robotAudio);
-        //}
+        if (robotAudio2_7.Count > 0)
+        {
+            AudioClip robotAudio = robotAudio2_7.Dequeue();
+            robotAudioSource.clip = robotAudio;
+            robotAudioSource.PlayOneShot(robotAudio);
+        }
     }
 
     public void EndRobotDialogue2_7()
     {
         dialogue2_7 = false;
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
         panel.SetActive(false);
         timer2 = true;
     }
@@ -1439,17 +1564,17 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue2_8 = true;
         panel.SetActive(true);
         robotSentences2_7.Clear();
-        //robotAudio1.Clear();
+        robotAudio2_8.Clear();
 
         foreach (string sentence in robotDialogue.robotSentences2_8)
         {
             robotSentences2_8.Enqueue(sentence);
         }
 
-        //foreach (AudioClip clip in robotClip2)
-        //{
-        //    robotAudio2.Enqueue(clip);
-        //}
+        foreach (AudioClip clip in robotClip2_8)
+        {
+            robotAudio2_8.Enqueue(clip);
+        }
 
         DisplayNextRobotSentence2_8();
     }
@@ -1466,20 +1591,20 @@ public class RobotDialogueManager : MonoBehaviour {
         StopAllCoroutines();
         StartCoroutine(TypeSentence(robotSentence2_8));
 
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
 
-        //if (robotAudio2.Count > 0)
-        //{
-        //    AudioClip robotAudio = robotAudio2.Dequeue();
-        //    robotAudioSource.clip = robotAudio;
-        //    robotAudioSource.PlayOneShot(robotAudio);
-        //}
+        if (robotAudio2_8.Count > 0)
+        {
+            AudioClip robotAudio = robotAudio2_8.Dequeue();
+            robotAudioSource.clip = robotAudio;
+            robotAudioSource.PlayOneShot(robotAudio);
+        }
     }
 
     public void EndRobotDialogue2_8()
     {
         dialogue2_8 = false;
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
         panel.SetActive(false);
     }
 
@@ -1488,17 +1613,17 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue2_9 = true;
         panel.SetActive(true);
         robotSentences2_8.Clear();
-        //robotAudio1.Clear();
+        robotAudio2_9.Clear();
 
         foreach (string sentence in robotDialogue.robotSentences2_9)
         {
             robotSentences2_9.Enqueue(sentence);
         }
 
-        //foreach (AudioClip clip in robotClip2)
-        //{
-        //    robotAudio2.Enqueue(clip);
-        //}
+        foreach (AudioClip clip in robotClip2_9)
+        {
+            robotAudio2_9.Enqueue(clip);
+        }
 
         DisplayNextRobotSentence2_9();
     }
@@ -1515,20 +1640,20 @@ public class RobotDialogueManager : MonoBehaviour {
         StopAllCoroutines();
         StartCoroutine(TypeSentence(robotSentence2_9));
 
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
 
-        //if (robotAudio2.Count > 0)
-        //{
-        //    AudioClip robotAudio = robotAudio2.Dequeue();
-        //    robotAudioSource.clip = robotAudio;
-        //    robotAudioSource.PlayOneShot(robotAudio);
-        //}
+        if (robotAudio2_9.Count > 0)
+        {
+            AudioClip robotAudio = robotAudio2_9.Dequeue();
+            robotAudioSource.clip = robotAudio;
+            robotAudioSource.PlayOneShot(robotAudio);
+        }
     }
 
     public void EndRobotDialogue2_9()
     {
         dialogue2_9 = false;
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
         panel.SetActive(false);
     }
 
@@ -1537,17 +1662,17 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue2_10 = true;
         panel.SetActive(true);
         robotSentences2_9.Clear();
-        //robotAudio1.Clear();
+        robotAudio2_10.Clear();
 
         foreach (string sentence in robotDialogue.robotSentences2_10)
         {
             robotSentences2_10.Enqueue(sentence);
         }
 
-        //foreach (AudioClip clip in robotClip2)
-        //{
-        //    robotAudio2.Enqueue(clip);
-        //}
+        foreach (AudioClip clip in robotClip2_10)
+        {
+            robotAudio2_10.Enqueue(clip);
+        }
 
         DisplayNextRobotSentence2_10();
     }
@@ -1564,20 +1689,20 @@ public class RobotDialogueManager : MonoBehaviour {
         StopAllCoroutines();
         StartCoroutine(TypeSentence(robotSentence2_10));
 
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
 
-        //if (robotAudio2.Count > 0)
-        //{
-        //    AudioClip robotAudio = robotAudio2.Dequeue();
-        //    robotAudioSource.clip = robotAudio;
-        //    robotAudioSource.PlayOneShot(robotAudio);
-        //}
+        if (robotAudio2_10.Count > 0)
+        {
+            AudioClip robotAudio = robotAudio2_10.Dequeue();
+            robotAudioSource.clip = robotAudio;
+            robotAudioSource.PlayOneShot(robotAudio);
+        }
     }
 
     public void EndRobotDialogue2_10()
     {
         dialogue2_10 = false;
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
         panel.SetActive(false);
         interactionScript.folderInteractable = true;
     }
@@ -1587,17 +1712,17 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue2_11 = true;
         panel.SetActive(true);
         robotSentences2_10.Clear();
-        //robotAudio1.Clear();
+        robotAudio2_11.Clear();
 
         foreach (string sentence in robotDialogue.robotSentences2_11)
         {
             robotSentences2_11.Enqueue(sentence);
         }
 
-        //foreach (AudioClip clip in robotClip2)
-        //{
-        //    robotAudio2.Enqueue(clip);
-        //}
+        foreach (AudioClip clip in robotClip2_11)
+        {
+            robotAudio2_11.Enqueue(clip);
+        }
 
         DisplayNextRobotSentence2_11();
     }
@@ -1614,20 +1739,20 @@ public class RobotDialogueManager : MonoBehaviour {
         StopAllCoroutines();
         StartCoroutine(TypeSentence(robotSentence2_11));
 
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
 
-        //if (robotAudio2.Count > 0)
-        //{
-        //    AudioClip robotAudio = robotAudio2.Dequeue();
-        //    robotAudioSource.clip = robotAudio;
-        //    robotAudioSource.PlayOneShot(robotAudio);
-        //}
+        if (robotAudio2_11.Count > 0)
+        {
+            AudioClip robotAudio = robotAudio2_11.Dequeue();
+            robotAudioSource.clip = robotAudio;
+            robotAudioSource.PlayOneShot(robotAudio);
+        }
     }
 
     public void EndRobotDialogue2_11()
     {
         dialogue2_11 = false;
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
         panel.SetActive(false);
     }
 
@@ -1636,17 +1761,17 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue2_12 = true;
         panel.SetActive(true);
         robotSentences2_11.Clear();
-        //robotAudio1.Clear();
+        robotAudio2_12.Clear();
 
         foreach (string sentence in robotDialogue.robotSentences2_12)
         {
             robotSentences2_12.Enqueue(sentence);
         }
 
-        //foreach (AudioClip clip in robotClip2)
-        //{
-        //    robotAudio2.Enqueue(clip);
-        //}
+        foreach (AudioClip clip in robotClip2_12)
+        {
+            robotAudio2_12.Enqueue(clip);
+        }
 
         DisplayNextRobotSentence2_12();
     }
@@ -1663,20 +1788,20 @@ public class RobotDialogueManager : MonoBehaviour {
         StopAllCoroutines();
         StartCoroutine(TypeSentence(robotSentence2_12));
 
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
 
-        //if (robotAudio2.Count > 0)
-        //{
-        //    AudioClip robotAudio = robotAudio2.Dequeue();
-        //    robotAudioSource.clip = robotAudio;
-        //    robotAudioSource.PlayOneShot(robotAudio);
-        //}
+        if (robotAudio2_12.Count > 0)
+        {
+            AudioClip robotAudio = robotAudio2_12.Dequeue();
+            robotAudioSource.clip = robotAudio;
+            robotAudioSource.PlayOneShot(robotAudio);
+        }
     }
 
     public void EndRobotDialogue2_12()
     {
         dialogue2_12 = false;
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
         panel.SetActive(false);
         interactionScript.phoneInteractable = true;
     }
@@ -1686,17 +1811,17 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue2_13 = true;
         panel.SetActive(true);
         robotSentences2_12.Clear();
-        //robotAudio1.Clear();
+        robotAudio2_13.Clear();
 
         foreach (string sentence in robotDialogue.robotSentences2_13)
         {
             robotSentences2_13.Enqueue(sentence);
         }
 
-        //foreach (AudioClip clip in robotClip2)
-        //{
-        //    robotAudio2.Enqueue(clip);
-        //}
+        foreach (AudioClip clip in robotClip2_13)
+        {
+            robotAudio2_13.Enqueue(clip);
+        }
 
         DisplayNextRobotSentence2_13();
     }
@@ -1713,20 +1838,20 @@ public class RobotDialogueManager : MonoBehaviour {
         StopAllCoroutines();
         StartCoroutine(TypeSentence(robotSentence2_13));
 
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
 
-        //if (robotAudio2.Count > 0)
-        //{
-        //    AudioClip robotAudio = robotAudio2.Dequeue();
-        //    robotAudioSource.clip = robotAudio;
-        //    robotAudioSource.PlayOneShot(robotAudio);
-        //}
+        if (robotAudio2_13.Count > 0)
+        {
+            AudioClip robotAudio = robotAudio2_13.Dequeue();
+            robotAudioSource.clip = robotAudio;
+            robotAudioSource.PlayOneShot(robotAudio);
+        }
     }
 
     public void EndRobotDialogue2_13()
     {
         dialogue2_13 = false;
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
         panel.SetActive(false);
     }
 
@@ -1735,17 +1860,17 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue2_14 = true;
         panel.SetActive(true);
         robotSentences2_13.Clear();
-        //robotAudio1.Clear();
+        robotAudio2_14.Clear();
 
         foreach (string sentence in robotDialogue.robotSentences2_14)
         {
             robotSentences2_14.Enqueue(sentence);
         }
 
-        //foreach (AudioClip clip in robotClip2)
-        //{
-        //    robotAudio2.Enqueue(clip);
-        //}
+        foreach (AudioClip clip in robotClip2_14)
+        {
+            robotAudio2_14.Enqueue(clip);
+        }
 
         DisplayNextRobotSentence2_14();
     }
@@ -1762,20 +1887,20 @@ public class RobotDialogueManager : MonoBehaviour {
         StopAllCoroutines();
         StartCoroutine(TypeSentence(robotSentence2_14));
 
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
 
-        //if (robotAudio2.Count > 0)
-        //{
-        //    AudioClip robotAudio = robotAudio2.Dequeue();
-        //    robotAudioSource.clip = robotAudio;
-        //    robotAudioSource.PlayOneShot(robotAudio);
-        //}
+        if (robotAudio2_14.Count > 0)
+        {
+            AudioClip robotAudio = robotAudio2_14.Dequeue();
+            robotAudioSource.clip = robotAudio;
+            robotAudioSource.PlayOneShot(robotAudio);
+        }
     }
 
     public void EndRobotDialogue2_14()
     {
         dialogue2_14 = false;
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
         panel.SetActive(false);
     }
 
@@ -1784,17 +1909,17 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue2_15 = true;
         panel.SetActive(true);
         robotSentences2_14.Clear();
-        //robotAudio1.Clear();
+        robotAudio2_15.Clear();
 
         foreach (string sentence in robotDialogue.robotSentences2_15)
         {
             robotSentences2_15.Enqueue(sentence);
         }
 
-        //foreach (AudioClip clip in robotClip2)
-        //{
-        //    robotAudio2.Enqueue(clip);
-        //}
+        foreach (AudioClip clip in robotClip2_15)
+        {
+            robotAudio2_15.Enqueue(clip);
+        }
 
         DisplayNextRobotSentence2_15();
     }
@@ -1811,29 +1936,18 @@ public class RobotDialogueManager : MonoBehaviour {
         StopAllCoroutines();
         StartCoroutine(TypeSentence(robotSentence2_15));
 
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
 
-        //if (robotAudio2.Count > 0)
-        //{
-        //    AudioClip robotAudio = robotAudio2.Dequeue();
-        //    robotAudioSource.clip = robotAudio;
-        //    robotAudioSource.PlayOneShot(robotAudio);
-        //}
+        if (robotAudio2_15.Count > 0)
+        {
+            AudioClip robotAudio = robotAudio2_15.Dequeue();
+            robotAudioSource.clip = robotAudio;
+            robotAudioSource.PlayOneShot(robotAudio);
+        }
     }
 
     public void EndRobotDialogue2_15()
     {
-
-        //GameObject.Find("GameInfoObject").name = "GameInfoObject DDL";
-        //GameObject.Find("Earth Folder").name = "Earth Folder DDL";
-        //GameObject.Find("Mars Folder").name = "Mars Folder DDL";
-        //GameObject.Find("Venus Folder").name = "Venus Folder DDL";
-
-        //DontDestroyOnLoad(GameObject.Find("GameInfoObject DDL"));
-        //DontDestroyOnLoad(GameObject.Find("Earth Folder DDL"));
-        //DontDestroyOnLoad(GameObject.Find("Mars Folder DDL"));
-        //DontDestroyOnLoad(GameObject.Find("Venus Folder DDL"));
-
         statsScript.time= statsScript.time - 1;
 
         dialogue2_15 = false;
@@ -1850,17 +1964,17 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue3_1 = true;
         panel.SetActive(true);
         robotSentences3_1.Clear();
-        //robotAudio1.Clear();
+        robotAudio3_1.Clear();
 
         foreach (string sentence in robotDialogue.robotSentences3_1)
         {
             robotSentences3_1.Enqueue(sentence);
         }
 
-        //foreach (AudioClip clip in robotClip2)
-        //{
-        //    robotAudio2.Enqueue(clip);
-        //}
+        foreach (AudioClip clip in robotClip3_1)
+        {
+            robotAudio3_1.Enqueue(clip);
+        }
 
         DisplayNextRobotSentence3_1();
     }
@@ -1877,20 +1991,20 @@ public class RobotDialogueManager : MonoBehaviour {
         StopAllCoroutines();
         StartCoroutine(TypeSentence(robotSentence));
 
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
 
-        //if (robotAudio2.Count > 0)
-        //{
-        //    AudioClip robotAudio = robotAudio2.Dequeue();
-        //    robotAudioSource.clip = robotAudio;
-        //    robotAudioSource.PlayOneShot(robotAudio);
-        //}
+        if (robotAudio3_1.Count > 0)
+        {
+            AudioClip robotAudio = robotAudio3_1.Dequeue();
+            robotAudioSource.clip = robotAudio;
+            robotAudioSource.PlayOneShot(robotAudio);
+        }
     }
 
     public void EndRobotDialogue3_1()
     {
         dialogue3_1 = false;
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
         panel.SetActive(false);
         phoneScript.phoneIsActive = true;
         timerForDialogue = 1.5f;
@@ -1902,17 +2016,17 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue3_2 = true;
         panel.SetActive(true);
         robotSentences3_2.Clear();
-        //robotAudio1.Clear();
+        robotAudio3_2.Clear();
 
         foreach (string sentence in robotDialogue.robotSentences3_2)
         {
             robotSentences3_2.Enqueue(sentence);
         }
 
-        //foreach (AudioClip clip in robotClip2)
-        //{
-        //    robotAudio2.Enqueue(clip);
-        //}
+        foreach (AudioClip clip in robotClip3_2)
+        {
+            robotAudio3_2.Enqueue(clip);
+        }
 
         DisplayNextRobotSentence3_2();
     }
@@ -1929,20 +2043,20 @@ public class RobotDialogueManager : MonoBehaviour {
         StopAllCoroutines();
         StartCoroutine(TypeSentence(robotSentence));
 
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
 
-        //if (robotAudio2.Count > 0)
-        //{
-        //    AudioClip robotAudio = robotAudio2.Dequeue();
-        //    robotAudioSource.clip = robotAudio;
-        //    robotAudioSource.PlayOneShot(robotAudio);
-        //}
+        if (robotAudio3_2.Count > 0)
+        {
+            AudioClip robotAudio = robotAudio3_2.Dequeue();
+            robotAudioSource.clip = robotAudio;
+            robotAudioSource.PlayOneShot(robotAudio);
+        }
     }
 
     public void EndRobotDialogue3_2()
     {
         dialogue3_2 = false;
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
         panel.SetActive(false);
         interactionScript.phoneInteractable = true;
     }
@@ -1952,17 +2066,17 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue3_3 = true;
         panel.SetActive(true);
         robotSentences3_3.Clear();
-        //robotAudio1.Clear();
+        robotAudio3_3.Clear();
 
         foreach (string sentence in robotDialogue.robotSentences3_3)
         {
             robotSentences3_3.Enqueue(sentence);
         }
 
-        //foreach (AudioClip clip in robotClip2)
-        //{
-        //    robotAudio2.Enqueue(clip);
-        //}
+        foreach (AudioClip clip in robotClip3_3)
+        {
+            robotAudio3_3.Enqueue(clip);
+        }
 
         DisplayNextRobotSentence3_3();
     }
@@ -1979,21 +2093,21 @@ public class RobotDialogueManager : MonoBehaviour {
         StopAllCoroutines();
         StartCoroutine(TypeSentence(robotSentence));
 
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
 
-        //if (robotAudio2.Count > 0)
-        //{
-        //    AudioClip robotAudio = robotAudio2.Dequeue();
-        //    robotAudioSource.clip = robotAudio;
-        //    robotAudioSource.PlayOneShot(robotAudio);
-        //}
+        if (robotAudio3_3.Count > 0)
+        {
+            AudioClip robotAudio = robotAudio3_3.Dequeue();
+            robotAudioSource.clip = robotAudio;
+            robotAudioSource.PlayOneShot(robotAudio);
+        }
     }
 
     public void EndRobotDialogue3_3()
     {
         dialogue3_3 = false;
         statsScript.Family();
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
         panel.SetActive(false);
         timerForDialogue = 1.5f;
         timer4 = true;
@@ -2004,17 +2118,17 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue3_4 = true;
         panel.SetActive(true);
         robotSentences3_4.Clear();
-        //robotAudio1.Clear();
+        robotAudio3_4.Clear();
 
         foreach (string sentence in robotDialogue.robotSentences3_4)
         {
             robotSentences3_4.Enqueue(sentence);
         }
 
-        //foreach (AudioClip clip in robotClip2)
-        //{
-        //    robotAudio2.Enqueue(clip);
-        //}
+        foreach (AudioClip clip in robotClip3_4)
+        {
+            robotAudio3_4.Enqueue(clip);
+        }
 
         DisplayNextRobotSentence3_4();
     }
@@ -2031,20 +2145,20 @@ public class RobotDialogueManager : MonoBehaviour {
         StopAllCoroutines();
         StartCoroutine(TypeSentence(robotSentence));
 
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
 
-        //if (robotAudio2.Count > 0)
-        //{
-        //    AudioClip robotAudio = robotAudio2.Dequeue();
-        //    robotAudioSource.clip = robotAudio;
-        //    robotAudioSource.PlayOneShot(robotAudio);
-        //}
+        if (robotAudio3_4.Count > 0)
+        {
+            AudioClip robotAudio = robotAudio3_4.Dequeue();
+            robotAudioSource.clip = robotAudio;
+            robotAudioSource.PlayOneShot(robotAudio);
+        }
     }
 
     public void EndRobotDialogue3_4()
     {
         dialogue3_4 = false;
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
         panel.SetActive(false);
     }
 
@@ -2053,17 +2167,17 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue3_5 = true;
         panel.SetActive(true);
         robotSentences3_5.Clear();
-        //robotAudio1.Clear();
+        robotAudio3_5.Clear();
 
         foreach (string sentence in robotDialogue.robotSentences3_5)
         {
             robotSentences3_5.Enqueue(sentence);
         }
 
-        //foreach (AudioClip clip in robotClip2)
-        //{
-        //    robotAudio2.Enqueue(clip);
-        //}
+        foreach (AudioClip clip in robotClip3_5)
+        {
+            robotAudio3_5.Enqueue(clip);
+        }
 
         DisplayNextRobotSentence3_5();
     }
@@ -2080,20 +2194,20 @@ public class RobotDialogueManager : MonoBehaviour {
         StopAllCoroutines();
         StartCoroutine(TypeSentence(robotSentence));
 
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
 
-        //if (robotAudio2.Count > 0)
-        //{
-        //    AudioClip robotAudio = robotAudio2.Dequeue();
-        //    robotAudioSource.clip = robotAudio;
-        //    robotAudioSource.PlayOneShot(robotAudio);
-        //}
+        if (robotAudio3_5.Count > 0)
+        {
+            AudioClip robotAudio = robotAudio3_5.Dequeue();
+            robotAudioSource.clip = robotAudio;
+            robotAudioSource.PlayOneShot(robotAudio);
+        }
     }
 
     public void EndRobotDialogue3_5()
     {
         dialogue3_5 = false;
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
         panel.SetActive(false);
     }
 
@@ -2102,17 +2216,17 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue3_6 = true;
         panel.SetActive(true);
         robotSentences3_6.Clear();
-        //robotAudio1.Clear();
+        robotAudio3_6.Clear();
 
         foreach (string sentence in robotDialogue.robotSentences3_6)
         {
             robotSentences3_6.Enqueue(sentence);
         }
 
-        //foreach (AudioClip clip in robotClip2)
-        //{
-        //    robotAudio2.Enqueue(clip);
-        //}
+        foreach (AudioClip clip in robotClip3_6)
+        {
+            robotAudio3_6.Enqueue(clip);
+        }
 
         DisplayNextRobotSentence3_6();
     }
@@ -2129,21 +2243,21 @@ public class RobotDialogueManager : MonoBehaviour {
         StopAllCoroutines();
         StartCoroutine(TypeSentence(robotSentence));
 
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
 
-        //if (robotAudio2.Count > 0)
-        //{
-        //    AudioClip robotAudio = robotAudio2.Dequeue();
-        //    robotAudioSource.clip = robotAudio;
-        //    robotAudioSource.PlayOneShot(robotAudio);
-        //}
+        if (robotAudio3_6.Count > 0)
+        {
+            AudioClip robotAudio = robotAudio3_6.Dequeue();
+            robotAudioSource.clip = robotAudio;
+            robotAudioSource.PlayOneShot(robotAudio);
+        }
     }
 
     public void EndRobotDialogue3_6()
     {
         dialogue3_6 = false;
         interactionScript.door = true;
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
         panel.SetActive(false);
     }
 
@@ -2156,17 +2270,17 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue4_1 = true;
         panel.SetActive(true);
         robotSentences4_1.Clear();
-        //robotAudio1.Clear();
+        robotAudio4_1.Clear();
 
         foreach (string sentence in robotDialogue.robotSentences4_1)
         {
             robotSentences4_1.Enqueue(sentence);
         }
 
-        //foreach (AudioClip clip in robotClip2)
-        //{
-        //    robotAudio2.Enqueue(clip);
-        //}
+        foreach (AudioClip clip in robotClip4_1)
+        {
+            robotAudio4_1.Enqueue(clip);
+        }
 
         DisplayNextRobotSentence4_1();
     }
@@ -2183,20 +2297,20 @@ public class RobotDialogueManager : MonoBehaviour {
         StopAllCoroutines();
         StartCoroutine(TypeSentence(robotSentence));
 
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
 
-        //if (robotAudio2.Count > 0)
-        //{
-        //    AudioClip robotAudio = robotAudio2.Dequeue();
-        //    robotAudioSource.clip = robotAudio;
-        //    robotAudioSource.PlayOneShot(robotAudio);
-        //}
+        if (robotAudio4_1.Count > 0)
+        {
+            AudioClip robotAudio = robotAudio4_1.Dequeue();
+            robotAudioSource.clip = robotAudio;
+            robotAudioSource.PlayOneShot(robotAudio);
+        }
     }
 
     public void EndRobotDialogue4_1()
     {
         dialogue4_1 = false;
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
         panel.SetActive(false);
         timerForDialogue = 2f;
         timer1 = true;
@@ -2207,17 +2321,17 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue4_2 = true;
         panel.SetActive(true);
         robotSentences4_2.Clear();
-        //robotAudio1.Clear();
+        robotAudio4_2.Clear();
 
         foreach (string sentence in robotDialogue.robotSentences4_2)
         {
             robotSentences4_2.Enqueue(sentence);
         }
 
-        //foreach (AudioClip clip in robotClip2)
-        //{
-        //    robotAudio2.Enqueue(clip);
-        //}
+        foreach (AudioClip clip in robotClip4_2)
+        {
+            robotAudio4_2.Enqueue(clip);
+        }
 
         DisplayNextRobotSentence4_2();
     }
@@ -2234,20 +2348,20 @@ public class RobotDialogueManager : MonoBehaviour {
         StopAllCoroutines();
         StartCoroutine(TypeSentence(robotSentence));
 
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
 
-        //if (robotAudio2.Count > 0)
-        //{
-        //    AudioClip robotAudio = robotAudio2.Dequeue();
-        //    robotAudioSource.clip = robotAudio;
-        //    robotAudioSource.PlayOneShot(robotAudio);
-        //}
+        if (robotAudio4_2.Count > 0)
+        {
+            AudioClip robotAudio = robotAudio4_2.Dequeue();
+            robotAudioSource.clip = robotAudio;
+            robotAudioSource.PlayOneShot(robotAudio);
+        }
     }
 
     public void EndRobotDialogue4_2()
     {
         dialogue4_2 = false;
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
         panel.SetActive(false);
         interactionScript.folderInteractable = true;
         interactionScript.chairInteractable = true;
@@ -2258,17 +2372,17 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue4_3 = true;
         panel.SetActive(true);
         robotSentences4_3.Clear();
-        //robotAudio1.Clear();
+        robotAudio4_3.Clear();
 
         foreach (string sentence in robotDialogue.robotSentences4_3)
         {
             robotSentences4_3.Enqueue(sentence);
         }
 
-        //foreach (AudioClip clip in robotClip2)
-        //{
-        //    robotAudio2.Enqueue(clip);
-        //}
+        foreach (AudioClip clip in robotClip4_3)
+        {
+            robotAudio4_3.Enqueue(clip);
+        }
 
         DisplayNextRobotSentence4_3();
     }
@@ -2285,20 +2399,20 @@ public class RobotDialogueManager : MonoBehaviour {
         StopAllCoroutines();
         StartCoroutine(TypeSentence(robotSentence));
 
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
 
-        //if (robotAudio2.Count > 0)
-        //{
-        //    AudioClip robotAudio = robotAudio2.Dequeue();
-        //    robotAudioSource.clip = robotAudio;
-        //    robotAudioSource.PlayOneShot(robotAudio);
-        //}
+        if (robotAudio4_3.Count > 0)
+        {
+            AudioClip robotAudio = robotAudio4_3.Dequeue();
+            robotAudioSource.clip = robotAudio;
+            robotAudioSource.PlayOneShot(robotAudio);
+        }
     }
 
     public void EndRobotDialogue4_3()
     {
         dialogue4_3 = false;
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
         panel.SetActive(false);
         phoneScript.phoneIsActive = true;
         interactionScript.folderInteractable = false;
@@ -2312,17 +2426,17 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue4_4 = true;
         panel.SetActive(true);
         robotSentences4_4.Clear();
-        //robotAudio1.Clear();
+        robotAudio4_4.Clear();
 
         foreach (string sentence in robotDialogue.robotSentences4_4)
         {
             robotSentences4_4.Enqueue(sentence);
         }
 
-        //foreach (AudioClip clip in robotClip2)
-        //{
-        //    robotAudio2.Enqueue(clip);
-        //}
+        foreach (AudioClip clip in robotClip4_4)
+        {
+            robotAudio4_4.Enqueue(clip);
+        }
 
         DisplayNextRobotSentence4_4();
     }
@@ -2339,20 +2453,20 @@ public class RobotDialogueManager : MonoBehaviour {
         StopAllCoroutines();
         StartCoroutine(TypeSentence(robotSentence));
 
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
 
-        //if (robotAudio2.Count > 0)
-        //{
-        //    AudioClip robotAudio = robotAudio2.Dequeue();
-        //    robotAudioSource.clip = robotAudio;
-        //    robotAudioSource.PlayOneShot(robotAudio);
-        //}
+        if (robotAudio4_4.Count > 0)
+        {
+            AudioClip robotAudio = robotAudio4_4.Dequeue();
+            robotAudioSource.clip = robotAudio;
+            robotAudioSource.PlayOneShot(robotAudio);
+        }
     }
 
     public void EndRobotDialogue4_4()
     {
         dialogue4_4 = false;
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
         panel.SetActive(false);
         interactionScript.phoneInteractable = true;
     }
@@ -2362,17 +2476,17 @@ public class RobotDialogueManager : MonoBehaviour {
         dialogue4_5 = true;
         panel.SetActive(true);
         robotSentences4_5.Clear();
-        //robotAudio1.Clear();
+        robotAudio4_5.Clear();
 
         foreach (string sentence in robotDialogue.robotSentences4_5)
         {
             robotSentences4_5.Enqueue(sentence);
         }
 
-        //foreach (AudioClip clip in robotClip2)
-        //{
-        //    robotAudio2.Enqueue(clip);
-        //}
+        foreach (AudioClip clip in robotClip4_5)
+        {
+            robotAudio4_5.Enqueue(clip);
+        }
 
         DisplayNextRobotSentence4_5();
     }
@@ -2389,20 +2503,122 @@ public class RobotDialogueManager : MonoBehaviour {
         StopAllCoroutines();
         StartCoroutine(TypeSentence(robotSentence));
 
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
 
-        //if (robotAudio2.Count > 0)
-        //{
-        //    AudioClip robotAudio = robotAudio2.Dequeue();
-        //    robotAudioSource.clip = robotAudio;
-        //    robotAudioSource.PlayOneShot(robotAudio);
-        //}
+        if (robotAudio4_5.Count > 0)
+        {
+            AudioClip robotAudio = robotAudio4_5.Dequeue();
+            robotAudioSource.clip = robotAudio;
+            robotAudioSource.PlayOneShot(robotAudio);
+        }
     }
 
     public void EndRobotDialogue4_5()
     {
         dialogue4_5 = false;
-        //robotAudioSource.Stop();
+        robotAudioSource.Stop();
+        panel.SetActive(false);
+    }
+
+    #endregion
+
+    #region Day Five
+
+    public void StartRobotDialogue5_1(RobotDialogue robotDialogue)
+    {
+        dialogue5_1 = true;
+        panel.SetActive(true);
+        robotSentences5_1.Clear();
+        robotAudio5_1.Clear();
+
+        foreach (string sentence in robotDialogue.robotSentences5_1)
+        {
+            robotSentences5_1.Enqueue(sentence);
+        }
+
+        foreach (AudioClip clip in robotClip5_1)
+        {
+            robotAudio5_1.Enqueue(clip);
+        }
+
+        DisplayNextRobotSentence5_1();
+    }
+
+    public void DisplayNextRobotSentence5_1()
+    {
+        if (robotSentences5_1.Count == 0)
+        {
+            EndRobotDialogue5_1();
+            return;
+        }
+
+        string robotSentence = robotSentences5_1.Dequeue();
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(robotSentence));
+
+        robotAudioSource.Stop();
+
+        if (robotAudio5_1.Count > 0)
+        {
+            AudioClip robotAudio = robotAudio5_1.Dequeue();
+            robotAudioSource.clip = robotAudio;
+            robotAudioSource.PlayOneShot(robotAudio);
+        }
+    }
+
+    public void EndRobotDialogue5_1()
+    {
+        dialogue5_1 = false;
+        robotAudioSource.Stop();
+        panel.SetActive(false);
+    }
+
+    public void StartRobotDialogue5_2(RobotDialogue robotDialogue)
+    {
+        dialogue5_2 = true;
+        panel.SetActive(true);
+        robotSentences5_2.Clear();
+        robotAudio5_2.Clear();
+
+        foreach (string sentence in robotDialogue.robotSentences5_2)
+        {
+            robotSentences5_2.Enqueue(sentence);
+        }
+
+        foreach (AudioClip clip in robotClip5_2)
+        {
+            robotAudio5_2.Enqueue(clip);
+        }
+
+        DisplayNextRobotSentence5_2();
+    }
+
+    public void DisplayNextRobotSentence5_2()
+    {
+        if (robotSentences5_2.Count == 0)
+        {
+            EndRobotDialogue5_2();
+            return;
+        }
+
+        string robotSentence = robotSentences5_2.Dequeue();
+        StopAllCoroutines();
+        StartCoroutine(TypeSentence(robotSentence));
+
+        robotAudioSource.Stop();
+
+        if (robotAudio5_2.Count > 0)
+        {
+            AudioClip robotAudio = robotAudio5_2.Dequeue();
+            robotAudioSource.clip = robotAudio;
+            robotAudioSource.PlayOneShot(robotAudio);
+        }
+    }
+
+    public void EndRobotDialogue5_2()
+    {
+        dialogue5_2 = false;
+        robotAudioSource.Stop();
         panel.SetActive(false);
     }
 
@@ -2702,7 +2918,7 @@ public class RobotDialogueManager : MonoBehaviour {
                 else
                 {
                     robotDialogueTrigger.TriggerRobotDialogue3();
-                    timerForDialogue = 5f;
+                    timerForDialogue = 3f;
                     timer1 = false;
                 }
             }
@@ -2717,8 +2933,22 @@ public class RobotDialogueManager : MonoBehaviour {
                 {
                     dayOneScript.faxActive = false;
                     robotDialogueTrigger.TriggerRobotDialogue6();
-                    timerForDialogue = 5f;
+                    timerForDialogue = 3f;
                     timer2 = false;
+                }
+            }
+
+            if (timer3)
+            {
+                if (timerForDialogue > 0)
+                {
+                    timerForDialogue -= Time.deltaTime;
+                }
+                else
+                {
+                    robotDialogueTrigger.TriggerRobotDialogue5();
+                    timerForDialogue = 3f;
+                    timer3 = false;
                 }
             }
         }

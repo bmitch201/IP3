@@ -841,6 +841,10 @@ public class DayOneScript : MonoBehaviour {
         {
             robotDialogueTrigger.TriggerRobotDialogue4_1();
         }
+        else if (statsScript.day == 5)
+        {
+            robotDialogueTrigger.TriggerRobotDialogue5_1();
+        }
 
         this.enabled = false;
     }
