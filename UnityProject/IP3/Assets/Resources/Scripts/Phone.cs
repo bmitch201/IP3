@@ -142,7 +142,6 @@ public class Phone : MonoBehaviour
                 dayOneScript.phoneActive = false;
             }
         }
-
         else if (phoneIsActive == true)
         {
             audioSource.clip = phoneRing;
