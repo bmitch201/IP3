@@ -1763,6 +1763,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 114374451074461812, guid: f3db7e98c9fd20b4ca94c70f7d34b465,
+        type: 2}
+      propertyPath: endPos
+      value: 
+      objectReference: {fileID: 1413181555}
     - target: {fileID: 114992530785850936, guid: f3db7e98c9fd20b4ca94c70f7d34b465,
         type: 2}
       propertyPath: player
@@ -1783,11 +1788,6 @@ Prefab:
       propertyPath: canvas3
       value: 
       objectReference: {fileID: 1437514941}
-    - target: {fileID: 114374451074461812, guid: f3db7e98c9fd20b4ca94c70f7d34b465,
-        type: 2}
-      propertyPath: endPos
-      value: 
-      objectReference: {fileID: 1413181555}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3db7e98c9fd20b4ca94c70f7d34b465, type: 2}
   m_IsPrefabAsset: 0
@@ -13356,6 +13356,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114622563689237324, guid: 90ddf7ee65ec18f4682aad17b31b62f6,
+        type: 2}
+      propertyPath: endPos
+      value: 
+      objectReference: {fileID: 1413181555}
     - target: {fileID: 114677032842063204, guid: 90ddf7ee65ec18f4682aad17b31b62f6,
         type: 2}
       propertyPath: player
@@ -13376,58 +13381,8 @@ Prefab:
       propertyPath: canvas3
       value: 
       objectReference: {fileID: 1437514941}
-    - target: {fileID: 114622563689237324, guid: 90ddf7ee65ec18f4682aad17b31b62f6,
-        type: 2}
-      propertyPath: endPos
-      value: 
-      objectReference: {fileID: 1413181555}
     - target: {fileID: 1315172897250236, guid: 90ddf7ee65ec18f4682aad17b31b62f6, type: 2}
       propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114444677840124808, guid: 90ddf7ee65ec18f4682aad17b31b62f6,
-        type: 2}
-      propertyPath: m_FontData.m_FontSize
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 114444677840124808, guid: 90ddf7ee65ec18f4682aad17b31b62f6,
-        type: 2}
-      propertyPath: m_FontData.m_MaxSize
-      value: 225
-      objectReference: {fileID: 0}
-    - target: {fileID: 114444677840124808, guid: 90ddf7ee65ec18f4682aad17b31b62f6,
-        type: 2}
-      propertyPath: m_FontData.m_MinSize
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114444677840124808, guid: 90ddf7ee65ec18f4682aad17b31b62f6,
-        type: 2}
-      propertyPath: m_FontData.m_Alignment
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 224388770430135840, guid: 90ddf7ee65ec18f4682aad17b31b62f6,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 428
-      objectReference: {fileID: 0}
-    - target: {fileID: 224388770430135840, guid: 90ddf7ee65ec18f4682aad17b31b62f6,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 596
-      objectReference: {fileID: 0}
-    - target: {fileID: 224388770430135840, guid: 90ddf7ee65ec18f4682aad17b31b62f6,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 231.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114444677840124808, guid: 90ddf7ee65ec18f4682aad17b31b62f6,
-        type: 2}
-      propertyPath: m_FontData.m_FontStyle
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114444677840124808, guid: 90ddf7ee65ec18f4682aad17b31b62f6,
-        type: 2}
-      propertyPath: m_FontData.m_LineSpacing
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -30955,6 +30910,11 @@ Prefab:
       propertyPath: femaleHologram
       value: 
       objectReference: {fileID: 376176555}
+    - target: {fileID: 224794119498711820, guid: a075bfde3e153924eabb450910db09d8,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a075bfde3e153924eabb450910db09d8, type: 2}
   m_IsPrefabAsset: 0
@@ -33503,11 +33463,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
-    - target: {fileID: 114617999047404074, guid: 36fe79a94590eb549983991ab7f33aad,
-        type: 2}
-      propertyPath: endPos
-      value: 
-      objectReference: {fileID: 1413181555}
     - target: {fileID: 114460463039491838, guid: 36fe79a94590eb549983991ab7f33aad,
         type: 2}
       propertyPath: player
@@ -33528,6 +33483,11 @@ Prefab:
       propertyPath: canvas3
       value: 
       objectReference: {fileID: 1437514941}
+    - target: {fileID: 114617999047404074, guid: 36fe79a94590eb549983991ab7f33aad,
+        type: 2}
+      propertyPath: endPos
+      value: 
+      objectReference: {fileID: 1413181555}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36fe79a94590eb549983991ab7f33aad, type: 2}
   m_IsPrefabAsset: 0
@@ -34830,12 +34790,22 @@ Prefab:
     - target: {fileID: 114759653295825026, guid: 0251e78afb64189439e1ab5de7fcee12,
         type: 2}
       propertyPath: m_Text
-      value: Press 'Right Mouse' to continue...
+      value: Press 'E' to continue...
       objectReference: {fileID: 0}
     - target: {fileID: 224414162649021484, guid: 0251e78afb64189439e1ab5de7fcee12,
         type: 2}
       propertyPath: m_SizeDelta.x
       value: 304.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 224414162649021484, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 508.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 224414162649021484, guid: 0251e78afb64189439e1ab5de7fcee12,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -261.70016
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0251e78afb64189439e1ab5de7fcee12, type: 2}

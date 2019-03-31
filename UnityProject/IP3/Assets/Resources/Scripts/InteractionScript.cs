@@ -36,7 +36,7 @@ public class InteractionScript : MonoBehaviour
     [Header("Booleans")]
     public bool holding;
     bool holdingPaper;
-    public bool holdingPolicy, holdingContact, holdingPhone;
+    public bool holdingPolicy, holdingContact, holdingPhone, answeredPhone;
     public bool withinAnswerDistance;
     public bool answered;
     bool phoneCanvasOn;
@@ -424,6 +424,8 @@ public class InteractionScript : MonoBehaviour
                 //If the phone is ringing
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    answeredPhone = false;
+
                     if (phoneScript.calls == 1)
                     {
                         info.gameObject.SetActive(false);
@@ -507,7 +509,12 @@ public class InteractionScript : MonoBehaviour
         //If the phone canvas is active i.e. the user has picked up the phone
         if (phoneCanvasOn)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if(Input.GetKeyUp(KeyCode.E))
+            {
+                answeredPhone = true;
+            }
+
+            if ((Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0)) && answeredPhone)
             {
                 if (statsScript.day == 2)
                 {

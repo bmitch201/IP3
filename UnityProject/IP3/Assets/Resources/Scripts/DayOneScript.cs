@@ -32,7 +32,7 @@ public class DayOneScript : MonoBehaviour {
     public bool conferenceCallInteractable = false;
 
     public bool folder = false;
-    public bool holding, holdingPolicy, holdingPhone;
+    public bool holding, holdingPolicy, holdingPhone, answeredPhone;
     public bool policy = false;
     public bool firstFolder = true;
 
@@ -421,6 +421,7 @@ public class DayOneScript : MonoBehaviour {
                 //If the phone is ringing
                 if (Input.GetKeyDown(KeyCode.E))
                 {
+                    answeredPhone = false;
                     info.gameObject.SetActive(false);
                     answered = true;
                     phoneScript.newAudio = true;
@@ -472,7 +473,12 @@ public class DayOneScript : MonoBehaviour {
         //If the phone canvas is active i.e. the user has picked up the phone
         if (phoneCanvasOn)
         {
-            if (Input.GetMouseButtonDown(0));
+            if (Input.GetKeyUp(KeyCode.E))
+            {
+                answeredPhone = true;
+            }
+
+            if ((Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0)) && answeredPhone)
             {
                 phonePanel.SetActive(false);
 
