@@ -418,6 +418,12 @@ MonoBehaviour:
   - "Earth invites you to attend their Royal Wedding.\nFax = Earth Opinion + ; Public
     Support - ;  Revenue - ; Autonomy -\nTrash = Earth Opinion - ; Public Support
     - ;  Autonomy +  \nPress 'E' to close"
+  - 'Your wife asks you to organise travel for Moon citizens to Mars.
+
+    Press ''E'' to close'
+  - "Venus wants you to allow their interplanetary businesses on the Moon to continue
+    acting freely.\nFax = Venus Opinion + ; Public Support - ;  Revenue + ; Autonomy
+    -\nTrash = Venus Opinion - ; Public Support + ;  Revenue -  \nPress 'E' to close"
   phoneCallText: {fileID: 0}
   phonecall: 
   isRinging: 0

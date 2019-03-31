@@ -432,7 +432,6 @@ public class DayOneScript : MonoBehaviour {
                     statsScript.TimeForward();
                 }
             }
-
             //If the conference call is hit, it is interactable and the distance is less than 2.5, then display info text
             else if (hit.collider.gameObject.tag == "ConferenceCall" && conferenceCallInteractable == true && dist <= 2.5f)
             {
@@ -473,7 +472,7 @@ public class DayOneScript : MonoBehaviour {
         //If the phone canvas is active i.e. the user has picked up the phone
         if (phoneCanvasOn)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetMouseButtonDown(0));
             {
                 phonePanel.SetActive(false);
 

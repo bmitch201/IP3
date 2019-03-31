@@ -3803,6 +3803,7 @@ MonoBehaviour:
   pageMain: {fileID: 1466098616113608}
   es: {fileID: 0}
   type: 
+  buttonClicked: 
   buttons: 0
   fundsText: {fileID: 114634939809936706}
 --- !u!114 &114468532036455530

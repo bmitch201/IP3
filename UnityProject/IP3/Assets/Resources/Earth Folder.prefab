@@ -26,6 +26,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1014419143500640
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 224388770430135840}
+  - component: {fileID: 222992252704815630}
+  - component: {fileID: 114444677840124808}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1018976328766824
 GameObject:
   m_ObjectHideFlags: 1
@@ -3900,7 +3917,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Chosen Policy
+  m_Text: 
 --- !u!114 &114070216832496774
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5976,7 +5993,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Chosen Policy
+  m_Text: 
 --- !u!114 &114379257877141134
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6528,6 +6545,39 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: CLOSED
+--- !u!114 &114444677840124808
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1014419143500640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.9339623, g: 0.76332104, b: 0.048460312, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 9ab716867a004a648ab46d82757211ef, type: 3}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Press "F" to quit
 --- !u!114 &114459350495103480
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8090,7 +8140,9 @@ MonoBehaviour:
   impText: {fileID: 114377974988884612}
   expText: {fileID: 114854335903004250}
   moveText: {fileID: 114877634801553456}
+  currentText: {fileID: 0}
   type: 
+  buttonClicked: 
   buttons: 0
   planet: Earth
 --- !u!114 &114678749131712052
@@ -9038,7 +9090,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Chosen Policy
+  m_Text: 
 --- !u!114 &114815245597361844
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -11195,6 +11247,13 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1126209233971340}
   m_CullTransparentMesh: 0
+--- !u!222 &222992252704815630
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1014419143500640}
+  m_CullTransparentMesh: 0
 --- !u!222 &222997350233827730
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -12144,6 +12203,7 @@ RectTransform:
   - {fileID: 224303426949675818}
   - {fileID: 224975911031980724}
   - {fileID: 224118754942035204}
+  - {fileID: 224388770430135840}
   m_Father: {fileID: 4255233844916010}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 87.65, y: 0, z: -90}
@@ -12342,6 +12402,24 @@ RectTransform:
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.0007647225, y: 391.00003}
   m_SizeDelta: {x: 78, y: 23}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &224388770430135840
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1014419143500640}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 224312566731610586}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 558, y: 408}
+  m_SizeDelta: {x: 367.26, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224391929964681826
 RectTransform:
