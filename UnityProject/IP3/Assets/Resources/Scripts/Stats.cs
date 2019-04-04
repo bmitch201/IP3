@@ -499,12 +499,158 @@ public class Stats : MonoBehaviour {
             DontDestroyOnLoad(GameObject.Find("Mars Folder DDL"));
             DontDestroyOnLoad(GameObject.Find("Venus Folder DDL"));
 
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-            day++;
-            time = 10;
-            newDay = true;
-            SceneManager.LoadScene("End Of Day");
+            if (day == 1)
+            {
+                if (stats[5] >= 50)
+                {
+                    stats[3] += 5;
+                }
+                else
+                {
+                    stats[3] -= 5;
+                }
+
+                if (stats[6] >= 60)
+                {
+                    stats[3] += 5;
+                }
+                else
+                {
+                    stats[3] -= 5;
+                }
+
+                if (stats[2] >= 60)
+                {
+                    stats[3] += 5;
+                }
+                else
+                {
+                    stats[3] -= 5;
+                }
+
+                if (stats[0] >= 30)
+                {
+                    stats[3] += 5;
+                }
+                else
+                {
+                    stats[3] -= 5;
+                }
+            }
+            else if (day == 2)
+            {
+                if (stats[1] >= 2.5)
+                {
+                    stats[3] += 5;
+                }
+                else
+                {
+                    stats[3] -= 5;
+                }
+
+                if (stats[4] <= 20)
+                {
+                    stats[3] += 5;
+                }
+                else
+                {
+                    stats[3] -= 5;
+                }
+
+                if (stats[7] >= 55)
+                {
+                    stats[3] += 5;
+                }
+                else
+                {
+                   stats[3] -= 5;
+                }
+
+                if (hEText == "Approved" || hMText == "Approved" || hVText == "Approved")
+                {
+                    stats[3] += 5;
+                }
+                else
+                {
+                    stats[3] -= 5;
+                }
+            }
+            else if(day == 3)
+            {
+                if (stats[6] >= 65)
+                {
+                    stats[3] += 5;
+                }
+                else
+                {
+                    stats[3] -= 5;
+                }
+
+                if (stats[7] >= 65)
+                {
+                    stats[3] += 5;
+                }
+                else
+                {
+                    stats[3] -= 5;
+                }
+
+                if (stats[2] >= 65)
+                {
+                    stats[3] += 5;
+                }
+                else
+                {
+                    stats[3] -= 5;
+                }
+
+                if (stats[4] >= 15)
+                {
+                    stats[3] += 5;
+                }
+                else
+                {
+                    stats[3] -= 5;
+                }
+            }
+            else if (day == 4)
+            {
+                if (stats[5] >= 70)
+                {
+                    stats[3] += 5;
+                }
+                else
+                {
+                    stats[3] -= 5;
+                }
+
+                if (stats[1] >= 2.6)
+                {
+                    stats[3] += 5;
+                }
+                else
+                {
+                    stats[3] -= 5;
+                }
+
+                if (stats[0] >= 50)
+                {
+                    stats[3] += 5;
+                }
+                else
+                {
+                    stats[3] -= 5;
+                }
+
+                if (tEText == "Approved")
+                {
+                    stats[3] += 5;
+                }
+                else
+                {
+                    stats[3] -= 5;
+                }
+            }
 
             if (day > 1)
             {
@@ -641,6 +787,12 @@ public class Stats : MonoBehaviour {
                 }
             }
 
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            day++;
+            time = 10;
+            newDay = true;
+            SceneManager.LoadScene("End Of Day");
         }
 
         if (SceneManager.GetActiveScene().name == "Actual Game")

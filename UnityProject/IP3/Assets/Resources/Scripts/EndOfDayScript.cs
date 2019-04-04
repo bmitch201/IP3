@@ -115,83 +115,87 @@ public class EndOfDayScript : MonoBehaviour
             if (statsScript.stats[5] >= 50)
             {
                 noOfTasks++;
-                statsScript.stats[3] += 5;
-            }
-            else
-            {
-                statsScript.stats[3] -= 5;
             }
 
             if (statsScript.stats[6] >= 60)
             {
                 noOfTasks++;
-                statsScript.stats[3] += 5;
-            }
-            else
-            {
-                statsScript.stats[3] -= 5;
             }
 
             if (statsScript.stats[2] >= 60)
             {
                 noOfTasks++;
-                statsScript.stats[3] += 5;
-            }
-            else
-            {
-                statsScript.stats[3] -= 5;
             }
 
             if (statsScript.stats[0] >= 30)
             {
                 noOfTasks++;
-                statsScript.stats[3] += 5;
-            }
-            else
-            {
-                statsScript.stats[3] -= 5;
             }
         }
-
-        if (statsScript.day - 1 == 2)
+        else if (statsScript.day - 1 == 2)
         {
             if (statsScript.stats[1] >= 2.5)
             {
                 noOfTasks++;
-                statsScript.stats[3] += 5;
-            }
-            else
-            {
-                statsScript.stats[3] -= 5;
             }
 
             if (statsScript.stats[4] <= 20)
             {
                 noOfTasks++;
-                statsScript.stats[3] += 5;
-            }
-            else
-            {
-                statsScript.stats[3] -= 5;
             }
 
             if (statsScript.stats[7] >= 55)
             {
                 noOfTasks++;
-                statsScript.stats[3] += 5;
-            }
-            else
-            {
-                statsScript.stats[3] -= 5;
             }
             
             if (statsScript.hEText == "Approved" || statsScript.hMText == "Approved" || statsScript.hVText == "Approved")
             {
                 noOfTasks++;
             }
-            else
+        }
+        else if (statsScript.day - 1 == 3)
+        {
+            if (statsScript.stats[6] >= 65)
             {
-                statsScript.stats[3] -= 5;
+                noOfTasks++;
+            }
+
+            if (statsScript.stats[7] >= 65)
+            {
+                noOfTasks++;
+            }
+
+            if (statsScript.stats[2] >= 65)
+            {
+                noOfTasks++;
+            }
+
+            if (statsScript.stats[4] >= 15)
+            {
+                noOfTasks++;
+            }
+        }
+        else if (statsScript.day - 1 == 4)
+        {
+            if (statsScript.stats[5] >= 70)
+            {
+                noOfTasks++;
+            }
+
+            if (statsScript.stats[1] >= 2.6)
+            {
+                noOfTasks++;
+            }
+
+            if (statsScript.stats[0] >= 50)
+            {
+                noOfTasks++;
+            }
+
+            if (statsScript.tEText == "Approved")
+            {
+                noOfTasks++;
             }
         }
 
